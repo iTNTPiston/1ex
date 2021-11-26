@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "check-style": "eslint \"./src/**\" --quiet --ext .js,.ts,.jsx,.tsx",
-    "check-style:strict": "eslint \"./src/**\" --max-warnings 0 --ext"
+    "check-style:strict": "eslint \"./src/**\" --max-warnings 0 --ext .js,.ts,.jsx,.tsx"
   },
   "eslintConfig": {
     "extends": [
