@@ -1,10 +1,9 @@
-import { Section, txt, step} from "./create";
-import {plateau} from "./plateau";
+import { rupee_print} from "./rupee";
+import {Plateau} from "./Plateau";
 
 //The Main Route Object
 export const mainConfig = [
-	...plateau,
+	...Plateau,
+	...rupee_print,
 
-	Section("RUPEE PRINTING"),
-	step(txt("test")),
 ];

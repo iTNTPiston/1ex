@@ -120,6 +120,14 @@ tr:nth-child(even) {background-color: lightgrey}
     color: #00ee00;
 }
 
+.color-direction-compass {
+    color: yellow
+}
+
+.color-direction-clock {
+    color: yellow
+}
+
 @media(max-width:400px){
     .detail{
         display:none

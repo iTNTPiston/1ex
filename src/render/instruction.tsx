@@ -12,7 +12,7 @@ type InstructionProps = InstructionData & {
 }
 
 export const Instruction: React.FunctionComponent<InstructionProps> = ({
-	icon, text, comment,indicatorClass,isSectionTitle,lineNumber,unindentStep,stepNumber,counterClassName,counterNumber,detail,detailRowSpan,indentIcon,image,imageRowSpan
+	icon, text, comment,indicatorClass,isSectionTitle,lineNumber,unindentStep,stepNumber,counterClassName,counterNumber,detail,detailRowSpan,indentIcon,image,imageRowSpan,directionMode
 })=>{
 	if(isSectionTitle){
 		return <Section title={text}/>;
@@ -25,17 +25,17 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 				<td className={clsx("counter font-number",counterClassName)}>{counterNumber || "."}</td>
 				<td className="step-number font-number">{stepNumber}</td>
 				<td className="icon" rowSpan={2}><Icon src={icon}/></td>
-				<td className="main-text"><div className="main-text"><TextRender textBlock={text}/></div></td>
+				<td className="main-text"><div className="main-text"><TextRender textBlock={text} directionMode={directionMode}/></div></td>
 				<td className={clsx("indicator",indicatorClass)}></td>
 				{detailRowSpan && <td className={clsx("detail",detail&&"detail-box")} rowSpan={detailRowSpan}>{detail}</td>}
-				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img src={image}/>}</td>}
+				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img src={image} width="100%" height="100%" alt="Route Image"/>}</td>}
 			</tr>
 			<tr>
 				<td className="line-number font-number">{lineNumber && lineNumber+1}</td>
 				<td className="counter font-number">.</td>
 				<td className="step-number font-number"></td>
     
-				<td className="main-text comment-text">{comment && <TextRender textBlock={comment}/>}</td>
+				<td className="main-text comment-text">{comment && <TextRender textBlock={comment} directionMode={directionMode}/>}</td>
 				<td className={clsx("indicator",indicatorClass)}></td>
 				{!detail && <td className={clsx("detail")} ></td>}
 				{!image && <td className="image-column"></td>}
@@ -47,10 +47,10 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 			return                 <tr>
 				<td className="line-number font-number">{lineNumber}</td>
 				<td className={clsx("counter font-number",counterClassName)}>{counterNumber || "."}</td>
-				<td className="main-text" colSpan={3}><TextRender textBlock={text}/></td>
+				<td className="main-text" colSpan={3}><TextRender textBlock={text} directionMode={directionMode}/></td>
 				<td className={clsx("indicator",indicatorClass)}></td>
 				{detailRowSpan && <td className={clsx("detail",detail&&"detail-box")} rowSpan={detailRowSpan}>{detail}</td>}
-				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img src={image} alt="Route Image"/>}</td>}
+				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img src={image} width="100%" height="100%" alt="Route Image"/>}</td>}
 			</tr>;
 		}else if(indentIcon){
 			return                 <tr>
@@ -58,20 +58,20 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 				<td className={clsx("counter font-number",counterClassName)}>{counterNumber || "."}</td>
 				<td className="step-number font-number">{stepNumber}</td>
 				<td className="icon" ></td>
-				<td className="main-text" ><TextRender textBlock={text}/></td>
+				<td className="main-text" ><TextRender textBlock={text} directionMode={directionMode}/></td>
 				<td className={clsx("indicator",indicatorClass)}></td>
 				{detailRowSpan && <td className={clsx("detail",detail&&"detail-box")} rowSpan={detailRowSpan}>{detail}</td>}
-				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img src={image} alt="Route Image"/>}</td>}
+				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img src={image} width="100%" height="100%" alt="Route Image"/>}</td>}
 			</tr>;
 		}else{
 			return                 <tr>
 				<td className="line-number font-number">{lineNumber}</td>
 				<td className={clsx("counter font-number",counterClassName)}>{counterNumber || "."}</td>
 				<td className="step-number font-number">{stepNumber}</td>
-				<td className="main-text" colSpan={2}><TextRender textBlock={text}/></td>
+				<td className="main-text" colSpan={2}><TextRender textBlock={text} directionMode={directionMode}/></td>
 				<td className={clsx("indicator",indicatorClass)}></td>
 				{detailRowSpan && <td className={clsx("detail",detail&&"detail-box")} rowSpan={detailRowSpan}>{detail}</td>}
-				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img src={image} alt="Route Image"/>}</td>}
+				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img src={image} width="100%" height="100%" alt="Route Image"/>}</td>}
 			</tr>;
 		}
 
@@ -90,6 +90,8 @@ export const InstructionTable: React.FunctionComponent<InstructionTableData> = (
 			{instructions.map((data, i)=>
 				<Instruction key={`line${i}`} {...data} directionMode={directionMode} />
 			)}
+			{Array.from({length:10},()=><tr><td colSpan={2}>&nbsp;</td><td className="main-text" colSpan={3}>&nbsp;</td><td colSpan={3}>&nbsp;</td></tr>)}
+			
 		</table>
 	);
 };

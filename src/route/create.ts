@@ -37,6 +37,8 @@ export const txt = (...t: (string | TextBlock)[]):TextBlock => textHelper(t);
 export const itm = (...t: (string | TextBlock)[]):TextBlock => textHelper(t, "color-item");
 export const lcn = (...t: (string | TextBlock)[]):TextBlock => textHelper(t, "color-location");
 export const npc = (...t: (string | TextBlock)[]):TextBlock => textHelper(t, "color-npc");
+export const cps = (t: string):TextBlock => textHelper([t], "color-direction-compass");
+export const clk = (t: string):TextBlock => textHelper([t], "color-direction-clock");
 export const important= (...t: (string | TextBlock)[]):TextBlock => textHelper(t, "color-important");
 
 export const unindent = (i: Instruction | TextBlock): Instruction=>{
