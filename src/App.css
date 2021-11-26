@@ -116,6 +116,10 @@ tr:nth-child(even) {background-color: lightgrey}
     color: cyan
 }
 
+.color-enemy {
+    color: cyan
+}
+
 .color-npc {
     color: #00ee00;
 }
@@ -126,6 +130,10 @@ tr:nth-child(even) {background-color: lightgrey}
 
 .color-direction-clock {
     color: yellow
+}
+
+.color-variable{
+    color:darkred
 }
 
 @media(max-width:400px){

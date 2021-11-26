@@ -1,47 +1,6 @@
-import { lcn, npc, txt } from "./create";
+import { instructionLikeToInstruction, InstructionData, InstructionLike, txt, lcn, npc, stringToText } from "./types";
 
-export type Instruction = {
-    icon?: string,
-    text: TextBlock,
-    comment?: TextBlock,
-    asStep: boolean,
-    asSplit: boolean,
-    asSection: boolean,
-    korokChange: number,
-    shrineChange: number,
-    unindentStep?: boolean,
-    indentIcon?: boolean,
-    detail?: string,
-    image?:string,
-}
-
-export type Text = {
-    colorClass?: string,
-    content: string
-}
-
-export type TextBlock = Text | Text[];
-
-export type InstructionData = {
-    lineNumber?: number,
-    counterNumber?: number,
-    counterClassName?: string,
-    stepNumber?: string,
-    unindentStep?: boolean,
-    indentIcon?: boolean,
-    isSectionTitle: boolean,
-    isSplit: boolean,
-    icon?: string,
-    text: TextBlock,
-    comment?: TextBlock,
-    detail?:string,
-    detailRowSpan?: number,
-    image?:string,
-    imageRowSpan?: number,
-    indicatorClass?: string,
-}
-
-export const computeInstruction = (config: (Instruction | TextBlock)[]):InstructionData[] => {
+export const computeInstruction = (config: InstructionLike[]):InstructionData[] => {
 	let lineNumber = 1;
 	let korokCount = 0;
 	let korokSeed = 0;
@@ -51,22 +10,35 @@ export const computeInstruction = (config: (Instruction | TextBlock)[]):Instruct
 	let noDetailYet = true;
 	let noImageYet = true;
 
-	const input = config.map(c=>{
-		if("shrineChange" in c){
-			return c;
-		}else{
-			return convert(c);
-		}
-	});
+	const variables:{[key: string]:number} = {};
+
+	const input = config.map(instructionLikeToInstruction);
 
 	const output: InstructionData[] = [];
 	input.forEach((data,i)=>{
+		if(data.variableChange){
+			for(const key in data.variableChange){
+				if(!(key in variables)){
+					variables[key] = 0;
+				}
+				variables[key]+=data.variableChange[key];
+			}
+			return;
+		}
+		if(data.variableSet){
+			for(const key in data.variableSet){
+				variables[key]=data.variableSet[key];
+			}
+			return;
+		}
+
 		if(data.asSection){
 			output.push({
 				lineNumber,
 				isSectionTitle: true,
 				isSplit: false,
-				text: data.text
+				text: data.text,
+				variables: {}
 			});
 			step = "1";
 			noDetailYet = true;
@@ -81,6 +53,7 @@ export const computeInstruction = (config: (Instruction | TextBlock)[]):Instruct
 				comment: data.comment,
 				unindentStep: data.unindentStep,
 				indentIcon: data.indentIcon,
+				variables: {...variables}
 			};
 
 			if(data.asStep){
@@ -130,11 +103,14 @@ export const computeInstruction = (config: (Instruction | TextBlock)[]):Instruct
 					if(input[j].icon){
 						extra++;
 					}
+					if(input[j].variableChange || input[j].variableSet){
+						extra--;
+					}
 				}
 				props.detailRowSpan = j - i + extra;
 				noDetailYet = false;
 			}else if(noDetailYet){
-				props.detail = "";
+				props.detail = stringToText("");
 				props.detailRowSpan = 1;
 			}
 
@@ -151,6 +127,9 @@ export const computeInstruction = (config: (Instruction | TextBlock)[]):Instruct
 					}
 					if(input[j].icon){
 						extra++;
+					}
+					if(input[j].variableChange || input[j].variableSet){
+						extra--;
 					}
 				}
 				props.imageRowSpan = j - i + extra;
@@ -169,17 +148,6 @@ export const computeInstruction = (config: (Instruction | TextBlock)[]):Instruct
 	});
 
 	return output;
-};
-
-export const convert = (textBlock: TextBlock):Instruction =>{
-	return {
-		text: textBlock,
-		asStep: false,
-		asSplit: false,
-		asSection: false,
-		korokChange: 0,
-		shrineChange: 0
-	};
 };
 
 const incStep = (step:string):string =>{

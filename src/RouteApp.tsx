@@ -1,10 +1,11 @@
 import React from "react";
 import "./App.css";
 import { InstructionTable } from "./render";
-import {computeInstruction, Instruction, TextBlock} from "./route/engine";
+import {computeInstruction} from "./route/engine";
+import { InstructionLike } from "./route/types";
 
 type Props = {
-	config: (Instruction | TextBlock)[]
+	config: InstructionLike[]
 }
 
 type State ={
@@ -13,16 +14,16 @@ type State ={
 
 class App extends React.Component<Props, State> {
 	constructor(props: Props){
-		super(props)
+		super(props);
 		this.state = {
 			directionMode: "clock",
-		}
+		};
 	}
 
 	toggleDirectionMode():void {
 		this.setState({
 			directionMode: this.state.directionMode === "clock" ? "compass" : "clock"
-		})
+		});
 	}
 
 	render(): JSX.Element{
@@ -30,7 +31,7 @@ class App extends React.Component<Props, State> {
 		const inst = computeInstruction(this.props.config);
 		return <>
 			<div className="fixed-header">
-			<button title="Toggle Direction Representation" onClick={()=>this.toggleDirectionMode()}>+</button>
+				<button title="Toggle Direction Representation" onClick={()=>this.toggleDirectionMode()}>+</button>
 				<input type="text" placeholder="WIP"></input>
 				<button >&gt;</button>
 				<button >X</button>

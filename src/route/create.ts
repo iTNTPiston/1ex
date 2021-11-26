@@ -1,95 +1,21 @@
-import { TextBlock, Text, Instruction, convert } from "./engine";
+import { Instruction, stringToText, useInstructionLike, InstructionLike, instructionLikeToInstruction, txt, TextLike, itm, npc, lcn, useMultiText } from "./types";
 
-//Create text
-const textHelper = (t: (string | TextBlock)[], color?: string): TextBlock => {
-	if(t.length === 0){
-		return {
-			colorClass: color,
-			content: ""
-		};
-	}
-	const output:Text[] = [];
-	t.forEach(block=>{
-		if(typeof block === "string"){
-			output.push({
-				colorClass: color,
-				content: block
-			});
-		}else if(Array.isArray(block)){
-			block.forEach(b=>output.push({
-				colorClass: b.colorClass ?? color,
-				content: b.content
-			}));
-		}else{
-			output.push({
-				colorClass: block.colorClass ?? color,
-				content: block.content
-			});
-		}
-	});
-	if(output.length===1){
-		return output[0];
-	}
-	return output;
+export const unindent = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, unindentStep: true})));
+export const indent = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, indentIcon: true})));
+export const step = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, asStep: true})));
+export const split = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, asSplit: true})));
+
+export const detail = (i: InstructionLike, detail:TextLike): Instruction=>{
+	return {...instructionLikeToInstruction(i), detail:txt(detail)};
 };
 
-export const txt = (...t: (string | TextBlock)[]):TextBlock => textHelper(t);
-export const itm = (...t: (string | TextBlock)[]):TextBlock => textHelper(t, "color-item");
-export const lcn = (...t: (string | TextBlock)[]):TextBlock => textHelper(t, "color-location");
-export const npc = (...t: (string | TextBlock)[]):TextBlock => textHelper(t, "color-npc");
-export const cps = (t: string):TextBlock => textHelper([t], "color-direction-compass");
-export const clk = (t: string):TextBlock => textHelper([t], "color-direction-clock");
-export const important= (...t: (string | TextBlock)[]):TextBlock => textHelper(t, "color-important");
-
-export const unindent = (i: Instruction | TextBlock): Instruction=>{
-	if("shrineChange" in i){
-		return {...i, unindentStep: true};
-	}
-	return {...convert(i), unindentStep: true};
-};
-
-export const indent = (i: Instruction | TextBlock): Instruction=>{
-	if("shrineChange" in i){
-		return {...i, indentIcon: true};
-	}
-	return {...convert(i), indentIcon: true};
-};
-
-export const step = (i: Instruction | TextBlock): Instruction=>{
-	if("shrineChange" in i){
-		return {...i, asStep: true};
-	}
-	return {...convert(i), asStep: true};
-};
-
-export const detail = (i: Instruction | TextBlock, detail:string): Instruction=>{
-	if("shrineChange" in i){
-		return {...i, detail};
-	}
-	return {...convert(i), detail};
-};
-
-export const image = (i: Instruction | TextBlock, image:string): Instruction=>{
-	if("shrineChange" in i){
-		return {...i, image};
-	}
-	return {...convert(i), image};
-};
-
-export const split = (text?: string | TextBlock): Instruction => {
-	return {
-		text: text ? txt(text) : txt(""),
-		asStep: false,
-		asSplit: true,
-		asSection: false,
-		korokChange: 0,
-		shrineChange: 0
-	};
+export const image = (i: InstructionLike, image:string): Instruction=>{
+	return {...instructionLikeToInstruction(i), image};
 };
 
 export const Section = (title: string):Instruction =>{
 	return {
-		text: txt(title),
+		text: stringToText(title),
 		asStep: false,
 		asSplit: false,
 		asSection: true,
@@ -98,23 +24,39 @@ export const Section = (title: string):Instruction =>{
 	};
 };
 
-export const Equipment = (text: string | TextBlock, comment?: string | TextBlock): Instruction => {
-	return Icon("equipment", itm(text), 0, 0, comment);
+export const Equipment = (text: TextLike, comment?: TextLike): Instruction => {
+	return Icon("equipment", itm(text), comment);
 };
 
-export const Shrine = (text: string | TextBlock, comment?: string | TextBlock): Instruction => {
-	return Icon("shrine", lcn(text), 1, 0, comment);
+export const Shrine = (text: TextLike, comment?: TextLike): Instruction => {
+	return IconGeneric("shrine", lcn(text), 1, 0, comment);
 };
 
-export const Tower = (text: string | TextBlock, comment?: string | TextBlock): Instruction => {
-	return Icon("tower", lcn(text), 0, 0, comment);
+export const Tower = (text: TextLike, comment?: TextLike): Instruction => {
+	return Icon("tower", lcn(text), comment);
 };
 
-export const Korok = (id: string, type: string, comment?: string | TextBlock): Instruction => {
-	return Icon(mapKorokToImage(type), npc(id+" ", type), 0, 1, comment);
+export const Korok = (id: string, type: string, comment?: TextLike): Instruction => {
+	return IconGeneric(mapKorokToImage(type), npc(id+" ", type), 0, 1, comment);
 };
 
-export const Icon = (icon:string, text: string | TextBlock, shrineChange: number, korokChange: number, comment?: string | TextBlock): Instruction => {
+export const Chest = (text: TextLike, comment?: TextLike): Instruction => {
+	return Icon("chest", itm(text), comment);
+};
+
+export const ChestSpecial = (text: TextLike, comment?: TextLike): Instruction => {
+	return Icon("chest-special", itm(text), comment);
+};
+
+export const Warp = (text: TextLike, comment?: TextLike): Instruction => {
+	return Icon("warp", lcn(text), comment);
+};
+
+export const Icon = (icon:string, text: TextLike, comment?: TextLike): Instruction => {
+	return IconGeneric(icon, text, 0, 0, comment);
+};
+
+export const IconGeneric = (icon:string, text: TextLike, shrineChange: number, korokChange: number, comment?: TextLike): Instruction => {
 	return {
 		icon: icon,
 		text: txt(text),
@@ -129,7 +71,21 @@ export const Icon = (icon:string, text: string | TextBlock, shrineChange: number
 
 const mapKorokToImage = (korok: string):string =>{
 	switch(korok){
+		case "Acorn": return "korok-acorn";
+		case "Acorn in Log": return "korok-acorn";
 		case "Confetti": return "korok-confetti";
+		case "Lift Rock (Door)": return "korok-magnesis";
+		case "Lift Rock Blocked": return "korok-rock-under";
+		case "Shoot Emblem": return "korok-shoot";
 		default: return "korok";
 	}
 };
+
+export const VariableChange = (variableChange:{[key: string]:number}): Instruction=>{
+	return {...instructionLikeToInstruction(), variableChange};
+};
+
+export const VariableSet = (variableSet:{[key: string]:number}): Instruction=>{
+	return {...instructionLikeToInstruction(), variableSet};
+};
+

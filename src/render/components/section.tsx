@@ -1,4 +1,4 @@
-import { TextBlock } from "../../route/engine";
+import { TextBlock } from "../../route/types";
 import { TextRender } from "../text";
 
 type Props = {
@@ -12,7 +12,7 @@ export const Section:React.FunctionComponent<Props> = ({title})=>{
 			<td className="step-number font-number"></td>
 			<td className="main-text" colSpan={5}>
 				<div className="section-header">
-					<TextRender textBlock={title} directionMode=""/>
+					<TextRender textBlock={title} directionMode="" variables={{}}/>
 				</div>
 			</td>
 		</tr>

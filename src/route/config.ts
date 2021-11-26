@@ -1,9 +1,9 @@
-import { rupee_print} from "./rupee";
 import {Plateau} from "./Plateau";
+import { RupeePrinting } from "./RupeePrinting";
 
 //The Main Route Object
 export const mainConfig = [
 	...Plateau,
-	...rupee_print,
+	...RupeePrinting,
 
 ];
