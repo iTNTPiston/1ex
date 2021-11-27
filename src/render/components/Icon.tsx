@@ -1,4 +1,4 @@
-import ImageMap from "../img";
+import ImageMap from "../../img";
 
 type Props = {
     src: string,
