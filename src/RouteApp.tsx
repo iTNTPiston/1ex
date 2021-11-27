@@ -23,7 +23,18 @@ class App extends React.Component<Props, State> {
 	toggleDirectionMode():void {
 		this.setState({
 			directionMode: this.state.directionMode === "clock" ? "compass" : "clock"
+		},()=>{
+			localStorage.setItem("DirectionMode", this.state.directionMode);
 		});
+	}
+
+	componentDidMount():void {
+		const localStoredDirectionMode = localStorage.getItem("DirectionMode");
+		if(localStoredDirectionMode){
+			this.setState({
+				directionMode:localStoredDirectionMode
+			});
+		}
 	}
 
 	render(): JSX.Element{

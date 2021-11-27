@@ -1,14 +1,10 @@
-import { Section } from "./components";
+import { Section, Icon, TextRender } from "./components";
 import { flattenText, InstructionData } from "../route/types";
-import {Icon} from "./components/Icon";
-import { TextRender } from "./components/Text";
 import React from "react";
 import clsx from "clsx";
 
 type InstructionProps = InstructionData & {
-
     directionMode: string,
-
 }
 
 export const Instruction: React.FunctionComponent<InstructionProps> = ({
@@ -18,24 +14,31 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 		return <Section title={text}/>;
 	}
 	const hasDetail = detail && flattenText(detail);
+	const lineNumberCell = <td className="line-number font-number">{lineNumber}</td>;
+	const counterCell = <td className={clsx("counter font-number", counterClassName)}>{counterNumber || "."}</td>;
+	const stepNumberCell = <td className="step-number font-number">{stepNumber}</td>;
+	const indicatorCell = <td className={clsx("indicator",indicatorClass)}></td>;
+	const detailCell = detailRowSpan && <td className={clsx("detail",hasDetail&&detailClass)} rowSpan={detailRowSpan}>{detail&&<TextRender textBlock={detail} directionMode={directionMode} variables={variables}/>}</td>;
+	const imageCell = imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img width="100%" src={image}  alt="Route Image"/>}</td>;
 	if(icon){
 		//with icon, 2 rows
 		return <>
 			<tr>
-				<td className="line-number font-number">{lineNumber}</td>
-				<td className={clsx("counter font-number",counterClassName)}>{counterNumber || "."}</td>
-				<td className="step-number font-number">{stepNumber}</td>
-				<td className="icon" rowSpan={2}><Icon src={icon}/></td>
-				<td className="main-text"><div className="main-text"><TextRender textBlock={text} directionMode={directionMode} variables={variables}/></div></td>
-				<td className={clsx("indicator",indicatorClass)}></td>
-				{detailRowSpan && <td className={clsx("detail",hasDetail&&detailClass)} rowSpan={detailRowSpan}>{detail&&<TextRender textBlock={detail} directionMode={directionMode} variables={variables}/>}</td>}
-				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img width="100%" src={image}  alt="Route Image"/>}</td>}
+				{lineNumberCell}{counterCell}{stepNumberCell}
+				<td className="icon" rowSpan={2}>
+					<Icon src={icon}/>
+				</td>
+				<td className="main-text">
+					<div className="main-text">
+						<TextRender textBlock={text} directionMode={directionMode} variables={variables}/>
+					</div>
+				</td>
+				{indicatorCell}{detailCell}{imageCell}
 			</tr>
 			<tr>
 				<td className="line-number font-number">{lineNumber && lineNumber+1}</td>
 				<td className="counter font-number">.</td>
 				<td className="step-number font-number"></td>
-    
 				<td className="main-text comment-text">{comment && <TextRender textBlock={comment} directionMode={directionMode} variables={variables}/>}</td>
 				<td className={clsx("indicator")}></td>
 				{!detail && <td className={clsx("detail")} ></td>}
@@ -46,36 +49,41 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 	}else{
 		if(unindentStep){
 			return                 <tr>
-				<td className="line-number font-number">{lineNumber}</td>
-				<td className={clsx("counter font-number",counterClassName)}>{counterNumber || "."}</td>
-				<td className="main-text" colSpan={3}><TextRender textBlock={text} directionMode={directionMode} variables={variables}/></td>
-				<td className={clsx("indicator",indicatorClass)}></td>
-				{detailRowSpan && <td className={clsx("detail",hasDetail&&detailClass)} rowSpan={detailRowSpan}>{detail&&<TextRender textBlock={detail} directionMode={directionMode} variables={variables}/>}</td>}
-				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img width="100%" src={image}  alt="Route Image"/>}</td>}
+				{lineNumberCell}
+				{counterCell}
+				<td className="main-text" colSpan={3}>
+					<TextRender textBlock={text} directionMode={directionMode} variables={variables}/>
+				</td>
+				{indicatorCell}
+				{detailCell}
+				{imageCell}
 			</tr>;
 		}else if(indentIcon){
 			return                 <tr>
-				<td className="line-number font-number">{lineNumber}</td>
-				<td className={clsx("counter font-number",counterClassName)}>{counterNumber || "."}</td>
-				<td className="step-number font-number">{stepNumber}</td>
+				{lineNumberCell}
+				{counterCell}
+				{stepNumberCell}
 				<td className="icon" ></td>
-				<td className="main-text" ><TextRender textBlock={text} directionMode={directionMode} variables={variables}/></td>
-				<td className={clsx("indicator",indicatorClass)}></td>
-				{detailRowSpan && <td className={clsx("detail",hasDetail&&detailClass)} rowSpan={detailRowSpan}>{detail&&<TextRender textBlock={detail} directionMode={directionMode} variables={variables}/>}</td>}
-				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img width="100%" src={image} alt="Route Image"/>}</td>}
+				<td className="main-text" >
+					<TextRender textBlock={text} directionMode={directionMode} variables={variables}/>
+				</td>
+				{indicatorCell}
+				{detailCell}
+				{imageCell}
 			</tr>;
 		}else{
 			return                 <tr>
-				<td className="line-number font-number">{lineNumber}</td>
-				<td className={clsx("counter font-number",counterClassName)}>{counterNumber || "."}</td>
-				<td className="step-number font-number">{stepNumber}</td>
-				<td className="main-text" colSpan={2}><TextRender textBlock={text} directionMode={directionMode} variables={variables}/></td>
-				<td className={clsx("indicator",indicatorClass)}></td>
-				{detailRowSpan && <td className={clsx("detail",hasDetail&&detailClass)} rowSpan={detailRowSpan}>{detail&&<TextRender textBlock={detail} directionMode={directionMode} variables={variables}/>}</td>}
-				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img width="100%" src={image} alt="Route Image"/>}</td>}
+				{lineNumberCell}
+				{counterCell}
+				{stepNumberCell}
+				<td className="main-text" colSpan={2}>
+					<TextRender textBlock={text} directionMode={directionMode} variables={variables}/>
+				</td>
+				{indicatorCell}
+				{detailCell}
+				{imageCell}
 			</tr>;
 		}
-
 	}
 };
 
