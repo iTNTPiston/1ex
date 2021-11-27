@@ -52,6 +52,14 @@ export const Warp = (text: TextLike, comment?: TextLike): Instruction => {
 	return Icon("warp", lcn(text), comment);
 };
 
+export const Shop = (text: TextLike, comment?: TextLike): Instruction => {
+	return Icon("shop", itm(text), comment);
+};
+
+export const Cook = (text: TextLike, comment?: TextLike): Instruction => {
+	return Icon("cook", itm(text), comment);
+};
+
 export const Icon = (icon:string, text: TextLike, comment?: TextLike): Instruction => {
 	return IconGeneric(icon, text, 0, 0, comment);
 };
@@ -77,6 +85,7 @@ const mapKorokToImage = (korok: string):string =>{
 		case "Lift Rock (Door)": return "korok-magnesis";
 		case "Lift Rock Blocked": return "korok-rock-under";
 		case "Shoot Emblem": return "korok-shoot";
+		case "Lily Pads": return "korok-lily";
 		default: return "korok";
 	}
 };

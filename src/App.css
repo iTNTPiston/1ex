@@ -79,8 +79,14 @@ tr:nth-child(even) {background-color: lightgrey}
 }
 
 .detail-box{
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
     vertical-align: top;
+}
+
+.detail-box-bottom-border{
+    border-bottom: 1px solid black;
 }
 
 .image-box {
@@ -134,6 +140,14 @@ tr:nth-child(even) {background-color: lightgrey}
 
 .color-variable{
     color:darkred
+}
+
+.color-sm{
+    font-size: 12pt;
+}
+
+.color-bg{
+    font-size: 16pt;
 }
 
 @media(max-width:400px){

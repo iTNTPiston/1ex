@@ -40,6 +40,7 @@ export type InstructionData = {
     text: TextBlock,
     comment?: TextBlock,
     detail?:TextBlock,
+	detailClass?:string,
     detailRowSpan?: number,
     image?:string,
     imageRowSpan?: number,
@@ -140,6 +141,17 @@ const textHelper = (t: TextLike[], color?: string): TextBlock => {
 	return output;
 };
 
+//Flatten text
+export const flattenText = (t: TextLike): string =>{
+	if(typeof t === "string"){
+		return t;
+	}
+	if(Array.isArray(t)){
+		return t.map(text=>text.content).join("");
+	}
+	return t.content;
+};
+
 export const txt = (...t: TextLike[]):TextBlock => textHelper(t);
 export const itm = (...t: TextLike[]):TextBlock => textHelper(t, "color-item");
 export const lcn = (...t: TextLike[]):TextBlock => textHelper(t, "color-location");
@@ -148,5 +160,7 @@ export const emy = (...t: TextLike[]):TextBlock => textHelper(t, "color-enemy");
 export const cps = (t: string):TextBlock => textHelper([t], "color-direction-compass");
 export const clk = (t: string):TextBlock => textHelper([t], "color-direction-clock");
 export const lnk = (t: string):TextBlock => textHelper([t], "color-link");
+export const sm = (...t: TextLike[]):TextBlock => textHelper(t, "color-sm");
+export const bg = (...t: TextLike[]):TextBlock => textHelper(t, "color-bg");
 export const v = (t: string):TextBlock => textHelper([t], "color-variable");
 export const important= (...t: TextLike[]):TextBlock => textHelper(t, "color-important");

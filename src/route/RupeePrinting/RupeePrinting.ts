@@ -80,5 +80,5 @@ export const RupeePrinting = [
 	detail(
 		"Use controller swap method",
 		"After autosave, press button on another paired controller. Press A on the controller to use, then wait for parts to stop and immediately warp"),
-	Warp("Keh Namut", "aka Cryonis")
+	Warp("Keh Namut", "aka Cryonis"),
 ];

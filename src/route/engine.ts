@@ -53,7 +53,12 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 				comment: data.comment,
 				unindentStep: data.unindentStep,
 				indentIcon: data.indentIcon,
-				variables: {...variables}
+				variables: {
+					...variables,
+					krk: korokCount,
+					seed: korokSeed,
+					srn: shrineCount,
+				}
 			};
 
 			if(data.asStep){
@@ -98,6 +103,7 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 				let j = i+1;
 				for(;j<input.length;j++){
 					if(input[j].asSection || input[j].asSplit || input[j].detail){
+						
 						break;
 					}
 					if(input[j].icon){
@@ -106,6 +112,11 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 					if(input[j].variableChange || input[j].variableSet){
 						extra--;
 					}
+				}
+				if(j >= input.length || !(input[j].detail || input[j].asSection)){
+					props.detailClass = "detail-box detail-box-bottom-border";
+				}else{
+					props.detailClass = "detail-box";
 				}
 				props.detailRowSpan = j - i + extra;
 				noDetailYet = false;
