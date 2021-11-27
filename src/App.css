@@ -15,7 +15,7 @@ p{
     border-right: 1px solid grey;
 }
 
-tr:nth-child(even) {background-color: lightgrey}
+tr:nth-child(even) {background-color: #eeeeee}
 
 .counter{
     width:2em;
@@ -149,6 +149,7 @@ tr:nth-child(even) {background-color: lightgrey}
 .color-bg{
     font-size: 16pt;
 }
+
 
 @media(max-width:400px){
     .detail{

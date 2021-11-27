@@ -1,9 +1,11 @@
-import { Chest, Cook, detail, Equipment, Icon, indent, Korok, Section, Shop, Shrine, split, step, VariableChange, Warp } from "../create";
+import { Chest, Cook, detail, Equipment, Icon, image, indent, Korok, Section, Shop, Shrine, split, step, VariableChange, Warp } from "../create";
 import { cps, emy, important, itm, lcn, npc, sm, txt, v } from "../types";
+import Rito1Image from "./Rito1-1.png";
+import Rito2Image from "./Rito1-2.png";
 
 export const Rito1 = [
 	Section("RITO 1"),
-	step("BLSS + WB to ", itm("durians")),
+	image(step("BLSS + WB to ", itm("durians")), Rito1Image),
 	VariableChange({ silentPrincess: 2}),
 	detail(
 		step(cps("W"), " WB, ", itm("2 Silent Princesses")),
@@ -34,7 +36,7 @@ export const Rito1 = [
 	Icon("medoh-enter", "Enter Medoh"),
 	split(),
 
-	"Chests inside Medoh",
+	"Chests inside Medoh", 
 	detail(
 		Chest("Ancient Core", "Skip if 5 cores"),
 		"1-5/3 Cores"),
@@ -56,14 +58,14 @@ export const Rito1 = [
 	Shrine("Akh Va'quot"),
 	split(),
 
-	step(cps("<W")," Turn to ",npc("Voo Lota Girl")),
+	image(step(cps("<W")," Turn to ",npc("Voo Lota Girl")), Rito2Image),
 	step(cps("E"), " TS to ",lcn("Rito Stable")),
 	itm("10 Berries"),
 	"Farm wood with RC",
 	"RC should break then use axe",
 	detail(
 		Equipment("1 Axe"),
-		"Only need 1 bc of inventory space. Should have: RGC, RC, Axe, Hammer, Torch"),
+		"Only need 1 axe bc of inventory space. Should have: RGC, RC, Axe, Hammer, Torch"),
 	Shop("Beedle","Arrow, Fireflies, 1 Darner"),
 	txt("Talk Again for ",itm("Ancient Arrow")),
 	txt("Get ",itm("Balloon")," from ",emy("Octorok")),

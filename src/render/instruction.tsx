@@ -1,6 +1,6 @@
 import { Section } from "../render/components";
 import { flattenText, InstructionData } from "../route/types";
-import {Icon} from "./icon";
+import {Icon} from "./components/Icon";
 import { TextRender } from "./text";
 import React from "react";
 import clsx from "clsx";
@@ -29,7 +29,7 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 				<td className="main-text"><div className="main-text"><TextRender textBlock={text} directionMode={directionMode} variables={variables}/></div></td>
 				<td className={clsx("indicator",indicatorClass)}></td>
 				{detailRowSpan && <td className={clsx("detail",hasDetail&&detailClass)} rowSpan={detailRowSpan}>{detail&&<TextRender textBlock={detail} directionMode={directionMode} variables={variables}/>}</td>}
-				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img src={image} width="100%" height="100%" alt="Route Image"/>}</td>}
+				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img width="100%" src={image}  alt="Route Image"/>}</td>}
 			</tr>
 			<tr>
 				<td className="line-number font-number">{lineNumber && lineNumber+1}</td>
@@ -51,7 +51,7 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 				<td className="main-text" colSpan={3}><TextRender textBlock={text} directionMode={directionMode} variables={variables}/></td>
 				<td className={clsx("indicator",indicatorClass)}></td>
 				{detailRowSpan && <td className={clsx("detail",hasDetail&&detailClass)} rowSpan={detailRowSpan}>{detail&&<TextRender textBlock={detail} directionMode={directionMode} variables={variables}/>}</td>}
-				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img src={image} width="100%" height="100%" alt="Route Image"/>}</td>}
+				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img width="100%" src={image}  alt="Route Image"/>}</td>}
 			</tr>;
 		}else if(indentIcon){
 			return                 <tr>
@@ -62,7 +62,7 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 				<td className="main-text" ><TextRender textBlock={text} directionMode={directionMode} variables={variables}/></td>
 				<td className={clsx("indicator",indicatorClass)}></td>
 				{detailRowSpan && <td className={clsx("detail",hasDetail&&detailClass)} rowSpan={detailRowSpan}>{detail&&<TextRender textBlock={detail} directionMode={directionMode} variables={variables}/>}</td>}
-				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img src={image} width="100%" height="100%" alt="Route Image"/>}</td>}
+				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img width="100%" src={image} alt="Route Image"/>}</td>}
 			</tr>;
 		}else{
 			return                 <tr>
@@ -72,7 +72,7 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 				<td className="main-text" colSpan={2}><TextRender textBlock={text} directionMode={directionMode} variables={variables}/></td>
 				<td className={clsx("indicator",indicatorClass)}></td>
 				{detailRowSpan && <td className={clsx("detail",hasDetail&&detailClass)} rowSpan={detailRowSpan}>{detail&&<TextRender textBlock={detail} directionMode={directionMode} variables={variables}/>}</td>}
-				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img src={image} width="100%" height="100%" alt="Route Image"/>}</td>}
+				{imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img width="100%" src={image} alt="Route Image"/>}</td>}
 			</tr>;
 		}
 
