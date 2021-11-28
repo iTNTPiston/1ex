@@ -91,6 +91,7 @@ tr:nth-child(even) {background-color: #eeeeee}
 
 .image-box {
     vertical-align: top;
+    cursor: pointer;
 }
 
 .font-number {
@@ -130,6 +131,10 @@ tr:nth-child(even) {background-color: #eeeeee}
     color: #00ee00;
 }
 
+.color-rune {
+    color: orange;
+}
+
 .color-direction-compass {
     color: yellow
 }
@@ -142,12 +147,25 @@ tr:nth-child(even) {background-color: #eeeeee}
     color:darkred
 }
 
+.main-text .color-variable{
+    color:pink
+}
+
 .color-sm{
     font-size: 12pt;
 }
 
 .color-bg{
     font-size: 16pt;
+}
+
+.frozen-image{
+    position: fixed;
+    top: 0;
+    right: 0;
+    max-width: 30vw;
+    max-height: 95vh;
+    cursor: pointer;
 }
 
 

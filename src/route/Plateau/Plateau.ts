@@ -1,13 +1,15 @@
-import { Section, Equipment, unindent, step, Shrine, split, detail, indent, Tower, Korok, Icon, image, VariableChange } from "../create";
-import { txt, itm, important, v } from "../types";
+import { Section, Equipment, step, Shrine, split, detail, indent, Tower, Korok, Icon, image, VariableChange } from "../create";
+import { txt, itm, v } from "../types";
 import PlateauImage from "./Plateau.png";
 
 export const Plateau = [
 	Section("PLATEAU 1"),
 	image("SOR Clip, no TOD",PlateauImage),
 	itm("6 Peppers"),
-	Equipment("Potlid + Spear", "Spear for FDC"),
-	unindent(important("KEEP POTLID FOR THUNDERBOI")),
+	detail(
+		Equipment("Potlid + Spear", "Spear for FDC"),
+		"Ideally keep this potlid for Thunderblight, or you can get another one in kakariko if you break this one"),
+
 	"TOT Clip",
 	detail(Equipment("Bow + Arrow"), "Similar to granatus, you don't want to break any bows optimally. However it matters less since we have early RGC"),
 	"BLSS to bombs",

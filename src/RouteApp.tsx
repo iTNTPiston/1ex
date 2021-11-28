@@ -10,6 +10,7 @@ type Props = {
 
 type State ={
 	directionMode: string,
+	frozenImage?: string,
 }
 
 class App extends React.Component<Props, State> {
@@ -41,13 +42,20 @@ class App extends React.Component<Props, State> {
 
 		const inst = computeInstruction(this.props.config);
 		return <>
+			{this.state.frozenImage &&
+			<div className="frozen-image" onClick={()=>this.setState({frozenImage: undefined})}>
+				<img src={this.state.frozenImage} alt="Frozen Route Image" title="Click to hide" width="100%" height="100%"/>
+			</div>}
 			<div className="fixed-header">
 				<button title="Toggle Direction Representation" onClick={()=>this.toggleDirectionMode()}>+</button>
 				<input type="text" placeholder="WIP"></input>
 				<button >&gt;</button>
 				<button >X</button>
 			</div>
-			<InstructionTable instructions={inst} directionMode={this.state.directionMode}/>
+			<InstructionTable 
+				instructions={inst} 
+				directionMode={this.state.directionMode} 
+				setFrozenImage={(img)=>this.setState({frozenImage: img})}/>
 		</>;
 	}
 }

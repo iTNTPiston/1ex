@@ -86,12 +86,14 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 				if(data.korokChange > 0){
 					korokCount += data.korokChange;
 					korokSeed += data.korokChange;
+					props.text = txt(npc(`${korokSeed % 100} `),data.text);
+					props.counterNumber = korokCount;
+					props.counterClassName = "counter-color-korok";
 				}else{
-					korokSeed -= data.korokChange;//Hestu only takes seed, not total count
+					korokSeed += data.korokChange;//Hestu only takes seed, not total count
+					props.text = txt(npc(`${korokSeed % 100} `),data.text);
 				}
-				props.text = txt(npc(`${korokSeed % 100} `),data.text);
-				props.counterNumber = korokCount;
-				props.counterClassName = "counter-color-korok";
+				
 			}
 
 			if(data.detail){

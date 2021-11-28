@@ -156,6 +156,7 @@ export const txt = (...t: TextLike[]):TextBlock => textHelper(t);
 export const itm = (...t: TextLike[]):TextBlock => textHelper(t, "color-item");
 export const lcn = (...t: TextLike[]):TextBlock => textHelper(t, "color-location");
 export const npc = (...t: TextLike[]):TextBlock => textHelper(t, "color-npc");
+export const rne = (...t: TextLike[]):TextBlock => textHelper(t, "color-rune");
 export const emy = (...t: TextLike[]):TextBlock => textHelper(t, "color-enemy");
 export const cps = (t: string):TextBlock => textHelper([t], "color-direction-compass");
 export const clk = (t: string):TextBlock => textHelper([t], "color-direction-clock");

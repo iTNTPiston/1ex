@@ -5,10 +5,11 @@ import clsx from "clsx";
 
 type InstructionProps = InstructionData & {
     directionMode: string,
+	setFrozenImage: (image:string)=>void,
 }
 
 export const Instruction: React.FunctionComponent<InstructionProps> = ({
-	icon, text, comment,indicatorClass,isSectionTitle,lineNumber,unindentStep,stepNumber,counterClassName,counterNumber,detail,detailRowSpan,indentIcon,image,imageRowSpan,directionMode,variables,detailClass
+	icon, text, comment,indicatorClass,isSectionTitle,lineNumber,unindentStep,stepNumber,counterClassName,counterNumber,detail,detailRowSpan,indentIcon,image,imageRowSpan,directionMode,variables,detailClass,setFrozenImage
 })=>{
 	if(isSectionTitle){
 		return <Section title={text}/>;
@@ -19,7 +20,13 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 	const stepNumberCell = <td className="step-number font-number">{stepNumber}</td>;
 	const indicatorCell = <td className={clsx("indicator",indicatorClass)}></td>;
 	const detailCell = detailRowSpan && <td className={clsx("detail",hasDetail&&detailClass)} rowSpan={detailRowSpan}>{detail&&<TextRender textBlock={detail} directionMode={directionMode} variables={variables}/>}</td>;
-	const imageCell = imageRowSpan && <td className={clsx("image-column",image&&"image-box")} rowSpan={imageRowSpan}>{image && <img width="100%" src={image}  alt="Route Image"/>}</td>;
+	const imageCell = imageRowSpan && <td className={clsx("image-column",image&&"image-box") } rowSpan={imageRowSpan} onClick={()=>{
+		if(image){
+			setFrozenImage(image);
+		}
+	}}>
+		{image && <img width="100%" src={image}  alt="Route Image" title="Click to pin"/>}
+	</td>;
 	if(icon){
 		//with icon, 2 rows
 		return <>
@@ -90,13 +97,14 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 type InstructionTableData = {
     instructions: InstructionData[],
     directionMode: string,
+	setFrozenImage: (image:string)=>void,
 }
 
-export const InstructionTable: React.FunctionComponent<InstructionTableData> = ({instructions, directionMode,})=>{ 
+export const InstructionTable: React.FunctionComponent<InstructionTableData> = ({instructions, directionMode,setFrozenImage})=>{ 
 	return (
 		<table>
 			{instructions.map((data, i)=>
-				<Instruction key={`line${i}`} {...data} directionMode={directionMode} />
+				<Instruction key={`line${i}`} {...data} directionMode={directionMode} setFrozenImage={setFrozenImage} />
 			)}
 			{Array.from({length:10},()=><tr><td colSpan={2}>&nbsp;</td><td className="main-text" colSpan={3}>&nbsp;</td><td colSpan={3}>&nbsp;</td></tr>)}
 			

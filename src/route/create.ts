@@ -60,6 +60,27 @@ export const Cook = (text: TextLike, comment?: TextLike): Instruction => {
 	return Icon("cook", itm(text), comment);
 };
 
+export const Snap = (text: TextLike, comment?: TextLike): Instruction => {
+	return Icon("snap", text, comment);
+};
+
+export const MakeTOD = (type: string, text: TextLike, comment?: TextLike): Instruction => {
+	switch(type){
+		case "5am":
+			return Icon("make-morning", text, comment);
+		case "12pm":
+			return Icon("make-noon", text, comment);
+		case "9pm":
+			return Icon("make-night", text, comment);
+		default:
+			return instructionLikeToInstruction(text);
+	}
+};
+
+export const Discover = (location: TextLike): Instruction => {
+	return Icon("location", lcn(location), "DISCOVER");
+};
+
 export const Icon = (icon:string, text: TextLike, comment?: TextLike): Instruction => {
 	return IconGeneric(icon, text, 0, 0, comment);
 };
@@ -81,11 +102,22 @@ const mapKorokToImage = (korok: string):string =>{
 	switch(korok){
 		case "Acorn": return "korok-acorn";
 		case "Acorn in Log": return "korok-acorn";
+		case "Balloon": return "korok-balloon";
+		case "Basketball": return "korok-basketball";
+		case "Block Puzzle": return "korok-magnesis";
 		case "Confetti": return "korok-confetti";
+		case "Flower Chase": return "korok-flower";
+		case "Flower Count": return "korok-flower";
+		case "Lift Rock": return "korok-rock";
 		case "Lift Rock (Door)": return "korok-magnesis";
+		case "Lift Rock (Tree)": return "korok-rock-tree";
 		case "Lift Rock Blocked": return "korok-rock-under";
-		case "Shoot Emblem": return "korok-shoot";
 		case "Lily Pads": return "korok-lily";
+		case "Match Tree": return "korok-matching";
+		case "Match Cactus": return "korok-matching";
+		case "Rock Circle": return "korok-rock-circle";
+		case "Shoot Emblem": return "korok-shoot";
+		case "Well": return "korok-magnesis";
 		default: return "korok";
 	}
 };

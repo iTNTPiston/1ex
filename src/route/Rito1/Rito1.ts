@@ -1,11 +1,10 @@
 import { Chest, Cook, detail, Equipment, Icon, image, indent, Korok, Section, Shop, Shrine, split, step, VariableChange, Warp } from "../create";
 import { cps, emy, important, itm, lcn, npc, sm, txt, v } from "../types";
-import Rito1Image from "./Rito1-1.png";
 import Rito2Image from "./Rito1-2.png";
 
 export const Rito1 = [
 	Section("RITO 1"),
-	image(step("BLSS + WB to ", itm("durians")), Rito1Image),
+	image(step("BLSS + WB to ", itm("durians")), Rito2Image),
 	VariableChange({ silentPrincess: 2}),
 	detail(
 		step(cps("W"), " WB, ", itm("2 Silent Princesses")),
@@ -58,14 +57,12 @@ export const Rito1 = [
 	Shrine("Akh Va'quot"),
 	split(),
 
-	image(step(cps("<W")," Turn to ",npc("Voo Lota Girl")), Rito2Image),
+	step(cps("<W")," Turn to ",npc("Voo Lota Girl")),
 	step(cps("E"), " TS to ",lcn("Rito Stable")),
 	itm("10 Berries"),
-	"Farm wood with RC",
-	"RC should break then use axe",
 	detail(
-		Equipment("1 Axe"),
-		"Only need 1 axe bc of inventory space. Should have: RGC, RC, Axe, Hammer, Torch"),
+		"Farm wood with RC",
+		"First RC should break, then use second RC. No need to pick up axe. Should have: RGC, RC, Hammer, Torch"),
 	Shop("Beedle","Arrow, Fireflies, 1 Darner"),
 	txt("Talk Again for ",itm("Ancient Arrow")),
 	txt("Get ",itm("Balloon")," from ",emy("Octorok")),

@@ -27,7 +27,7 @@ const Render:React.FunctionComponent<RenderProps> = ({colorClass, content, direc
 		return <span className={"color-direction-compass"}>{clockToCompass[content] || "???"}</span>;
 	}
 	if(colorClass ==="color-link"){
-		return <a href={content}>{content}</a>;
+		return <a href={content} target="_blank">{content}</a>;
 	}
 	if(colorClass ==="color-variable"){
 		return <span className="color-variable">{variables[content]}</span>;
@@ -58,10 +58,23 @@ const compassToClock: {[compass: string]:string} = {
 	"<S":"[5:30]",
 	".S":"[5:55]",
 	"S":"[6:00]",
-
+	"S.":"[6:05]",
+	"S>":"[6:30]",
+	"S>>":"[7:00]",
+	"S>>>":"[7:15]",
+	"SW":"[7:30]",
+	"<<<W":"[7:45]",
+	"<<W":"[8:00]",
 	"<W":"[8:30]",
 	".W":"[8:55]",
 	"W":"[9:00]",
+	"W.":"[9:05]",
+	"W>":"[9:30]",
+	"W>>":"[10:00]",
+	"W>>>":"[10:15]",
+	"NW":"[10:30]",
+	"<<<N":"[10:45]",
+	"<<N":"[11:00]",
 	"<N":"[11:30]",
 	".N":"[11:55]"
 };
