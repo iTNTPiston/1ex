@@ -1,4 +1,4 @@
-import { Chest, detail, image, indent, Section, Shop, Shrine, split, step, VariableChange } from "../create";
+import { Chest, detail, image, indent, MakeTOD, Section, Shop, Shrine, split, step, VariableChange } from "../create";
 import { cps, itm, lcn, npc, sm, txt, v } from "../types";
 import Kakariko1Image from "./Kakariko1.png";
 
@@ -22,9 +22,9 @@ export const Kakariko1 = [
 
 	step(cps("S"),"+",cps("E>>>"),"+",cps("S")," midair to Impa"),
 
-	//TODO maybe need to make morning? but just activated TOD so should be around 8am here
+	step(MakeTOD("5am", "Make Morning", "for beetle")),
 	detail(
-		step(Shop("Material Shop","All Carrots")),
+		Shop("Material Shop","All Carrots"),
 		"Get a boko gut if you missed moblin gut in castle"),
 	VariableChange({beetle: 1}),
 	detail(

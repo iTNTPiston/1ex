@@ -96,11 +96,12 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 
 type InstructionTableData = {
     instructions: InstructionData[],
-    directionMode: string,
+	directionMode: string,
 	setFrozenImage: (image:string)=>void,
 }
 
-export const InstructionTable: React.FunctionComponent<InstructionTableData> = ({instructions, directionMode,setFrozenImage})=>{ 
+export const InstructionTable: React.FunctionComponent<InstructionTableData> = ({instructions, directionMode, setFrozenImage})=>{ 
+
 	return (
 		<table>
 			{instructions.map((data, i)=>

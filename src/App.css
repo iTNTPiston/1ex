@@ -101,10 +101,10 @@ tr:nth-child(even) {background-color: #eeeeee}
     font-weight: bold;
   }
 
-.fixed-header {
+.fixed-control {
     position: fixed;
     top:0;
-    right:0;
+    left:0;
 }
 
 .color-yellow {
@@ -132,6 +132,14 @@ tr:nth-child(even) {background-color: #eeeeee}
 }
 
 .color-rune {
+    color: orange;
+}
+
+.color-gale {
+    color: #00ee00;
+}
+
+.color-fury {
     color: orange;
 }
 
@@ -168,6 +176,9 @@ tr:nth-child(even) {background-color: #eeeeee}
     cursor: pointer;
 }
 
+button {
+    padding: 0;
+}
 
 @media(max-width:400px){
     .detail{

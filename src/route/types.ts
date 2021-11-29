@@ -165,3 +165,5 @@ export const sm = (...t: TextLike[]):TextBlock => textHelper(t, "color-sm");
 export const bg = (...t: TextLike[]):TextBlock => textHelper(t, "color-bg");
 export const v = (t: string):TextBlock => textHelper([t], "color-variable");
 export const important= (...t: TextLike[]):TextBlock => textHelper(t, "color-important");
+export const gale = (...t: TextLike[]):TextBlock => textHelper(["GALE ", ...t], "color-gale");
+export const fury = (...t: TextLike[]):TextBlock => textHelper(["FURY ", ...t], "color-fury");

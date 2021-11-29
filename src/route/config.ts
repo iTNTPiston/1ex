@@ -1,4 +1,5 @@
 import { Faron1 } from "./Faron1";
+import { Gerudo1 } from "./Gerudo1";
 import { Hateno1 } from "./Hateno1";
 import { Hestu } from "./Hestu";
 import { Kakariko1 } from "./Kakariko1";
@@ -7,7 +8,7 @@ import { Rito1 } from "./Rito1";
 import { RupeePrinting } from "./RupeePrinting";
 
 //The Main Route Object
-export const mainConfig = [
+export const MainRoute = [
 	...Plateau,
 	...RupeePrinting,
 	...Rito1,
@@ -15,4 +16,5 @@ export const mainConfig = [
 	...Hateno1,
 	...Faron1,
 	...Hestu,
+	...Gerudo1,
 ];

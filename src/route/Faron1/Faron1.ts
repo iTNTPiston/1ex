@@ -6,7 +6,7 @@ import Faron1Image from "./Faron1.png";
 export const Faron1  = [
 	Section("FARON 1"),
 	image(
-		step(cps("SW")," + ", cps("SW midairs")),
+		step(cps("SW")," + ", cps("SW"), " midairs"),
 		Faron1Image),
 	Korok("F06", "Lift Rock", "Peak"),
 	step(cps("SW"), " SQ WB to rocks"),
