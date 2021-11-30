@@ -9,7 +9,7 @@ type InstructionProps = InstructionData & {
 }
 
 export const Instruction: React.FunctionComponent<InstructionProps> = ({
-	icon, text, comment,indicatorClass,isSectionTitle,lineNumber,unindentStep,stepNumber,counterClassName,counterNumber,detail,detailRowSpan,indentIcon,image,imageRowSpan,directionMode,variables,detailClass,setFrozenImage
+	icon, text, comment,indicatorClass,isSectionTitle,lineNumber,unindentStep,stepNumber,counterClassName,counterNumber,detail,detailRowSpan,indentIcon,image,imageRowSpan,directionMode,variables,detailClass,setFrozenImage,displayEmptyDetailSecondRow,displayEmptyImageSecondRow
 })=>{
 	if(isSectionTitle){
 		return <Section title={text}/>;
@@ -19,13 +19,20 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 	const counterCell = <td className={clsx("counter font-number", counterClassName)}>{counterNumber || "."}</td>;
 	const stepNumberCell = <td className="step-number font-number">{stepNumber}</td>;
 	const indicatorCell = <td className={clsx("indicator",indicatorClass)}></td>;
-	const detailCell = detailRowSpan && <td className={clsx("detail",hasDetail&&detailClass)} rowSpan={detailRowSpan}>{detail&&<TextRender textBlock={detail} directionMode={directionMode} variables={variables}/>}</td>;
-	const imageCell = imageRowSpan && <td className={clsx("image-column",image&&"image-box") } rowSpan={imageRowSpan} onClick={()=>{
-		if(image){
-			setFrozenImage(image);
-		}
-	}}>
-		{image && <img width="100%" src={image}  alt="Route Image" title="Click to pin"/>}
+	const detailCell = detailRowSpan && <td className={clsx("detail",hasDetail&&detailClass)} rowSpan={detailRowSpan}>
+		{detail && <TextRender textBlock={detail} variables={variables} directionMode={directionMode}/>}
+	</td>;
+	const imageCell = imageRowSpan && <td className={clsx("image-column",image&&"image-box") }
+		style={{
+			backgroundImage: `url(${image})`,
+			backgroundSize: "100% auto",
+			backgroundRepeat: "no-repeat"
+		}}
+		rowSpan={imageRowSpan} onClick={()=>{
+			if(image){
+				setFrozenImage(image);
+			}
+		}}>
 	</td>;
 	if(icon){
 		//with icon, 2 rows
@@ -48,8 +55,8 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 				<td className="step-number font-number"></td>
 				<td className="main-text comment-text">{comment && <TextRender textBlock={comment} directionMode={directionMode} variables={variables}/>}</td>
 				<td className={clsx("indicator")}></td>
-				{!detail && <td className={clsx("detail")} ></td>}
-				{!image && <td className="image-column"></td>}
+				{displayEmptyDetailSecondRow && <td className="detail" ></td>}
+				{displayEmptyImageSecondRow && <td className="image-column"></td>}
 			</tr>
 		</>;
 

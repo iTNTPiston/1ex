@@ -5,6 +5,11 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 	let korokCount = 0;
 	let korokSeed = 0;
 	let shrineCount = 0;
+	let memoryCount = 0;
+	const MEMORY_ROMAN= ["","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV"];
+
+	let talusCount = 0;
+	let hinoxCount = 0;
 
 	let step = "1";
 	let noDetailYet = true;
@@ -80,20 +85,36 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 				}else{
 					props.text = txt(lcn(`${shrineCount}.${korokCount % 100} `),data.text);
 				}
-				props.counterNumber = shrineCount;
+				props.counterNumber = String(shrineCount);
 				props.counterClassName = "counter-color-shrine";
 			}else if(data.korokChange !== 0){
 				if(data.korokChange > 0){
 					korokCount += data.korokChange;
 					korokSeed += data.korokChange;
 					props.text = txt(npc(`${korokSeed % 100} `),data.text);
-					props.counterNumber = korokCount;
+					props.counterNumber = String(korokCount);
 					props.counterClassName = "counter-color-korok";
 				}else{
 					korokSeed += data.korokChange;//Hestu only takes seed, not total count
 					props.text = txt(npc(`${korokSeed % 100} `),data.text);
 				}
-				
+			}else if(data.asMemory){
+				memoryCount++;
+				props.counterNumber = MEMORY_ROMAN[memoryCount];
+				props.counterClassName = "counter-color-memory";
+			}else if(data.bossType){
+				switch(data.bossType){
+					case "Talus":
+						talusCount++;
+						props.counterNumber  = String(talusCount);
+						props.counterClassName = "counter-color-boss";
+						break;
+					case "Hinox":
+						hinoxCount++;
+						props.counterNumber  = String(hinoxCount);
+						props.counterClassName = "counter-color-boss";
+						break;
+				}
 			}
 
 			if(data.detail){
@@ -125,6 +146,9 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 			}else if(noDetailYet){
 				props.detail = stringToText("");
 				props.detailRowSpan = 1;
+				if(data.icon){
+					props.displayEmptyDetailSecondRow = true;
+				}
 			}
 
 			if(data.image){
@@ -149,6 +173,9 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 				noImageYet = false;
 			}else if(noImageYet){
 				props.imageRowSpan = 1;
+				if(data.icon){
+					props.displayEmptyImageSecondRow = true;
+				}
 			}
             
 			output.push(props);

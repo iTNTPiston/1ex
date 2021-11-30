@@ -30,6 +30,13 @@ tr:nth-child(even) {background-color: #eeeeee}
     background-color: #00ee00;
 }
 
+.counter-color-memory{
+    background-color: orange;
+}
+
+.counter-color-boss{
+    background-color: lightcoral;
+}
 
 .step-number{
     width:1em;
@@ -76,6 +83,22 @@ tr:nth-child(even) {background-color: #eeeeee}
 
 .indicator-color-none{
     background-color: transparent;
+}
+
+.detail {
+    width:30em;
+    max-width:30em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.image-column {
+    height: 100%
+} 
+
+.route-image {
+    height: auto;
+    width: 100%;
 }
 
 .detail-box{
@@ -135,6 +158,10 @@ tr:nth-child(even) {background-color: #eeeeee}
     color: orange;
 }
 
+.color-boss {
+    color: orange;
+}
+
 .color-gale {
     color: #00ee00;
 }
@@ -171,7 +198,7 @@ tr:nth-child(even) {background-color: #eeeeee}
     position: fixed;
     top: 0;
     right: 0;
-    max-width: 30vw;
+    max-width: 50vw;
     max-height: 95vh;
     cursor: pointer;
 }
@@ -182,10 +209,7 @@ button {
 
 @media(max-width:400px){
     .detail{
-        display:none
-    }
-    .indicator {
-        width:unset;
+        display:none;
     }
 }
 
@@ -196,8 +220,12 @@ button {
     .line-number{
         display:none
     }
-    .detail{
-        width:unset;
+    .detail {
+        width: unset;
+        max-width: 5em;
+    }
+    .detail-box{
+        border-right: none;
     }
 }
 

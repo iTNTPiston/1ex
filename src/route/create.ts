@@ -1,4 +1,4 @@
-import { Instruction, stringToText, useInstructionLike, InstructionLike, instructionLikeToInstruction, txt, TextLike, itm, npc, lcn, useMultiText } from "./types";
+import { Instruction, stringToText, useInstructionLike, InstructionLike, instructionLikeToInstruction, txt, TextLike, itm, npc, lcn, useMultiText, bss, sm } from "./types";
 
 export const unindent = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, unindentStep: true})));
 export const indent = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, indentIcon: true})));
@@ -19,6 +19,7 @@ export const Section = (title: string):Instruction =>{
 		asStep: false,
 		asSplit: false,
 		asSection: true,
+		asMemory: false,
 		korokChange: 0,
 		shrineChange: 0
 	};
@@ -81,6 +82,86 @@ export const Discover = (location: TextLike): Instruction => {
 	return Icon("location", lcn(location), "DISCOVER");
 };
 
+export const Boss = (type:string, comment?: TextLike):Instruction => {
+	return {
+		...Icon(bossTypeToIcon(type), bss(type), comment),
+		bossType: bossTypeToCounter(type)
+	};
+};
+
+const bossTypeToIcon = (type:string):string => {
+	switch(type){
+		case "Red Hinox": return "hinox-red";
+		case "Blue Hinox": return "hinox-blue";
+		case "Black Hinox": return "hinox-black";
+		case "Stalnox": return "hinox-stal";
+		case "Molduga": return "molduga";
+		case "Talus": return "talus";
+		case "Rare Talus": return "talus-rare";
+		case "Luminous Talus": return "talus-luminous";
+		case "Igneo Talus": return "talus-igneo";
+		case "Rare Igneo Talus": return "talus-igneo-rare";
+		case "Luminous Igneo Talus": return "talus-igneo-luminous";
+		case "Frost Talus": return "talus-frost";
+		case "Rare Frost Talus": return "talus-frost-rare";
+		case "Luminous Frost Talus": return "talus-frost-luminous";
+		case "Molduking":
+		case "Igneo Talus Titan":
+			return "bossdlc";
+		default: return "";
+	}
+};
+
+const bossTypeToCounter = (type:string):string => {
+	switch(type){
+		case "Red Hinox": 
+		case "Blue Hinox": 
+		case "Black Hinox": 
+		case "Stalnox": 
+			return "Hinox";
+		case "Talus": 
+		case "Rare Talus": 
+		case "Luminous Talus": 
+		case "Igneo Talus": 
+		case "Rare Igneo Talus": 
+		case "Luminous Igneo Talus": 
+		case "Frost Talus": 
+		case "Rare Frost Talus": 
+		case "Luminous Frost Talus": 
+			return "Talus";
+		default: return "";
+	}
+};
+
+export const Memory = (location: string):Instruction => {
+	const comment =  lcn(location);
+	const name = memoryLocationToName(location);
+	const icon = location === "Ash Swamp" ? "memory-final" : "memory";
+	return {
+		...Icon(icon, sm(name), comment),
+		asMemory: true,
+	};
+};
+
+const memoryLocationToName = (location: string): string => {
+	switch(location) {
+		case "Lanayru Road": return "Return of Calamity Ganon";
+		case "Sacred Grounds": return "Subdued Ceremony";
+		case "Lake Kolomo": return "Resolve and Grief";
+		case "Ancient Columns": return "Zelda's Resentment";
+		case "Kara Kara Bazzar": return "Blades of the Yiga";
+		case "Eldin Canyon": return "A Premonition";
+		case "Irch Plain": return "Silent Princess";
+		case "West Necluda": return "Shelter from the Storm";
+		case "Hyrule Castle": return "Father and Daughter";
+		case "Spring of Power": return "Slumbering Power";
+		case "Sanidin Park": return "To Mount Lanayru";
+		case "Hyrule Field": return "Despair";
+		case "Ash Swamp": return "Zelda's Awakening";
+		default: return "Unknown Memory";
+	}
+};
+
 export const Icon = (icon:string, text: TextLike, comment?: TextLike): Instruction => {
 	return IconGeneric(icon, text, 0, 0, comment);
 };
@@ -93,6 +174,7 @@ export const IconGeneric = (icon:string, text: TextLike, shrineChange: number, k
 		asStep: false,
 		asSplit: false,
 		asSection: false,
+		asMemory: false,
 		korokChange: korokChange,
 		shrineChange: shrineChange,
 	};
@@ -105,16 +187,20 @@ const mapKorokToImage = (korok: string):string =>{
 		case "Balloon": return "korok-balloon";
 		case "Basketball": return "korok-basketball";
 		case "Block Puzzle": return "korok-magnesis";
+		case "Boulder Golf": return "korok-golf-boulder";
 		case "Confetti": return "korok-confetti";
 		case "Flower Chase": return "korok-flower";
 		case "Flower Count": return "korok-flower";
+		case "Ice Block": return "korok-ice";
 		case "Lift Rock": return "korok-rock";
 		case "Lift Rock (Door)": return "korok-magnesis";
 		case "Lift Rock (Tree)": return "korok-rock-tree";
 		case "Lift Rock Blocked": return "korok-rock-under";
+		case "Light Chase": return "korok-light-chase";
 		case "Lily Pads": return "korok-lily";
 		case "Match Tree": return "korok-matching";
 		case "Match Cactus": return "korok-matching";
+		case "Race": return "korok-race";
 		case "Rock Circle": return "korok-rock-circle";
 		case "Shoot Emblem": return "korok-shoot";
 		case "Well": return "korok-magnesis";

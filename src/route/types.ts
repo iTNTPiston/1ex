@@ -5,8 +5,10 @@ export type Instruction = {
     asStep: boolean,
     asSplit: boolean,
     asSection: boolean,
+	asMemory: boolean,
     korokChange: number,
     shrineChange: number,
+	bossType?: string,
     unindentStep?: boolean,
     indentIcon?: boolean,
     detail?: TextBlock,
@@ -29,7 +31,7 @@ export type InstructionLike = TextLike | Instruction | undefined;
 
 export type InstructionData = {
     lineNumber?: number,
-    counterNumber?: number,
+    counterNumber?: string,
     counterClassName?: string,
     stepNumber?: string,
     unindentStep?: boolean,
@@ -42,8 +44,10 @@ export type InstructionData = {
     detail?:TextBlock,
 	detailClass?:string,
     detailRowSpan?: number,
+	displayEmptyDetailSecondRow?: boolean,
     image?:string,
     imageRowSpan?: number,
+	displayEmptyImageSecondRow?: boolean,
     indicatorClass?: string,
     variables: {[key: string]:number}
 }
@@ -65,6 +69,7 @@ export const instructionLikeToInstruction = (input?: InstructionLike):Instructio
 			asStep: false,
 			asSplit: false,
 			asSection: false,
+			asMemory: false,
 			korokChange: 0,
 			shrineChange: 0
 		};
@@ -84,6 +89,7 @@ export const textBlockToInstruction = (textBlock: TextBlock):Instruction =>{
 		asStep: false,
 		asSplit: false,
 		asSection: false,
+		asMemory: false,
 		korokChange: 0,
 		shrineChange: 0
 	};
@@ -157,6 +163,7 @@ export const itm = (...t: TextLike[]):TextBlock => textHelper(t, "color-item");
 export const lcn = (...t: TextLike[]):TextBlock => textHelper(t, "color-location");
 export const npc = (...t: TextLike[]):TextBlock => textHelper(t, "color-npc");
 export const rne = (...t: TextLike[]):TextBlock => textHelper(t, "color-rune");
+export const bss = (...t: TextLike[]):TextBlock => textHelper(t, "color-boss");
 export const emy = (...t: TextLike[]):TextBlock => textHelper(t, "color-enemy");
 export const cps = (t: string):TextBlock => textHelper([t], "color-direction-compass");
 export const clk = (t: string):TextBlock => textHelper([t], "color-direction-clock");

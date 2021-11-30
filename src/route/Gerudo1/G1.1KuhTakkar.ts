@@ -1,10 +1,9 @@
-import { image, Korok, Section, Shrine, split, step } from "../create";
+import { image, Korok, Shrine, split, step } from "../create";
 import { cps, itm } from "../types";
 
 import Gerudo1Image1 from "./Gerudo1-1.png";
 
 export const KuhTakkar = [
-	Section("GERUDO 1"),
 	image(
 		step(cps(".S"), " TS + ", cps("S")," midair to rock"),
 		Gerudo1Image1),
