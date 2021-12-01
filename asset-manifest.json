@@ -1,15 +1,17 @@
 {
   "files": {
     "main.css": "/1ex/static/css/main.c0b5827e.chunk.css",
-    "main.js": "/1ex/static/js/main.3c8f09b6.chunk.js",
-    "main.js.map": "/1ex/static/js/main.3c8f09b6.chunk.js.map",
+    "main.js": "/1ex/static/js/main.9ce257be.chunk.js",
+    "main.js.map": "/1ex/static/js/main.9ce257be.chunk.js.map",
     "runtime-main.js": "/1ex/static/js/runtime-main.e3c4c961.js",
     "runtime-main.js.map": "/1ex/static/js/runtime-main.e3c4c961.js.map",
-    "static/js/2.d414385c.chunk.js": "/1ex/static/js/2.d414385c.chunk.js",
-    "static/js/2.d414385c.chunk.js.map": "/1ex/static/js/2.d414385c.chunk.js.map",
+    "static/js/2.ba20b3b4.chunk.js": "/1ex/static/js/2.ba20b3b4.chunk.js",
+    "static/js/2.ba20b3b4.chunk.js.map": "/1ex/static/js/2.ba20b3b4.chunk.js.map",
     "index.html": "/1ex/index.html",
     "static/css/main.c0b5827e.chunk.css.map": "/1ex/static/css/main.c0b5827e.chunk.css.map",
-    "static/js/2.d414385c.chunk.js.LICENSE.txt": "/1ex/static/js/2.d414385c.chunk.js.LICENSE.txt",
+    "static/js/2.ba20b3b4.chunk.js.LICENSE.txt": "/1ex/static/js/2.ba20b3b4.chunk.js.LICENSE.txt",
+    "static/media/Eldin1-1.0ab39fd4.png": "/1ex/static/media/Eldin1-1.0ab39fd4.png",
+    "static/media/Eldin1-2.92e6afd3.png": "/1ex/static/media/Eldin1-2.92e6afd3.png",
     "static/media/Faron1.a2abc671.png": "/1ex/static/media/Faron1.a2abc671.png",
     "static/media/Gerudo1-1.868e297e.png": "/1ex/static/media/Gerudo1-1.868e297e.png",
     "static/media/Gerudo1-2.3921698e.png": "/1ex/static/media/Gerudo1-2.3921698e.png",
@@ -24,8 +26,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.e3c4c961.js",
-    "static/js/2.d414385c.chunk.js",
+    "static/js/2.ba20b3b4.chunk.js",
     "static/css/main.c0b5827e.chunk.css",
-    "static/js/main.3c8f09b6.chunk.js"
+    "static/js/main.9ce257be.chunk.js"
   ]
 }
