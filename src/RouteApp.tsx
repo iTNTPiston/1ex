@@ -3,23 +3,30 @@ import "./App.css";
 import { InstructionTable } from "./render";
 import ImageDirectionClock from "./img/direction-clock.png";
 import ImageDirectionCompass from "./img/direction-compass.png";
-import {computeInstruction} from "./route/engine";
-import { InstructionLike } from "./route/types";
+import { InstructionEngine } from "./route/engine";
+import { ChangeData, InstructionLike } from "./route/types";
+import { ChangeLog } from "./render/ChangLog";
+import queryString from "query-string";
 
 type Props = {
 	config: InstructionLike[],
+	changelog: ChangeData[],
 }
 
 type State ={
 	frozenImage?: string,
 	directionMode: string,
+	showChangeLog: boolean,
 }
+
+const engine = new InstructionEngine();
 
 class App extends React.Component<Props, State> {
 	constructor(props: Props){
 		super(props);
 		this.state = {
 			directionMode: "clock",
+			showChangeLog: false,
 		};
 	}
 
@@ -29,6 +36,17 @@ class App extends React.Component<Props, State> {
 			this.setState({
 				directionMode:localStoredDirectionMode
 			});
+		}
+
+		const lastViewedVersion = localStorage.getItem("LastVersion");
+		const query = queryString.parse(window.location.search);
+		const latestVersion = this.props.changelog[0].version;
+
+		if(lastViewedVersion !== latestVersion || query.change){
+			this.setState({
+				showChangeLog:true
+			});
+			localStorage.setItem("LastVersion", latestVersion);
 		}
 	}
 
@@ -42,7 +60,7 @@ class App extends React.Component<Props, State> {
 
 	render(): JSX.Element{
 
-		const instructions = computeInstruction(this.props.config);
+		const instructions = engine.compute(this.props.config);
 
 		return <>
 			{this.state.frozenImage &&
@@ -54,6 +72,7 @@ class App extends React.Component<Props, State> {
 					<img src={this.state.directionMode === "clock" ? ImageDirectionClock : ImageDirectionCompass} height="48" width="auto" alt="Direction" title="Toggle Direction Mode"/>
 				</button>
 			</div>
+			{this.state.showChangeLog && <ChangeLog log={this.props.changelog} close={()=>{this.setState({showChangeLog: false});}} />}
 			<InstructionTable 
 				instructions={instructions} 
 				directionMode ={this.state.directionMode}

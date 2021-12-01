@@ -1,12 +1,8 @@
-import { image, Korok, Shrine, split, step } from "../create";
+import { Korok, Shrine, split, step } from "../create";
 import { cps, npc, txt } from "../types";
 
-import ZD1Image2 from "./ZoraDomain1-2.png";
-
 export const MezzaLo = [
-	image(
-		step(cps("<N"), " + ", cps("N"), " midair"),
-		ZD1Image2),
+	step(cps("<N"), " + ", cps("N"), " midair"),
 	Korok("N05", "Light Chase", "Small pond"),
 	step(cps("W")," to deer, ride to ", npc("Kass")),
 	txt("Talk to ", npc("Kass")),

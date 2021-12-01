@@ -4,7 +4,8 @@ import PlateauImage from "./Plateau.png";
 
 export const Plateau = [
 	Section("PLATEAU 1"),
-	image("SOR Clip, no TOD",PlateauImage),
+	image(PlateauImage),
+	"SOR Clip, no TOD",
 	itm("6 Peppers"),
 	detail(
 		Equipment("Potlid + Spear", "Spear for FDC"),

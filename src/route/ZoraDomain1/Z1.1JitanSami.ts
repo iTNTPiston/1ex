@@ -1,11 +1,8 @@
-import { Boss, detail, image, Korok, Shrine, Snap, split, step } from "../create";
+import { Boss, detail, Korok, Shrine, Snap, split, step } from "../create";
 import { cps, emy, important, txt } from "../types";
-import ZD1Image1 from "./ZoraDomain1-1.png";
 
 export const JitanSami = [
-	image(
-		important("EQUIP PHANTOM 2"),
-		ZD1Image1),
+	important("EQUIP PHANTOM 2"),
 	step(cps("<W"), " Turn to flower"),
 	Korok("N44", "Flower Chase"),
 	step(cps("<N"), " midairs to Naydra"),

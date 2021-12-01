@@ -4,7 +4,8 @@ import RouteImage from "./RupeePrinting.png";
 
 export const RupeePrinting = [
 	Section("RUPEE PRINTING"),
-	image(step(cps("<N")," TS to ",lcn("Coliseum")), RouteImage),
+	image(RouteImage),
+	step(cps("<N")," TS to ",lcn("Coliseum")), 
 	ChestSpecial("Phantom Helm"),
 
 	step("BLSS"),

@@ -5,7 +5,8 @@ import Hateno1Image from "./Hateno1.png";
 
 export const Hateno1 = [
 	Section("HATENO 1"),
-	image(step("Talk to ", npc("farmer"), " for quest"), Hateno1Image),
+	image(Hateno1Image),
+	step("Talk to ", npc("farmer"), " for quest"), 
 	itm("3-4 frogs"),
 
 	step(cps("N>")," WB to tree"),

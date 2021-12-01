@@ -4,9 +4,8 @@ import Kakariko1Image from "./Kakariko1.png";
 
 export const Kakariko1 = [
 	Section("KAKARIKO 1"),
-	image(
-		step(cps(".E"), " activate TOD"),
-		Kakariko1Image),
+	image(Kakariko1Image),
+	step(cps(".E"), " activate TOD"),
 	step("BLSS to ", lcn("Kaya Wan")),
 	detail(
 		step(Chest("Ancient Core", "Skip if 4 cores")),
@@ -34,11 +33,8 @@ export const Kakariko1 = [
 	indent(sm("Talk twice for ",npc("quest"), " (211)")),
 	step("2 Hearts"),
 	detail(
-		txt("Talk to ",npc("Pumpkin Man")),
-		"Should be in farm before 5pm. Little hut 5pm-8pm. Running around after 8pm"),
-	detail(
 		txt("Activate ",lcn("Ta'loh Naeg")),
-		"Don't do shrine yet bc faster with speed food"),
+		"Don't do shrine yet"),
 	step(cps("N")," high WB up hill"),
 	VariableChange({silentPrincess: 2}),
 	detail(

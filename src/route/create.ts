@@ -1,4 +1,4 @@
-import { Instruction, stringToText, useInstructionLike, InstructionLike, instructionLikeToInstruction, txt, TextLike, itm, npc, lcn, useMultiText, bss, sm } from "./types";
+import { Instruction, stringToText, useInstructionLike, InstructionLike, instructionLikeToInstruction, txt, TextLike, itm, npc, lcn, useMultiText, bss, sm, v } from "./types";
 
 export const unindent = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, unindentStep: true})));
 export const indent = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, indentIcon: true})));
@@ -9,8 +9,8 @@ export const detail = (i: InstructionLike, detail:TextLike): Instruction=>{
 	return {...instructionLikeToInstruction(i), detail:txt(detail)};
 };
 
-export const image = (i: InstructionLike, image:string): Instruction=>{
-	return {...instructionLikeToInstruction(i), image};
+export const image = (image:string): Instruction=>{
+	return {...instructionLikeToInstruction(), image};
 };
 
 export const Section = (title: string):Instruction =>{
@@ -31,6 +31,10 @@ export const Equipment = (text: TextLike, comment?: TextLike): Instruction => {
 
 export const Shrine = (text: TextLike, comment?: TextLike): Instruction => {
 	return IconGeneric("shrine", lcn(text), 1, 0, comment);
+};
+
+export const ShrineDLC = (text: TextLike, comment?: TextLike): Instruction => {
+	return Icon("shrine-dlc", lcn("EX.", v("krk"), " ",text),  comment);
 };
 
 export const Tower = (text: TextLike, comment?: TextLike): Instruction => {
@@ -200,9 +204,11 @@ const mapKorokToImage = (korok: string):string =>{
 		case "Lily Pads": return "korok-lily";
 		case "Match Tree": return "korok-matching";
 		case "Match Cactus": return "korok-matching";
+		case "Offer Banana": return "korok-offer-banana";
 		case "Race": return "korok-race";
 		case "Rock Circle": return "korok-rock-circle";
 		case "Shoot Emblem": return "korok-shoot";
+		case "Tree Stump": return "korok-magnesis";
 		case "Well": return "korok-magnesis";
 		default: return "korok";
 	}

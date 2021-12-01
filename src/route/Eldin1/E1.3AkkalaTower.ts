@@ -1,3 +1,43 @@
-export const AkkalaTower = [
+import { step, Korok, Shrine, split, Discover, Tower } from "../create";
+import { cps, gale, npc, txt } from "../types";
+import { wb } from "../windbomb";
 
+export const AkkalaTower = [
+	step(wb(cps)("E + E midair")),
+	Korok("E44", "Lift Rock", "Next to trees"),
+	step(cps("N.")),
+	Shrine("Mo'a Keet"),
+	split(),
+
+	step(wb(cps)(".W Turn to stable")),
+	txt("Talk to ", npc("Guy in front of paint")),
+	step(wb(cps)("W> No Turn")),
+	Korok("E42", "Lift Rock", "Ledge below stone thing"),
+	Korok("E41", "Balloon", "Shoot from E42"),
+	step(wb(cps)("S> and run")),
+	Korok("E43", "Lift Rock Blocked", "Cave behind rubble"),
+	"Run down, GG over hot spring",
+	Korok("E37", "Rock Circle"),
+	step(wb(cps)("<<W no turn")),
+	Korok("E36", "Lily Pads", "No Drown"),
+	step(wb(cps)("E slight R turn + NE midair")),
+	Discover("Maw of Death Mountain"),
+	wb(cps)("<E midair"),
+	Korok("E38", "Block Puzzle"),
+	"SQ to rubble south DEFUSE",
+	Korok("E40", "Lift Rock Blocked", "Under rubble"),
+	step(wb(cps)("E. TS and midair")),
+	Korok("A50", "Lift Rock Blocked", "Broken column. STS MAX"),
+	step(cps("N>")),
+	"GG rock next to guardian",
+	Korok("A45", "Rock Circle"),
+	step(wb(cps)("E Turn")),
+	Korok("A46", "Lift Rock (Door)"),
+	step(cps("NW")),
+	Korok("A43", "Lift Rock Blocked", "Under Leaves"),
+	gale("1-2"),
+	Korok("A42", "Lift Rock", "Next to cannons"),
+	step(gale("3")," + ", wb(cps)("N midair")),
+	Tower("Akkala Tower"),
+	split(),
 ];

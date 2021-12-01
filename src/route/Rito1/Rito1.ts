@@ -1,10 +1,11 @@
 import { Chest, Cook, detail, Equipment, Icon, image, indent, Korok, Section, Shop, Shrine, split, step, VariableChange, Warp } from "../create";
 import { cps, emy, important, itm, lcn, npc, sm, txt, v } from "../types";
-import Rito2Image from "./Rito1-2.png";
+import RitoImage from "./Rito1-2.png";
 
 export const Rito1 = [
 	Section("RITO 1"),
-	image(step("BLSS + WB to ", itm("durians")), Rito2Image),
+	image(RitoImage),
+	step("BLSS + WB to ", itm("durians")), 
 	VariableChange({ silentPrincess: 2}),
 	detail(
 		step(cps("W"), " WB, ", itm("2 Silent Princesses")),

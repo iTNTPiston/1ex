@@ -1,17 +1,24 @@
-import { Chest, detail, Discover, Equipment, IconGeneric, image, Korok, Section, Shop, split, step, VariableChange, Warp } from "../create";
+import { Chest, detail, Discover, Equipment, IconGeneric, image, Korok, Section, Shop, Shrine, split, step, VariableChange, Warp } from "../create";
 import { cps, important, itm, npc, rne, txt, v } from "../types";
 
 import HestuImage from "./Hestu.png";
 
 export const Hestu = [
 	Section("HESTU"),
-	image(step("SQ WB to shop area"), HestuImage),
+	image(HestuImage),
+	Shrine("Ta'loh Naeg"),
+	split(),
+	
+	detail(
+		step(txt("Talk to ",npc("Pumpkin Man"))),
+		"Should be in farm before 5pm. Little hut 5pm-8pm. Running around after 8pm"),
 	Shop("Shops", "Arrows + Carrots"),
 	txt("Run, talk to ", npc("Impa")),
 
 	step(important("EQUIP PHANTOM 3")),
 	txt(cps("E>"), " no turn"),
-	Korok("D06", "Lift Rock", "Ledge"),
+	Korok("D08", "Lift Rock", "Ledge"),
+	Korok("D06", "Shoot Emblem"),
 	step(cps("SE")," to camp"),
 	important("EQUIP PHANTOM 3"),
 	detail(

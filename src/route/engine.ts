@@ -1,56 +1,85 @@
-import { instructionLikeToInstruction, InstructionData, InstructionLike, txt, lcn, npc, stringToText } from "./types";
+import { instructionLikeToInstruction, InstructionData, InstructionLike, txt, lcn, npc, stringToText, Instruction } from "./types";
 
-export const computeInstruction = (config: InstructionLike[]):InstructionData[] => {
-	let lineNumber = 1;
-	let korokCount = 0;
-	let korokSeed = 0;
-	let shrineCount = 0;
-	let memoryCount = 0;
-	const MEMORY_ROMAN= ["","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV"];
+export class InstructionEngine{
+	private MEMORY_ROMAN = ["","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV"];
+	private lineNumber = 1;
+	private korokCount = 0;
+	private korokSeed = 0;
+	private shrineCount = 0;
+	private memoryCount = 0;
+	private talusCount = 0;
+	private hinoxCount = 0;
+	private step = "1";
+	private noDetailYet = true;
+	private noImageYet = true;
+	private variables:{[key: string]:number} = {};
 
-	let talusCount = 0;
-	let hinoxCount = 0;
+	private applyImage = "";
 
-	let step = "1";
-	let noDetailYet = true;
-	let noImageYet = true;
+	private initialize(): void {
+		this.lineNumber = 1;
+		this.korokCount = 0;
+		this.korokSeed = 0;
+		this.shrineCount = 0;
+		this.memoryCount = 0;
+		this.talusCount = 0;
+		this.hinoxCount = 0;
+		this.step = "1";
+		this.noDetailYet = true;
+		this.noImageYet = true;
+		this.variables = {};
+	}
 
-	const variables:{[key: string]:number} = {};
+	compute(config: InstructionLike[]): InstructionData[] {
+		this.initialize();
+		const input = config.map(instructionLikeToInstruction);
+		return this.computeInstructions(input);
+	}
 
-	const input = config.map(instructionLikeToInstruction);
+	private computeInstructions(input: Instruction[]):InstructionData[] {
+		const output: InstructionData[] = [];
+		input.forEach((_, i)=>this.processInstruction(input, i, output));
+		return output;
+	}
 
-	const output: InstructionData[] = [];
-	input.forEach((data,i)=>{
+	private processInstruction(input: Instruction[], i:number, output: InstructionData[]) {
+		const data = input[i];
+		if(data.image){
+			this.applyImage = data.image;
+			if(i < input.length - 1){
+				return;
+			}
+		}
 		if(data.variableChange){
 			for(const key in data.variableChange){
-				if(!(key in variables)){
-					variables[key] = 0;
+				if(!(key in this.variables)){
+					this.variables[key] = 0;
 				}
-				variables[key]+=data.variableChange[key];
+				this.variables[key]+=data.variableChange[key];
 			}
 			return;
 		}
 		if(data.variableSet){
 			for(const key in data.variableSet){
-				variables[key]=data.variableSet[key];
+				this.variables[key]=data.variableSet[key];
 			}
 			return;
 		}
 
 		if(data.asSection){
 			output.push({
-				lineNumber,
+				lineNumber: this.lineNumber,
 				isSectionTitle: true,
 				isSplit: false,
 				text: data.text,
 				variables: {}
 			});
-			step = "1";
-			noDetailYet = true;
-			noImageYet = true;
+			this.step = "1";
+			this.noDetailYet = true;
+			this.noImageYet = true;
 		}else{
 			const props:InstructionData = {
-				lineNumber,
+				lineNumber: this.lineNumber,
 				isSectionTitle: false,
 				isSplit: false,
 				text: data.text,
@@ -59,59 +88,59 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 				unindentStep: data.unindentStep,
 				indentIcon: data.indentIcon,
 				variables: {
-					...variables,
-					krk: korokCount,
-					seed: korokSeed,
-					srn: shrineCount,
+					...this.variables,
+					krk: this.korokCount,
+					seed: this.korokSeed,
+					srn: this.shrineCount,
 				}
 			};
 
 			if(data.asStep){
-				props.stepNumber = step;
-				step = incStep(step);
+				props.stepNumber = this.step;
+				this.incStep();
 				props.indicatorClass="indicator-color-step";
 			}else if(data.asSplit){
-				step = "1";
+				this.step = "1";
 				props.indicatorClass="indicator-color-split";
-				noDetailYet = true;
+				this.noDetailYet = true;
 			}else{
 				props.indicatorClass="indicator-color-none";
 			}
 
 			if(data.shrineChange !== 0){
-				shrineCount+=data.shrineChange;
-				if(korokCount===0){
-					props.text = txt(lcn(`${shrineCount} `),data.text);
+				this.shrineCount+=data.shrineChange;
+				if(this.korokCount===0){
+					props.text = txt(lcn(`${this.shrineCount} `),data.text);
 				}else{
-					props.text = txt(lcn(`${shrineCount}.${korokCount % 100} `),data.text);
+					props.text = txt(lcn(`${this.shrineCount}.${this.getKorokCountLastTwoDigits()} `),data.text);
 				}
-				props.counterNumber = String(shrineCount);
+				props.counterNumber = String(this.shrineCount);
 				props.counterClassName = "counter-color-shrine";
 			}else if(data.korokChange !== 0){
 				if(data.korokChange > 0){
-					korokCount += data.korokChange;
-					korokSeed += data.korokChange;
-					props.text = txt(npc(`${korokSeed % 100} `),data.text);
-					props.counterNumber = String(korokCount);
+					this.korokCount += data.korokChange;
+					this.korokSeed += data.korokChange;
+					props.text = txt(npc(`${this.getKorokSeedLastTwoDigits()} `),data.text);
+					props.counterNumber = String(this.korokCount);
 					props.counterClassName = "counter-color-korok";
 				}else{
-					korokSeed += data.korokChange;//Hestu only takes seed, not total count
-					props.text = txt(npc(`${korokSeed % 100} `),data.text);
+					this.korokSeed += data.korokChange;//Hestu only takes seed, not total count
+					props.text = txt(npc(`${this.getKorokSeedLastTwoDigits()} `),data.text);
 				}
 			}else if(data.asMemory){
-				memoryCount++;
-				props.counterNumber = MEMORY_ROMAN[memoryCount];
+				this.memoryCount++;
+				props.counterNumber = this.MEMORY_ROMAN[this.memoryCount];
 				props.counterClassName = "counter-color-memory";
 			}else if(data.bossType){
 				switch(data.bossType){
 					case "Talus":
-						talusCount++;
-						props.counterNumber  = String(talusCount);
+						this.talusCount++;
+						props.counterNumber  = String(this.talusCount);
 						props.counterClassName = "counter-color-boss";
 						break;
 					case "Hinox":
-						hinoxCount++;
-						props.counterNumber  = String(hinoxCount);
+						this.hinoxCount++;
+						props.counterNumber  = String(this.hinoxCount);
 						props.counterClassName = "counter-color-boss";
 						break;
 				}
@@ -132,7 +161,7 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 					if(input[j].icon){
 						extra++;
 					}
-					if(input[j].variableChange || input[j].variableSet){
+					if(input[j].variableChange || input[j].variableSet || input[j].image){
 						extra--;
 					}
 				}
@@ -142,8 +171,8 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 					props.detailClass = "detail-box";
 				}
 				props.detailRowSpan = j - i + extra;
-				noDetailYet = false;
-			}else if(noDetailYet){
+				this.noDetailYet = false;
+			}else if(this.noDetailYet){
 				props.detail = stringToText("");
 				props.detailRowSpan = 1;
 				if(data.icon){
@@ -151,8 +180,9 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 				}
 			}
 
-			if(data.image){
-				props.image = data.image;
+			if(this.applyImage){
+				props.image = this.applyImage;
+				this.applyImage = "";
 				let extra = 0;
 				if(data.icon){
 					extra++;
@@ -170,8 +200,8 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 					}
 				}
 				props.imageRowSpan = j - i + extra;
-				noImageYet = false;
-			}else if(noImageYet){
+				this.noImageYet = false;
+			}else if(this.noImageYet){
 				props.imageRowSpan = 1;
 				if(data.icon){
 					props.displayEmptyImageSecondRow = true;
@@ -179,24 +209,39 @@ export const computeInstruction = (config: InstructionLike[]):InstructionData[] 
 			}
             
 			output.push(props);
-			lineNumber++;
+			this.lineNumber++;
 			if(data.icon){
-				lineNumber++;
+				this.lineNumber++;
 			}
 		}
-        
-	});
-
-	return output;
-};
-
-const incStep = (step:string):string =>{
-	if(step==="Z"){
-		return "0";
 	}
-	if(step === "9"){
-		return "A";
-	}
-	return String.fromCharCode(step.charCodeAt(0)+1);
-};
 
+	private incStep():void {
+		if(this.step === "Z"){
+			this.step = "0";
+		}else if(this.step === "9"){
+			this.step = "A";
+		}else{
+			this.step = String.fromCharCode(this.step.charCodeAt(0)+1);
+		}
+	}
+
+	private getKorokCountLastTwoDigits(): string {
+		return this.getLastTwoDigits(this.korokCount);
+	}
+
+	private getKorokSeedLastTwoDigits(): string {
+		return this.getLastTwoDigits(this.korokSeed);
+	}
+
+	private getLastTwoDigits(value: number): string {
+		if(value<10){
+			return String(value);
+		}
+		const mod100 = value % 100;
+		if(mod100 < 10){
+			return "0" + mod100;
+		}
+		return String(mod100);
+	}
+}

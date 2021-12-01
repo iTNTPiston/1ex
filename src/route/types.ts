@@ -12,6 +12,7 @@ export type Instruction = {
     unindentStep?: boolean,
     indentIcon?: boolean,
     detail?: TextBlock,
+	//Image will add the image to the next instruction (if exists)
     image?:string,
 
     //variable change will not introduce a new line
@@ -50,6 +51,12 @@ export type InstructionData = {
 	displayEmptyImageSecondRow?: boolean,
     indicatorClass?: string,
     variables: {[key: string]:number}
+}
+
+export type ChangeData = {
+	version: string,
+	date: string,
+	changes: (string | string[])[],
 }
 
 export const isString = (input?: InstructionLike): boolean=>{

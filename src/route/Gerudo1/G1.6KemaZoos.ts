@@ -1,11 +1,8 @@
-import { image, indent, Korok, Shrine, split, step, Warp } from "../create";
+import { indent, Korok, Shrine, split, step, Warp } from "../create";
 import { cps, important, itm, npc, txt } from "../types";
-import Gerudo1Image2 from "./Gerudo1-2.png";
 
 export const KemaZoos = [
-	image(
-		step("Talk to ", npc("Boots Guy")),
-		Gerudo1Image2),
+	step("Talk to ", npc("Boots Guy")),
 	txt("Equip ", itm("Snow Boots")),
 	step("SQ WB to ", npc("Riju")),
 	"Talk",

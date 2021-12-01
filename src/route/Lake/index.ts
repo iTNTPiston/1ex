@@ -4,7 +4,7 @@ import { IshtoSoh } from "./L1.6IshtoSoh";
 
 export const Lake = [
 	Section("LAKE"),
-	"TODO: kao makagh",
+	"TODO: kao makagh,update with fury+ strats",
 	...ShoqaTatone,
 	...IshtoSoh,
 ];

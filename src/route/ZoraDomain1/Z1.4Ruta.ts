@@ -61,7 +61,7 @@ export const Ruta = [
 		"Ruta same as AD. Make sure gale is emptied or unused at the end so the routing stays consistent. No snap waterblight to make one cycle easier"),
 	important("EQUIP ", rne("CYONIS")),
 	"NO SNAP",
-	"7 Bomb Arrow Headshots (8 safe)",
+	"7 BA Headshots (8 safe)",
 	Icon("ruta-done", "Waterblight"),
 	split(),
 ];
