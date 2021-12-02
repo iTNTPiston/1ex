@@ -204,6 +204,7 @@ const mapKorokToImage = (korok: string):string =>{
 		case "Lily Pads": return "korok-lily";
 		case "Match Tree": return "korok-matching";
 		case "Match Cactus": return "korok-matching";
+		case "Offer Apple": return "korok-offer-apple";
 		case "Offer Banana": return "korok-offer-banana";
 		case "Race": return "korok-race";
 		case "Rock Circle": return "korok-rock-circle";

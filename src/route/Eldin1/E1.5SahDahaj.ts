@@ -3,6 +3,8 @@ import { cps } from "../types";
 import { wb } from "../windbomb";
 
 export const SahDahaj = [
+	step("Run forward"),
+	Korok("A47", "Offer Apple"),
 	step(wb(cps)("S Turn")),
 	Discover("East Sokkala Bridge"),
 	wb(cps)("E. Midair"),

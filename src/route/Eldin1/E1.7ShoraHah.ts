@@ -1,4 +1,4 @@
-import { detail, Korok, Shop, Shrine, split, step, VariableChange } from "../create";
+import { Chest, detail, Korok, Shop, Shrine, split, step, VariableChange } from "../create";
 import { cps, gale, important, itm, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -24,6 +24,7 @@ export const ShoraHah = [
 	split(),
 
 	step(wb(cps)("<N turn rescue Yunobo")),
+	Chest("10 Ice Arrows"),
 	gale("2"),
 	Korok("E08", "Lift Rock", "Top of northern mine"),
 	step("SQ to shrine"),

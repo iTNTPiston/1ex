@@ -27,7 +27,6 @@ export const Naboris = [
 		Snap(emy("Small Guardian"), important("SNAP for quest")),
 		"Snap the last one before Thunderblight so you already have camera out"),
 	Snap(emy("Thunderblight"), "SNAP Elite"),
-	"Stasis+ 8 Headshots",
-	Icon("naboris-done", "Thunderblight"),
+	Icon("naboris-done", "Thunderblight 1", "Stasis+ 8 Headshots"),
 	split(),
 ];

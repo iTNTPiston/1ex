@@ -13,9 +13,6 @@ export const GerudoTown = [
 	Shop("All Arrows"),
 	Cook("10 Speed, Endura/Hearty"),
 	detail(
-		Cook("Fruit Cake"), 
-		"Apple, Banana, Wheat, Sugar. Use durian if you don't have banana"),
-	detail(
 		MakeTOD("5am", "Make Morning", "for quests"),
 		"For trash girl and ice house"),
 	txt("Talk to ", npc("Riju")),

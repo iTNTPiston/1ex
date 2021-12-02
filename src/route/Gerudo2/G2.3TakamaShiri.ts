@@ -1,4 +1,4 @@
-import { Boss, detail, Korok, ShrineDLC, Snap, step } from "../create";
+import { Boss, Cook, detail, Korok, ShrineDLC, Snap, split, step } from "../create";
 import { cps, fury, important, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -11,16 +11,16 @@ export const TakamaShiri = [
 	Boss("Rare Talus", fury("1-3")),
 	step(cps("SW")),
 	detail(
-		Korok("W02", "Offer Banana", "Pick up 1, 7 left"),
+		Korok("W02", "Offer Banana", "Pick up 1, 8 left"),
 		"Pick up banana so your inventory is on banana"),
 	"Glide to next one",
-	Korok("G25", "Offer Banana", "Pick up 1, 4 left"),
+	Korok("G25", "Offer Banana", "Pick up 1, 5 left"),
 	step("Low SQ along path"),
-	Korok("W04", "Offer Banana", "Pick up 1, 2 left"),
+	Korok("W04", "Offer Banana", "Pick up 1, 3 left"),
 	"Run down",
-	Korok("W05", "Offer Banana", "Pick up 1, 1 left"),
+	Korok("W05", "Offer Banana", "Pick up 1, 2 left"),
 	"Glide over",
-	Korok("W03", "Offer Banana", "No pick up"),
+	Korok("W03", "Offer Banana", "No pick up, 1 left"),
 	step(wb(cps)("S to pillar")),
 	Korok("W06", "Flower Chase"),
 	step(wb(cps)("E> Turn")),
@@ -32,4 +32,9 @@ export const TakamaShiri = [
 	txt(wb(cps)("S> Turn to"), npc(" Sand Seal Lady")),
 	"Ride to shrine",
 	ShrineDLC("Takama Shiri"),
+	split(),
+	detail(
+		Cook("Fruit Cake"), 
+		"Apple, Banana, Wheat, Sugar. Buy durian if you don't have banana"),
+	
 ];

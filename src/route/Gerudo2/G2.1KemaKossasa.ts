@@ -3,16 +3,22 @@ import { cps, emy, gale, important, itm, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const KemaKossasa = [
-	important("EQUIP SNOW BOOTS"),
 	step(gale("1"), " SCW"),
+	VariableChange({tail: 4}),
+	detail(
+		txt("Kill 4 ", emy("Lizalfos")),
+		txt("Be careful not to get item text boxes. Tail ", v("tail"), "/45")),
+	itm("14 Wood"),
+	important("DO NOT LOOK BACK"),
 	ShrineDLC("Kihiro Moh"),
 	split(),
 
-	step(itm("11 Bananas"), " in hideout"),
+	step(itm("CHECK 12 Bananas"), " in hideout"),
 	"Throw orb in hole",
 	"SQ to shrine DEFUSE",
 	Discover("Kihiro Moh Shrine"),
 	step(gale("2"), "+",wb(cps)("W midairs")),
+	important("EQUIP SNOW BOOTS"),
 	Korok("G16", "Light Chase", "FAR"),
 	step(wb(cps)("W Turn")),
 	Korok("G20", "Rock Circle"),

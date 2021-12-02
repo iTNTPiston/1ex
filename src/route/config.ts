@@ -6,6 +6,7 @@ import { Gerudo2 } from "./Gerudo2";
 import { Hateno1 } from "./Hateno1";
 import { Hestu } from "./Hestu";
 import { Kakariko1 } from "./Kakariko1";
+import { KorokForest } from "./KorokForest";
 import { Lake } from "./Lake";
 import { Plateau } from "./Plateau";
 import { Rito1 } from "./Rito1";
@@ -26,12 +27,27 @@ export const MainRoute = [
 	...ZoraDomain1,
 	...Eldin1,
 	...Akkala,
-	"TODO: Korok Forest+Castle+Plat 2",
+	...KorokForest,
+	"TODO: Castle+Plat 2",
 	...Gerudo2,
 	...Lake,
 ];
 
 export const Change: ChangeData[] = [
+	{
+		version: "0.2.0",
+		date: "2021-12-01",
+		changes: [
+			"Changes to existing sections",
+			[
+				"Add wood + tails during Kihiro Moh SCW",
+				"Cook Fruit Cake in Gerudo 2",
+				"Fixed missing A47",
+				"Add 10 Ice Arrows in Yunobo Cave",
+			],
+			"Add Akkala and Gerudo 2 up to fury+",
+		]
+	},
 	{
 		version: "0.1.0",
 		date: "2021-11-30",
