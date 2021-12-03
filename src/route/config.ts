@@ -1,4 +1,5 @@
 import { Akkala } from "./Akkala";
+import { Castle } from "./Castle";
 import { Eldin1 } from "./Eldin1";
 import { Faron1 } from "./Faron1";
 import { Gerudo1 } from "./Gerudo1";
@@ -28,12 +29,20 @@ export const MainRoute = [
 	...Eldin1,
 	...Akkala,
 	...KorokForest,
-	"TODO: Castle+Plat 2",
+	...Castle,
+	"TODO: Plat 2",
 	...Gerudo2,
 	...Lake,
 ];
 
 export const Change: ChangeData[] = [
+	{
+		version: "0.3.0",
+		date: "2021-12-02",
+		changes: [
+			"Add Korok Forest section",
+		]
+	},
 	{
 		version: "0.2.0",
 		date: "2021-12-01",
