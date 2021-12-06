@@ -10,6 +10,7 @@ import { Kakariko1 } from "./Kakariko1";
 import { KorokForest } from "./KorokForest";
 import { Lake } from "./Lake";
 import { Plateau } from "./Plateau";
+import { Plateau2 } from "./Plateau2";
 import { Rito1 } from "./Rito1";
 import { RupeePrinting } from "./RupeePrinting";
 import { ChangeData } from "./types";
@@ -30,17 +31,35 @@ export const MainRoute = [
 	...Akkala,
 	...KorokForest,
 	...Castle,
-	"TODO: Plat 2",
+	...Plateau2,
 	...Gerudo2,
 	...Lake,
 ];
 
 export const Change: ChangeData[] = [
 	{
+		version: "0.4.0",
+		date: "2021-12-06",
+		changes: [
+			"Changes to existing sections",
+			[
+				"Add snap Molduking",
+				"Add split after Spring of Power memory",
+				"Add 2 missed koroks and other minor fixes",
+			],
+			"Add Castle and Plateau 2 Section",
+			"Finish Gerudo 2 Section",
+			"Start Lake Section"
+		]
+	},
+	{
 		version: "0.3.0",
 		date: "2021-12-02",
 		changes: [
-			"Add Korok Forest section",
+			"Changes to existing sections",
+			[
+				"Add RNG Silent Princesses after TOTS"
+			],
 		]
 	},
 	{

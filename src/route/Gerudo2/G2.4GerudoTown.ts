@@ -31,7 +31,7 @@ export const GerudoTown2 = [
 	split(),
 
 	step("Give Durian to woman"),
-	wb(cps)("<W Turn"),
+	wb(cps)("<E Turn"),
 	Korok("W55", "Lift Rock", "On a rock"),
 	step(wb(cps)("S> Turn")),
 	Korok("W61", "Match Cactus", "STS (One hand weapon)"),

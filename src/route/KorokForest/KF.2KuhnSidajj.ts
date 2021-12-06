@@ -1,4 +1,4 @@
-import { step, Korok, Tower, split, Discover, IconGeneric, detail, Shrine, indent, VariableChange, Equipment, Shop, Icon } from "../create";
+import { step, Korok, Tower, split, Discover, IconGeneric, detail, Shrine, indent, VariableChange, Equipment, Shop, Icon, MakeTOD, ChestSpecial } from "../create";
 import { cps, gale, important, itm, lcn, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -13,6 +13,9 @@ export const KuhnSidajj = [
 	Tower("Woodland Tower"),
 	split(),
 
+	step(MakeTOD("9pm", "Make Night for BM")),
+	wb(cps)("<<N Turn"),
+	ChestSpecial("Korok Mask"),
 	step(wb(cps)("NW + surf to forest")),
 	Discover("Korok Forest"),
 	detail(
@@ -64,7 +67,9 @@ export const KuhnSidajj = [
 	split(),
 
 	"Void out",
-	Icon("tots", "Trial of the Sword"),
+	detail(
+		Icon("tots", "Trial of the Sword"),
+		"Grab Silent Princesses if they respawn after TOTS"),
 	split(),
 
 	step("Run to quest guy"),

@@ -3,7 +3,7 @@ import { cps, emy, gale, important, itm, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const KemaKossasa = [
-	step(gale("1"), " SCW"),
+	step(gale("2"), " SCW"),
 	VariableChange({tail: 4}),
 	detail(
 		txt("Kill 4 ", emy("Lizalfos")),
@@ -17,7 +17,7 @@ export const KemaKossasa = [
 	"Throw orb in hole",
 	"SQ to shrine DEFUSE",
 	Discover("Kihiro Moh Shrine"),
-	step(gale("2"), "+",wb(cps)("W midairs")),
+	step(gale("3"), "+",wb(cps)("W midairs")),
 	important("EQUIP SNOW BOOTS"),
 	Korok("G16", "Light Chase", "FAR"),
 	step(wb(cps)("W Turn")),

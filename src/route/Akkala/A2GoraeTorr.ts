@@ -45,6 +45,6 @@ export const GoraeTorr = [
 	Korok("E05", "Rock Circle", "Pillars around shrine"),
 	"Start Gut Check", 
 	txt(gale("1"), " + midair"),
-	Shrine("Gorae Torr"),
+	Shrine("Gorae Torr (25%)"),
 	split(),
 ];

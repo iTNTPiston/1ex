@@ -1,4 +1,4 @@
-import { Boss, detail, Korok, Shop, ShrineDLC, split, step } from "../create";
+import { Boss, detail, Korok, Shop, ShrineDLC, Snap, split, step } from "../create";
 import { cps, emy, fury, lnk, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -31,6 +31,7 @@ export const KeiveTala = [
 	step(wb(cps)("S Turn to race start")),
 	wb(cps)("SE to Molduking"),
 	Boss("Molduking", txt(fury("1-2")," SHOCK ", fury("3"))),
+	Snap(emy("Molduking"), "Snap after shock arrow"),
 	"Run to finish race",
 	Korok("W63", "Race"),
 	"SQ to shrine",

@@ -1,0 +1,45 @@
+import { detail, Discover, indent, Korok, Memory, Shop, Shrine, split, step } from "../create";
+import { cps, gale, important, npc, sm, txt } from "../types";
+import { wb } from "../windbomb";
+
+export const RotaOoh = [
+	step(wb(cps)("S. Turn")),
+	Korok("C61", "Rock Circle"),
+	step("SQ ", cps("W.")),
+	Korok("C60", "Block Puzzle"),
+	step(cps("NW")),
+	Korok("C57", "Acorn", "In tree"),
+	"Run to bridge",
+	Discover("Gleeok Bridge"),
+	step(wb(cps)("<<W")),
+	Korok("C58", "Tree Stump"),
+	step(cps("SW")),
+	Korok("C59", "Basketball", "Cryo block"),
+	indent(sm("throw from lower level")),
+	step(cps("<N")),
+	Korok("R74", "Lift Rock"),
+	step(gale("1"), " + ", wb(cps)("<N midair")),
+	Memory("Sanidin Park"),
+	split(),
+    
+	step("SQ to white horse"),
+	"Ride to tree",
+	Korok("R79", "Offer Apple"),
+	step("Ride to stable"),
+	txt(npc("Register "), "(2111 name)"),
+	"Talk",
+	indent(npc("Meat Guy")),
+	indent(npc("Horse Guy")),
+	detail(
+		Shop("Beedle", "Frogs/Crickets if need"),
+		"DO NOT GIVE HIM BEETLE"),
+	txt("Talk to ", npc("Lady under tree")),
+	important("DO NOT GIVE BEETLE"),
+	step("Run"),
+	Korok("C78", "Lift Rock"),
+	step(wb(cps)(".N DEFUSE")),
+	Korok("C72", "Acorn Flying", "BT"),
+	step(wb(cps)("<W to shrine")),
+	Shrine("Rota Ooh"),
+	split(),
+];

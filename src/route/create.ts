@@ -187,6 +187,7 @@ export const IconGeneric = (icon:string, text: TextLike, shrineChange: number, k
 const mapKorokToImage = (korok: string):string =>{
 	switch(korok){
 		case "Acorn": return "korok-acorn";
+		case "Acorn Flying": return "korok-acorn-flying";
 		case "Acorn in Log": return "korok-acorn";
 		case "Balloon": return "korok-balloon";
 		case "Basketball": return "korok-basketball";
@@ -204,8 +205,10 @@ const mapKorokToImage = (korok: string):string =>{
 		case "Lily Pads": return "korok-lily";
 		case "Match Tree": return "korok-matching";
 		case "Match Cactus": return "korok-matching";
+		case "Metal Box Circle": return "korok-magnesis";
 		case "Offer Apple": return "korok-offer-apple";
 		case "Offer Banana": return "korok-offer-banana";
+		case "Offer Egg": return "korok-offer-egg";
 		case "Race": return "korok-race";
 		case "Rock Circle": return "korok-rock-circle";
 		case "Shoot Emblem": return "korok-shoot";

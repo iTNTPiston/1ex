@@ -17,7 +17,7 @@ export const KeehaYoog = [
 	Snap("Eighth Heroine", "Quest"),
 	step(cps("NE")),
 	Korok("G02", "Race", "Run"),
-	step(gale("3"), "+", cps("E")),
+	step(gale("1"), "+", cps("E")),
 	"GG rock over",
 	Korok("G03", "Rock Circle"),
 	step(wb(cps)("E Turn + <S Turn")),

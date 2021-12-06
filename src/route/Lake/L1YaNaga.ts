@@ -1,0 +1,52 @@
+import { Cook, detail, Korok, MakeTOD, Shrine, split, step, VariableChange } from "../create";
+import { cps, emy, itm, npc, txt, v } from "../types";
+import { wb } from "../windbomb";
+
+export const YaNaga = [
+	step("Run ", cps("N")),
+	VariableChange({rushroom: 1}),
+	detail(
+		itm("Rushroom"),
+		txt(v("rushroom"), "/55")),
+	wb(cps)("N DEFUSE"),
+	Korok("W53", "Lift Rock", "On pillar"),
+	step(wb(cps)("<N Turn")),
+	Korok("W41", "Lift Rock", "On overpass"),
+	step(wb(cps)("N> Turn")),
+	Korok("L21", "Block Puzzle"),
+	step(wb(cps)("<E Turn")),
+	Korok("L22", "Acorn", "Hanging from tree"),
+	"Land on big horse",
+	"Ride toward camp",
+	Korok("L36", "Balloon", "Bomb in tree"),
+	"Keep riding",
+	Korok("L62", "Lift Rock", "Under rubble (mid of 3)"),
+	txt("Ride to ", npc("Quest Guy")),
+	detail(
+		Cook("Fruit Cake"), 
+		"Apple, Banana, Wheat, Sugar. Buy durian if you don't have banana"),
+	MakeTOD("9pm", "Make Night", "IF 11pm-4pm"),
+	"Run to flower chase",
+	Korok("L64", "Flower Chase"),
+	"Glide to race start",
+	step(wb(cps)("W")),
+	Korok("L63", "Offer Apple"),
+	step(wb(cps)("N>")),
+	VariableChange({tail: 1}),
+	detail(
+		txt("Sneakstrike ", emy("Silver Lizalfos")),
+		txt(v("tail"), "/45")),
+	"Run finish race",
+	Korok("L47", "Race"),
+	step(wb(cps)("<N Turn")),
+	Korok("L38", "Block Puzzle", "2nd hole"),
+	step(wb(cps)("<N Turn")),
+	Korok("L24", "Lift Rock", "3rd hole"),
+	step(cps("N")),
+	Korok("L08", "Race", "SQ DEFUSE"),
+	step(cps("SE")),
+	Korok("L25", "Confetti", "Top of tree"),
+	step(cps("SE")),
+	Shrine("Ya Naga"),
+	split(),
+];

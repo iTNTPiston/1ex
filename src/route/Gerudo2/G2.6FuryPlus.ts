@@ -14,8 +14,9 @@ export const FuryPlus = [
 	Korok("W62", "Rock Circle"),
 	step(wb(cps)(".W Turn")),
 	Korok("W67", "Match Cactus", "Land"),
-	Warp("Naboris", txt("Check ", v("krk"), " Koroks")),
+	Warp("Naboris 36.34%", txt("Check ", v("krk"), " Koroks")),
 	split(),
 	important("EQUIP STASIS+"),
 	Icon("naboris-plus", "Thunderblight 2"),
+	split(),
 ];

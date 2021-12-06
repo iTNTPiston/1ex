@@ -1,4 +1,4 @@
-import { Boss, Cook, detail, Korok, ShrineDLC, Snap, split, step } from "../create";
+import { Boss, detail, Korok, ShrineDLC, Snap, split, step } from "../create";
 import { cps, fury, important, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -33,8 +33,5 @@ export const TakamaShiri = [
 	"Ride to shrine",
 	ShrineDLC("Takama Shiri"),
 	split(),
-	detail(
-		Cook("Fruit Cake"), 
-		"Apple, Banana, Wheat, Sugar. Buy durian if you don't have banana"),
 	
 ];
