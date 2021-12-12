@@ -1,4 +1,4 @@
-import { Boss, detail, Korok, Shrine, Snap, split, step } from "../create";
+import { Boss, detail, Korok, ShrineBlessing, Snap, split, step } from "../create";
 import { cps, emy, important, txt } from "../types";
 
 export const JitanSami = [
@@ -32,6 +32,6 @@ export const JitanSami = [
 	detail(
 		"Scale Dupe",
 		"Align scale with the back 2 pillars. Stasis, 1 slam attack. Stand at bottom of stairs and time A press."),
-	Shrine("Jitan Sa'mi"),
-	split(),
+	ShrineBlessing("Jitan Sa'mi"),
+	split("-"),
 ];

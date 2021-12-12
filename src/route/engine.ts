@@ -80,8 +80,8 @@ export class InstructionEngine{
 		}else{
 			const props:InstructionData = {
 				lineNumber: this.lineNumber,
-				isSectionTitle: false,
-				isSplit: false,
+				isSectionTitle: data.asSection,
+				isSplit: data.asSplit,
 				text: data.text,
 				icon: data.icon,
 				comment: data.comment,

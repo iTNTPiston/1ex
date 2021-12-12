@@ -40,7 +40,7 @@ export const PlateauDLC = [
 	"Dupe GEBs",
 	important("SAVE"),
 	Warp("Keh Namut", txt("Check ", v("krk"), " Koroks")),
-	split(),
+	split("-"),
 
 	step(cps("SE")),
 	Snap(emy("Silver Moblin"), "SNAP Elite"),
@@ -52,7 +52,7 @@ export const PlateauDLC = [
 	"Surf to shrine",
 	Snap(emy("Small Guardian"), "SNAP inside shrine if needed"),
 	ShrineDLC("Etsu Korima"),
-	split(),
+	split("-"),
 
 	step(wb(cps)("N> Turn")),
 	"Land on big stump",
@@ -65,7 +65,7 @@ export const PlateauDLC = [
 		itm("Honey"),
 		txt("Knock down with blizzard rod. ", v("honey"), "/16")),
 	ShrineDLC("Yowaka Ita"),
-	split(),
+	split("-"),
 
 	step("Run to old man place"),
 	Equipment("10 Arrows"),
@@ -83,12 +83,12 @@ export const PlateauDLC = [
 		txt("Tail: ", v("tail"), "/45. Honey: ", v("honey"), "/16")),
 	itm("2 Honey"),
 	ShrineDLC("Rohta Chigah"),
-	split(),
+	split("-"),
 
 	step(cps("SW")),
 	detail(
 		Snap(emy("Stalhorse"), "SNAP Quest"),
 		"Make sure to get the horse not the bokoblin. Blue bokoblin is 2 words while stalhorse is one. Stalhorse ends with b in Russian."),
 	ShrineDLC("Ruvo Korbah"),
-	split(),
+	split("{3 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
 ];

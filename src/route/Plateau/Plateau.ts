@@ -15,11 +15,11 @@ export const Plateau = [
 	detail(Equipment("Bow + Arrow"), "Similar to granatus, you don't want to break any bows optimally. However it matters less since we have early RGC"),
 	"BLSS to bombs",
 	detail(Shrine("Ja Baij"),"Either aim more right for safe WB or do gamer"),
-	split(),
+	split("-"),
 
 	"BLSS to mag",
 	Shrine("Oman Au"),
-	split(),
+	split("-"),
 
 	VariableChange({
 		rushroom: 5
@@ -31,7 +31,7 @@ export const Plateau = [
 	detail("","Eat useless shrooms for food, then eat useless fish for food"),
 	"WB to tower",
 	Tower("Great Plateau Tower"),
-	split(),
+	split("-"),
 
 	step("BLSS to old man's hut"),
 	Korok("P18", "Confetti", "On top of hut"),
@@ -40,7 +40,7 @@ export const Plateau = [
 	step("WB to stasis"),
 	detail(Equipment("Hammer", "Switch to hammer"), "Keep the spear to get a sneakstrike in castle later"),
 	Shrine("Owa Daim"),
-	split(),
+	split("-"),
 
 	step("Boulder launch use ", itm("hammer")),
 	step("BTB to cryo"),
@@ -48,5 +48,5 @@ export const Plateau = [
 
 	"BLSS to ToT",
 	Icon("king", "Plateau"),
-	split()
+	split("-")
 ];

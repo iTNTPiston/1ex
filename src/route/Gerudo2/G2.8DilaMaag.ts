@@ -1,4 +1,4 @@
-import { step, Korok, Shrine, split, MakeTOD } from "../create";
+import { step, Korok, split, MakeTOD, ShrineBlessing } from "../create";
 import { cps, gale, important } from "../types";
 import { wb } from "../windbomb";
 
@@ -14,11 +14,11 @@ export const DilaMaag = [
 	Korok("W46", "Lift Rock Blocked", "Corner"),
 	gale("2"),
 	Korok("W47", "Rock Circle"),
-	step(wb(cps)("<W Turn + midair")),
+	step(wb(cps)("<W Turn + W midair")),
 	Korok("W50", "Lift Rock", "Top of big pillar"),
 	step(wb(cps)("S> Turn to race start")),
 	Korok("W58", "Race", wb(cps)("S Turn")),
 	step(wb(cps)("NE")),
-	Shrine("Dila Maag"),
-	split(),
+	ShrineBlessing("Dila Maag"),
+	split("-"),
 ];

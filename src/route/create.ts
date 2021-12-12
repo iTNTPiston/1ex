@@ -1,4 +1,4 @@
-import { Instruction, stringToText, useInstructionLike, InstructionLike, instructionLikeToInstruction, txt, TextLike, itm, npc, lcn, useMultiText, bss, sm, v } from "./types";
+import { Instruction, stringToText, useInstructionLike, InstructionLike, instructionLikeToInstruction, txt, TextLike, itm, npc, lcn, useMultiText, bss, v } from "./types";
 
 export const unindent = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, unindentStep: true})));
 export const indent = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, indentIcon: true})));
@@ -31,6 +31,18 @@ export const Equipment = (text: TextLike, comment?: TextLike): Instruction => {
 
 export const Shrine = (text: TextLike, comment?: TextLike): Instruction => {
 	return IconGeneric("shrine", lcn(text), 1, 0, comment);
+};
+
+export const ShrineBlessing = (text: TextLike, comment?: TextLike): Instruction => {
+	return IconGeneric("shrine-chest", lcn(text), 1, 0, comment);
+};
+
+export const ShrineSword = (text: TextLike, comment?: TextLike): Instruction => {
+	return IconGeneric("shrine-sword", lcn(text), 1, 0, comment);
+};
+
+export const ShrineDoubleSword = (text: TextLike, comment?: TextLike): Instruction => {
+	return IconGeneric("shrine-double-sword", lcn(text), 1, 0, comment);
 };
 
 export const ShrineDLC = (text: TextLike, comment?: TextLike): Instruction => {
@@ -138,11 +150,10 @@ const bossTypeToCounter = (type:string):string => {
 };
 
 export const Memory = (location: string):Instruction => {
-	const comment =  lcn(location);
 	const name = memoryLocationToName(location);
 	const icon = location === "Ash Swamp" ? "memory-final" : "memory";
 	return {
-		...Icon(icon, sm(name), comment),
+		...Icon(icon, lcn(location), name),
 		asMemory: true,
 	};
 };

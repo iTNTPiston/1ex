@@ -18,5 +18,5 @@ export const SheemDagoze = [
 	wb(cps)("W to shrine"),
 	"RGB aim top of hole",
 	Shrine("Sheem Dagoze"),
-	split(),
+	split("-"),
 ];

@@ -32,6 +32,6 @@ export const TakamaShiri = [
 	txt(wb(cps)("S> Turn to"), npc(" Sand Seal Lady")),
 	"Ride to shrine",
 	ShrineDLC("Takama Shiri"),
-	split(),
+	split("-"),
 	
 ];

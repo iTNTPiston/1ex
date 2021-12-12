@@ -3,20 +3,16 @@ import { cps, emy, fury, gale, important, itm, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const TarryTown2 = [
-	step(cps("S")),
-	Korok("A26", "Block Puzzle"),
-	step(wb(cps)("W> Turn")),
-	Korok("A20", "Block Puzzle"),
-	step(wb(cps)("E> Turn")),
+	step(wb(cps)("S + SE")),
 	Korok("A27", "Light Chase"),
-	step(wb(cps)("S Slight Turn + midairs")),
+	step(wb(cps)("S Slight Turn + S midairs")),
 	txt("Talk to ", npc("Hudson"), " twice"),
 	"20 Wood",
 	detail(
 		"Place Travel Medallion",
 		"Place it facing Link to Hudson. Don't place if missed BM"),
 	Warp("Shae Mo'sah", txt("Check ", v("krk"), " Koroks")),
-	split(),
+	split("-"),
 ];
 
 export const Rudania = [
@@ -24,7 +20,7 @@ export const Rudania = [
 	"SQ aim at quest dot",
 	txt("Talk to ", npc("Bludo")),
 	Icon("rudania-memory", "Daruk Memory"),
-	split(),
+	split("-"),
 
 	step(cps("E")),
 	Korok("E16", "Confetti", "Top of skeleton"),
@@ -34,7 +30,7 @@ export const Rudania = [
 	Equipment("Drillshaft", "DO NOT LOSE"),
 	step(cps("NE")),
 	Shrine("Daqa Koh"),
-	split(),
+	split("-"),
 
 	detail(
 		wb(cps)("E. to Yunobo"),
@@ -42,12 +38,12 @@ export const Rudania = [
 	itm("Amber/Flint on the way"),
 	txt(fury("1-2"), " last 3 drones"),
 	Icon("rudania-enter", "Enter Rudania"),
-	split(),
+	split("-"),
 
 	gale("1"),
 	detail(
 		Snap(emy("Fireblight"), "SNAP Elite"),
 		"SNAP first, then stasis, then equip attack up"),
 	Icon("rudania-done", "Fireblight 1", "8 Headshots"),
-	split(),
+	split("-"),
 ];

@@ -19,5 +19,5 @@ export const Hideout = [
 	itm("15 Arrows"),
 	Snap(emy("Kohga"), "SNAP Elite"),
 	Chest("Thunderhelm"),
-	split(),
+	split("-"),
 ];

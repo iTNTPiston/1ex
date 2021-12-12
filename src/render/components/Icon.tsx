@@ -1,12 +1,11 @@
-import ImageMap from "../../img";
+import { getImage } from "../../data/image";
 
 type Props = {
     src: string,
 }
 
 export const Icon:React.FunctionComponent<Props> = ({src})=>{
-	const map = ImageMap as {[name: string]:string};
-	const image = map[src];
+	const image = getImage(src);
 	if(!image){
 		return null;
 	}

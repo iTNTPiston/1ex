@@ -4,20 +4,20 @@ import { emy, gale, important, lcn, npc, rne, txt } from "../types";
 export const Naboris = [
 	step(important("EQUIP GERUDO")),
 	Warp("Daqo Chisay"),
-	split(),
+	split("-"),
 	important("EQUIP GERUDO"),
 	step(Shrine("Daqo Chisay")),
-	split(),
+	split("-"),
 	step("WB to ", npc("Riju")),
 	Icon("naboris-memory", "Urbosa Memory"),
-	split(),
+	split("-"),
 	step("WB to ", npc("Riju"), " at watchtower"),
 	txt("Ride sandseal to ",lcn("Misae Suma")),
 	txt("Talk to ",npc("Quest lady")),
 	step("BF WB to Naboris"),
 	indent("aim a bit left of dot"),
 	Icon("naboris-enter", "Enter Naboris"),
-	split(),
+	split("-"),
 
 	important("EQUIP ", rne("ROUND BOMB")),
 	detail(
@@ -28,5 +28,5 @@ export const Naboris = [
 		"Snap the last one before Thunderblight so you already have camera out"),
 	Snap(emy("Thunderblight"), "SNAP Elite"),
 	Icon("naboris-done", "Thunderblight 1", "Stasis+ 8 Headshots"),
-	split(),
+	split("-"),
 ];

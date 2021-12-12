@@ -13,5 +13,5 @@ export const KuhTakkar = [
 	step(cps("<<<S"), " ordinal turn"),
 	itm("Luminous Stones"),
 	Shrine("Kuh Takkar"),
-	split(),
+	split("-"),
 ];

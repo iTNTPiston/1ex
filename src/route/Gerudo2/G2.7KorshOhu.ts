@@ -1,4 +1,4 @@
-import { step, Korok, split, Tower, Equipment, Boss, Shrine } from "../create";
+import { step, Korok, split, Tower, Equipment, Boss, ShrineBlessing } from "../create";
 import { cps, emy, fury, important, itm, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -12,7 +12,7 @@ export const KorshOhu = [
 	Korok("W31", "Lift Rock"),
 	step("Run + ", wb(cps)("N. to tower")),
 	Tower("Wasteland Tower", "36.67%"),
-	split(),
+	split("-"),
 	step(wb(cps)("<E Turn down")),
 	"Start race",
 	wb(cps)("<S no turn"),
@@ -42,6 +42,6 @@ export const KorshOhu = [
 	step(wb(cps)("S> Turn")),
 	Korok("W35", "Balloon", "Between arms. Shoot midair"),
 	"Do Puzzle",
-	Shrine("Korsh O'hu"),
-	split(),
+	ShrineBlessing("Korsh O'hu"),
+	split("-"),
 ];

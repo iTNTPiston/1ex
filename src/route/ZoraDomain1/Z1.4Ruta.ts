@@ -44,17 +44,17 @@ export const Ruta = [
 	Shop("All Arrows"),
 	itm("4 Lotus Seeds"),
 	step(Shrine("Ne'ez Yohma")),
-	split(),
+	split("-"),
     
 	detail(
 		"Fish Drama",
 		"Fish Drama + Ruta Entry same as AD. If you miss the prefire first shot you can still one cycle with the stamina you have."),
 	Icon("ruta-memory", "Mipha Memory"),
-	split(),
+	split("-"),
     
 	"2 WB to Sidon",
 	Icon("ruta-enter", "Enter Ruta"),
-	split(),
+	split("-"),
 
 	detail(
 		important("EQUIP PHANTOM 3"),
@@ -62,5 +62,5 @@ export const Ruta = [
 	important("EQUIP ", rne("CYONIS")),
 	"NO SNAP",
 	Icon("ruta-done", "Waterblight 1", "7 BA Headshots (8 safe)"),
-	split(),
+	split("-"),
 ];

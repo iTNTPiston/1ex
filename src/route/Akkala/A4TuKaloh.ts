@@ -1,4 +1,4 @@
-import { Boss, ChestSpecial, detail, Korok, Shop, Shrine, Snap, split, step } from "../create";
+import { Boss, ChestSpecial, detail, Korok, Shop, ShrineBlessing, Snap, split, step } from "../create";
 import { cps, gale, important, lcn, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -49,6 +49,6 @@ export const TuKaloh = [
 	gale("3"),
 	Korok("A16", "Confetti"),
 	step(wb(cps)("N> TS")),
-	Shrine("Tu Ka'loh"),
-	split(),
+	ShrineBlessing("Tu Ka'loh"),
+	split("-"),
 ];

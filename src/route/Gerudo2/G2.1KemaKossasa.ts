@@ -1,4 +1,4 @@
-import { detail, Discover, Korok, Shrine, ShrineDLC, split, step, VariableChange } from "../create";
+import { detail, Discover, Korok, ShrineDLC, ShrineDoubleSword, split, step, VariableChange } from "../create";
 import { cps, emy, gale, important, itm, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -11,7 +11,7 @@ export const KemaKossasa = [
 	itm("14 Wood"),
 	important("DO NOT LOOK BACK"),
 	ShrineDLC("Kihiro Moh"),
-	split(),
+	split("-"),
 
 	step(itm("CHECK 12 Bananas"), " in hideout"),
 	"Throw orb in hole",
@@ -33,6 +33,6 @@ export const KemaKossasa = [
 		txt("tail: ", v("tail"), "/45")),
 	step(wb(cps)("<N + W midair")),
 	Korok("G07", "Ice Block", "2 Fire Arrows"),
-	Shrine("Kema Kossasa"),
-	split(),    
+	ShrineDoubleSword("Kema Kossasa"),
+	split("-"),    
 ];

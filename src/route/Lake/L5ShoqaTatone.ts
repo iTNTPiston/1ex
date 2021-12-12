@@ -1,4 +1,4 @@
-import { Korok, Shrine, split, step } from "../create";
+import { Korok, ShrineDoubleSword, split, step } from "../create";
 import { cps } from "../types";
 import { wb } from "../windbomb";
 
@@ -26,6 +26,6 @@ export const ShoqaTatone = [
 	step(cps("W")),
 	Korok("L87", "Lift Rock", "Top of rock"),
 	"Run down, do quest",
-	Shrine("Shoqa Tatone"),
-	split(),
+	ShrineDoubleSword("Shoqa Tatone"),
+	split("-"),
 ];

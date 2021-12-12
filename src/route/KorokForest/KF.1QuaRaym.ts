@@ -22,8 +22,8 @@ export const QuaRaym = [
 	step(wb(cps)("<W turn")," to shrine cave"),
 	"Do Quest", 
 	Shrine("Kayra Mah"),
-	split(),
+	split("-"),
 	step(wb(cps)("S> TS")),
 	Shrine("Qua Raym"),
-	split(),
+	split("-"),
 ];

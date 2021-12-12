@@ -27,7 +27,7 @@ export const KaamYatak = [
 	Korok("C82", "Light Chase"),
 	step(wb(cps)("N> Turn")),
 	Memory("Lake Kolomo"),
-	split(),
+	split("-"),
 
 	step(wb(cps)("<S")),
 	Korok("C83", "Balloon", "Rotate to the left"),
@@ -52,5 +52,5 @@ export const KaamYatak = [
 	ChestSpecial("Tingle's Hood"),
 	step(cps("NW")),
 	Shrine("Kaam Ya'tak"),
-	split(),
+	split("-"),
 ];

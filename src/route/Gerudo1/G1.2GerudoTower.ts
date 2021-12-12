@@ -1,5 +1,5 @@
 import { Equipment, split, step, Tower } from "../create";
-import { cps, gale, itm, txt } from "../types";
+import { cps, gale, itm, txt, v } from "../types";
 
 export const GerudoTower = [
 	step(cps("<W"), " TS to yiga front door"),
@@ -9,5 +9,5 @@ export const GerudoTower = [
 	step(gale("1")),
 	txt(cps("S"), " + ", cps("<S"), " turn midair"),
 	Tower("Gerudo Tower"),
-	split(),
+	split("{1 | 0", v("srn"), " SRN | 0", v("krk"), " KRK}"),
 ];

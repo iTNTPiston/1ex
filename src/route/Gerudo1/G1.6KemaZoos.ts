@@ -27,7 +27,7 @@ export const KemaZoos = [
 	Korok("W09", "Confetti", "Highest fin on skeleton"),
 	step("Drop down"),
 	Shrine("Kema Zoos"),
-	split(),
+	split("-"),
 	Warp("Hateno Tech Lab"),
-	split(),
+	split("-"),
 ];

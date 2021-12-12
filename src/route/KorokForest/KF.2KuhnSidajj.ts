@@ -1,4 +1,4 @@
-import { step, Korok, Tower, split, Discover, IconGeneric, detail, Shrine, indent, VariableChange, Equipment, Shop, Icon, MakeTOD, ChestSpecial } from "../create";
+import { step, Korok, Tower, split, Discover, IconGeneric, detail, Shrine, indent, VariableChange, Equipment, Shop, Icon, MakeTOD, ChestSpecial, ShrineBlessing } from "../create";
 import { cps, gale, important, itm, lcn, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -11,12 +11,12 @@ export const KuhnSidajj = [
 	Korok("K31", "Lift Rock", "Top of scaffolding"),
 	step(gale("3")," + midairs"),
 	Tower("Woodland Tower"),
-	split(),
+	split("-"),
 
 	step(MakeTOD("9pm", "Make Night for BM")),
 	wb(cps)("<<N Turn"),
 	ChestSpecial("Korok Mask"),
-	step(wb(cps)("NW + surf to forest")),
+	step(wb(cps)("NW, surf to forest")),
 	Discover("Korok Forest"),
 	detail(
 		IconGeneric("hestu", npc("Hestu"),0,-134, "Bow - Weapons - Shields"),
@@ -24,14 +24,14 @@ export const KuhnSidajj = [
 	txt("Activate ", lcn("Keo Ruug")),
 	"Do shrine if tight on BM",
 	step(wb(cps)("E start test of wood")),
-	Shrine("Maag Halan"),
-	split(),
+	ShrineBlessing("Maag Halan"),
+	split("-"),
 
 	detail(
 		"Void out",
 		"Warp if you are tight on BM"),
 	Shrine("Keo Ruug", "Skip BM"),
-	split(),
+	split("-"),
 
 	step("Run + WB to ", npc("Okai")),
 	"Start Escort",
@@ -63,18 +63,18 @@ export const KuhnSidajj = [
 	important("EQUIP STEALTH 3"),
 	"Farm Frog/Cricket/Wood",
 	"Scan rushrooms",
-	Shrine("Daag Chokah"),
-	split(),
+	ShrineBlessing("Daag Chokah"),
+	split("-"),
 
 	"Void out",
 	detail(
 		Icon("tots", "Trial of the Sword"),
 		"Grab Silent Princesses if they respawn after TOTS"),
-	split(),
+	split("-"),
 
 	step("Run to quest guy"),
 	wb(cps)("<W Turn to lake"),
 	Equipment("Rusty Shield", "Keep for korok"),
-	Shrine("Kuhn Sidajj"),
-	split(),
+	ShrineBlessing("Kuhn Sidajj"),
+	split("-"),
 ];

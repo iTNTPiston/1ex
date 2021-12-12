@@ -1,4 +1,4 @@
-import { detail, Discover, Korok, MakeTOD, Shrine, split, step, Warp } from "../create";
+import { detail, Discover, Korok, MakeTOD, Shrine, ShrineDoubleSword, split, step, Warp } from "../create";
 import { cps, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -12,13 +12,13 @@ export const ShaeLoya = [
 	step(wb(cps)("W + SW midair")),
 	MakeTOD("9pm", "Make Night"),
 	detail(
-		Shrine("Mijah Rokee"),
+		ShrineDoubleSword("Mijah Rokee"),
 		"If missed BM: place travel medallion on pedestal and warp to Da Hesho for Tarry Town visits"),
-	split(),
+	split("-"),
 
 	step(cps("<N")),
 	Shrine("Shae Loya"),
-	split(),
+	split("-"),
 
 	step(MakeTOD("5am", "Make Morning", "Twice for Dinraal")),
 	"SQ to bridge",
@@ -34,5 +34,5 @@ export const ShaeLoya = [
 	wb(cps)("N midair"),
 	Korok("R12", "Confetti", "Top of flagpole"),
 	Warp("SOR 28.52%", txt("Check ", v("krk"), " Koroks")),
-	split(),
+	split("-"),
 ];

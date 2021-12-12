@@ -49,6 +49,6 @@ export const LakeTower = [
 		txt("Knock down with blizzard rod. ", v("rushroom"), "/55")),
 	step(cps("W"), " + ", gale("2")),
 	Tower("Lake Tower", "41.48%"),
-	split(),
+	split("{4 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
     
 ];

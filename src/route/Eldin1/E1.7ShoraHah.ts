@@ -21,7 +21,7 @@ export const ShoraHah = [
 	txt("Talk to ", npc("Bludo")),
 	step(wb(cps)("N> to shrine")),
 	Shrine("Shae Mo'sah"),
-	split(),
+	split("-"),
 
 	step(wb(cps)("<N turn rescue Yunobo")),
 	Chest("10 Ice Arrows"),
@@ -29,5 +29,5 @@ export const ShoraHah = [
 	Korok("E08", "Lift Rock", "Top of northern mine"),
 	step("SQ to shrine"),
 	Shrine("Shora Hah"),
-	split(),
+	split("-"),
 ];

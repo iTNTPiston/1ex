@@ -12,7 +12,7 @@ export const Rito1 = [
 		txt(v("silentPrincess"), "/19")),
 	txt("Run to ",lcn("Mogg Latan")),
 	Shrine("Mogg Latan"),
-	split(),
+	split("-"),
 
 	step(Korok("R60", "Lift Rock Blocked", "Under leaves")),
 	step("BLSS to Rito"),
@@ -21,7 +21,7 @@ export const Rito1 = [
 		"If you have full phantom/phantom ganon set equipped, you won't be able to buy in shops. This is true for all shops."),
 	step("Talk to ",npc("Chief")," + ",npc("Wife")),
 	Icon("medoh-memory", "Revali Memory"),
-	split(),
+	split("-"),
     
 	detail(
 		Shop("Drop down to shop", "Buy everything"),
@@ -34,7 +34,7 @@ export const Rito1 = [
 		"2 Trouts or 3 sunshroom for cold protection, or 2 shroom + 2 peppers"),
 	indent(sm("Also keep 3-4 sunshrooms")),
 	Icon("medoh-enter", "Enter Medoh"),
-	split(),
+	split("-"),
 
 	"Chests inside Medoh", 
 	detail(
@@ -47,7 +47,7 @@ export const Rito1 = [
 		indent("3 BA each phase"),
 		"Glide toward center before shooting so he doesn't warp in phase 2. If you are too close you can shoot 4 normal arrows."),
 	Icon("medoh-done", "Windblight"),
-	split(),
+	split("-"),
 	important("UNEQUIP PHANTOM"),
 	step("Get 2 ",itm("Cold Darners")),
 	Equipment("Great Eagle Bow", "Finish quest"),
@@ -56,7 +56,7 @@ export const Rito1 = [
 		step(Chest("Ancient Core", "Skip if 2 Cores")),
 		"2-5/3 Cores"),
 	Shrine("Akh Va'quot"),
-	split(),
+	split("-"),
 
 	step(cps("<W")," Turn to ",npc("Voo Lota Girl")),
 	step(cps("E"), " TS to ",lcn("Rito Stable")),
@@ -71,6 +71,6 @@ export const Rito1 = [
 	step(cps("E>>>"), " No Turn"),
 	Korok("T19", "Lily Pads", "No Drown"),
 	step(Warp("Keh Namut")),
-	split(),
+	split("-"),
 ];
 

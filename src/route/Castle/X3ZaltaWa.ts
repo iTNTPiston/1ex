@@ -50,7 +50,7 @@ export const CastleSecondHalf = [
 		txt(v("silentPrincess"), "/16")),
 	Snap(emy("Guardian Skywatcher"), "SNAP Quest"),
 	Memory("Hyrule Castle"),
-	split(),
+	split("-"),
 
 	step("Run"),
 	Korok("X09", "Lift Rock"),
@@ -90,7 +90,7 @@ export const ZaltaWa = [
 	step(wb(cps)("S> Turn")),
 	Korok("C35", "Lift Rock", "On pillar"),
 	Memory("Sacred Grounds"),
-	split(),
+	split("-"),
 
 	step(wb(cps)("S>> Turn")),
 	Korok("C43", "Acorn Flying"),
@@ -134,5 +134,5 @@ export const ZaltaWa = [
 	Korok("R27", "Acorn", "Hanging from bridge"),
 	step(cps("W")),
 	Shrine("Zalta Wa", "Skip BM"),
-	split(),
+	split("-"),
 ];

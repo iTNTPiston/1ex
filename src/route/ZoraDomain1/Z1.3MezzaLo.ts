@@ -13,5 +13,5 @@ export const MezzaLo = [
 	step(cps("E")),
 	Korok("N03", "Lift Rock (Tree)", "behind shrine"),
 	Shrine("Mezza Lo"),
-	split(),
+	split("-"),
 ];

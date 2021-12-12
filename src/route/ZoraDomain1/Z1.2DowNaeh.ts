@@ -19,7 +19,7 @@ export const DowNaeh = [
 	step(cps("W>>"), " Turn"),
 	important("EQUIP PHANTOM 3"),
 	Memory("Lanayru Road"),
-	split(),
+	split("-"),
 
 	step(cps("S"), " + ", cps("<N"), " + ", cps("<N"), " Turn"),
 	VariableSet({fury: 2}),
@@ -43,5 +43,5 @@ export const DowNaeh = [
 	important("CHECK 4H 2F 2C 1S"),
 	step(cps("S")),
 	Shrine("Dow Na'eh"),
-	split(),
+	split("-"),
 ];

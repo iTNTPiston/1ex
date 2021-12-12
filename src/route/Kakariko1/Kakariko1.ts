@@ -11,13 +11,13 @@ export const Kakariko1 = [
 		step(Chest("Ancient Core", "Skip if 4 cores")),
 		"3-5/3 Cores"),
 	Shrine("Kaya Wan", "Pick up parts if needed"),
-	split(),
+	split("-"),
     
 	step(cps("E>"), " TS to ", lcn("Daka Tuss")),
 	detail(
 		Shrine("Daka Tuss"),
 		"Bombs do quarter heart dmg with 2 pieces of phantom armor"),
-	split(),
+	split("-"),
 
 	step(cps("S"),"+",cps("E>>>"),"+",cps("S")," midair to Impa"),
 

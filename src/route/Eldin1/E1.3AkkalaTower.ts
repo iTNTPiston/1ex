@@ -7,7 +7,7 @@ export const AkkalaTower = [
 	Korok("E44", "Lift Rock", "Next to trees"),
 	step(cps("N.")),
 	Shrine("Mo'a Keet"),
-	split(),
+	split("-"),
 
 	step(wb(cps)(".W Turn to stable")),
 	txt("Talk to ", npc("Guy in front of paint")),
@@ -39,5 +39,5 @@ export const AkkalaTower = [
 	Korok("A42", "Lift Rock", "Next to cannons"),
 	step(gale("3")," + ", wb(cps)("N midair")),
 	Tower("Akkala Tower"),
-	split(),
+	split("-"),
 ];

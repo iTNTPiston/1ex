@@ -3,19 +3,26 @@ import "./App.css";
 import { InstructionTable } from "./render";
 import ImageDirectionClock from "./img/direction-clock.png";
 import ImageDirectionCompass from "./img/direction-compass.png";
+import ImageMasterCycle from "./img/master-cycle.png";
+import ImageTower from "./img/tower.png";
 import { InstructionEngine } from "./route/engine";
 import { ChangeData, InstructionLike } from "./route/types";
 import { ChangeLog } from "./render/ChangLog";
 import queryString from "query-string";
+import { createLiveSplitFile } from "./data/livesplit";
+import { saveAs } from "./external/FileSaver";
 
 type Props = {
 	config: InstructionLike[],
 	changelog: ChangeData[],
+	project: string,
 }
 
 type State ={
 	frozenImage?: string,
+	showMenu: boolean,
 	directionMode: string,
+	showSplitOnly: boolean,
 	showChangeLog: boolean,
 }
 
@@ -25,7 +32,9 @@ class App extends React.Component<Props, State> {
 	constructor(props: Props){
 		super(props);
 		this.state = {
+			showMenu: false,
 			directionMode: "clock",
+			showSplitOnly: false,
 			showChangeLog: false,
 		};
 	}
@@ -58,9 +67,33 @@ class App extends React.Component<Props, State> {
 		});
 	}
 
-	render(): JSX.Element{
-
+	renderInstructionTable(): JSX.Element {
 		const instructions = engine.compute(this.props.config);
+		let filteredInstructions;
+		if(this.state.showSplitOnly){
+			filteredInstructions = instructions.filter((_, i)=>{
+				if(i >= instructions.length - 1){
+					return false;
+				}
+				return instructions[i+1].isSplit;
+			});
+		}else{
+			filteredInstructions = instructions;
+		}
+
+		return <InstructionTable 
+			instructions={filteredInstructions} 
+			directionMode ={this.state.directionMode}
+			setFrozenImage={(img)=>this.setState({frozenImage: img})}/>;
+	}
+
+	downloadSplits(): void {
+		const fileContent = createLiveSplitFile(engine.compute(this.props.config));
+		const latestVersion = this.props.changelog[0].version;
+		saveAs(fileContent, `${this.props.project}-${latestVersion}.lss`);
+	}
+
+	render(): JSX.Element{
 
 		return <>
 			{this.state.frozenImage &&
@@ -68,15 +101,26 @@ class App extends React.Component<Props, State> {
 				<img src={this.state.frozenImage} alt="Frozen Route Image" title="Click to hide" width="100%" height="100%"/>
 			</div>}
 			<div className="fixed-control">
-				<button onClick={()=>this.toggleDirectionMode()}>
-					<img src={this.state.directionMode === "clock" ? ImageDirectionClock : ImageDirectionCompass} height="48" width="auto" alt="Direction" title="Toggle Direction Mode"/>
-				</button>
+				<button onClick={()=>this.setState({showMenu: !this.state.showMenu})}>Toggle Menu</button>
+				<br/>
+				{this.state.showMenu &&
+					<>
+						<button onClick={()=>this.toggleDirectionMode()}>
+							<img src={this.state.directionMode === "clock" ? ImageDirectionClock : ImageDirectionCompass} height="48" width="auto" alt="Direction" title="Toggle Direction Mode"/>
+						</button>
+						<br></br>
+						<button onClick={()=>this.setState({showSplitOnly: !this.state.showSplitOnly})}>
+							<img src={ImageMasterCycle} height="48" width="auto" alt="Split Only" title="Toggle Show Split Only"/>
+						</button>
+						<br></br>
+						<button onClick={()=>this.downloadSplits()}>
+							<img src={ImageTower} height="48" width="auto" alt="Download Splits" title="Download Splits"/>
+						</button>
+					</>
+				}
 			</div>
 			{this.state.showChangeLog && <ChangeLog log={this.props.changelog} close={()=>{this.setState({showChangeLog: false});}} />}
-			<InstructionTable 
-				instructions={instructions} 
-				directionMode ={this.state.directionMode}
-				setFrozenImage={(img)=>this.setState({frozenImage: img})}/>
+			{this.renderInstructionTable()}
 		</>;
 	}
 }

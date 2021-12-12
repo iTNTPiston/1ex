@@ -48,5 +48,5 @@ export const YaNaga = [
 	Korok("L25", "Confetti", "Top of tree"),
 	step(cps("SE")),
 	Shrine("Ya Naga"),
-	split(),
+	split("-"),
 ];

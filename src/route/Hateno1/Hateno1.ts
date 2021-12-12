@@ -1,4 +1,4 @@
-import { Cook, detail, Equipment, image, indent, Korok, Section, Shrine, split, step, Tower } from "../create";
+import { Cook, detail, Equipment, Icon, image, indent, Korok, Section, Shrine, split, step, Tower } from "../create";
 import { cps, important, itm, npc, rne, sm, txt } from "../types";
 
 import Hateno1Image from "./Hateno1.png";
@@ -14,8 +14,8 @@ export const Hateno1 = [
 	detail(
 		"Smuggle flame to lab",
 		"Get a second torch in lab for farosh in case the torch despawn when farming. Purah all first options. Talk to her until all upgraded (SNAP first)"),
-	"Camera and upgrades",
-	split(),
+	Icon("camera-plus", "Camera Upgraded"),
+	split("-"),
 
 	step(cps("<E"), " Turn WB"),
 	Korok("N48", "Lily Pads", "Drown"),
@@ -38,7 +38,7 @@ export const Hateno1 = [
 		important("SAVE BEFORE EXIT"),
 		"Save so that the next autosave does not override the autosave inside Shrine."),
 	Shrine("Myahm Agana"),
-	split(),
+	split("-"),
     
 	detail(
 		step("SQ WB to statue"),
@@ -81,5 +81,5 @@ export const Hateno1 = [
 	Korok("N49", "Acorn", "In tree. Shoot from far"),
 	step(cps("N"), " + ", cps("N"), " midair to tower"),
 	Tower("Hateno Tower"),
-	split(),
+	split("-"),
 ];

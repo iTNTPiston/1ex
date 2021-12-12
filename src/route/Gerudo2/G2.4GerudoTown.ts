@@ -1,4 +1,4 @@
-import { step, Korok, Boss, Shrine, split, VariableChange, detail, Snap } from "../create";
+import { step, Korok, Boss, Shrine, split, VariableChange, detail, Snap, ShrineBlessing } from "../create";
 import { cps, important, itm, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -10,8 +10,8 @@ export const GerudoTown2 = [
 	Boss("Molduga", "RGC Spins"),
 	"Shoot Torches",
 	itm("Molduga Gut"),
-	Shrine("Tho Kayu"),
-	split(),
+	ShrineBlessing("Tho Kayu"),
+	split("-"),
     
 	step(wb(cps)("<S Turn to molduga")),
 	Boss("Molduga", "RGC Spins"),
@@ -28,7 +28,7 @@ export const GerudoTown2 = [
 	detail(
 		Shrine("Hawa Koth"),
 		"Snap guardian if you haven't"),
-	split(),
+	split("-"),
 
 	step("Give Durian to woman"),
 	wb(cps)("<E Turn"),
@@ -52,7 +52,7 @@ export const GerudoTown2 = [
 	detail(
 		important("EQUIP GERUDO + BOOTS"),
 		"Equip Snow Boots so it automatically switches to sand boots"),
-	Shrine("Raqa Zunzo"),
-	split(),
+	ShrineBlessing("Raqa Zunzo"),
+	split("-"),
 
 ];

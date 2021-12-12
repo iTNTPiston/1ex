@@ -20,7 +20,7 @@ export const RotaOoh = [
 	Korok("R74", "Lift Rock"),
 	step(gale("1"), " + ", wb(cps)("<N midair")),
 	Memory("Sanidin Park"),
-	split(),
+	split("-"),
     
 	step("SQ to white horse"),
 	"Ride to tree",
@@ -41,5 +41,5 @@ export const RotaOoh = [
 	Korok("C72", "Acorn Flying", "BT"),
 	step(wb(cps)("<W to shrine")),
 	Shrine("Rota Ooh"),
-	split(),
+	split("-"),
 ];

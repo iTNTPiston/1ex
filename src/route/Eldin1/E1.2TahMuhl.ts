@@ -40,5 +40,5 @@ export const TahMuhl = [
 	Korok("E45", "Race", "ordinal DEFUSE"),
 	step(wb(cps)("E + N midair")),
 	Shrine("Tah Muhl"),
-	split()
+	split("-")
 ];

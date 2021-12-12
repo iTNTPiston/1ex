@@ -38,6 +38,27 @@ export const MainRoute = [
 
 export const Change: ChangeData[] = [
 	{
+		version: "0.5.1",
+		date: "2021-12-11",
+		changes: [
+			"Add \"Show only splits\" and \"Download splits\" functionalities",
+			"Add various shrine icons"
+		]
+	},
+	{
+		version: "0.5.0",
+		date: "2021-12-06",
+		changes: [
+			"Changes to existing sections",
+			[
+				"Move the 2 block puzzles after Spring of Power to before. Better BM timing (if there is BM)",
+				"Use phantom armor for after lizalfos sneakstrike in the beginning of Lake section",
+				"Fix directions",
+				"Update Lake with Fury+ Strats"
+			],
+		]
+	},
+	{
 		version: "0.4.0",
 		date: "2021-12-06",
 		changes: [

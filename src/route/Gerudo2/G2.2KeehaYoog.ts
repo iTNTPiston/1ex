@@ -1,4 +1,4 @@
-import { detail, Korok, Shrine, Snap, split, step } from "../create";
+import { detail, Korok, ShrineBlessing, Snap, split, step } from "../create";
 import { cps, gale } from "../types";
 import { wb } from "../windbomb";
 
@@ -23,6 +23,6 @@ export const KeehaYoog = [
 	step(wb(cps)("E Turn + <S Turn")),
 	Korok("G06", "Lift Rock", "On wood platform"),
 	step(wb(cps)("W> to updraft")),
-	Shrine("Keeha Yoog"),
-	split(),
+	ShrineBlessing("Keeha Yoog"),
+	split("-"),
 ];

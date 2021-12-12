@@ -1,5 +1,5 @@
-import { detail, Korok, MakeTOD, Shrine, Snap, split, step } from "../create";
-import { cps, emy, gale, important, itm, txt } from "../types";
+import { detail, Korok, MakeTOD, ShrineBlessing, Snap, split, step } from "../create";
+import { cps, emy, gale, important, itm, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const Dinraal = [
@@ -45,6 +45,6 @@ export const GoraeTorr = [
 	Korok("E05", "Rock Circle", "Pillars around shrine"),
 	"Start Gut Check", 
 	txt(gale("1"), " + midair"),
-	Shrine("Gorae Torr (25%)"),
-	split(),
+	ShrineBlessing("Gorae Torr"),
+	split("{2 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
 ];

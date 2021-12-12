@@ -38,5 +38,5 @@ export const KeiveTala = [
 	detail(
 		ShrineDLC("Keive Tala"),
 		lnk("https://twitter.com/i_piston/status/1466279954484641794")),
-	split(),
+	split("-"),
 ];

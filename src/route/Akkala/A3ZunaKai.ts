@@ -1,4 +1,4 @@
-import { Boss, Cook, detail, Korok, MakeTOD, Shrine, split, step } from "../create";
+import { Boss, Cook, detail, Korok, MakeTOD, ShrineBlessing, split, step } from "../create";
 import { cps, fury, important, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -18,6 +18,6 @@ export const ZunaKai = [
 	"GG rock",
 	Korok("A02", "Rock Circle"),
 	step(wb(cps)("S Turn to shrine")),
-	Shrine("Zuna Kai"),
-	split(),
+	ShrineBlessing("Zuna Kai"),
+	split("-"),
 ];

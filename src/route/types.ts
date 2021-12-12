@@ -181,3 +181,17 @@ export const v = (t: string):TextBlock => textHelper([t], "color-variable");
 export const important= (...t: TextLike[]):TextBlock => textHelper(t, "color-important");
 export const gale = (...t: TextLike[]):TextBlock => textHelper(["GALE ", ...t], "color-gale");
 export const fury = (...t: TextLike[]):TextBlock => textHelper(["FURY ", ...t], "color-fury");
+
+export const renderTextBlock = (text: TextBlock, variables: {[key:string]: number}): string => {
+	if(Array.isArray(text)){
+		return text.map(t=>renderText(t,variables)).join("");
+	}
+	return renderText(text, variables);
+};
+
+const renderText = (text: Text, variables: {[key:string]: number}): string => {
+	if(text.colorClass === "color-variable"){
+		return String(variables[text.content]);
+	}
+	return text.content;
+};

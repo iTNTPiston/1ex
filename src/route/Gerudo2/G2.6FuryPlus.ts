@@ -1,4 +1,4 @@
-import { step, Korok, detail, Shrine, split, Warp, Icon } from "../create";
+import { step, Korok, detail, split, Warp, Icon, ShrineBlessing } from "../create";
 import { cps, important, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -8,8 +8,8 @@ export const FuryPlus = [
 	detail(
 		step(wb(cps)("W> Turn")),
 		"Turn before placing square to acommodate wind"),
-	Shrine("Misae Suma"),
-	split(),
+	ShrineBlessing("Misae Suma"),
+	split("-"),
 	step(wb(cps)("W DEFUSE")),
 	Korok("W62", "Rock Circle"),
 	step(wb(cps)(".W Turn")),
@@ -18,5 +18,5 @@ export const FuryPlus = [
 	split(),
 	important("EQUIP STASIS+"),
 	Icon("naboris-plus", "Thunderblight 2"),
-	split(),
+	split("-"),
 ];

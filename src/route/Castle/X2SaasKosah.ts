@@ -1,4 +1,4 @@
-import { step, Korok, Chest, Boss, VariableChange, detail, MakeTOD, Discover, Shrine, split } from "../create";
+import { step, Korok, Chest, Boss, VariableChange, detail, MakeTOD, Discover, split, ShrineDoubleSword } from "../create";
 import { cps, emy, fury, itm, lcn, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -27,6 +27,6 @@ export const SaasKosah = [
 	Discover("King's Study"),
 	txt("Run to ", lcn("Docks")),
 	MakeTOD("9pm", "Make Night if <9PM", "For Blood Moon"),
-	Shrine("Saas Ko'sah"),
-	split(),
+	ShrineDoubleSword("Saas Ko'sah"),
+	split("-"),
 ];

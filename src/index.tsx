@@ -6,7 +6,7 @@ import {MainRoute, Change} from "./route/config";
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App config={MainRoute} changelog={Change}/>
+		<App project="1EX" config={MainRoute} changelog={Change}/>
 	</React.StrictMode>,
 	document.getElementById("root")
 );

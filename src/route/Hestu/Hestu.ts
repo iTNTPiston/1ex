@@ -1,4 +1,4 @@
-import { Chest, detail, Discover, Equipment, IconGeneric, image, Korok, Section, Shop, Shrine, split, step, VariableChange, Warp } from "../create";
+import { Chest, detail, Discover, Equipment, IconGeneric, image, Korok, Section, Shop, ShrineSword, split, step, VariableChange, Warp } from "../create";
 import { cps, important, itm, npc, rne, txt, v } from "../types";
 
 import HestuImage from "./Hestu.png";
@@ -6,8 +6,8 @@ import HestuImage from "./Hestu.png";
 export const Hestu = [
 	Section("HESTU"),
 	image(HestuImage),
-	Shrine("Ta'loh Naeg"),
-	split(),
+	ShrineSword("Ta'loh Naeg"),
+	split("-"),
 	
 	detail(
 		step(txt("Talk to ",npc("Pumpkin Man"))),
@@ -37,7 +37,7 @@ export const Hestu = [
 	step(cps("NW")),
 	Korok("D18", "Lily Pads", "No Drown"),
 	Warp("Kaya Wan", txt("Check ", v("krk"), " Koroks")),
-	split(),
+	split("-"),
 
 	step("Surf down and ", rne("mag"), " chest out"),
 	detail(
@@ -65,5 +65,5 @@ export const Hestu = [
 		itm(">30 Lotus"),
 		"RGC cut legs + RC kill guardian if need springs"),
 	Warp("Mogg Latan"),
-	split(),
+	split("-"),
 ];

@@ -20,5 +20,5 @@ export const GerudoTown = [
 	txt(cps(".W"), " Turn to skeleton"),
 	Korok("W37", "Flower Chase", "Right side of skeleton"),
 	Warp("Kuh Takkar"),
-	split(),
+	split("-"),
 ];

@@ -1,4 +1,4 @@
-import { ChestSpecial, detail, Korok, MakeTOD, Memory, Shrine, split, step } from "../create";
+import { ChestSpecial, detail, Korok, MakeTOD, Memory, Shrine, ShrineDoubleSword, split, step } from "../create";
 import { txt, lnk, cps, npc, important } from "../types";
 import { wb } from "../windbomb";
 
@@ -24,7 +24,7 @@ export const TutsuwaNima = [
 	Korok("A23", "Rock Circle"),
 	step(wb(cps)("W")),
 	Shrine("Katosa Aug"),
-	split(),
+	split("-"),
 
 	detail(
 		MakeTOD("9pm", "Make Night", "For Blood Moon"),
@@ -43,11 +43,15 @@ export const TutsuwaNima = [
 	Korok("A18", "Acorn in Log", "Shoot midair"),
 	step(cps("S")),
 	Korok("A21", "Lift Rock", "Side of spring"),
-	"Drop down to mem",
+	step(cps("S")),
+	Korok("A26", "Block Puzzle"),
+	step(wb(cps)("W> Turn")),
+	Korok("A20", "Block Puzzle"),
+	step(wb(cps)("<W Turn")),
 	Memory("Spring of Power"),
-	split(),
+	split("-"),
 
 	"Dupe scale",
-	Shrine("Tutsuwa Nima", "23:30 Enter for BM"),
-	split(),
+	ShrineDoubleSword("Tutsuwa Nima", "23:30 Enter for BM"),
+	split("-"),
 ];

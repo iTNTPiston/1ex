@@ -1,4 +1,4 @@
-import { Chest, ChestSpecial, detail, Equipment, image, indent, Korok, Section, step, VariableChange, Warp } from "../create";
+import { Chest, ChestSpecial, detail, Equipment, image, indent, Korok, Section, split, step, VariableChange, Warp } from "../create";
 import { txt, cps, lcn, emy, itm, important, lnk, v } from "../types";
 import RouteImage from "./RupeePrinting.png";
 
@@ -82,4 +82,5 @@ export const RupeePrinting = [
 		"Use controller swap method",
 		"After autosave, press button on another paired controller. Press A on the controller to use, then wait for parts to stop and immediately warp"),
 	Warp("Keh Namut", "aka Cryonis"),
+	split("-"),
 ];

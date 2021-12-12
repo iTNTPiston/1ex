@@ -19,10 +19,10 @@ export const DarkBeast = [
 	"SKEW BOUNCE",
 	Snap(emy("Calamity"), "SNAP Elite"),
 	Icon("calamity", "Calamity"),
-	split(),
+	split("-"),
 
 	Snap(emy("Dark Beast"), "SNAP Elite"),
 	important("Clear Skew + Ragdoll"),
 	Icon("ganon", "Dark Beast"),
-	split(),
+	split("-"),
 ];

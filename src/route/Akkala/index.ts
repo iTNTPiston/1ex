@@ -17,7 +17,6 @@ export const Akkala = [
 	...Dinraal,
 	image(Akkala2Image),
 	...GoraeTorr,
-	"25% Done",
 	...ZunaKai,
 	...TuKaloh,
 	...TutsuwaNima,

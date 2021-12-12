@@ -1,4 +1,4 @@
-import { Boss, Chest, detail, Korok, MakeTOD, Shrine, split, step } from "../create";
+import { Boss, Chest, detail, Korok, MakeTOD, ShrineBlessing, split, step } from "../create";
 import { cps, emy, fury, gale, important, itm, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -28,6 +28,6 @@ export const KetohWawai = [
 	step(wb(cps)("E + E midairs")),
 	Boss("Blue Hinox", "6 Spin Hits SLAM"),
 	Chest("Ancient Core", "In shrine, get if 1 core"),
-	Shrine("Ketoh Wawai"),
-	split(),
+	ShrineBlessing("Ketoh Wawai"),
+	split("-"),
 ];

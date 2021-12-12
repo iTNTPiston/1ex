@@ -41,7 +41,7 @@ export const Faron1  = [
 		"Can pick up a torch if have no torch"),
 	step(Chest("Ancient Core", "Skip if have 1 core")),
 	Shrine("Shai Utoh"),
-	split(),
+	split("-"),
 
 	detail(
 		step(MakeTOD("5am", "Make Morning", "for beetle")),
@@ -58,5 +58,5 @@ export const Faron1  = [
 	ChestSpecial("Phantom Ganon Armor", "below bridge, no equip"),
 	Korok("F23", "Flower Chase"),
 	Warp("Kakariko"),
-	split(),
+	split("-"),
 ];

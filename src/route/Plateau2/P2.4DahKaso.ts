@@ -1,4 +1,4 @@
-import { step, Korok, Equipment, Shrine, split, Boss, Warp, detail } from "../create";
+import { step, Korok, Equipment, split, Boss, Warp, detail, ShrineSword } from "../create";
 import { cps, fury, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -18,8 +18,8 @@ export const DahKaso = [
 	step(cps(".S")),
 	Korok("C89", "Basketball"),
 	step(wb(cps)("W>>> Ordinal Turn")),
-	Shrine("Dah Kaso"),
-	split(),
+	ShrineSword("Dah Kaso"),
+	split("-"),
 
 	step(cps("S")),
 	detail(

@@ -24,5 +24,5 @@ export const SahDahaj = [
 	Korok("E39", "Basketball", "no GG throw"),
 	step(wb(cps)(".N no turn")),
 	Shrine("Sah Dahaj"),
-	split(),
+	split("-"),
 ];

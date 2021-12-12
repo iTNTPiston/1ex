@@ -8,7 +8,7 @@ export const IshtoSoh = [
 	"SQ DEFUSE",
 	Korok("L86", "Lift Rock Blocked", "Under Boulder"),
 	step(wb(cps)("<N + NE midair")),
-	Boss("Stalnox", txt("3-5 Hits ", fury("3"), " + MS")),
+	Boss("Stalnox", txt("GEB + ", fury("1-3"))),
 	step(wb(cps)("<W to archery")),
 	"Summon horse",
 	detail(
@@ -31,12 +31,12 @@ export const IshtoSoh = [
 	step("Drop down ", wb(cps)("W midair")),
 	Korok("L80", "Race", "SQ DEFUSE"),
 	step(wb(cps)("W> Turn + W midair")),
-	Boss("Stalnox", "6BA + Headshot + MS"),
+	Boss("Stalnox", txt("3-5 Hits ", fury("1"))),
 	step(gale("1"), " ", wb(cps)(".N midair")),
 	Korok("L68", "Light Chase"),
 	step("cryo ", wb(cps)("NW")),
 	Korok("L67", "Balloon"),
 	step(wb(cps)("E Turn")),
-	Shrine("Ishto Soh"),//52 seeds 50 shrines
-	split(),
+	Shrine("Ishto Soh"),
+	split("-"),
 ];
