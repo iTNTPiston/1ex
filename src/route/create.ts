@@ -1,9 +1,13 @@
-import { Instruction, stringToText, useInstructionLike, InstructionLike, instructionLikeToInstruction, txt, TextLike, itm, npc, lcn, useMultiText, bss, v } from "./types";
+import { Instruction, stringToText, useInstructionLike, InstructionLike, instructionLikeToInstruction, txt, TextLike, itm, npc, lcn, useMultiText, bss, v, AbilityUsage } from "./types";
 
 export const unindent = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, unindentStep: true})));
 export const indent = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, indentIcon: true})));
 export const step = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, asStep: true})));
 export const split = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, asSplit: true})));
+
+export const ability = (i: InstructionLike, abilityUsage:AbilityUsage): Instruction=>{
+	return {...instructionLikeToInstruction(i), ability: abilityUsage};
+};
 
 export const detail = (i: InstructionLike, detail:TextLike): Instruction=>{
 	return {...instructionLikeToInstruction(i), detail:txt(detail)};
@@ -34,7 +38,7 @@ export const Shrine = (text: TextLike, comment?: TextLike): Instruction => {
 };
 
 export const ShrineBlessing = (text: TextLike, comment?: TextLike): Instruction => {
-	return IconGeneric("shrine-chest", lcn(text), 1, 0, comment);
+	return IconGeneric("chest", lcn(text), 1, 0, comment);
 };
 
 export const ShrineSword = (text: TextLike, comment?: TextLike): Instruction => {
@@ -223,6 +227,7 @@ const mapKorokToImage = (korok: string):string =>{
 		case "Race": return "korok-race";
 		case "Rock Circle": return "korok-rock-circle";
 		case "Shoot Emblem": return "korok-shoot";
+		case "Snowball Golf": return "korok-golf-snowball";
 		case "Tree Stump": return "korok-magnesis";
 		case "Well": return "korok-magnesis";
 		default: return "korok";

@@ -1,4 +1,4 @@
-import { step, Korok, detail, Warp, split, Icon, Equipment, Shrine, Snap } from "../create";
+import { step, Korok, detail, Warp, split, Icon, Equipment, Shrine, Snap, ability } from "../create";
 import { cps, emy, fury, gale, important, itm, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -36,11 +36,11 @@ export const Rudania = [
 		wb(cps)("E. to Yunobo"),
 		"Use ancient arrow to skip yunobo cutscene if you have extra. Keep 10 for ganon"),
 	itm("Amber/Flint on the way"),
-	txt(fury("1-2"), " last 3 drones"),
+	ability(txt(fury(), " last 3 drones"),{fury: 2}),
 	Icon("rudania-enter", "Enter Rudania"),
 	split("-"),
 
-	gale("1"),
+	ability(gale(), {gale:1}),
 	detail(
 		Snap(emy("Fireblight"), "SNAP Elite"),
 		"SNAP first, then stasis, then equip attack up"),

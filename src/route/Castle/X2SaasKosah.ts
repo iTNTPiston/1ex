@@ -1,4 +1,4 @@
-import { step, Korok, Chest, Boss, VariableChange, detail, MakeTOD, Discover, split, ShrineDoubleSword } from "../create";
+import { step, Korok, Chest, Boss, VariableChange, detail, MakeTOD, Discover, split, ShrineDoubleSword, ability } from "../create";
 import { cps, emy, fury, itm, lcn, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -16,7 +16,7 @@ export const SaasKosah = [
 	step(wb(cps)(".S Turn")),
 	"Shield Surf in East Passage",
 	Korok("X11", "Ice Block"),
-	Boss("Rare Talus", fury("1-3")),
+	ability(Boss("Rare Talus", fury()), {fury: 3}),
 	itm("Opal/Flint"),
 	"Glide up bomb eye",
 	Chest("Farosh Fang"),

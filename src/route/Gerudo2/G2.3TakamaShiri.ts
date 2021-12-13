@@ -1,5 +1,5 @@
-import { Boss, detail, Korok, ShrineDLC, Snap, split, step } from "../create";
-import { cps, fury, important, npc, txt } from "../types";
+import { ability, Boss, detail, Korok, ShrineDLC, Snap, split, step } from "../create";
+import { cps, fury, important, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const TakamaShiri = [
@@ -8,7 +8,7 @@ export const TakamaShiri = [
 	step(wb(cps)("<W to sword")),
 	Snap("Big Sword", "Quest"),
 	step(wb(cps)("<S turn")),
-	Boss("Rare Talus", fury("1-3")),
+	ability(Boss("Rare Talus", fury()), {fury: 3}),
 	step(cps("SW")),
 	detail(
 		Korok("W02", "Offer Banana", "Pick up 1, 8 left"),
@@ -32,6 +32,5 @@ export const TakamaShiri = [
 	txt(wb(cps)("S> Turn to"), npc(" Sand Seal Lady")),
 	"Ride to shrine",
 	ShrineDLC("Takama Shiri"),
-	split("-"),
-	
+	split("{3 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
 ];

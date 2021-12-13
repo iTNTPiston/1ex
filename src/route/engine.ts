@@ -1,4 +1,4 @@
-import { instructionLikeToInstruction, InstructionData, InstructionLike, txt, lcn, npc, stringToText, Instruction } from "./types";
+import { instructionLikeToInstruction, InstructionData, InstructionLike, txt, lcn, npc, stringToText, Instruction, TextBlock, Text } from "./types";
 
 export class InstructionEngine{
 	private MEMORY_ROMAN = ["","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV"];
@@ -9,6 +9,8 @@ export class InstructionEngine{
 	private memoryCount = 0;
 	private talusCount = 0;
 	private hinoxCount = 0;
+	private gale = 0;
+	private fury = 0;
 	private step = "1";
 	private noDetailYet = true;
 	private noImageYet = true;
@@ -24,6 +26,8 @@ export class InstructionEngine{
 		this.memoryCount = 0;
 		this.talusCount = 0;
 		this.hinoxCount = 0;
+		this.gale = 0;
+		this.fury = 0;
 		this.step = "1";
 		this.noDetailYet = true;
 		this.noImageYet = true;
@@ -66,6 +70,34 @@ export class InstructionEngine{
 			return;
 		}
 
+		let error: string | undefined = undefined;
+		let furyText = "?";
+		let galeText = "?";
+		if(data.ability){
+			if(this.gale === 0){
+				this.gale = 3;
+			}
+			if(this.fury === 0){
+				this.fury = 3;
+			}
+			if(data.ability.fury){
+				if(data.ability.fury > this.fury){
+					error = "Not enough fury";
+				}else{
+					furyText = this.getAbilityChangeText(this.fury, data.ability.fury);
+					this.fury -= data.ability.fury;
+				}
+			}
+			if(data.ability.gale){
+				if(data.ability.gale > this.gale){
+					error = "Not enough gale";
+				}else{
+					galeText = this.getAbilityChangeText(this.gale, data.ability.gale);
+					this.gale -= data.ability.gale;
+				}
+			}
+		}
+
 		if(data.asSection){
 			output.push({
 				lineNumber: this.lineNumber,
@@ -82,9 +114,9 @@ export class InstructionEngine{
 				lineNumber: this.lineNumber,
 				isSectionTitle: data.asSection,
 				isSplit: data.asSplit,
-				text: data.text,
+				text: this.applyAbilityTextBlock(data.text, furyText, galeText),
 				icon: data.icon,
-				comment: data.comment,
+				comment: this.applyAbilityTextBlock(data.comment, furyText, galeText),
 				unindentStep: data.unindentStep,
 				indentIcon: data.indentIcon,
 				variables: {
@@ -92,7 +124,10 @@ export class InstructionEngine{
 					krk: this.korokCount,
 					seed: this.korokSeed,
 					srn: this.shrineCount,
-				}
+					fury: this.fury,
+					gale: this.gale
+				},
+				error:error
 			};
 
 			if(data.asStep){
@@ -243,5 +278,46 @@ export class InstructionEngine{
 			return "0" + mod100;
 		}
 		return String(mod100);
+	}
+
+	private getAbilityChangeText(current: number, use: number): string{
+		if(current === 3){
+			if(use === 1){
+				return "1";
+			}
+			return `1-${use}`;
+		}
+		if(current === 2){
+			if(use === 1){
+				return "2";
+			}
+			return "2-3";
+		}
+		return "3";
+	}
+
+	private applyAbilityTextBlock(textBlock: TextBlock | undefined, furyText: string, galeText: string): TextBlock {
+		if(!textBlock){
+			return [];
+		}
+		if(Array.isArray(textBlock)){
+			return textBlock.map(t=>this.applyAbilityText(t, furyText, galeText));
+		}
+		return this.applyAbilityText(textBlock, furyText, galeText);
+	}
+
+	private applyAbilityText(text: Text, furyText: string, galeText: string): Text {
+		if(text.colorClass === "color-fury"){
+			return {
+				...text,
+				content: "FURY "+furyText
+			};
+		}else if(text.colorClass === "color-gale"){
+			return {
+				...text,
+				content: "GALE "+galeText
+			};
+		}
+		return text;
 	}
 }

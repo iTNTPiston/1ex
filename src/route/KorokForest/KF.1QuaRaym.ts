@@ -1,4 +1,4 @@
-import { Boss, detail, Korok, Shrine, split, step } from "../create";
+import { ability, Boss, detail, Korok, Shrine, split, step } from "../create";
 import { txt, npc, cps, fury, itm } from "../types";
 import { wb } from "../windbomb";
 
@@ -14,16 +14,12 @@ export const QuaRaym = [
 	step(wb(cps)("SE")),
 	Korok("E20", "Boulder Golf"),
 	step(wb(cps)("<E Turn to talus")),
-	Boss("Rare Igneo Talus", txt("RGC atk lv 2 ", fury("3"))),
+	ability(Boss("Rare Igneo Talus", txt("RGC atk lv 2 ", fury())), {fury: 1}),
 	"Farm luminous while dying",
 	itm("opal/flint"),
-	step("SQ SE-ish"),
-	Korok("E21", "Block Puzzle"),
-	step(wb(cps)("<W turn")," to shrine cave"),
-	"Do Quest", 
-	Shrine("Kayra Mah"),
-	split("-"),
-	step(wb(cps)("S> TS")),
+	step("<S Turn"),
+	Korok("E28", "Balloon", "Aim Above"),
+	step(wb(cps)("<W Turn")),
 	Shrine("Qua Raym"),
 	split("-"),
 ];

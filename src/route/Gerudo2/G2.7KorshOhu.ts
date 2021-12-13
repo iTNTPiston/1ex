@@ -1,4 +1,4 @@
-import { step, Korok, split, Tower, Equipment, Boss, ShrineBlessing } from "../create";
+import { step, Korok, split, Tower, Equipment, Boss, ShrineBlessing, ability } from "../create";
 import { cps, emy, fury, important, itm, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -33,10 +33,10 @@ export const KorshOhu = [
 	step(wb(cps)("S> Turn")),
 	Korok("W39", "Block Puzzle"),
 	step(wb(cps)("S> Turn")),
-	Boss("Luminous Talus", fury("1-3")),
+	ability(Boss("Luminous Talus", fury()), {fury: 3}),
 	itm("Luminous/Opal"),
 	step(cps("NW")),
-	Korok("W38", "On pillar"),
+	Korok("W38", "Lift Rock", "On pillar"),
 	step(cps("NW")),
 	Korok("W30", "Block Puzzle"),
 	step(wb(cps)("S> Turn")),

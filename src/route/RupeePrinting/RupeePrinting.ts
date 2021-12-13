@@ -1,10 +1,11 @@
-import { Chest, ChestSpecial, detail, Equipment, image, indent, Korok, Section, split, step, VariableChange, Warp } from "../create";
+import { Chest, ChestSpecial, detail, Equipment, image, indent, Korok, MakeTOD, Section, split, step, VariableChange, Warp } from "../create";
 import { txt, cps, lcn, emy, itm, important, lnk, v } from "../types";
 import RouteImage from "./RupeePrinting.png";
 
 export const RupeePrinting = [
 	Section("RUPEE PRINTING"),
 	image(RouteImage),
+	step(cps("NW"), " Activate TOD"),
 	step(cps("<N")," TS to ",lcn("Coliseum")), 
 	ChestSpecial("Phantom Helm"),
 
@@ -31,6 +32,7 @@ export const RupeePrinting = [
 		step("Sneakstrike ",emy("Lizalfos")),
 		txt("Tail ",v("tail"),"/45")),
 	Equipment("Boomerang, Shield"),
+	MakeTOD("5am", "Make Morning"),
 
 	VariableChange({tail: 1}),
 	detail(
@@ -53,13 +55,26 @@ export const RupeePrinting = [
 
 	step("Enter dining hall"),
 	"Sneak right and throw bomb",
+	itm("Hearty Food"),
 	VariableChange({rushroom: 1}),
 	detail(
 		txt(itm("Rushroom")," + ",itm("Gourmet Meat")), 
 		txt("Rush ",v("rushroom"),"/55")),
 	txt(itm("Raw meat"), " on other side"),
+	itm("Other backup food"),
 
-	step("WB to flagpole"),
+	step("Cardinal N to gatehouse"),
+	detail(
+		"Enter Lynel Fight",
+		"Save + reload to make him drop weapon and not have skulls mess up the fight. Use RGB and Royal Claymore to stunlock. 5 Shots and break RC on him"
+	),
+	"Blow up eyes",
+	"SAVE Reload after eyes die",
+	itm("Lynel Hoof"),
+	Equipment("Sword Shield Bow", "and arrows"),
+	Chest("3AA"),
+
+	step("Aim at small grass"),
 	Korok("C29", "Confetti", "Top of flagpole"),
 	"",
 	important("SAVE"),

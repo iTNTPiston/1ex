@@ -1,20 +1,20 @@
-import { Chest, Cook, detail, Equipment, Icon, image, indent, Korok, Section, Shop, Shrine, split, step, VariableChange, Warp } from "../create";
-import { cps, emy, important, itm, lcn, npc, sm, txt, v } from "../types";
+import { Chest, Cook, detail, Equipment, Icon, image, indent, Korok, Section, Shop, Shrine, split, step, Warp } from "../create";
+import { cps, emy, important, itm, lcn, npc, sm, txt } from "../types";
 import RitoImage from "./Rito1-2.png";
 
 export const Rito1 = [
 	Section("RITO 1"),
 	image(RitoImage),
-	step("BLSS + WB to ", itm("durians")), 
-	VariableChange({ silentPrincess: 2}),
-	detail(
-		step(cps("W"), " WB, ", itm("2 Silent Princesses")),
-		txt(v("silentPrincess"), "/19")),
-	txt("Run to ",lcn("Mogg Latan")),
-	Shrine("Mogg Latan"),
-	split("-"),
+	// step("BLSS + WB to ", itm("durians")), 
+	// VariableChange({ silentPrincess: 2}),
+	// detail(
+	// 	step(cps("W"), " WB, ", itm("2 Silent Princesses")),
+	// 	txt(v("silentPrincess"), "/19")),
+	// txt("Run to ",lcn("Mogg Latan")),
+	// Shrine("Mogg Latan"),
+	// split("-"),
 
-	step(Korok("R60", "Lift Rock Blocked", "Under leaves")),
+	// step(Korok("R60", "Lift Rock Blocked", "Under leaves")),
 	step("BLSS to Rito"),
 	detail(
 		important("UNEQUIP PHANTOM"),
@@ -25,7 +25,7 @@ export const Rito1 = [
     
 	detail(
 		Shop("Drop down to shop", "Buy everything"),
-		"No need sunshroom if you have enough already. Keep 10 Gears, 5 Cores (6 if you missed moblin guts), 30 springs and 4 screws (3 if you have another monster part)"),
+		"Keep 10 Gears, 5 Cores (6 if you missed moblin guts), 15 springs and 4 screws (3 if you have another monster part)"),
 	step(cps("<N"), " TS to ",lcn("Flight Range")),
 	Korok("T02", "Confetti", "(Don't stand on tip)"),
 	Equipment("Arrows + Swallow Bow"),
@@ -48,6 +48,7 @@ export const Rito1 = [
 		"Glide toward center before shooting so he doesn't warp in phase 2. If you are too close you can shoot 4 normal arrows."),
 	Icon("medoh-done", "Windblight"),
 	split("-"),
+	"Drop Traveller Bow",
 	important("UNEQUIP PHANTOM"),
 	step("Get 2 ",itm("Cold Darners")),
 	Equipment("Great Eagle Bow", "Finish quest"),
@@ -62,15 +63,16 @@ export const Rito1 = [
 	step(cps("E"), " TS to ",lcn("Rito Stable")),
 	itm("10 Berries"),
 	detail(
-		"Farm wood with RC",
-		"First RC should break, then use second RC. No need to pick up axe. Should have: RGC, RC, Hammer, Torch"),
+		"Farm wood with Royal Claymore",
+		"If about to break, use Lynel Sword. Don't break claymore. No need to pick up axe. Should have: RGC, RC, Hammer, Torch"),
 	Shop("Beedle","Arrow, Fireflies, 1 Darner"),
-	txt("Talk Again for ",itm("Ancient Arrow")),
+	itm("Ancient Arrow"),
 	txt("Get ",itm("Balloon")," from ",emy("Octorok")),
+	txt("Get ",itm("Voltfin")," from ",emy("Octorok")),
 	"Reload and farm wood again",
 	step(cps("E>>>"), " No Turn"),
 	Korok("T19", "Lily Pads", "No Drown"),
-	step(Warp("Keh Namut")),
+	step(Warp("Tower")),
 	split("-"),
 ];
 

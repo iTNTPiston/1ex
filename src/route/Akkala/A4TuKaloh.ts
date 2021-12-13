@@ -1,4 +1,4 @@
-import { Boss, ChestSpecial, detail, Korok, Shop, ShrineBlessing, Snap, split, step } from "../create";
+import { ability, Boss, ChestSpecial, detail, Korok, Shop, ShrineBlessing, Snap, split, step } from "../create";
 import { cps, gale, important, lcn, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -10,7 +10,7 @@ export const TuKaloh = [
 	Snap("Kilton", "SNAP multiple to be safe"),
 	txt("Talk to ", npc("Kilton")),
 	step(cps("SE")),
-	Korok("A05", "Race", gale("2")),
+	ability(Korok("A05", "Race", gale()), {gale: 1}),
 	step(wb(cps)("S no turn")),
 	Korok("A10", "Lift Rock Blocked", "Under slab 1 STS"),
 	step(wb(cps)("E")),
@@ -46,7 +46,7 @@ export const TuKaloh = [
 	txt("Talk to ", npc("Robbie"), " (2nd options)"),
 	Shop("Ancient Stuff", "Sword, Shield, Arrows"),
 	txt("Talk to ", npc("Jerrin"), " (11)"),
-	gale("3"),
+	ability(gale(), {gale: 1}),
 	Korok("A16", "Confetti"),
 	step(wb(cps)("N> TS")),
 	ShrineBlessing("Tu Ka'loh"),

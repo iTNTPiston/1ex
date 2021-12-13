@@ -1,4 +1,4 @@
-import { Chest, detail, Discover, Equipment, IconGeneric, image, Korok, Section, Shop, ShrineSword, split, step, VariableChange, Warp } from "../create";
+import { Chest, detail, Discover, Equipment, IconGeneric, image, Korok, Section, Shop, split, step, VariableChange, Warp } from "../create";
 import { cps, important, itm, npc, rne, txt, v } from "../types";
 
 import HestuImage from "./Hestu.png";
@@ -6,9 +6,7 @@ import HestuImage from "./Hestu.png";
 export const Hestu = [
 	Section("HESTU"),
 	image(HestuImage),
-	ShrineSword("Ta'loh Naeg"),
-	split("-"),
-	
+	"",
 	detail(
 		step(txt("Talk to ",npc("Pumpkin Man"))),
 		"Should be in farm before 5pm. Little hut 5pm-8pm. Running around after 8pm"),
@@ -39,7 +37,8 @@ export const Hestu = [
 	Warp("Kaya Wan", txt("Check ", v("krk"), " Koroks")),
 	split("-"),
 
-	step("Surf down and ", rne("mag"), " chest out"),
+	step("Surf down bomb fish"),
+	txt(rne("mag"), " chest out"),
 	detail(
 		"Open chest",
 		"Should have exactly 8 weapons if you follow this route: RGC, RC, Hammer, Torch, Hammer, Hammer, Axe, Sword"),
@@ -64,6 +63,6 @@ export const Hestu = [
 	detail(
 		itm(">30 Lotus"),
 		"RGC cut legs + RC kill guardian if need springs"),
-	Warp("Mogg Latan"),
+	Warp("Keh Namut"),
 	split("-"),
 ];

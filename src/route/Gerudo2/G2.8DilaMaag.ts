@@ -1,4 +1,4 @@
-import { step, Korok, split, MakeTOD, ShrineBlessing } from "../create";
+import { step, Korok, split, MakeTOD, ShrineBlessing, ability } from "../create";
 import { cps, gale, important } from "../types";
 import { wb } from "../windbomb";
 
@@ -12,7 +12,7 @@ export const DilaMaag = [
 	Korok("W49", "Block Puzzle"),
 	step(wb(cps)("E + NE midair")),
 	Korok("W46", "Lift Rock Blocked", "Corner"),
-	gale("2"),
+	ability(gale(), {gale: 1}),
 	Korok("W47", "Rock Circle"),
 	step(wb(cps)("<W Turn + W midair")),
 	Korok("W50", "Lift Rock", "Top of big pillar"),

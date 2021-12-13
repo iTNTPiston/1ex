@@ -1,13 +1,13 @@
-import { Boss, Chest, detail, Korok, MakeTOD, ShrineBlessing, split, step } from "../create";
+import { ability, Boss, Chest, detail, Korok, MakeTOD, ShrineBlessing, split, step } from "../create";
 import { cps, emy, fury, gale, important, itm, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const KetohWawai = [
-	step("Minecart + ", gale("3")),
+	ability(step("Minecart + ", gale()), {gale: 1}),
 	Korok("E07", "Lift Rock", "Top of island"),
 	step(wb(cps)("<W Turn")),
 	detail(
-		Boss("Igneo Talus", txt(fury("1-3"), ", get parts")),
+		ability(Boss("Igneo Talus", txt(fury(), ", get parts")), {fury: 3}),
 		"Opal/Flint"),
 	step(wb(cps)("<<W Turn")),
 	Korok("K08", "Balloon", "Instant Shoot"),

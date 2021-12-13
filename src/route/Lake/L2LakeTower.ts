@@ -1,4 +1,4 @@
-import { ChestSpecial, detail, Korok, MakeTOD, split, step, Tower, VariableChange } from "../create";
+import { ability, ChestSpecial, detail, Korok, MakeTOD, split, step, Tower, VariableChange } from "../create";
 import { cps, txt, npc, gale, important, emy, itm, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -11,7 +11,7 @@ export const LakeTower = [
 	Korok("L15", "Balloon", "In pillar"),
 	Korok("L14", "Lift Rock Blocked", "Under slab (STS a lot)"),
 	MakeTOD("9pm", "Make Night if rain"),
-	step(gale("1"), " + ", wb(cps)("N midair")),
+	ability(step(gale(), " + ", wb(cps)("N midair")), {gale: 1}),
 	Korok("D54", "Torch"),
 	"Drop down",
 	Korok("L09", "Basketball"),
@@ -47,7 +47,7 @@ export const LakeTower = [
 	detail(
 		itm("8 Rushrooms"),
 		txt("Knock down with blizzard rod. ", v("rushroom"), "/55")),
-	step(cps("W"), " + ", gale("2")),
+	ability(step(cps("W"), " + ", gale()), {gale: 1}),
 	Tower("Lake Tower", "41.48%"),
 	split("{4 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
     

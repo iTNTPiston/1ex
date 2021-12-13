@@ -1,4 +1,4 @@
-import { step, Korok, split, Tower } from "../create";
+import { step, Korok, split, Tower, ability } from "../create";
 import { cps, gale } from "../types";
 import { wb } from "../windbomb";
 
@@ -14,7 +14,7 @@ export const EldinTower = [
 	Korok("E32", "Lift Rock Blocked", "Under rubble"),
 	step("SQ SE to race start DEFUSE"),
 	Korok("E33", "Race", wb(cps)("N> Turn")),
-	step(gale("1"), " + midairs"),
+	ability(step(gale(), " + midairs"), {gale: 1}),
 	Tower("Eldin Tower"),
 	split("-"),
 ];

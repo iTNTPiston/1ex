@@ -1,4 +1,4 @@
-import { step, Warp, split, Shrine, Icon, indent, detail, Snap } from "../create";
+import { step, Warp, split, Shrine, Icon, indent, detail, Snap, ability } from "../create";
 import { emy, gale, important, lcn, npc, rne, txt } from "../types";
 
 export const Naboris = [
@@ -21,7 +21,7 @@ export const Naboris = [
 
 	important("EQUIP ", rne("ROUND BOMB")),
 	detail(
-		txt("Naboris: ", gale("2-3")),
+		ability(txt("Naboris: ", gale()), {gale: 2}),
 		"Same as AD naboris"),
 	detail(
 		Snap(emy("Small Guardian"), important("SNAP for quest")),

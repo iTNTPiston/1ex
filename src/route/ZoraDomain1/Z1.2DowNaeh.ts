@@ -1,4 +1,4 @@
-import { Boss, detail, Korok, MakeTOD, Memory, Shrine, split, step, VariableSet } from "../create";
+import { ability, Boss, detail, Korok, MakeTOD, Memory, Shrine, split, step, VariableSet } from "../create";
 import { cps, fury, important, sm, txt} from "../types";
 
 export const DowNaeh = [
@@ -23,7 +23,7 @@ export const DowNaeh = [
 
 	step(cps("S"), " + ", cps("<N"), " + ", cps("<N"), " Turn"),
 	VariableSet({fury: 2}),
-	Boss("Blue Hinox", txt("3 Spin Hits SLAM ", fury("1"))),
+	ability(Boss("Blue Hinox", txt("3 Spin Hits SLAM ", fury())), {fury: 1}),
 	step(cps("W"), " + ", cps("SW")," midair"),
 	Korok("N13", "Rock Circle", "2 separate STS hits"),
 	detail(
@@ -32,7 +32,7 @@ export const DowNaeh = [
 	step(cps("W")," Turn"),
 	Korok("N11", "Boulder Golf"),
 	step(cps("<S")),
-	Boss("Red Hinox", txt("1 Spin Hit SLAM ", fury("2"))),
+	ability(Boss("Red Hinox", txt("1 Spin Hit SLAM ", fury())), {fury: 1}),
 	step(cps("SE")),
 	Korok("N20", "Rock Circle"),
 	step("SQ (NE)"),

@@ -85,6 +85,10 @@ tr:nth-child(even) {background-color: #eeeeee}
     background-color: transparent;
 }
 
+.indicator-color-error {
+    background-color:red;
+}
+
 .detail {
     width:30em;
     max-width:30em;

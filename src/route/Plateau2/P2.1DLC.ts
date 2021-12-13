@@ -90,5 +90,5 @@ export const PlateauDLC = [
 		Snap(emy("Stalhorse"), "SNAP Quest"),
 		"Make sure to get the horse not the bokoblin. Blue bokoblin is 2 words while stalhorse is one. Stalhorse ends with b in Russian."),
 	ShrineDLC("Ruvo Korbah"),
-	split("{3 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
+	split("-"),
 ];

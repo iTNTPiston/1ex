@@ -1,9 +1,9 @@
-import { detail, Discover, Korok, ShrineDLC, ShrineDoubleSword, split, step, VariableChange } from "../create";
+import { ability, detail, Discover, Korok, ShrineDLC, ShrineDoubleSword, split, step, VariableChange } from "../create";
 import { cps, emy, gale, important, itm, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const KemaKossasa = [
-	step(gale("2"), " SCW"),
+	ability(step(gale(), " SCW"), {gale: 1}),
 	VariableChange({tail: 4}),
 	detail(
 		txt("Kill 4 ", emy("Lizalfos")),
@@ -17,7 +17,7 @@ export const KemaKossasa = [
 	"Throw orb in hole",
 	"SQ to shrine DEFUSE",
 	Discover("Kihiro Moh Shrine"),
-	step(gale("3"), "+",wb(cps)("W midairs")),
+	ability(step(gale(), "+",wb(cps)("W midairs")), {gale: 1}),
 	important("EQUIP SNOW BOOTS"),
 	Korok("G16", "Light Chase", "FAR"),
 	step(wb(cps)("W Turn")),

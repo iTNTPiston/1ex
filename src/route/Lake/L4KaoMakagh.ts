@@ -1,4 +1,4 @@
-import { step, Korok, Boss, ChestSpecial, Discover, Shrine, split } from "../create";
+import { step, Korok, Boss, ChestSpecial, Discover, Shrine, split, ability } from "../create";
 import { cps, fury, itm, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -13,7 +13,7 @@ export const KaoMakagh = [
 	step(wb(cps)("SE, midair to far pillar")),
 	Korok("L72", "Race", wb(cps)("N> Turn")),
 	step(wb(cps)("<S Turn")),
-	Boss("Blue Hinox", txt("3 Spin Hits SLAM ", fury("1"))),
+	ability(Boss("Blue Hinox", txt("3 Spin Hits SLAM ", fury())), {fury: 1}),
 	step(cps("E.")),
 	Korok("F38", "Lift Rock"),
 	step("Drop down ", wb(cps)(".W midairs")),
@@ -32,7 +32,7 @@ export const KaoMakagh = [
 	step(wb(cps)("N> Turn. Land+cryo block")),
 	Korok("L75", "Lily Pads", "No Drown"),
 	step(wb(cps)(".N Turn")),
-	txt(fury("2-3"), " Kill Bokos"),
+	ability(txt(fury(), " Kill Bokos"), {fury: 2}),
 	txt("Turn in ", npc("Quest")),
 	"Take out horse (MAX bond)",
 	txt("Put on ", itm("Ancient Saddle")),

@@ -9,13 +9,15 @@ type InstructionProps = InstructionData & {
 }
 
 export const Instruction: React.FunctionComponent<InstructionProps> = ({
-	icon, text, comment,indicatorClass,isSectionTitle,lineNumber,unindentStep,stepNumber,counterClassName,counterNumber,detail,detailRowSpan,indentIcon,image,imageRowSpan,directionMode,variables,detailClass,setFrozenImage,displayEmptyDetailSecondRow,displayEmptyImageSecondRow
+	error,icon, text, comment,indicatorClass,isSectionTitle,lineNumber,unindentStep,stepNumber,counterClassName,counterNumber,detail,detailRowSpan,indentIcon,image,imageRowSpan,directionMode,variables,detailClass,setFrozenImage,displayEmptyDetailSecondRow,displayEmptyImageSecondRow
 })=>{
 	if(isSectionTitle){
 		return <Section title={text}/>;
 	}
 	const hasDetail = detail && flattenText(detail);
-	const lineNumberCell = <td className="line-number font-number">{lineNumber}</td>;
+	const lineNumberCell = <td className={clsx("line-number font-number", error && "indicator-color-error")} >
+		<span title={error}>{lineNumber}</span>
+	</td>;
 	const counterCell = <td className={clsx("counter font-number", counterClassName)}>{counterNumber || "."}</td>;
 	const stepNumberCell = <td className="step-number font-number">{stepNumber}</td>;
 	const indicatorCell = <td className={clsx("indicator",indicatorClass)}></td>;

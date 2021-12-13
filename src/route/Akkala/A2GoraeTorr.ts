@@ -1,5 +1,5 @@
-import { detail, Korok, MakeTOD, ShrineBlessing, Snap, split, step } from "../create";
-import { cps, emy, gale, important, itm, txt, v } from "../types";
+import { ability, detail, Korok, MakeTOD, ShrineBlessing, Snap, split, step } from "../create";
+import { cps, emy, gale, important, itm, txt} from "../types";
 import { wb } from "../windbomb";
 
 export const Dinraal = [
@@ -33,18 +33,14 @@ export const GoraeTorr = [
 	Korok("E02", "Block Puzzle"),
 	txt("Ores for ", itm("Amber"), " if needed"),
 	step(cps("NE")),
-	detail(
-		txt("Ores for ", itm("Amber/Flint")),
-		"Last chance to get 10 ambers and 30 springs. If you don't have enough, scan guardian amiibos here until you do."),
-	important("CHECK 10 AMBERS"),
-	important("CHECK 30 SPRINGS"),
+	txt("Ores for ", itm("Amber/Flint")),
 	Korok("E03", "Lift Rock Blocked", "Under Rubble"),
 	step(wb(cps)("E> + E midair")),
 	Korok("E04", "Lift Rock Blocked", "Under Rubble"),
 	step(wb(cps)("E>> Turn, updraft")),
 	Korok("E05", "Rock Circle", "Pillars around shrine"),
 	"Start Gut Check", 
-	txt(gale("1"), " + midair"),
+	ability(txt(gale(), " + midair"), {gale: 1}),
 	ShrineBlessing("Gorae Torr"),
-	split("{2 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
+	split("-"),
 ];

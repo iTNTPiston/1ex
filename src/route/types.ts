@@ -12,6 +12,7 @@ export type Instruction = {
     unindentStep?: boolean,
     indentIcon?: boolean,
     detail?: TextBlock,
+	ability?: AbilityUsage,
 	//Image will add the image to the next instruction (if exists)
     image?:string,
 
@@ -50,7 +51,13 @@ export type InstructionData = {
     imageRowSpan?: number,
 	displayEmptyImageSecondRow?: boolean,
     indicatorClass?: string,
-    variables: {[key: string]:number}
+    variables: {[key: string]:number},
+	error?: string,
+}
+
+export type AbilityUsage = {
+	fury?: number,
+	gale?: number,
 }
 
 export type ChangeData = {
@@ -179,8 +186,8 @@ export const sm = (...t: TextLike[]):TextBlock => textHelper(t, "color-sm");
 export const bg = (...t: TextLike[]):TextBlock => textHelper(t, "color-bg");
 export const v = (t: string):TextBlock => textHelper([t], "color-variable");
 export const important= (...t: TextLike[]):TextBlock => textHelper(t, "color-important");
-export const gale = (...t: TextLike[]):TextBlock => textHelper(["GALE ", ...t], "color-gale");
-export const fury = (...t: TextLike[]):TextBlock => textHelper(["FURY ", ...t], "color-fury");
+export const gale = ():TextBlock => textHelper([""], "color-gale");
+export const fury = ():TextBlock => textHelper([""], "color-fury");
 
 export const renderTextBlock = (text: TextBlock, variables: {[key:string]: number}): string => {
 	if(Array.isArray(text)){

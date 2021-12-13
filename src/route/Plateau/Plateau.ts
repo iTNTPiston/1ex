@@ -1,5 +1,5 @@
-import { Section, Equipment, step, Shrine, split, detail, indent, Tower, Korok, Icon, image, VariableChange } from "../create";
-import { txt, itm, v } from "../types";
+import { Section, Equipment, step, Shrine, split, detail,  Tower, Korok, Icon, image } from "../create";
+import {  itm } from "../types";
 import PlateauImage from "./Plateau.png";
 
 export const Plateau = [
@@ -21,14 +21,6 @@ export const Plateau = [
 	Shrine("Oman Au"),
 	split("-"),
 
-	VariableChange({
-		rushroom: 5
-	}),
-	detail("Scan Amiibos",txt("Use Mipha for fish so you also get hearty bass. Get around 5-7 rushrooms ",v("rushroom"),"/55.")),
-	indent("Rush/Sunshroom"),
-	indent("15+ Hyrule Bass"),
-	indent("Voltfin Trout"),
-	detail("","Eat useless shrooms for food, then eat useless fish for food"),
 	"WB to tower",
 	Tower("Great Plateau Tower"),
 	split("-"),

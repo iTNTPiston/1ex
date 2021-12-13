@@ -1,4 +1,4 @@
-import { detail, Korok, ShrineBlessing, Snap, split, step } from "../create";
+import { ability, detail, Korok, ShrineBlessing, Snap, split, step } from "../create";
 import { cps, gale } from "../types";
 import { wb } from "../windbomb";
 
@@ -17,7 +17,7 @@ export const KeehaYoog = [
 	Snap("Eighth Heroine", "Quest"),
 	step(cps("NE")),
 	Korok("G02", "Race", "Run"),
-	step(gale("1"), "+", cps("E")),
+	ability(step(gale(), "+", cps("E")), {gale: 1}),
 	"GG rock over",
 	Korok("G03", "Rock Circle"),
 	step(wb(cps)("E Turn + <S Turn")),

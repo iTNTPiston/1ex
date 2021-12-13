@@ -1,4 +1,4 @@
-import { Boss, Chest, ChestSpecial, detail, Discover, Equipment, Korok, MakeTOD, Memory, Shrine, Snap, split, step, VariableChange } from "../create";
+import { ability, Boss, Chest, ChestSpecial, detail, Discover, Equipment, Korok, MakeTOD, Memory, Shrine, Snap, split, step, VariableChange } from "../create";
 import { txt, emy, important, rne, v, lcn, gale, itm, cps, fury } from "../types";
 import { wb } from "../windbomb";
 
@@ -34,7 +34,7 @@ export const CastleSecondHalf = [
 	detail(
 		step("Run to water room"),
 		"Watch out for the moblin with Royal Guard Spear. Might want to consider freeze him with blizzard rod"),
-	gale("1"),
+	ability(gale(), {gale: 1}),
 	Korok("X08", "Lift Rock", "Wooden Platform"),
 	step("Glide to switch room"),
 	VariableChange({tail: 1}),
@@ -43,7 +43,7 @@ export const CastleSecondHalf = [
 		txt("Break wall. ",v("tail"),"/45")),
 	Chest("Dinraal Fang"),
 	"Glide up run out",
-	gale("2-3"),
+	ability(gale(), {gale: 2}),
 	VariableChange({silentPrincess: 1}),
 	detail(
 		itm("Silent Princess"),
@@ -72,6 +72,7 @@ export const CastleSecondHalf = [
 	"Drop down to balcony",
 	Korok("X21", "Shoot Emblem"),
 	Discover("Observation Room"),
+	Chest("3AA"),
 	Korok("X22", "Balloon", "Aim top wall in background"),
 	txt("Glide ", cps("E")),
 	Korok("X20", "Lift Rock Blocked", "Under rubble"),
@@ -104,7 +105,7 @@ export const ZaltaWa = [
 	step(wb(cps)("W Turn")),
 	Korok("C38", "Flower Chase"),
 	step(wb(cps)("<N Turn")),
-	Boss("Black Hinox", txt(fury("1-3"), " + 2 GEB")),
+	ability(Boss("Black Hinox", txt(fury(), " + 2 GEB")), {fury: 3}),
 	MakeTOD("9pm", "Make Night", "For BM"),
 	VariableChange({tail: 1}),
 	step(wb(cps)("SW")),

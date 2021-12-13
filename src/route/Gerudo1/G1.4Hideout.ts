@@ -1,20 +1,11 @@
-import { Chest, detail, indent, Snap, split, step, VariableChange } from "../create";
-import { emy, important, itm, txt, v } from "../types";
+import { Chest, detail, indent, Snap, split, step } from "../create";
+import { emy,  itm,   } from "../types";
 
 export const Hideout = [
-	step(important("EQUIP PHANTOM")),
-	"WB to camp",
-	VariableChange({tail: 4}),
-	detail(
-		txt("Kill 4 ",emy("Lizalfos")),
-		txt("Ice arrow headshot with RGB, then spin slam kill all with Royal Claymore. Tail: ",v("tail"),"/45")),
-	itm("14 wood"),
-
 	step("WB to hideout"),
 	detail(
 		"Dupe:",
-		"Bows: Keep Duplex and RGB. Weapons: Keep 2 hammers and torch. 5 RGCs"),
-	indent("Transfer GEB -> RGB"),
+		"Bows: Keep Duplex and RGB. Weapons: Keep 1 hammer, lynel sword and torch. 5 RGCs. Make sure RGB has 2 shots for Rudania and Sheem Dagoze"),
 	indent("Transfer Axe -> RGC"),
 	itm("15 Arrows"),
 	Snap(emy("Kohga"), "SNAP Elite"),

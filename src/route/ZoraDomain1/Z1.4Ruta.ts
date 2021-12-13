@@ -1,4 +1,4 @@
-import { step, Korok, Boss, VariableChange, detail, Discover, Shop, Shrine, split, Icon } from "../create";
+import { step, Korok, Boss, VariableChange, detail, Discover, Shop, Shrine, split, Icon, ability } from "../create";
 import { cps, fury, important, itm, lcn, npc, rne, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -17,7 +17,7 @@ export const Ruta = [
 	step(cps("NE")),
 	Korok("Z44", "Light Chase"),
 	step(wb(cps)("E> Turn")),
-	Boss("Blue Hinox", txt("3 Spin Hits SLAM ", fury("3"))),
+	ability(Boss("Blue Hinox", txt("3 Spin Hits SLAM ", fury())), {fury: 1}),
 	important("B ONLY FOR MONUMENT"),
 	step(wb(cps)("<N + <N midair")),
 	...MONUMENT,

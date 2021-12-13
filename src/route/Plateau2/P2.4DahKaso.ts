@@ -1,5 +1,5 @@
 import { step, Korok, Equipment, split, Boss, Warp, detail, ShrineSword } from "../create";
-import { cps, fury, txt, v } from "../types";
+import { cps, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const DahKaso = [
@@ -24,7 +24,7 @@ export const DahKaso = [
 	step(cps("S")),
 	detail(
 		Boss("Blue Hinox", "6 Hits SLAM"),
-		txt("Or ", fury("1-3"), " if have")),
+		txt("Or 3 FURY if have")),
 	"Run",
 	Korok("C88", "Lily Pads"),
 	Warp("Kuh Takkar 32.19%", txt("Check ", v("krk"), " Koroks")),

@@ -1,6 +1,8 @@
 import { Akkala } from "./Akkala";
 import { Castle } from "./Castle";
+import { ability } from "./create";
 import { Eldin1 } from "./Eldin1";
+import { Eldin2 } from "./Eldin2";
 import { Faron1 } from "./Faron1";
 import { Gerudo1 } from "./Gerudo1";
 import { Gerudo2 } from "./Gerudo2";
@@ -13,7 +15,7 @@ import { Plateau } from "./Plateau";
 import { Plateau2 } from "./Plateau2";
 import { Rito1 } from "./Rito1";
 import { RupeePrinting } from "./RupeePrinting";
-import { ChangeData } from "./types";
+import { ChangeData, fury } from "./types";
 import { ZoraDomain1 } from "./ZoraDomain1";
 
 //The Main Route Object
@@ -28,15 +30,38 @@ export const MainRoute = [
 	...Gerudo1,
 	...ZoraDomain1,
 	...Eldin1,
-	...Akkala,
 	...KorokForest,
 	...Castle,
 	...Plateau2,
 	...Gerudo2,
 	...Lake,
+	"TODO...",
+	ability(fury(), {fury:2}),
+	...Eldin2,
+	"TODO...",
+	...Akkala,
 ];
 
 export const Change: ChangeData[] = [
+	{
+		version: "1.0.0",
+		date: "2021-12-12",
+		changes: [
+			"Changes to existing sections",
+			[
+				"Move E21 and Kayra Mah to Eldin 2 for fury+ routing. Move E28 to Eldin 1 (Korok Forest)",
+				"Move E15 to Eldin 1",
+				"Remove usage of amiibos",
+				"Akkala Reroute: Add Castle Lynel",
+				"Akkala Reroute: Move Akkala to after Eldin 2",
+				"Akkala Reroute: Skip Satori in Rito 1",
+				"Akkala Reroute: Move TOD to after plateau 1",
+			],
+			"Add Gerudo 2 route images",
+			"Add Eldin 2",
+			"Fix blessing shrine icons"
+		]
+	},
 	{
 		version: "0.5.1",
 		date: "2021-12-11",

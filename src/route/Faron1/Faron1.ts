@@ -1,5 +1,5 @@
 
-import { Chest, ChestSpecial, detail, Equipment, image, indent, Korok, MakeTOD, Section, Shrine, Snap, split, step, VariableChange, Warp } from "../create";
+import { ChestSpecial, detail, Equipment, image, indent, Korok, MakeTOD, Section, Shrine, Snap, split, step, VariableChange, Warp } from "../create";
 import { cps, emy, important, itm, lnk, npc, sm, txt } from "../types";
 import Faron1Image from "./Faron1.png";
 
@@ -39,7 +39,6 @@ export const Faron1  = [
 	detail(
 		txt("Talk to ",npc("Quest Lady"), " twice"),
 		"Can pick up a torch if have no torch"),
-	step(Chest("Ancient Core", "Skip if have 1 core")),
 	Shrine("Shai Utoh"),
 	split("-"),
 

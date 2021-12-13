@@ -1,4 +1,4 @@
-import { Boss, detail, Korok, MakeTOD, Shrine, split, step, VariableChange } from "../create";
+import { ability, Boss, detail, Korok, MakeTOD, Shrine, split, step, VariableChange } from "../create";
 import { cps, fury, gale, itm, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -8,7 +8,7 @@ export const IshtoSoh = [
 	"SQ DEFUSE",
 	Korok("L86", "Lift Rock Blocked", "Under Boulder"),
 	step(wb(cps)("<N + NE midair")),
-	Boss("Stalnox", txt("GEB + ", fury("1-3"))),
+	ability(Boss("Stalnox", txt("GEB + ", fury())), {fury: 3}),
 	step(wb(cps)("<W to archery")),
 	"Summon horse",
 	detail(
@@ -31,8 +31,8 @@ export const IshtoSoh = [
 	step("Drop down ", wb(cps)("W midair")),
 	Korok("L80", "Race", "SQ DEFUSE"),
 	step(wb(cps)("W> Turn + W midair")),
-	Boss("Stalnox", txt("3-5 Hits ", fury("1"))),
-	step(gale("1"), " ", wb(cps)(".N midair")),
+	ability(Boss("Stalnox", txt("3-5 Hits ", fury())), {fury: 1}),
+	ability(step(gale(), " ", wb(cps)(".N midair")), {gale: 1}),
 	Korok("L68", "Light Chase"),
 	step("cryo ", wb(cps)("NW")),
 	Korok("L67", "Balloon"),

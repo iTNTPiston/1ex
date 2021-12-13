@@ -1,4 +1,4 @@
-import { detail, Discover, indent, Korok, Memory, Shop, Shrine, split, step } from "../create";
+import { ability, detail, Discover, indent, Korok, Memory, Shop, Shrine, split, step } from "../create";
 import { cps, gale, important, npc, sm, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -18,7 +18,7 @@ export const RotaOoh = [
 	indent(sm("throw from lower level")),
 	step(cps("<N")),
 	Korok("R74", "Lift Rock"),
-	step(gale("1"), " + ", wb(cps)("<N midair")),
+	ability(step(gale(), " + ", wb(cps)("<N midair")),{gale: 1}),
 	Memory("Sanidin Park"),
 	split("-"),
     

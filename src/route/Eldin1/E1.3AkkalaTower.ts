@@ -1,4 +1,4 @@
-import { step, Korok, Shrine, split, Discover, Tower } from "../create";
+import { step, Korok, Shrine, split, Discover, Tower, ability } from "../create";
 import { cps, gale, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -35,9 +35,9 @@ export const AkkalaTower = [
 	Korok("A46", "Lift Rock (Door)"),
 	step(cps("NW")),
 	Korok("A43", "Lift Rock Blocked", "Under Leaves"),
-	gale("1-2"),
+	ability(gale(), {gale: 2}),
 	Korok("A42", "Lift Rock", "Next to cannons"),
-	step(gale("3")," + ", wb(cps)("N midair")),
+	ability(step(gale()," + ", wb(cps)("N midair")), {gale: 1}),
 	Tower("Akkala Tower"),
 	split("-"),
 ];

@@ -1,4 +1,4 @@
-import { Boss, ChestSpecial, detail, Discover, Korok, Memory, Shrine, split, step, VariableChange } from "../create";
+import { ability, Boss, ChestSpecial, detail, Discover, Korok, Memory, Shrine, split, step, VariableChange } from "../create";
 import { cps, fury, txt, itm, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -8,7 +8,7 @@ export const KaamYatak = [
 	"Glide to pond",
 	Korok("P10", "Lily Pads", "No Drown"),
 	step(wb(cps)("NW")),
-	Boss("Talus", fury("1")),
+	ability(Boss("Talus", fury()), {fury: 1}),
 	VariableChange({honey: 1}),
 	detail(
 		txt("Run to ", itm("Honey")),
@@ -40,7 +40,7 @@ export const KaamYatak = [
 	step("SQ"),
 	Korok("C75", "Lily Pads", "No Drown"),
 	step("SQ"),
-	Boss("Luminous Talus", fury("2-3")),
+	ability(Boss("Luminous Talus", fury()), {fury: 2}),
 	itm("Luminous/Opal"),
 	step(wb(cps)("NW DEFUSE")),
 	Korok("C69", "Acorn", "Hanging from tree"),

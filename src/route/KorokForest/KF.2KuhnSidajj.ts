@@ -1,17 +1,22 @@
-import { step, Korok, Tower, split, Discover, IconGeneric, detail, Shrine, indent, VariableChange, Equipment, Shop, Icon, MakeTOD, ChestSpecial, ShrineBlessing } from "../create";
+import { step, Korok, Tower, split, Discover, IconGeneric, detail, Shrine, indent, VariableChange, Equipment, Shop, Icon, MakeTOD, ChestSpecial, ShrineBlessing, ability, Chest } from "../create";
 import { cps, gale, important, itm, lcn, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
+
+const SeedsForBows = 12 + 17 + 25;
+const SeedsForWeapon = 3 + 5 + 8 + 12;
+const SeedsForShield = 1 + 2 + 3;
+const SeedsTotal = SeedsForBows + SeedsForWeapon + SeedsForShield;
 
 export const KuhnSidajj = [
 	step(cps("SW")),
 	Korok("E35", "Rock Circle"),
 	step(wb(cps)("W> TS")),
 	Korok("K32", "Acorn", "In tree"),
-	step(gale("2")," + ", cps("N>")),
+	ability(step(gale()," + ", cps("N>")), {gale: 1}),
 	Korok("K31", "Lift Rock", "Top of scaffolding"),
-	step(gale("3")," + midairs"),
+	ability(step(gale()," + midairs"), {gale: 1}),
 	Tower("Woodland Tower"),
-	split("-"),
+	split("{2 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
 
 	step(MakeTOD("9pm", "Make Night for BM")),
 	wb(cps)("<<N Turn"),
@@ -19,7 +24,7 @@ export const KuhnSidajj = [
 	step(wb(cps)("NW, surf to forest")),
 	Discover("Korok Forest"),
 	detail(
-		IconGeneric("hestu", npc("Hestu"),0,-134, "Bow - Weapons - Shields"),
+		IconGeneric("hestu", npc("Hestu"),0,-SeedsTotal, "Bow - Weapons - Shields"),
 		"Get all bows, then get weapons until you don't have enough seed, then get shields"),
 	txt("Activate ", lcn("Keo Ruug")),
 	"Do shrine if tight on BM",
@@ -33,7 +38,7 @@ export const KuhnSidajj = [
 	Shrine("Keo Ruug", "Skip BM"),
 	split("-"),
 
-	step("Run + WB to ", npc("Okai")),
+	step("Run + WB to ", npc("Okie")),
 	"Start Escort",
 	step(cps("E")),
 	npc("Riddles of Hyrule"),
@@ -48,7 +53,6 @@ export const KuhnSidajj = [
 		txt("Above Walton. ", v("rushroom"), "/55")),
 	txt("Break pots for ", itm("Acorns")),
 	step(itm("Egg"), " behind ", npc("Hestu")),
-	Equipment("Korok Leaf"),
 	Equipment("Master Sword"),
 	VariableChange({silentPrincess: 3}),
 	detail(
@@ -63,6 +67,7 @@ export const KuhnSidajj = [
 	important("EQUIP STEALTH 3"),
 	"Farm Frog/Cricket/Wood",
 	"Scan rushrooms",
+	Chest("Ancient Core"),
 	ShrineBlessing("Daag Chokah"),
 	split("-"),
 
