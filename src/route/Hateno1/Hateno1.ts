@@ -1,5 +1,5 @@
 import { Cook, detail, Equipment, Icon, image, indent, Korok, Section, Shrine, split, step, Tower } from "../create";
-import { cps, important, itm, npc, rne, sm, txt } from "../types";
+import { cps, important, itm, npc, rne, txt } from "../types";
 
 import Hateno1Image from "./Hateno1.png";
 
@@ -25,10 +25,7 @@ export const Hateno1 = [
 	txt("Talk to ",npc(" Quest lady")),
 	step(cps("<W")," Turn WB"),
 	txt("Talk to ",npc("Bolson"), " (112)"),
-	detail(
-		sm(txt("Throw away ", itm("Boomerang"), " if have")),
-		"Should have: Hammer, RGC, RC, Torch, Torch, Hammer, Hammer after this."),
-	Equipment("2 Hammers"),
+	Equipment("Hammer"),
 	detail(
 		Cook("Speed + Cold + Stealth", "Moblin gut for speed"),
 		"Darner + screw/other parts for cold. 1-2 night shades for stealth. Only need Lv1 stealth"),
@@ -42,7 +39,7 @@ export const Hateno1 = [
     
 	detail(
 		step("SQ WB to statue"),
-		"Text Options: GIVE = 11, BUY = 12, Switch Container = 22. When your stam is full, 121 to keep buying hearts."),
+		"Text Options: GIVE = 11, BUY = 12, Switch Container = 22. When your stam is full, 21 to keep buying hearts."),
 	"GIVE 3, SAVE (All first opt)",
 	detail(
 		"Load in shrine, Glitch",

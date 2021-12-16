@@ -1,4 +1,4 @@
-import { ChestSpecial, detail, Korok, MakeTOD, Memory, Shrine, ShrineDoubleSword, split, step } from "../create";
+import { ChestSpecial, detail, Korok, Memory, Shrine, ShrineDoubleSword, split, step } from "../create";
 import { txt, lnk, cps, npc, important } from "../types";
 import { wb } from "../windbomb";
 
@@ -27,15 +27,11 @@ export const TutsuwaNima = [
 	split("-"),
 
 	detail(
-		MakeTOD("9pm", "Make Night", "For Blood Moon"),
-		"If you are fast enough there should not be a blood moon here. However you need to set TOD for GC later so no time loss."),
-	detail(
 		step(txt("Talk to "), npc(" Guard")),
 		"Quest Lady is near pot if no rain, or inside if rain."),
 	txt("Talk to ", npc("Quest Lady")),
 	important("EQUIP STEALTH 3"),
 	step(wb(cps)("W>")),
-	"CHECK BLOOD MOON",
 	Korok("A19", "Flower Count"),
 	step(cps("SW")),
 	Korok("A22", "Lift Rock Blocked", "Under Leaves"),
@@ -43,15 +39,15 @@ export const TutsuwaNima = [
 	Korok("A18", "Acorn in Log", "Shoot midair"),
 	step(cps("S")),
 	Korok("A21", "Lift Rock", "Side of spring"),
-	step(cps("S")),
-	Korok("A26", "Block Puzzle"),
-	step(wb(cps)("W> Turn")),
-	Korok("A20", "Block Puzzle"),
-	step(wb(cps)("<W Turn")),
 	Memory("Spring of Power"),
 	split("-"),
 
 	"Dupe scale",
-	ShrineDoubleSword("Tutsuwa Nima", "23:30 Enter for BM"),
+	ShrineDoubleSword("Tutsuwa Nima"),
 	split("-"),
+
+	step(wb(cps)("S")),
+	Korok("A26", "Block Puzzle"),
+	step(wb(cps)("W> Turn")),
+	Korok("A20", "Block Puzzle"),
 ];

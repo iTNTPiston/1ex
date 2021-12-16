@@ -4,11 +4,10 @@ import { Dinraal, GoraeTorr } from "./A2GoraeTorr";
 import { ZunaKai } from "./A3ZunaKai";
 import { TuKaloh } from "./A4TuKaloh";
 import { TutsuwaNima } from "./A5TutsuwaNima";
-import { TarryTown2, Rudania } from "./A6Rudania";
+import { TarryTown2 } from "./A6TarryTown";
 
 import Akkala1Image from "./Akkala1.png";
 import Akkala2Image from "./Akkala2.png";
-import RudaniaImage from "./Rudania.png";
 
 export const Akkala = [
 	Section("AKKALA"),
@@ -21,6 +20,4 @@ export const Akkala = [
 	...TuKaloh,
 	...TutsuwaNima,
 	...TarryTown2,
-	image(RudaniaImage),
-	...Rudania,
 ];

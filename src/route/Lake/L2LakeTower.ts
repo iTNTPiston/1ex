@@ -49,6 +49,6 @@ export const LakeTower = [
 		txt("Knock down with blizzard rod. ", v("rushroom"), "/55")),
 	ability(step(cps("W"), " + ", gale()), {gale: 1}),
 	Tower("Lake Tower", "41.48%"),
-	split("{4 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
+	split("-"),
     
 ];

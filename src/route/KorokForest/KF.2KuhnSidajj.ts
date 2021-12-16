@@ -18,7 +18,9 @@ export const KuhnSidajj = [
 	Tower("Woodland Tower"),
 	split("{2 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
 
-	step(MakeTOD("9pm", "Make Night for BM")),
+	detail(
+		step(MakeTOD("9pm", "Make Night for BM", "if <9PM")),
+		"If you are fast enough, there shouldn't be a BM here so you can skip this"),
 	wb(cps)("<<N Turn"),
 	ChestSpecial("Korok Mask"),
 	step(wb(cps)("NW, surf to forest")),
@@ -33,7 +35,7 @@ export const KuhnSidajj = [
 	split("-"),
 
 	detail(
-		"Void out",
+		"Void out/WB",
 		"Warp if you are tight on BM"),
 	Shrine("Keo Ruug", "Skip BM"),
 	split("-"),
@@ -58,7 +60,6 @@ export const KuhnSidajj = [
 	detail(
 		itm("3 Silent Princesses"),
 		txt(v("silentPrincess"), "/16")),
-	step(npc("Blupee Guy"), " inside Deku tree"),
 	VariableChange({rushroom: 4}),
 	detail(
 		Shop("4 Rushrooms. All Arrows"),
@@ -66,7 +67,6 @@ export const KuhnSidajj = [
 	step("WB to shrine"),
 	important("EQUIP STEALTH 3"),
 	"Farm Frog/Cricket/Wood",
-	"Scan rushrooms",
 	Chest("Ancient Core"),
 	ShrineBlessing("Daag Chokah"),
 	split("-"),

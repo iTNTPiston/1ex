@@ -1,5 +1,5 @@
 import { ability, detail, Korok, MakeTOD, ShrineBlessing, Snap, split, step } from "../create";
-import { cps, emy, gale, important, itm, txt} from "../types";
+import { cps, emy, gale, important, txt} from "../types";
 import { wb } from "../windbomb";
 
 export const Dinraal = [
@@ -17,23 +17,19 @@ export const Dinraal = [
 	step(wb(cps)("<E Turn")),
 	Korok("K03", "Rock Circle"),
 	"Shoot Horn",
-	detail(
-		MakeTOD("5am", "Morning"),
-		"Kill this lynel if you don't have a hoof yet"),
+	MakeTOD("5am", "Morning"),
 	step(wb(cps)("E> Turn")),
 	Korok("E01", "Lift Rock Blocked", "Under leaves (Eye)"),
 	Snap(emy("Dinraal"), "SNAP Elite"),
-	"Shoot Horn",
+	"Shoot Fang",
 	Snap("Eldin Skeleton", "Quest"),
-	important("CHECK 1S 3H"),
+	important("CHECK 4H 2S 2C 2F"),
 ];
 
 export const GoraeTorr = [
 	step(wb(cps)("E + E> midair")),
 	Korok("E02", "Block Puzzle"),
-	txt("Ores for ", itm("Amber"), " if needed"),
 	step(cps("NE")),
-	txt("Ores for ", itm("Amber/Flint")),
 	Korok("E03", "Lift Rock Blocked", "Under Rubble"),
 	step(wb(cps)("E> + E midair")),
 	Korok("E04", "Lift Rock Blocked", "Under Rubble"),

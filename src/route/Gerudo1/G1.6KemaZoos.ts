@@ -8,7 +8,6 @@ export const KemaZoos = [
 	"Talk",
 	indent("Thunderhelm"),
 	indent(npc("Captain")),
-	indent(npc("Guard at door")),
 	indent(npc("Historian")),
 	indent(npc("Bar Lady")),
 	indent(npc("Trash Girl")),

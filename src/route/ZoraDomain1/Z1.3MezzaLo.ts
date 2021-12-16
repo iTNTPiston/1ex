@@ -7,7 +7,7 @@ export const MezzaLo = [
 	step(cps("W")," to deer, ride to ", npc("Kass")),
 	txt("Talk to ", npc("Kass")),
 	step(cps("W")),
-	Korok("N04", "Acorn Shoot", "Bullet time"),
+	Korok("N04", "Acorn Flying", "Bullet time"),
 	step(cps("NW")),
 	Korok("N02", "Lift Rock (Tree)"),
 	step(cps("E")),

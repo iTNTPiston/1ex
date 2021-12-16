@@ -64,7 +64,7 @@ export const Rito1 = [
 	itm("10 Berries"),
 	detail(
 		"Farm wood with Royal Claymore",
-		"If about to break, use Lynel Sword. Don't break claymore. No need to pick up axe. Should have: RGC, RC, Hammer, Torch"),
+		"If break, use Lynel Sword. No need to pick up axe. Should have: RGC, RC, Torch, Boomerang, Lynel"),
 	Shop("Beedle","Arrow, Fireflies, 1 Darner"),
 	itm("Ancient Arrow"),
 	txt("Get ",itm("Balloon")," from ",emy("Octorok")),

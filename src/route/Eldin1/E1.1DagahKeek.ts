@@ -7,7 +7,7 @@ export const DagahKeek = [
 	important("EQUIP ZORA"),
 	step("WB to ", npc("King")),
 	Chest("Lightscale Trident", "Keep for duping"),
-	npc("Diving Quest"),//TODO ZD2 to save menuing maybe?
+	//npc("Diving Quest"), moving to ZD2
 	important("EQUIP PHANTOM 3"),
 	txt("Talk to ", npc("Song Girl")),
 	detail(

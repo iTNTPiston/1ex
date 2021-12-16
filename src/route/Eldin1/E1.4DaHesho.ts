@@ -1,4 +1,4 @@
-import { Chest, detail, Korok, ShrineSword, Snap, split, step } from "../create";
+import { detail, Korok, ShrineSword, Snap, split, step } from "../create";
 import { cps, emy, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -22,7 +22,6 @@ export const DaHesho = [
 	step(wb(cps)("S + <S midair to trees")),
 	Korok("A49", "Match Tree", "Right tree"),
 	step(cps("W>")),
-	Chest("Giant Ancient Core", "Inside shrine"),
 	detail(
 		ShrineSword("Da Hesho", "GEB down for parts"),
 		"Snap guardian if you forgot to snap the one in naboris"),

@@ -59,7 +59,6 @@ export const CastleSecondHalf = [
 	Korok("X12", "Lift Rock"),
 	step("Aim at Gatehouse"),
 	Korok("X16", "Confetti", "Top of Second Gatehouse"),
-	Discover("Second Gatehouse"),
 	step(wb(cps)("W")),
 	Korok("X14", "Lift Rock Blocked", "Under rubble"),
 	step("Aim at shiekah pillar"),
@@ -106,7 +105,6 @@ export const ZaltaWa = [
 	Korok("C38", "Flower Chase"),
 	step(wb(cps)("<N Turn")),
 	ability(Boss("Black Hinox", txt(fury(), " + 2 GEB")), {fury: 3}),
-	MakeTOD("9pm", "Make Night", "For BM"),
 	VariableChange({tail: 1}),
 	step(wb(cps)("SW")),
 	detail(
@@ -117,6 +115,7 @@ export const ZaltaWa = [
 	ChestSpecial("Midna's Helm", "NW of the trees"),
 	step("SQ"),
 	Korok("R49", "Block Puzzle"),
+	MakeTOD("9pm", "Make Night", "For BM"),
 	step(wb(cps)("N")),
 	Korok("R48", "Acorn", "In tree"),
 	step(wb(cps)("NE")),

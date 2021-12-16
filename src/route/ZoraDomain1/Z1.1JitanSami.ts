@@ -3,7 +3,7 @@ import { cps, emy, important, txt } from "../types";
 
 export const JitanSami = [
 	important("EQUIP PHANTOM 2"),
-	step(cps("<W"), " Turn to flower"),
+	step(cps("<E"), " Turn to flower"),
 	Korok("N44", "Flower Chase"),
 	step(cps("<N"), " midairs to Naydra"),
 	Snap(emy("Naydra"), "SNAP Elite"),
@@ -20,7 +20,7 @@ export const JitanSami = [
 	Korok("N39", "Race", txt(cps("W"), " Round First")),
 	step(cps("W>"), " Turn midair + ", cps("NW")," midair"),
 	Korok("N21", "Lift Rock", "Peak (FAR)"),
-	step(cps("N"), " Turn"),
+	step(cps("E"), " Turn"),
 	Korok("N22", "Block Puzzle"),
 	step("Run to lake, put cryo block"),
 	Korok("N29", "Lily Pads", "No Drown"),

@@ -23,8 +23,7 @@ export const Faron1  = [
 	Snap(emy("Farosh"), "SNAP Elite"),
 	detail(
 		important("SAVE afterwards"),
-		"If you have another torch you don't need to pick up the torch. You can only have 1 torch, otherwise you don't have enough space for the knight's sword later"),
-
+		"Also throw away backup torch if you have one. No need to keep torch"),
 	step(cps("SW"), " to waterfall"),
 	Korok("F26", "Block Puzzle"),
 	"Drop down",

@@ -1,4 +1,4 @@
-import { Chest, ChestSpecial, detail, Equipment, image, indent, Korok, MakeTOD, Section, split, step, VariableChange, Warp } from "../create";
+import { Chest, ChestSpecial, detail, Discover, Equipment, image, indent, Korok, MakeTOD, Section, split, step, VariableChange, Warp } from "../create";
 import { txt, cps, lcn, emy, itm, important, lnk, v } from "../types";
 import RouteImage from "./RupeePrinting.png";
 
@@ -64,9 +64,10 @@ export const RupeePrinting = [
 	itm("Other backup food"),
 
 	step("Cardinal N to gatehouse"),
+	Discover("Second Gatehouse"),
 	detail(
 		"Enter Lynel Fight",
-		"Save + reload to make him drop weapon and not have skulls mess up the fight. Use RGB and Royal Claymore to stunlock. 5 Shots and break RC on him"
+		"Save + reload to make him drop weapon and not have skulls mess up the fight. Use RGB and Royal Claymore to stunlock. Use RGS and break 1 RC on him"
 	),
 	"Blow up eyes",
 	"SAVE Reload after eyes die",

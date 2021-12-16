@@ -1,5 +1,5 @@
-import {  Cook, detail,  Korok, MakeTOD, Shop, split, step,  Warp } from "../create";
-import { cps,   lcn, npc, txt } from "../types";
+import { Cook, Korok, Shop, split, step,  Warp } from "../create";
+import { cps, lcn, npc, txt } from "../types";
 
 export const GerudoTown = [
 	txt("BLSS to ", lcn("gerudo town")),
@@ -12,9 +12,6 @@ export const GerudoTown = [
 	Shop("3 Durians"),
 	Shop("All Arrows"),
 	Cook("10 Speed, Endura/Hearty"),
-	detail(
-		MakeTOD("5am", "Make Morning", "for quests"),
-		"For trash girl and ice house"),
 	txt("Talk to ", npc("Riju")),
 	step("Walk out from back"),
 	txt(cps(".W"), " Turn to skeleton"),

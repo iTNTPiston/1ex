@@ -29,14 +29,16 @@ export const Plateau = [
 	Korok("P18", "Confetti", "On top of hut"),
 	step(itm("Baked Apple")),
 	Equipment("Torch"),
-	step("WB to stasis"),
-	detail(Equipment("Hammer", "Switch to hammer"), "Keep the spear to get a sneakstrike in castle later"),
+	detail(
+		step("WB to stasis"),
+		"No hammer, keep spear for later"),
 	Shrine("Owa Daim"),
 	split("-"),
 
-	step("Boulder launch use ", itm("hammer")),
-	step("BTB to cryo"),
+	step("Ride boulder up"),
+	step("BLSS to cryo"),
 	step(Shrine("Keh Namut")),
+	split("-"),
 
 	"BLSS to ToT",
 	Icon("king", "Plateau"),

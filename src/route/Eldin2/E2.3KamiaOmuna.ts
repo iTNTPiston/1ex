@@ -47,4 +47,8 @@ export const KamiaOmuna = [
 	Boss("Igneo Talus Titan", important("EQUIP ATK UP")),
 	ShrineDLC("Kamia Omuna"),
 	split("-"),
+
+	step(wb(cps)("W + <W midair")),
+	Shrine("Shora Hah"),
+	split("-"),
 ];

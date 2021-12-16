@@ -1,4 +1,4 @@
-import { Boss, Chest,  detail, Equipment, Korok,   Shrine, split, step, VariableChange } from "../create";
+import { Boss, Chest,  detail, Equipment, Korok,   MakeTOD,   Shrine, split, step, VariableChange } from "../create";
 import {  txt,  cps, emy, important, itm, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -16,8 +16,12 @@ export const KuhTakkar = [
 	important("EQUIP PHANTOM"),
 	VariableChange({tail: 4}),
 	detail(
-		txt("Kill 4 ",emy("Lizalfos")),
+		txt("Kill 5 ",emy("Lizalfos")),
 		txt("Shoot with lynel bow. Tail: ",v("tail"),"/45")),
+	Equipment("2 Bows"),
+	detail(
+		MakeTOD("5am", "Make Morning", "for quests"),
+		"For trash girl and ice house"),
 	itm("14 wood"),
 	Chest("5 Fire Arrows"),
 	itm("Luminous Ore"),

@@ -51,7 +51,6 @@ export const Rudania = [
 		wb(cps)("E. to Yunobo"),
 		"Keep 3AA for ganon"),
 	itm("Amber/Flint on the way"),
-	ability(txt(fury(), " last 3 drones"),{fury: 2}),
 	Icon("rudania-enter", "Enter Rudania"),
 	split("-"),
 

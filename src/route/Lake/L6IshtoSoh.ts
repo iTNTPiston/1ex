@@ -34,7 +34,7 @@ export const IshtoSoh = [
 	ability(Boss("Stalnox", txt("3-5 Hits ", fury())), {fury: 1}),
 	ability(step(gale(), " ", wb(cps)(".N midair")), {gale: 1}),
 	Korok("L68", "Light Chase"),
-	step("cryo ", wb(cps)("NW")),
+	step("cryo ", wb(cps)("NW DEFUSE")),
 	Korok("L67", "Balloon"),
 	step(wb(cps)("E Turn")),
 	Shrine("Ishto Soh"),

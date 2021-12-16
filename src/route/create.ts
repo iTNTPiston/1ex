@@ -168,7 +168,7 @@ const memoryLocationToName = (location: string): string => {
 		case "Sacred Grounds": return "Subdued Ceremony";
 		case "Lake Kolomo": return "Resolve and Grief";
 		case "Ancient Columns": return "Zelda's Resentment";
-		case "Kara Kara Bazzar": return "Blades of the Yiga";
+		case "Kara Kara Bazaar": return "Blades of the Yiga";
 		case "Eldin Canyon": return "A Premonition";
 		case "Irch Plain": return "Silent Princess";
 		case "West Necluda": return "Shelter from the Storm";

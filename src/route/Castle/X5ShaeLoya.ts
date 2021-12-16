@@ -1,5 +1,5 @@
 import { detail, Discover, Korok, MakeTOD, Shrine, ShrineDoubleSword, split, step, Warp } from "../create";
-import { cps, txt, v } from "../types";
+import { cps, important, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const ShaeLoya = [
@@ -10,10 +10,12 @@ export const ShaeLoya = [
 	step(wb(cps)("W> Turn")),
 	Korok("R37", "Lift Rock", "Ledge"),
 	step(wb(cps)("W + SW midair")),
+	txt("Talk to ", npc("Kass")),
 	MakeTOD("9pm", "Make Night"),
 	detail(
-		ShrineDoubleSword("Mijah Rokee"),
-		"If missed BM: place travel medallion on pedestal and warp to Da Hesho for Tarry Town visits"),
+		important("UNEQUIP CLOTH"),
+		"No need to reequip until OHO overloaded"),
+	ShrineDoubleSword("Mijah Rokee"),
 	split("-"),
 
 	step(cps("<N")),
@@ -33,6 +35,11 @@ export const ShaeLoya = [
 	Discover("Tanagar Canyon Course"),
 	wb(cps)("N midair"),
 	Korok("R12", "Confetti", "Top of flagpole"),
-	Warp("SOR 28.52%", txt("Check ", v("krk"), " Koroks")),
+	Warp("Da Hesho ??.??%", txt("Check ", v("krk"), " Koroks")),
+	step(wb(cps)("N> to Tarry Town")),
+	"Give 20 Wood",
+	wb(cps)("E"),
+	Korok("A38", "Flower Chase", "On bridge"),
+	Warp("SOR ??.??%", txt("Check ", v("krk"), " Koroks")),
 	split("-"),
 ];

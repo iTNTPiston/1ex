@@ -4,7 +4,7 @@ import { wb } from "../windbomb";
 import { MONUMENT } from "../ZoraDomain1/Z1.4Ruta";
 
 export const TahMuhl = [
-	step(wb(cps)("S>> + S midair")),
+	step(wb(cps)("S>> + W midair")),
 	Boss("Blue Hinox", "6 Spin Hits SLAM"),
 	itm("6 Lotus Seeds"),
 	"Run to flower",
@@ -26,7 +26,7 @@ export const TahMuhl = [
 	step(cps("NW")),
 	"Start letter quest",
 	step(cps("N")),
-	Korok("Z23", "Tree Stump"),
+	Korok("Z23", "Well"),
 	detail(
 		"Break letter",
 		"If letter did not respawn, go back to the korok. At the end, drop the BLSS but do not drop the letter. Take fall damage with Mipha's Grace."),

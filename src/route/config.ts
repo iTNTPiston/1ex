@@ -1,12 +1,13 @@
 import { Akkala } from "./Akkala";
 import { Castle } from "./Castle";
-import { ability } from "./create";
 import { Eldin1 } from "./Eldin1";
 import { Eldin2 } from "./Eldin2";
 import { Faron1 } from "./Faron1";
 import { Gerudo1 } from "./Gerudo1";
 import { Gerudo2 } from "./Gerudo2";
+import { Gerudo3 } from "./Gerudo3";
 import { Hateno1 } from "./Hateno1";
+import { Hebra1 } from "./Hebra1";
 import { Hestu } from "./Hestu";
 import { Kakariko1 } from "./Kakariko1";
 import { KorokForest } from "./KorokForest";
@@ -15,7 +16,9 @@ import { Plateau } from "./Plateau";
 import { Plateau2 } from "./Plateau2";
 import { Rito1 } from "./Rito1";
 import { RupeePrinting } from "./RupeePrinting";
-import { ChangeData, fury } from "./types";
+import { Satori } from "./Satori";
+import { Tabantha } from "./Tabantha";
+import { ChangeData } from "./types";
 import { ZoraDomain1 } from "./ZoraDomain1";
 
 //The Main Route Object
@@ -35,14 +38,30 @@ export const MainRoute = [
 	...Plateau2,
 	...Gerudo2,
 	...Lake,
-	"TODO...",
-	ability(fury(), {fury:2}),
+	...Gerudo3,
+	...Satori,
+	...Tabantha,
+	...Hebra1,
 	...Eldin2,
-	"TODO...",
 	...Akkala,
 ];
 
 export const Change: ChangeData[] = [
+	{
+		version: "1.1.0",
+		date: "2021-12-16",
+		changes: [
+			"Changes to existing sections",
+			[
+				"Move Kema Zoos quest lady to Gerudo 2",
+				"Move Gerudo 1 TOD back a bit. Set morning at lizalfos camp",
+				"Fix early game weapon routing & duping",
+				"Other small fixes"
+			],
+			"Add Gerudo 3, Satori, Tabantha and Hebra 1",
+			"Update Akkala with Fury+ strats"
+		]
+	},
 	{
 		version: "1.0.0",
 		date: "2021-12-12",

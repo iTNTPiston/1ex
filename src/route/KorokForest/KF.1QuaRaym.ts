@@ -1,5 +1,5 @@
 import { ability, Boss, detail, Korok, Shrine, split, step } from "../create";
-import { txt, npc, cps, fury, itm } from "../types";
+import { txt, npc, cps, itm, gale } from "../types";
 import { wb } from "../windbomb";
 
 export const QuaRaym = [
@@ -7,14 +7,14 @@ export const QuaRaym = [
 	txt("Talk to ", npc("Talus Goron Guy"), " twice"),
 	txt("Talk to ", npc("Amber Lady")),
 	txt("Talk to ", npc("Bludo")),
-	step(wb(cps)("S + SE midair")),
+	ability(step(wb(cps)("S + SE"), " ", gale()), {gale: 1}),
 	detail(
 		txt("Talk to ", npc("Drillshaft Kid")),
 		"8am to 8pm"),
 	step(wb(cps)("SE")),
 	Korok("E20", "Boulder Golf"),
 	step(wb(cps)("<E Turn to talus")),
-	ability(Boss("Rare Igneo Talus", txt("RGC atk lv 2 ", fury())), {fury: 1}),
+	Boss("Rare Igneo Talus", txt("Freeze + RGC")),
 	"Farm luminous while dying",
 	itm("opal/flint"),
 	step("<S Turn"),
