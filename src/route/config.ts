@@ -1,5 +1,6 @@
 import { Akkala } from "./Akkala";
 import { Castle } from "./Castle";
+import { Central1 } from "./Central1";
 import { Eldin1 } from "./Eldin1";
 import { Eldin2 } from "./Eldin2";
 import { Faron1 } from "./Faron1";
@@ -8,6 +9,8 @@ import { Gerudo2 } from "./Gerudo2";
 import { Gerudo3 } from "./Gerudo3";
 import { Hateno1 } from "./Hateno1";
 import { Hebra1 } from "./Hebra1";
+import { Hebra2 } from "./Hebra2";
+import { Hebra3 } from "./Hebra3";
 import { Hestu } from "./Hestu";
 import { Kakariko1 } from "./Kakariko1";
 import { KorokForest } from "./KorokForest";
@@ -15,11 +18,13 @@ import { Lake } from "./Lake";
 import { Plateau } from "./Plateau";
 import { Plateau2 } from "./Plateau2";
 import { Rito1 } from "./Rito1";
+import { Rito2 } from "./Rito2";
 import { RupeePrinting } from "./RupeePrinting";
 import { Satori } from "./Satori";
 import { Tabantha } from "./Tabantha";
 import { ChangeData } from "./types";
 import { ZoraDomain1 } from "./ZoraDomain1";
+import { ZoraDomain2 } from "./ZoraDomain2";
 
 //The Main Route Object
 export const MainRoute = [
@@ -44,9 +49,25 @@ export const MainRoute = [
 	...Hebra1,
 	...Eldin2,
 	...Akkala,
+	...Hebra2,
+	...Rito2,
+	...ZoraDomain2,
+	...Central1,
+	...Hebra3
 ];
 
 export const Change: ChangeData[] = [
+	{
+		version: "1.2.0",
+		date: "2021-12-17",
+		changes: [
+			"Changes to existing sections",
+			[
+				"Snap Red Lynel at Lanayru Road"
+			],
+			"Add Hebra 2, Rito 2, ZD 2, Central 1",
+		]
+	},
 	{
 		version: "1.1.0",
 		date: "2021-12-16",

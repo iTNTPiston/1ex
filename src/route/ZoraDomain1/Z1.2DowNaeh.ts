@@ -1,5 +1,5 @@
-import { ability, Boss, detail, Korok, MakeTOD, Memory, Shrine, split, step, VariableSet } from "../create";
-import { cps, fury, important, sm, txt} from "../types";
+import { ability, Boss, detail, Korok, MakeTOD, Memory, Shrine, Snap, split, step, VariableSet } from "../create";
+import { cps, emy, fury, important, sm, txt} from "../types";
 
 export const DowNaeh = [
 	step(cps(".S"), " + ", cps("<N"), " Turn Midair"),
@@ -18,6 +18,7 @@ export const DowNaeh = [
 	Korok("N23", "Light Chase", "In forest"),
 	step(cps("W>>"), " Turn"),
 	important("EQUIP PHANTOM 3"),
+	Snap(emy("Lynel"), "SNAP Quest"),
 	Memory("Lanayru Road"),
 	split("-"),
 
