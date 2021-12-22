@@ -1,5 +1,5 @@
 
-import { ChestSpecial, detail, Equipment, image, indent, Korok, MakeTOD, Section, Shrine, Snap, split, step, VariableChange, Warp } from "../create";
+import { ChestSpecial, detail, Discover, Equipment, image, indent, Korok, MakeTOD, Section, Shrine, Snap, split, step, VariableChange, Warp } from "../create";
 import { cps, emy, important, itm, lnk, npc, sm, txt } from "../types";
 import Faron1Image from "./Faron1.png";
 
@@ -19,7 +19,7 @@ export const Faron1  = [
 	step(cps("<W")," Turn to Cave"),
 
 	"FAROSH FARMING",
-	"Need 1F 2C 3S, 30 Horns",
+	"Need 1F 2C 3S, 27 Horns",
 	Snap(emy("Farosh"), "SNAP Elite"),
 	detail(
 		important("SAVE afterwards"),
@@ -31,6 +31,7 @@ export const Faron1  = [
 	step(cps("SE")),
 	ChestSpecial("Phantom Ganon Pants", "At bottom of statue EQUIP"),
 	indent(sm("closest to cliff")),
+	Korok("F35", "Luminous Stone", "Eye of statue"),
 	step(cps("<<W"), " no turn to top of stable"),
 	Equipment("Axe", "Keep for duping"),
 	"Drop down",
@@ -53,6 +54,7 @@ export const Faron1  = [
 	step(cps("W."), " Turn to bridge"),
 	Korok("F24", "Balloon", "east of bridge under leaves"),
 	step("Start flower chase"),
+	Discover("Sarjon Bridge"),
 	ChestSpecial("Phantom Ganon Armor", "below bridge, no equip"),
 	Korok("F23", "Flower Chase"),
 	Warp("Kakariko"),

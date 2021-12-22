@@ -12,7 +12,7 @@ export const KamiaOmuna = [
 	step(wb(cps)("S> Turn")),
 	Korok("E27", "Lift Rock Blocked", "Under rubble"),
 	step(wb(cps)("<W slight turn")),
-	Korok("E36", "Boulder Golf", "Bomb down"),
+	Korok("E26", "Boulder Golf", "Bomb down"),
 	step("Run to talus ledge"),
 	ability(Boss("Igneo Talus", fury()), {fury: 3}),
 	ability(step(gale(), " + ", wb(cps)("<W Turn")), {gale: 1}),

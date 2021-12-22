@@ -58,7 +58,10 @@ export const Tower = (text: TextLike, comment?: TextLike): Instruction => {
 };
 
 export const Korok = (id: string, type: string, comment?: TextLike): Instruction => {
-	return IconGeneric(mapKorokToImage(type), npc(id+" ", type), 0, 1, comment);
+	return {
+		...IconGeneric(mapKorokToImage(type), npc(id+" ", type), 0, 1, comment),
+		korokCode: id
+	};
 };
 
 export const Chest = (text: TextLike, comment?: TextLike): Instruction => {
@@ -116,7 +119,7 @@ const bossTypeToIcon = (type:string):string => {
 		case "Black Hinox": return "hinox-black";
 		case "Stalnox": return "hinox-stal";
 		case "Molduga": return "molduga";
-		case "Talus": return "talus";
+		case "Stone Talus": return "talus";
 		case "Rare Talus": return "talus-rare";
 		case "Luminous Talus": return "talus-luminous";
 		case "Igneo Talus": return "talus-igneo";
@@ -139,7 +142,7 @@ const bossTypeToCounter = (type:string):string => {
 		case "Black Hinox": 
 		case "Stalnox": 
 			return "Hinox";
-		case "Talus": 
+		case "Stone Talus": 
 		case "Rare Talus": 
 		case "Luminous Talus": 
 		case "Igneo Talus": 
@@ -216,6 +219,7 @@ const mapKorokToImage = (korok: string):string =>{
 		case "Lift Rock (Door)": return "korok-magnesis";
 		case "Lift Rock (Tree)": return "korok-rock-tree";
 		case "Lift Rock Blocked": return "korok-rock-under";
+		case "Lift Rock Blkd": return "korok-rock-under";
 		case "Light Chase": return "korok-light-chase";
 		case "Lily Pads": return "korok-lily";
 		case "Match Tree": return "korok-matching";
@@ -223,6 +227,7 @@ const mapKorokToImage = (korok: string):string =>{
 		case "Metal Box Circle": return "korok-magnesis";
 		case "Offer Apple": return "korok-offer-apple";
 		case "Offer Banana": return "korok-offer-banana";
+		case "Offer Durian": return "korok-offer-durian";
 		case "Offer Egg": return "korok-offer-egg";
 		case "Offer Pepper": return "korok-offer-apple";
 		case "Race": return "korok-race";

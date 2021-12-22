@@ -22,6 +22,7 @@ export const Plateau = [
 	split("-"),
 
 	"WB to tower",
+	Equipment("Traveller's Sword"),
 	Tower("Great Plateau Tower"),
 	split("-"),
 

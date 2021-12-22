@@ -19,7 +19,7 @@ export const TabanthaTower = [
 	Korok("T28", "Boulder Golf", "Run after bomb"),
 	Korok("T29", "Lift Rock"),
 	step("SQ to race start"),
-	Korok("T30", "Race", "Ordinal"),
+	Korok("T30", "Race", "SQ High"),
 	step(wb(cps)("<N")),
 	Korok("T24", "Lift Rock", "Behind malice"),
 	step(wb(cps)("N> Turn")),

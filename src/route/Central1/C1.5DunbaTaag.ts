@@ -18,7 +18,7 @@ export const DunbaTaag = [
 	step(wb(cps)("E>")),
 	Korok("R09", "Race", "Run"),
 	step(wb(cps)("S> DT")),
-	Tower("Ridgeland Tower"),
+	Tower("Ridgeland Tower", "71.87%"),
 	split("{6 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
 
 	step(wb(cps)("<W Turn")),
@@ -33,7 +33,7 @@ export const DunbaTaag = [
 	"ordinal to orange",
 	cps("NW"),
 	Korok("R08", "Lift Rock Blocked", "Under rubble"),
-	cps("S"),
+	cps(".S"),
 	Shrine("Toh Yahsa"),
 	split("-"),
 

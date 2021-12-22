@@ -1,17 +1,17 @@
-import { ability, Boss, Discover, Icon, Korok, Shrine, ShrineBlessing, split, step, Warp } from "../create";
+import { ability, Cook, Discover, Icon, Korok, Shrine, split, step, Warp } from "../create";
 import { cps, fury, gale, important, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const TarryTownWedding = [
 	important("EQUIP FLAME 2"),
-	Icon("rudania-plus", "Fireblight 2"),
+	ability(Icon("rudania-plus", "Fireblight 2", fury()), {fury: 3}),
 	split("-"),
     
 	step("Ring Race"),
 	Discover("Sharo Lun Shrine"),
 	"SQ down",
 	Discover("Shadow Hamlet Ruins"),
-	ability(step(gale()), {gale: 1}),
+	ability(step(gale(), " + ", wb(cps)("NE + N")), {gale: 1}),
 	Korok("E12", "Block Puzzle"),
 	step(wb(cps)("S Turn")),
 	Korok("A25", "Confetti", "Top of tree"),
@@ -33,21 +33,8 @@ export const TarryTownWedding = [
 	Korok("A32", "Match Tree", "Closest tree"),
 	step(wb(cps)("<<S Turn")),
 	npc("Hudson Once"),
-	step(wb(cps)("NE")),
-	Korok("A34", "Rock Circle"),
-	step(wb(cps)("SE + SE")),
-	Korok("A44", "Race", "Run"),
-	"Start Flower Chase",
-	Korok("A36", "Block Puzzle"),
-	Korok("A35", "Flower Chase"),
-	npc("READ STONE"),
-	"BLSS with orb",
-	ShrineBlessing("Ritaag Zumo"),
-	split("-"),
-
-	Korok("A33", "Lift Rock Blocked", "Under leaves"),
-	wb(cps)("W Turn"),
-	ability(Boss("Stalnox", txt("GEB + ", fury())), {fury: 3}),
+	Cook("Speed"),
 	Warp("Shada Naw", txt("Check ", v("krk"), " Koroks")),
+	split("-"),
     
 ];

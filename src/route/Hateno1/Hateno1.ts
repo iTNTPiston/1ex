@@ -17,13 +17,13 @@ export const Hateno1 = [
 	Icon("camera-plus", "Camera Upgraded"),
 	split("-"),
 
-	step(cps("<E"), " Turn WB"),
+	step(cps("<E"), " SQ"),
 	Korok("N48", "Lily Pads", "Drown"),
-	step(cps("<N"), " Turn WB"),
+	step(cps("<N"), " Turn"),
 	Korok("N43", "Lift Rock (Tree)", "middle of lake"),
 	step(cps("S>>"), " no turn"),
 	txt("Talk to ",npc(" Quest lady")),
-	step(cps("<W")," Turn WB"),
+	step(cps("<W")," Turn"),
 	txt("Talk to ",npc("Bolson"), " (112)"),
 	Equipment("Hammer"),
 	detail(

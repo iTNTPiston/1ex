@@ -7,7 +7,7 @@ export const RotaOoh = [
 	Korok("C61", "Rock Circle"),
 	step("SQ ", cps("W.")),
 	Korok("C60", "Block Puzzle"),
-	step(cps("NW")),
+	step(cps("<N Turn")),
 	Korok("C57", "Acorn", "In tree"),
 	"Run to bridge",
 	Discover("Gleeok Bridge"),
@@ -39,7 +39,7 @@ export const RotaOoh = [
 	Korok("C78", "Lift Rock"),
 	step(wb(cps)(".N DEFUSE")),
 	Korok("C72", "Acorn Flying", "BT"),
-	step(wb(cps)("<W to shrine")),
+	step(wb(cps)("<<W to shrine")),
 	Shrine("Rota Ooh"),
 	split("-"),
 ];

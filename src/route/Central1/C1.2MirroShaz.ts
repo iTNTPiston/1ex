@@ -22,7 +22,7 @@ export const MirroShaz = [
 	Korok("C46", "Lift Rock", "Under bridge"),
 	step(wb(cps)("S> + W")),
 	Korok("C51", "Boulder Circle"),
-	step(wb(cps)("<S Turn")),
+	step(wb(cps)(".S Turn")),
 	Memory("Hyrule Field"),
 	split("-"),
     

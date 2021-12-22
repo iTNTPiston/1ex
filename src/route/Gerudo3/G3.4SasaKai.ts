@@ -4,7 +4,7 @@ import { wb } from "../windbomb";
 
 export const SasaKai = [
 	step(wb(cps)("W> + N midair")),
-	Korok("G34", "Block Puzzle"),
+	Korok("G34", "Block Puzzle", "Bottom right"),
 	step(wb(cps)("<W Turn")),
 	MakeTOD("12pm", "Make Noon", "For Sasa Kai"),
 	Shrine("Daqo Tah"),

@@ -1,13 +1,12 @@
-import { ChestSpecial, Cook, Korok, MakeTOD, ShrineDLC, ShrineDoubleSword, split, step } from "../create";
+import { ChestSpecial, Korok, MakeTOD, ShrineDLC, ShrineDoubleSword, split, step } from "../create";
 import { cps, important, itm } from "../types";
 import { wb } from "../windbomb";
 
 export const KiahToza = [
 	step("SQ ", cps("<<S")),
-	Cook("Speed", "Inside house"),
 	MakeTOD("9pm", "Night", "For Xenoblade Chest"),
 	itm("3 wood"),
-	Korok("H20", "Top of house"),
+	Korok("H20", "Confetti", "Top of house"),
 	step(wb(cps)("E + S midairs")),
 	important("Look Sky SE WATCH LAND"),
 	Korok("H28", "Lift Rock"),

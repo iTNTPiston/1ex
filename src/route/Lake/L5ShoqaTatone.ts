@@ -6,7 +6,7 @@ export const ShoqaTatone = [
 	step(wb(cps)(".S to peak DEFUSE")),
 	Korok("L65", "Race", "Ordinal"),
 	step(wb(cps)("S. Turn")),
-	Korok("L70", "Acorn Shoot", "Bomb Arrow if can"),
+	Korok("L70", "Acorn Flying", "Bomb Arrow if can"),
 	"Glide to rock circle",
 	Korok("L71", "Rock Circle"),
 	step(wb(cps)("S + S midair")),

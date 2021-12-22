@@ -1,4 +1,5 @@
 export type Instruction = {
+	korokCode?: string,
     icon?: string,
     text: TextBlock,
     comment?: TextBlock,

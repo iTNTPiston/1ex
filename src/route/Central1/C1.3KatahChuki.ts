@@ -15,7 +15,7 @@ export const KatahChuki = [
 	"Check 2 Slots",
 	detail(
 		Equipment("Guardian Axe++"),
-		"Blizzard rod, RGC 1 hit, stasis+ RGC 11 hits"),
+		"Blizzard rod + RGC Stunlock 4 hits"),
 	Chest("Frostspear"),
 	ShrineDoubleSword("Namika Ozz"),
 	split("-"),

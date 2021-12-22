@@ -1,4 +1,4 @@
-import { step, Boss, Korok, Shrine, split } from "../create";
+import { step, Boss, Korok, Shrine, split, Discover } from "../create";
 import { cps, important, txt, npc } from "../types";
 import { wb } from "../windbomb";
 
@@ -15,6 +15,7 @@ export const SheemDagoze = [
 	step(wb(cps)("<S Turn")),
 	Korok("R41", "Flower Count"),
 	txt("Surf to ", npc("Kass")),
+	Discover("Jeddo Bridge"),
 	wb(cps)("W to shrine"),
 	"RGB aim top of hole",
 	Shrine("Sheem Dagoze"),

@@ -40,7 +40,7 @@ export const Kakariko1 = [
 	VariableChange({silentPrincess: 2}),
 	detail(
 		itm("2 Silent Princesses"),
-		txt(v("silentPrincess"), "/16")),
+		txt(v("silentPrincess"), "/19")),
 	itm("Grab >2 night shades"),
 	txt("BLSS to ", lcn("Hateno")),
 ];

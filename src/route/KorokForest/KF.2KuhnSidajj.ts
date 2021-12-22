@@ -59,7 +59,7 @@ export const KuhnSidajj = [
 	VariableChange({silentPrincess: 3}),
 	detail(
 		itm("3 Silent Princesses"),
-		txt(v("silentPrincess"), "/16")),
+		txt(v("silentPrincess"), "/19")),
 	VariableChange({rushroom: 4}),
 	detail(
 		Shop("4 Rushrooms. All Arrows"),

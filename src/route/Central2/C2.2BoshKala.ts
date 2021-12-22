@@ -1,0 +1,45 @@
+import { step, Korok, Shrine, detail, split, Discover } from "../create";
+import { cps, npc } from "../types";
+import { wb } from "../windbomb";
+
+export const BoshKala = [
+	step("SQ to rock north"),
+	Korok("C48", "Lift Rock"),
+	step(wb(cps)("SE + E> midair")),
+	Korok("C54", "Confetti", "Top of flagpole"),
+	Discover("Hyrule Garrison Ruins"),
+	step(wb(cps)("NE")),
+	Korok("C49", "Acorn", "Hanging from wagon (tree)"),
+	step(wb(cps)("SE")),
+	Korok("C55", "Light Chase", "Forest left of guardian"),
+	step(wb(cps)("S")),
+	Korok("C64", "Light Chase"),
+	step(wb(cps)("S")),
+	Korok("C70", "Rock Circle", "3"),
+	step(wb(cps)("E")),
+	Korok("C71", "Lift Rock (Tree)"),
+	step(wb(cps)("NE")),
+	Korok("C65", "Acorn", "In tree"),
+	step("SQ to shrine"),
+	Shrine("Wahgo Katta", "Keep RGC equipped"),
+	split("-"),
+
+	step("SQ to stable"),
+	detail(
+		npc("Royal Guard Girl Twice"),
+		"5AM - 10PM"),
+	npc("Fruit Cake Guy Twice"),
+	step(wb(cps)("S")),
+	Korok("C77", "Balloon"),
+	step("SQ to bridge"),
+	Korok("D14", "Acorn", "Hanging from bridge"),
+	Discover("Owlan Bridge"),
+	step(wb(cps)("S Turn")),
+	Korok("D22", "Lift Rock Blocked", "Under boulder"),
+	step(wb(cps)("<W Turn")),
+	Korok("C84", "Acorn Flying", "Shoot hard one in non BT"),
+	step(wb(cps)("S")),
+	Korok("D26", "Confetti", "Top of flagpole"),
+	Shrine("Bosh Kala"),
+	split("-"),
+];

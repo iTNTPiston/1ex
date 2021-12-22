@@ -1,4 +1,4 @@
-import { ability, Boss, Chest, Korok, MakeTOD, ShrineBlessing, split, step } from "../create";
+import { ability, Boss, Chest, Equipment, Korok, MakeTOD, ShrineBlessing, split, step } from "../create";
 import { cps, fury, gale, important} from "../types";
 import { wb } from "../windbomb";
 
@@ -20,6 +20,7 @@ export const KetohWawai = [
 	"Shoot Dinraal, get horn",
 	step(wb(cps)("E + E midairs")),
 	ability(Boss("Blue Hinox", fury()), {fury: 3}),
+	Equipment("Torch"),
 	Chest("Ancient Core", "In shrine, get if 1 core"),
 	ShrineBlessing("Ketoh Wawai"),
 	split("-"),

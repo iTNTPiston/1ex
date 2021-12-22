@@ -4,15 +4,15 @@ import { wb } from "../windbomb";
 import { MONUMENT } from "../ZoraDomain1/Z1.4Ruta";
 
 export const ZoraDLC = [
-	npc("Hudson Twice"),
-	Warp("Sato Koda"),
 	step(wb(cps)("N>")),
 	Korok("Z04", "Lift Rock", "Peak"),
 	step(wb(cps)("E> Turn")),
 	Chest("Zora Helm"),
-	step(wb(cps)("E")),
+	step(wb(cps)("E DEFUSE")),
 	Korok("Z05", "Light Chase"),
-	step(wb(cps)("S Turn")),
+	step(wb(cps)("<W Turn")),
+	...MONUMENT,
+	step(wb(cps)("E> Turn")),
 	"Start Ring Chase",
 	...MONUMENT,
 	ShrineDLC("Mah Eliya"),
@@ -27,7 +27,7 @@ export const ZoraDLC = [
 	detail(
 		npc("Frog Boy Twice"),
 		"<4PM near statue. >4PM near Fronk"),
-	npc("Luminous Stone Guy"),
+	npc("Luminous Stone Guy Twice"),
 	"Run up stairs and jump over",
 	npc("Letter Girl"),
 	npc("Diving Quest"),

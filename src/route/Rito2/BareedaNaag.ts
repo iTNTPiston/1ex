@@ -1,5 +1,5 @@
-import { ability, Boss, detail, Discover, Korok, MakeTOD, Shrine, split, step, VariableChange, Warp } from "../create";
-import { cps, emy, fury, gale, itm, npc, txt, v } from "../types";
+import { ability, Boss, detail, Discover, Korok, MakeTOD, Shrine, ShrineBlessing, split, step, VariableChange, Warp } from "../create";
+import { cps, fury, gale, itm, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const BareedaNaag = [
@@ -25,10 +25,10 @@ export const BareedaNaag = [
 	Shrine("Bereeda Naag"),
 	split("-"),
 
-	step(wb(cps)("N> TS")),
+	step(wb(cps)("NE")),
 	detail(
-		npc("Guard"),
-		"Walks back and forth on bridge"),
+		npc("Guard TWICE"),
+		"At end of bridge closer to Rito Village"),
 	npc("Spice Guy Twice"),
 	itm("50+ Wood"),
     
@@ -38,10 +38,6 @@ export const BareedaNaag = [
 	Korok("T20", "Block Puzzle"),
 	step(wb(cps)("E Turn")),
 	Korok("T22", "Lift Rock Blocked", "Under rubble"),
-	VariableChange({tail: 2}),
-	detail(
-		txt("Kill 2 ", emy("Silver Lizalfos")),
-		txt(v("tail"), "/45")),
 	step(wb(cps)("E Turn + E midair")),
 	Korok("R05", "Acorn", "In tree"),
 	Discover("Foot Race"),
@@ -70,6 +66,35 @@ export const BareedaNaag = [
 		npc("Fairy Fountain Guy Twice"),
 		"5AM - 10PM outside"),
 	MakeTOD("5am", "Make Morning Twice", "If missed scale dupe"),
+	detail(
+		Warp("Shada Naw", txt("Check ", v("krk")," Koroks")),
+		"Doing 2 koroks here for fury cooldown"),
+	split("-"),
+
+	step(wb(cps)("E Turn")),
+	Korok("H21", "Confetti", "Top of tree"),
+	step(wb(cps)("NW")),
+	Korok("H12", "Rock Circle"),
 	Warp("Travel Medallion", txt("Check ", v("krk")," Koroks")),
-	split("-")
+	split("-"),
+
+	npc("Hudson Twice"),
+	MakeTOD("9pm", "Make Night"),
+	step(wb(cps)("NE")),
+	Korok("A34", "Rock Circle"),
+	step(wb(cps)("SE + SE")),
+	Korok("A44", "Race", "Run"),
+	"Start Flower Chase",
+	Korok("A36", "Block Puzzle"),
+	Korok("A35", "Flower Chase"),
+	npc("READ STONE"),
+	"BLSS with orb",
+	ShrineBlessing("Ritaag Zumo"),
+	split("-"),
+
+	Korok("A33", "Lift Rock Blocked", "Under leaves"),
+	wb(cps)("W Turn"),
+	ability(Boss("Stalnox", txt("GEB + ", fury())), {fury: 3}),
+	Warp("Sato Koda", txt("Check ", v("krk"), " Koroks")),
+	split("-"),
 ];

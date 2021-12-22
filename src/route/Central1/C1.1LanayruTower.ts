@@ -1,4 +1,4 @@
-import { ability, Boss, detail, Icon, Korok, ShrineSword, Snap, split, step, Tower } from "../create";
+import { ability, Boss, detail, Discover, Icon, Korok, ShrineSword, Snap, split, step, Tower } from "../create";
 import { cps, emy, gale, important } from "../types";
 import { wb } from "../windbomb";
 
@@ -22,11 +22,12 @@ export const LanayruTower = [
 	step(wb(cps)("N> DEFUSE")),
 	Korok("Z22", "Lift Rock", "On hill"),
 	step(wb(cps)("W> Turn")),
+	Discover("Inogo Bridge"),
 	ShrineSword("Soh Kofi"),
 	split("-"),
 
-	ability(step(gale(), " + ", cps("S")), {gale: 1}),
-	ability(gale(), {gale: 2}),
+	ability(step(gale(), " + ", wb(cps)("S + S")), {gale: 1}),
+	ability(gale(), {gale: 1}),
 	Tower("Lanayru Tower"),
 	split("-"),
 ];

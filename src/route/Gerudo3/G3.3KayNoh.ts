@@ -19,7 +19,7 @@ export const KayNoh = [
 	step(wb(cps)("W + S> midair")),
 	Korok("G35", "Race", "SQ DEFUSE"),
 	ability(step(gale(), " + ", "<W midair"), {gale: 1}),
-	ability(Boss("Lunimous Talus", txt(fury(), " + 2 BA")),{fury: 1}),
+	ability(Boss("Luminous Talus", txt(fury(), " + 2 BA")),{fury: 1}),
 	step(wb(cps)("<S Turn")),
 	Korok("W19", "Lift Rock"),
 	step(wb(cps)("N>")),

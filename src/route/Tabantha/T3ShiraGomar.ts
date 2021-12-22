@@ -1,9 +1,13 @@
-import { step, ability, ShrineDoubleSword, Korok, split, Memory, Boss, MakeTOD, ShrineDLC } from "../create";
-import { cps, npc, txt, gale, fury } from "../types";
+import { step, ability, ShrineDoubleSword, Korok, split, Memory, Boss, MakeTOD, ShrineDLC, detail, VariableChange } from "../create";
+import { cps, npc, txt, gale, fury, itm, v } from "../types";
 import { wb } from "../windbomb";
 
 export const ShiraGomar = [
 	step(wb(cps)("<S Turn")),
+	VariableChange({silentPrincess: 2}),
+	detail(
+		itm("2 Silent Princess"),
+		txt(v("silentPrincess"), "/19")),
 	npc("Fairy Fountain"),
 	ability(txt(gale(), " + ",cps("SE")), {gale: 1}),
 	Korok("T33", "Balloon", "Use bomb"),
@@ -12,6 +16,8 @@ export const ShiraGomar = [
 	split("-"),
 
 	step(Memory("Ancient Columns")),
+	split("-"),
+	
 	"Run",
 	Korok("T35", "Lily Pads", "No Drown"),
 	step(wb(cps)("W")),

@@ -35,11 +35,13 @@ export const ShaeLoya = [
 	Discover("Tanagar Canyon Course"),
 	wb(cps)("N midair"),
 	Korok("R12", "Confetti", "Top of flagpole"),
-	Warp("Da Hesho ??.??%", txt("Check ", v("krk"), " Koroks")),
+	Warp("Da Hesho", txt("Check ", v("krk"), " Koroks")),
+	split("-"),
+	
 	step(wb(cps)("N> to Tarry Town")),
 	"Give 20 Wood",
 	wb(cps)("E"),
 	Korok("A38", "Flower Chase", "On bridge"),
-	Warp("SOR ??.??%", txt("Check ", v("krk"), " Koroks")),
+	Warp("SOR", txt("Check ", v("krk"), " Koroks")),
 	split("-"),
 ];

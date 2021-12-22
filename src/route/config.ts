@@ -1,18 +1,23 @@
 import { Akkala } from "./Akkala";
 import { Castle } from "./Castle";
 import { Central1 } from "./Central1";
+import { Central2 } from "./Central2";
 import { Eldin1 } from "./Eldin1";
 import { Eldin2 } from "./Eldin2";
 import { Faron1 } from "./Faron1";
+import { Faron2 } from "./Faron2";
+import { Finale } from "./Finale";
 import { Gerudo1 } from "./Gerudo1";
 import { Gerudo2 } from "./Gerudo2";
 import { Gerudo3 } from "./Gerudo3";
 import { Hateno1 } from "./Hateno1";
+import { Hateno2 } from "./Hateno2";
 import { Hebra1 } from "./Hebra1";
 import { Hebra2 } from "./Hebra2";
 import { Hebra3 } from "./Hebra3";
 import { Hestu } from "./Hestu";
 import { Kakariko1 } from "./Kakariko1";
+import { Kakariko2 } from "./Kakariko2";
 import { KorokForest } from "./KorokForest";
 import { Lake } from "./Lake";
 import { Plateau } from "./Plateau";
@@ -53,10 +58,40 @@ export const MainRoute = [
 	...Rito2,
 	...ZoraDomain2,
 	...Central1,
-	...Hebra3
+	...Hebra3,
+	...Central2,
+	...Faron2,
+	...Kakariko2,
+	...Hateno2,
+	...Finale
 ];
 
 export const Change: ChangeData[] = [
+	{
+		version: "1.4.0",
+		date: "2021-12-22",
+		changes: [
+			"Last quarter optimizations and small fixes"
+		]
+	},
+	{
+		version: "1.3.0",
+		date: "2021-12-21",
+		changes: [
+			"Changes to existing sections",
+			[
+				"Add C81 after P01",
+				"Add F35 to Faron 1",
+				"Change Tarry Town orders",
+				"Moving monument before Dagah Keek to ZD2",
+				"Add 2 Silent Princesses to Tabantha Great Fairy",
+				"Add H33 to Hebra 2",
+				"Other small fixes",
+				"Fix korok ids",
+			],
+			"Add Hebra 3, Central 2, Faron 2, Kakariko 2, Hateno 2, Finale",
+		]
+	},
 	{
 		version: "1.2.0",
 		date: "2021-12-17",

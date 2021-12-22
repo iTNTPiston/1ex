@@ -23,8 +23,8 @@ export const YaNaga = [
 	Korok("L62", "Lift Rock", "Under rubble (mid of 3)"),
 	txt("Ride to ", npc("Quest Guy")),
 	detail(
-		Cook("Fruit Cake"), 
-		"Apple, Banana, Wheat, Sugar. Buy durian if you don't have banana"),
+		Cook("Fruit Cake + Speed"), 
+		"Apple, Banana, Wheat, Sugar. Durian works too"),
 	MakeTOD("9pm", "Make Night", "IF 11pm-4pm"),
 	"Run to flower chase",
 	Korok("L64", "Flower Chase"),

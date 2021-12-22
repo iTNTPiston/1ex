@@ -12,7 +12,7 @@ export const DarkBeast = [
 	step("Drop down ", cps("S")),
 	Korok("X10", "Race", "Glide"),
 	step(cps("W")),
-	Korok("X08", "Confetti", "Top of Zelda's Study"),
+	Korok("X07", "Confetti", "Top of Zelda's Study"),
 	step(cps("E")),
 	important("EQUIP PHANTOM"),
 	ChestSpecial("Royal Guard Cap", "2nd Floor Sanctum"),

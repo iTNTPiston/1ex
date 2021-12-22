@@ -47,7 +47,7 @@ export const CastleSecondHalf = [
 	VariableChange({silentPrincess: 1}),
 	detail(
 		itm("Silent Princess"),
-		txt(v("silentPrincess"), "/16")),
+		txt(v("silentPrincess"), "/19")),
 	Snap(emy("Guardian Skywatcher"), "SNAP Quest"),
 	Memory("Hyrule Castle"),
 	split("-"),

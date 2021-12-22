@@ -23,7 +23,7 @@ export const GerudoTown2 = [
 	VariableChange({silentPrincess: 2}),
 	detail(
 		itm("2 Silent Princesses"),
-		txt(v("silentPrincess"), "/16")),
+		txt(v("silentPrincess"), "/19")),
 	npc("Fairy Fountain"),
 	detail(
 		Shrine("Hawa Koth"),

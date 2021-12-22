@@ -11,8 +11,9 @@ export const KorshOhu = [
 	"Run to ledge",
 	Korok("W31", "Lift Rock"),
 	step("Run + ", wb(cps)("N. to tower")),
-	Tower("Wasteland Tower", "36.67%"),
+	Tower("Wasteland Tower"),
 	split("-"),
+
 	step(wb(cps)("<E Turn down")),
 	"Start race",
 	wb(cps)("<S no turn"),

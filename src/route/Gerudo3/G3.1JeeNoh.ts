@@ -1,11 +1,11 @@
 import { step, Korok, ability, Boss, Shrine, split } from "../create";
-import { cps, fury, gale, v } from "../types";
+import { cps, fury, v } from "../types";
 import { wb } from "../windbomb";
 
 export const JeeNoh = [
 	step(wb(cps)("E")),
 	Korok("L69", "Block Puzzle"),
-	ability(step(gale(), " + ", wb(cps)("N + N")), {gale:1}),
+	step( wb(cps)("N + N midairs")),
 	ability(Boss("Luminous Talus", fury()), {fury: 2}),
 	step(wb(cps)("W Turn")),
 	Korok("L41", "Lift Rock Blocked", "Under rubble"),

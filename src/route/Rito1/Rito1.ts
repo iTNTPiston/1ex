@@ -1,20 +1,10 @@
-import { Chest, Cook, detail, Equipment, Icon, image, indent, Korok, Section, Shop, Shrine, split, step, Warp } from "../create";
+import { Chest, Cook, detail, Equipment, Icon, image, indent, Korok, MakeTOD, Section, Shop, Shrine, split, step, Warp } from "../create";
 import { cps, emy, important, itm, lcn, npc, sm, txt } from "../types";
 import RitoImage from "./Rito1-2.png";
 
 export const Rito1 = [
 	Section("RITO 1"),
 	image(RitoImage),
-	// step("BLSS + WB to ", itm("durians")), 
-	// VariableChange({ silentPrincess: 2}),
-	// detail(
-	// 	step(cps("W"), " WB, ", itm("2 Silent Princesses")),
-	// 	txt(v("silentPrincess"), "/19")),
-	// txt("Run to ",lcn("Mogg Latan")),
-	// Shrine("Mogg Latan"),
-	// split("-"),
-
-	// step(Korok("R60", "Lift Rock Blocked", "Under leaves")),
 	step("BLSS to Rito"),
 	detail(
 		important("UNEQUIP PHANTOM"),
@@ -31,8 +21,9 @@ export const Rito1 = [
 	Equipment("Arrows + Swallow Bow"),
 	detail(
 		Cook("Cold + Hearty", "Keep 1 durian"),
-		"2 Trouts or 3 sunshroom for cold protection, or 2 shroom + 2 peppers"),
+		"3 sunshroom for cold protection, or 2 shroom + 2 peppers"),
 	indent(sm("Also keep 3-4 sunshrooms")),
+	MakeTOD("5am", "Make Morning", "For darners"),
 	Icon("medoh-enter", "Enter Medoh"),
 	split("-"),
 
@@ -61,12 +52,12 @@ export const Rito1 = [
 
 	step(cps("<W")," Turn to ",npc("Voo Lota Girl")),
 	step(cps("E"), " TS to ",lcn("Rito Stable")),
+	Shop("Beedle","Arrow, Fireflies, 1 Darner"),
+	itm("Ancient Arrow"),
 	itm("10 Berries"),
 	detail(
 		"Farm wood with Royal Claymore",
 		"If break, use Lynel Sword. No need to pick up axe. Should have: RGC, RC, Torch, Boomerang, Lynel"),
-	Shop("Beedle","Arrow, Fireflies, 1 Darner"),
-	itm("Ancient Arrow"),
 	txt("Get ",itm("Balloon")," from ",emy("Octorok")),
 	txt("Get ",itm("Voltfin")," from ",emy("Octorok")),
 	"Reload and farm wood again",

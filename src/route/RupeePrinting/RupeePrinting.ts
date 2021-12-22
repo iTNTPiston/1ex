@@ -90,7 +90,7 @@ export const RupeePrinting = [
 	"Use door to push guardian",
 	detail(
 		"Kill stalkers for springs",
-		"You have 15 hits on RGC. You can use RGC + atk lv 3 to one shot the legs if you need springs. Need 30 for ancient shield, 15 for radiant shield"),
+		"You have 15 hits on RGC. You can use RGC + atk lv 3 to one shot the legs if you need springs. Need 15 for sword"),
 	Korok("C32", "Shoot Emblem", "Castle Town Gate"),
 	"RUPEE PRINTING",
 	Korok("C30", "Lift Rock Blocked", "Under rubble was smashed"),

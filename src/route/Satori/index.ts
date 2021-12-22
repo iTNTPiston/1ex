@@ -12,7 +12,7 @@ export const Satori = [
 	VariableChange({silentPrincess: 4}),
 	detail(
 		itm("4 Silent Princesses"),
-		txt(v("silentPrincess"), "/16")),
+		txt(v("silentPrincess"), "/19")),
 	"Run to flower",
 	Korok("R61", "Flower Chase"),
 	step("SQ to stalnox"),
@@ -53,7 +53,7 @@ export const Satori = [
 	txt("Run ", itm("seeds")),
 	Korok("R67", "Basketball"),
 	"Run",
-	Korok("R68", "Tree Stump", "Magnesis 2"),
+	Korok("R66", "Tree Stump", "Magnesis 2"),
 	"Run",
 	Korok("R65", "Flower Count"),
 	Korok("R64", "Lift Rock Blocked", "Under rubble"),
@@ -68,6 +68,7 @@ export const Satori = [
 	detail(
 		itm("Rushroom"),
 		txt(v("rushroom"), "/55")),
+	Korok("R71", "Lift Rock"),
 	step(cps("N")),
 	Korok("R59", "Lift Rock", "Small island"),
 	step(cps("<N")),

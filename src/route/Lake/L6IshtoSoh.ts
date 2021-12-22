@@ -4,7 +4,6 @@ import { wb } from "../windbomb";
 
 export const IshtoSoh = [
 	step(MakeTOD("9pm", "Make Night", "2 Stalnox")),
-	//TODO: palm fruit?
 	"SQ DEFUSE",
 	Korok("L86", "Lift Rock Blocked", "Under Boulder"),
 	step(wb(cps)("<N + NE midair")),

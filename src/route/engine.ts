@@ -1,3 +1,5 @@
+import { Korok } from "./create";
+import { addKorok, getMissingKoroks, hasKorok, KorokData, newData } from "./korok";
 import { instructionLikeToInstruction, InstructionData, InstructionLike, txt, lcn, npc, stringToText, Instruction, TextBlock, Text } from "./types";
 
 export class InstructionEngine{
@@ -17,6 +19,8 @@ export class InstructionEngine{
 	private variables:{[key: string]:number} = {};
 
 	private applyImage = "";
+	private korokData: KorokData = {};
+	private dupeKorok: string[] = [];
 
 	private initialize(): void {
 		this.lineNumber = 1;
@@ -32,6 +36,8 @@ export class InstructionEngine{
 		this.noDetailYet = true;
 		this.noImageYet = true;
 		this.variables = {};
+		this.korokData = newData();
+		this.dupeKorok = [];
 	}
 
 	compute(config: InstructionLike[]): InstructionData[] {
@@ -43,6 +49,32 @@ export class InstructionEngine{
 	private computeInstructions(input: Instruction[]):InstructionData[] {
 		const output: InstructionData[] = [];
 		input.forEach((_, i)=>this.processInstruction(input, i, output));
+		const missingKoroks = getMissingKoroks(this.korokData);
+
+		if(this.dupeKorok.length !== 0){
+			const dupeKorokInstructions: InstructionLike[] = [
+				"Duplicate Koroks"
+			];
+			this.dupeKorok.forEach(id=>{
+				dupeKorokInstructions.push(Korok(id, "Duplicate"));
+			});
+
+			const mappedInstructions = dupeKorokInstructions.map(instructionLikeToInstruction);
+			mappedInstructions.forEach((_, i)=>this.processInstruction(mappedInstructions, i, output));
+		}
+		
+		if(missingKoroks.length !== 0){
+			const missingKorokInstructions: InstructionLike[] = [
+				"Missing Koroks"
+			];
+			missingKoroks.forEach(id=>{
+				missingKorokInstructions.push(Korok(id, "Missing"));
+			});
+
+			const mappedInstructions = missingKorokInstructions.map(instructionLikeToInstruction);
+			mappedInstructions.forEach((_, i)=>this.processInstruction(mappedInstructions, i, output));
+		}
+
 		return output;
 	}
 
@@ -152,6 +184,13 @@ export class InstructionEngine{
 				props.counterNumber = String(this.shrineCount);
 				props.counterClassName = "counter-color-shrine";
 			}else if(data.korokChange !== 0){
+				if(data.korokCode){
+					if(hasKorok(this.korokData, data.korokCode)){
+						this.dupeKorok.push(data.korokCode);
+					}else{
+						addKorok(this.korokData, data.korokCode);
+					}
+				}
 				if(data.korokChange > 0){
 					this.korokCount += data.korokChange;
 					this.korokSeed += data.korokChange;

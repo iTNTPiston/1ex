@@ -1,4 +1,4 @@
-import { step, Korok, Equipment, split, Boss, Warp, detail, ShrineSword } from "../create";
+import { step, Korok, Equipment, split, Boss, Warp, detail, ShrineSword, Discover } from "../create";
 import { cps, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -12,7 +12,7 @@ export const DahKaso = [
 	"Run",
 	Korok("C86", "Lift Rock"),
 	step(wb(cps)("S> Turn")),
-	Korok("F29", "Block Puzzle"),
+	Korok("G29", "Block Puzzle"),
 	step(wb(cps)("<E Turn")),
 	Korok("C87", "Basketball"),
 	step(cps(".S")),
@@ -26,6 +26,9 @@ export const DahKaso = [
 		Boss("Blue Hinox", "6 Hits SLAM"),
 		txt("Or 3 FURY if have")),
 	"Run",
-	Korok("C88", "Lily Pads"),
-	Warp("Kuh Takkar 32.19%", txt("Check ", v("krk"), " Koroks")),
+	Korok("C88", "Lily Pads", "Cryo"),
+	step(wb(cps)("S")),
+	Discover("Gerudo Canyan Pass"),
+	Warp("Kuh Takkar", txt("Check ", v("krk"), " Koroks")),
+	split("-"),
 ];

@@ -15,7 +15,7 @@ export const GerudoTown = [
 	txt("Talk to ", npc("Riju")),
 	step("Walk out from back"),
 	txt(cps(".W"), " Turn to skeleton"),
-	Korok("W37", "Flower Chase", "Right side of skeleton"),
+	Korok("W47", "Flower Chase", "Right side of skeleton"),
 	Warp("Gerudo Tower"),
 	split("-"),
 ];
