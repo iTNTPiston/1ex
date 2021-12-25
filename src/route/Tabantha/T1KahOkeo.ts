@@ -1,10 +1,13 @@
-import { ability, Boss, Korok, MakeTOD, Shrine, split, step } from "../create";
-import { cps, fury, gale, txt } from "../types";
+import { ability, Boss, detail, Korok, MakeTOD, Shrine, Snap, split, step } from "../create";
+import { cps, emy, fury, gale, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const KahOkeo = [
-	step(MakeTOD("5am", "Make Morning TWICE", "For Dinraal (Claw)")),
-	ability(txt(gale()," + ",wb(cps)("N + <N + W>")), {gale: 1}),
+	step(ability(txt(gale()," + ",wb(cps)("N + <N + W>")), {gale: 1})),
+	detail(
+		MakeTOD("5am", "Make Morning TWICE", "For Dinraal (Scale)"),
+		"Shoot dinraal and get part as he flies pass during the next few koroks"),
+	Snap(emy("Dinraal"), "SNAP Elite"),
 	ability(Boss("Rare Talus", fury()), {fury: 3}),
 	step(wb(cps)("<W Turn")),
 	Korok("R46", "Flower Count"),

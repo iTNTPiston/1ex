@@ -30,7 +30,9 @@ export const IshtoSoh = [
 	step("Drop down ", wb(cps)("W midair")),
 	Korok("L80", "Race", "SQ DEFUSE"),
 	step(wb(cps)("W> Turn + W midair")),
-	ability(Boss("Stalnox", txt("3-5 Hits ", fury())), {fury: 1}),
+	detail(
+		ability(Boss("Stalnox", txt("3-5 Hits ", fury())), {fury: 1}),
+		"Ignore warning: fury is back since we do the minigame"),
 	ability(step(gale(), " ", wb(cps)(".N midair")), {gale: 1}),
 	Korok("L68", "Light Chase"),
 	step("cryo ", wb(cps)("NW DEFUSE")),

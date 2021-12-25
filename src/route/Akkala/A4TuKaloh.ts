@@ -10,7 +10,7 @@ export const TuKaloh = [
 	Snap("Kilton", "SNAP multiple to be safe"),
 	txt("Talk to ", npc("Kilton")),
 	step(cps("SE")),
-	Korok("A05", "Race"),
+	Korok("A05", "Race", "Cardinal High"),
 	step(wb(cps)("S no turn")),
 	Korok("A10", "Lift Rock Blocked", "Under slab 1 STS"),
 	step(wb(cps)("E")),

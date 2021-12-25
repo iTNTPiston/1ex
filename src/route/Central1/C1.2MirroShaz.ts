@@ -1,19 +1,22 @@
-import { step, Korok, Discover, Shrine, Boss, split, Memory, ability, ChestSpecial } from "../create";
+import { step, Korok, Discover, Shrine, Boss, split, Memory, ability, ChestSpecial, MakeTOD, detail } from "../create";
 import { cps, fury, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const MirroShaz = [
-	step(wb(cps)("S>> Turn")),
+	step(wb(cps)("S> Turn")),
 	Korok("Z41", "Rock Circle"),
 	"Lotus Seeds here if need",
 	step("SQ to hinox DEFUSE"),
-	ability(Boss("Red Hinox", txt("1 Hit SLAM ", fury())), {fury: 1}),
+	detail(
+		Boss("Red Hinox", txt("4 Hits SLAM")),
+		"Don't SLAM if you have fury up"),
 	step(wb(cps)("W> TS")),
 	Discover("Moor Garrison Ruins"),
 	step(wb(cps)("N")),
 	Shrine("Sheh Rata"),
 	split("-"),
 
+	step(MakeTOD("12pm", "Make Noon", "For balloon quest & stalnox")),
 	step(wb(cps)("<S Turn")),
 	Korok("Z30", "Rock Circle"),
 	step(wb(cps)(".W")),
@@ -29,7 +32,7 @@ export const MirroShaz = [
 	step(wb(cps)("W + <W")),
 	Korok("C56", "Offer Apple"),
 	step(wb(cps)("N>")),
-	ability(Boss("Blue Hinox", txt("3 Hits SLAM ", fury())), {fury: 1}),
+	ability(Boss("Blue Hinox", fury()), {fury: 3}),
 	step(wb(cps)("W Turn")),
 	Korok("C50", "Flower Count", "Chaos Ranch"),
 	step(wb(cps)("W> Turn")),
@@ -41,7 +44,7 @@ export const MirroShaz = [
 	step(wb(cps)("NE")),
 	Korok("C34", "Match Tree", "Left tree"),
 	step(wb(cps)("N")),
-	ability(Boss("Blue Hinox", txt("3 Hits SLAM ", fury())), {fury: 1}),
+	Boss("Blue Hinox", txt("6 Hits SLAM")),
 	step(wb(cps)("E + SE")),
 	Korok("Z21", "Rock Circle", "Near water"),
 	step(wb(cps)("N")),

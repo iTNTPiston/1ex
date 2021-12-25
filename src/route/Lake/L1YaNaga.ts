@@ -1,9 +1,9 @@
-import { Cook, detail, Korok, MakeTOD, Shrine, split, step, VariableChange } from "../create";
-import { cps, emy, itm, npc, txt, v } from "../types";
+import { ability, Cook, detail, Korok, MakeTOD, Shrine, split, step, VariableChange } from "../create";
+import { cps, emy, gale, itm, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const YaNaga = [
-	step("Run ", cps("N")),
+	ability(step(gale()," + ", cps("N")), {gale: 1}),
 	VariableChange({rushroom: 1}),
 	detail(
 		itm("Rushroom"),

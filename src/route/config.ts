@@ -68,6 +68,18 @@ export const MainRoute = [
 
 export const Change: ChangeData[] = [
 	{
+		version: "2.0.0",
+		date: "2021-12-22",
+		changes: [
+			"Early game optimizations",
+			"Reroute Korok Forest to do Oaki first",
+			"Move Shae Loya branch to after Rito",
+			"Reroute around Gerudo Canyan Pass for fury timing",
+			"Swapped branch around Dunba Taag and Shae Loya",
+			"Reroute around Lanayru Tower and Mirro Shaz",
+		]
+	},
+	{
 		version: "1.4.0",
 		date: "2021-12-22",
 		changes: [

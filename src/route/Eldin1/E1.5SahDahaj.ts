@@ -1,5 +1,5 @@
-import { step, Discover, Korok, detail, Boss, Shrine, split } from "../create";
-import { cps } from "../types";
+import { step, Discover, Korok, Boss, Shrine, split, ability } from "../create";
+import { cps, fury } from "../types";
 import { wb } from "../windbomb";
 
 export const SahDahaj = [
@@ -15,9 +15,7 @@ export const SahDahaj = [
 	Discover("West Sokkala Bridge"),
 	Korok("A52", "Lift Rock", "Below bridge"),
 	step(cps("NW")),
-	detail(
-		Boss("Blue Hinox", "8 Spin Hits no slam"),
-		"6 Spin Hits SLAM if you don't have fury"),
+	ability(Boss("Blue Hinox", fury()),{fury: 3}),
 	step(wb(cps)("<N + N midair")),
 	Discover("Akkala Bridge Ruins"),
 	wb(cps)("<W turn"),

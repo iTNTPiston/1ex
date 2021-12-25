@@ -35,7 +35,7 @@ export const KorshOhu = [
 	Korok("W39", "Block Puzzle"),
 	step(wb(cps)("S> Turn")),
 	ability(Boss("Luminous Talus", fury()), {fury: 3}),
-	itm("Luminous/Opal"),
+	important("BURN OUT FURY"),
 	step(cps("NW")),
 	Korok("W38", "Lift Rock", "On pillar"),
 	step(cps("NW")),

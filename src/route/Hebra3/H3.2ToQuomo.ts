@@ -1,4 +1,4 @@
-import { step, Korok, Warp, split, ability, MakeTOD, Boss, ShrineDoubleSword, ShrineBlessing, Snap, Discover } from "../create";
+import { step, Korok, Warp, split, ability, Boss, ShrineDoubleSword, ShrineBlessing, Snap, Discover } from "../create";
 import { cps, fury, gale, txt} from "../types";
 import { wb } from "../windbomb";
 
@@ -11,7 +11,6 @@ export const ToQuomo = [
 	Korok("H09", "Lift Rock Blocked", "Under leaves"),
 	ability(step(gale(), " + ", cps("NW")), {gale: 1}),
 	Korok("H04", "Rock Circle", "Rock behind camp"),
-	MakeTOD("9pm", "Make Night"),
 	step(wb(cps)("W Turn")),
 	ability(Boss("Stalnox", txt("GEB + ", fury())), {fury: 3}),
 	step(wb(cps)("W")),

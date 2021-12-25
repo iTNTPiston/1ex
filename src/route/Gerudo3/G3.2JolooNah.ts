@@ -1,22 +1,25 @@
-import { step, Korok, ability, Boss, Shrine, split } from "../create";
-import { cps, fury } from "../types";
+import { step, Korok, ability, Boss, Shrine, split, Discover } from "../create";
+import { cps, fury, important, v } from "../types";
 import { wb } from "../windbomb";
 
 export const JolooNah = [
-	step(wb(cps)("N>")),
+	step(wb(cps)("N> Turn")),
+	Discover("Gerudo Canyon Pass"),
+	step(wb(cps)("S")),
 	Korok("G36", "Well"),
 	step(cps("SE")),
 	Korok("W20", "Confetti", "In tree"),
 	Korok("W21", "Block Puzzle"),
-	step(cps("NW")),
+	step(wb(cps)("W> Turn")),
+	Korok("W14", "Lift Rock", "End of bridge"),
+	step("SQ to talus"),
 	ability(Boss("Luminous Talus", fury()), {fury:3}),
-	step("SQ to end of bridge"),
-	Korok("W14", "Lift Rock"),
-	step(cps("N + <N midair")),
+	important("BURN OUT FURY"),
+	step(cps("NW High")),
 	Korok("W07", "Block Puzzle", "DEFUSE"),
 	"Drop down summon horse",
 	"Sell white horse",
 	step(cps("N.")),
 	Shrine("Joloo Nah"),
-	split("-"),
+	split("{4 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
 ];

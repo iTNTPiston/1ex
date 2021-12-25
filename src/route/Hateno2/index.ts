@@ -103,8 +103,8 @@ export const Hateno2 = [
 		"Get Diamond"),
 	Shop("Bomb Arrows", "if need"),
 	detail(
-		Shop("Sell Outfit"),
-		"Keep Snowboots and phantom 3 for menuing. CORE = 55K. GLITCH = 28.2K before selling shaft."),
+		Shop("Sell Rubber Helm"),
+		"If you didn't pick up extra armor. You should have 25 + the 7 upgrade ones. This helps with menuing and gives 600k"),
 	Shop("Sell Material", "2nd Option"),
 	"Core = 54.9K",
 	detail(

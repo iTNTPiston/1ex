@@ -1,12 +1,22 @@
-import { Cook, detail, Equipment, Icon, image, indent, Korok, Section, Shrine, split, step, Tower } from "../create";
-import { cps, important, itm, npc, rne, txt } from "../types";
+import { Cook, detail, Equipment, Icon, image, indent, Korok, Section, Shrine, Snap, split, step, Tower, VariableChange } from "../create";
+import { cps, important, itm, lcn, npc, rne, txt, v } from "../types";
+import { wb } from "../windbomb";
 
 import Hateno1Image from "./Hateno1.png";
 
 export const Hateno1 = [
 	Section("HATENO 1"),
 	image(Hateno1Image),
-	step("Talk to ", npc("farmer"), " for quest"), 
+	step(wb(cps)("N to hill")),
+	VariableChange({silentPrincess: 2}),
+	detail(
+		itm("2 Silent Princesses"),
+		txt(v("silentPrincess"), "/19")),
+	itm("Grab >2 night shades"),
+	txt("BLSS to ", lcn("Hateno"), " statue"),
+	"2 Hearts",
+
+	step("Talk to ", npc("Farmer")), 
 	itm("3-4 frogs"),
 
 	step(cps("N>")," WB to tree"),
@@ -14,6 +24,7 @@ export const Hateno1 = [
 	detail(
 		"Smuggle flame to lab",
 		"Get a second torch in lab for farosh in case the torch despawn when farming. Purah all first options. Talk to her until all upgraded (SNAP first)"),
+	Snap("Purah", "Don't forget this"),
 	Icon("camera-plus", "Camera Upgraded"),
 	split("-"),
 
@@ -21,11 +32,13 @@ export const Hateno1 = [
 	Korok("N48", "Lily Pads", "Drown"),
 	step(cps("<N"), " Turn"),
 	Korok("N43", "Lift Rock (Tree)", "middle of lake"),
-	step(cps("S>>"), " no turn"),
+	step(cps("S>"), " no turn"),
 	txt("Talk to ",npc(" Quest lady")),
 	step(cps("<W")," Turn"),
 	txt("Talk to ",npc("Bolson"), " (112)"),
-	Equipment("Hammer"),
+	detail(
+		Equipment("Hammer"),
+		"RGC, Torch, Lynel, Torch, Hammer"),
 	detail(
 		Cook("Speed + Cold + Stealth", "Moblin gut for speed"),
 		"Darner + screw/other parts for cold. 1-2 night shades for stealth. Only need Lv1 stealth"),
@@ -73,8 +86,8 @@ export const Hateno1 = [
 	Korok("N58", "Block Puzzle"),
 	step(cps("W"), " Turn"),
 	detail(
-		Korok("N50", "Match Tree", "Use RC. Get Wood"),
-		"You want to get wood for every tree you cut"),
+		Korok("N50", "Match Tree", "Get Wood"),
+		"You want to get wood for every tree you cut. When you have Lynel Sword you want to use that first to save durability on RGC"),
 	Korok("N49", "Acorn", "In tree. Shoot from far"),
 	step(cps("N"), " + ", cps("N"), " midair to tower"),
 	Tower("Hateno Tower"),

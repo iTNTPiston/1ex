@@ -14,6 +14,7 @@ export const MoggLatan = [
 	step(wb(cps)("E + SE")),
 	Korok("G19", "Rock Circle"),
 	step(wb(cps)("N> Turn")),
+	Korok("R60", "Lift Rock Blocked", "Under leaves (next to shrine)"),
 	Shrine("Mogg Latan"),
 	split("-"),
 ];

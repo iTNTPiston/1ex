@@ -1,8 +1,8 @@
-import { step, ShrineBlessing, split, Korok, ability, Boss, Tower, Shrine, VariableChange, detail, Warp } from "../create";
-import { cps, gale, fury, v, itm, txt } from "../types";
+import { step, ShrineBlessing, split, Korok, ability, Boss, Tower, Shrine } from "../create";
+import { cps, gale, fury} from "../types";
 import { wb } from "../windbomb";
 
-export const DunbaTaag = [
+export const TohYahsa = [
 	step(wb(cps)("W Turn")),
 	"Ragdoll bomb in",
 	ShrineBlessing("Maag No'rah"),
@@ -18,8 +18,8 @@ export const DunbaTaag = [
 	step(wb(cps)("E>")),
 	Korok("R09", "Race", "Run"),
 	step(wb(cps)("S> DT")),
-	Tower("Ridgeland Tower", "71.87%"),
-	split("{6 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
+	Tower("Ridgeland Tower"),
+	split("-"),
 
 	step(wb(cps)("<W Turn")),
 	ability(Korok("R18", "Race", gale()),{gale: 1}),
@@ -33,22 +33,10 @@ export const DunbaTaag = [
 	"ordinal to orange",
 	cps("NW"),
 	Korok("R08", "Lift Rock Blocked", "Under rubble"),
-	cps(".S"),
+	cps("<S Turn"),
+	Korok("R14", "Light Chase"),
+	cps("N to green orb"),
 	Shrine("Toh Yahsa"),
 	split("-"),
 
-	step(wb(cps)("S DEFUSE")),
-	Korok("R14", "Light Chase"),
-	step(wb(cps)("N + NW + N")),
-	Korok("R04", "Rock Circle", "In Canyon"),
-	ability(step(gale(), " + ", cps("W")), {gale: 1}),
-	Korok("H73", "Race", cps("<N")),
-	VariableChange({rushroom: 1}),
-	detail(
-		itm("Rushroom"),
-		txt(v("rushroom"), "/55")),
-	Shrine("Dunba Taag"),
-	split("-"),
-	Warp("Vah Rudania"),
-	split("-"),
 ];

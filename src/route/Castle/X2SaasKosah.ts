@@ -1,11 +1,11 @@
 import { step, Korok, Chest, Boss, VariableChange, detail, MakeTOD, Discover, split, ShrineDoubleSword, ability } from "../create";
-import { cps, emy, fury, itm, lcn, txt, v } from "../types";
+import { cps, emy, fury, lcn, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const SaasKosah = [
 	step("Drop down"),
 	Korok("X03", "Lift Rock Blocked", "Under rubble"),
-	step("Glide"),
+	"Glide",
 	Chest("Naydra Scale"),
 	"Run to lily pads",
 	Korok("X02", "Lily Pads", "No Drown"),
@@ -17,7 +17,6 @@ export const SaasKosah = [
 	"Shield Surf in East Passage",
 	Korok("X11", "Ice Block"),
 	ability(Boss("Rare Talus", fury()), {fury: 3}),
-	itm("Opal/Flint"),
 	"Glide up bomb eye",
 	Chest("Farosh Fang"),
 	VariableChange({tail: 5}),

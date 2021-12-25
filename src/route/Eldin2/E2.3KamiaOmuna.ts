@@ -1,21 +1,23 @@
 import { step, Korok, Shrine, split, ability, Boss, Memory, Discover, Snap, ShrineDLC } from "../create";
-import { cps, emy, fury, gale, important } from "../types";
+import { cps, emy, fury, important } from "../types";
 import { wb } from "../windbomb";
 
 export const KamiaOmuna = [
 	step(wb(cps)("<N")),
 	Korok("E21", "Block Puzzle"),
-	step(wb(cps)("<W")),
-	"Do Shrine Quest",
+	step(wb(cps)("W")),
+	Korok("E20", "Boulder Golf", "Can go after bomb"),
+	"Drop down to cave",
 	Shrine("Kayra Mah"),
 	split("-"),
 	step(wb(cps)("S> Turn")),
 	Korok("E27", "Lift Rock Blocked", "Under rubble"),
-	step(wb(cps)("<W slight turn")),
+	step(wb(cps)("<W turn")),
+	ability(Boss("Igneo Talus", fury()), {fury: 3}),
+	step(wb(cps)("<N")),
 	Korok("E26", "Boulder Golf", "Bomb down"),
 	step("Run to talus ledge"),
-	ability(Boss("Igneo Talus", fury()), {fury: 3}),
-	ability(step(gale(), " + ", wb(cps)("<W Turn")), {gale: 1}),
+	step(wb(cps)("<W Turn")),
 	Korok("E31", "Rock Circle", "2 rocks"),
 	Memory("Eldin Canyon"),
 	split("-"),

@@ -1,12 +1,12 @@
 import { Chest, detail, ShrineBlessing, split, step } from "../create";
-import { cps, important, itm, npc, txt } from "../types";
+import { cps, itm, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const DagahKeek = [
-	important("EQUIP ZORA"),
 	step("WB to ", npc("King")),
-	Chest("Lightscale Trident", "Keep for duping"),
-	important("EQUIP PHANTOM 3"),
+	detail(
+		Chest("Lightscale Trident", "Keep for duping"),
+		"Lynel, Hammer, RGC, Knight, Trident"),
 	txt("Talk to ", npc("Song Girl")),
 	detail(
 		txt("Talk to ", npc("Wife Guy")),

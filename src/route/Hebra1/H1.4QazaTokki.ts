@@ -1,9 +1,9 @@
 import { step, ability, Boss, Korok, Shrine, split, detail, ShrineBlessing } from "../create";
-import { cps, fury, gale, itm, txt } from "../types";
+import { cps, fury, itm, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const QazaTokki = [
-	ability(step(gale()), {gale: 1}),
+	step(wb(cps)("S High from pedestal")),
 	ability(Boss("Frost Talus", txt(fury(), itm(" Opal"))), {fury: 3}),
 	step(wb(cps)("S> Turn")),
 	detail(

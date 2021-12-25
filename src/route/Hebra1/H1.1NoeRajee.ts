@@ -1,5 +1,5 @@
 import { step, Korok, ability, Boss, Discover, ShrineDLC, Shrine, split } from "../create";
-import { cps, fury } from "../types";
+import { cps, fury, itm } from "../types";
 import { wb } from "../windbomb";
 
 export const NoeRajee = [
@@ -13,13 +13,15 @@ export const NoeRajee = [
 	"Land place cryo block",
 	Korok("H66", "Lily Pads", "No Drown"),
 	step(wb(cps)("N Turn")),
-	Korok("T03", "Lily Pads", "Drown"),
-	step(wb(cps)("W Turn")),
+	Korok("T03", "Lily Pads", "No Drown"),
+	step(wb(cps)("<S + <S to stable")),
+	itm("Farm wood"),
+	step(wb(cps)(".N")),
 	Korok("T11", "Lift Rock (Tree)", "Big tree"),
 	step(wb(cps)("<<N")),
 	Korok("T05", "Lift Rock"),
 	step(wb(cps)("NW")),
-	Discover("Hebra Traihead Lodge"),
+	Discover("Hebra Trailhead Lodge"),
 	step(wb(cps)("<W Turn")),
 	Korok("T04", "Well"),
 	step(wb(cps)("N.")),

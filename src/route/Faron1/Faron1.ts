@@ -23,7 +23,7 @@ export const Faron1  = [
 	Snap(emy("Farosh"), "SNAP Elite"),
 	detail(
 		important("SAVE afterwards"),
-		"Also throw away backup torch if you have one. No need to keep torch"),
+		"No need to pick up torch. Inventory: RGC, Lynel, Torch, Hammer, Axe (later)"),
 	step(cps("SW"), " to waterfall"),
 	Korok("F26", "Block Puzzle"),
 	"Drop down",
@@ -36,9 +36,7 @@ export const Faron1  = [
 	Equipment("Axe", "Keep for duping"),
 	"Drop down",
 	Korok("F41", "Bomb Beard"),
-	detail(
-		txt("Talk to ",npc("Quest Lady"), " twice"),
-		"Can pick up a torch if have no torch"),
+	txt("Talk to ",npc("Quest Lady"), " twice"),
 	Shrine("Shai Utoh"),
 	split("-"),
 

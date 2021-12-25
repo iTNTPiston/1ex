@@ -38,7 +38,7 @@ export const MakaRah = [
 	Korok("H39", "Flower Chase", "A bit over updraft"),
 	"Drop down",
 	Discover("Sturnida Secret Spring"),
-	step("Updraft up + ", cps("S")),
+	ability(step(gale(), " up + ", cps("S")), {gale: 1}),
 	Korok("H41", "Rock Circle"),
 	step("Shield surf ", cps("SE")),
 	Korok("H42", "Lift Rock Blocked", "Drop down 2 levels"),

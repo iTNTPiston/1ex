@@ -8,7 +8,7 @@ export const PlateauDLC = [
 	important("SAVE"),
 	detail(
 		"Unequip Cloths/Shield",
-		txt("Tutorial: ", lnk("https://youtu.be/iS-QrQoTOGU"),". You don't have to skip it")),
+		txt("Tutorial: ", lnk("https://youtu.be/iS-QrQoTOGU"),". You don't have to skip it. Drop damaged/used gebs and non-gebs first")),
 	txt("Equip ", itm("Trident")),
 	"Throw SQ bomb",
 	"Equip Normal Arrow",
@@ -31,11 +31,9 @@ export const PlateauDLC = [
 	"Overload",
 	"Transfer Trident>RGC>Rod",
 	"Transfer Shield",
-	"Dupe 4 RGC, Keep",
-	indent(itm("Blizzard Rod")),
-	indent(itm("Thunderblade")),
-	indent(itm("Korok Leaf")),
-	indent(itm("Windcleaver", " if have")),
+	detail(
+		"Dupe 5 RGCs",
+		"Use Knight, Trident, Drillshaft, FDC. Torch, RGC, Korok Leaf, Master Sword, Blizzard, Thunderblade, RGC x 4. "),
 	"Dupe GEBs KEEP RGB",
 	important("SAVE"),
 	Warp("Keh Namut", txt("Check ", v("krk"), " Koroks")),

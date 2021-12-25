@@ -1,4 +1,4 @@
-import { Instruction, stringToText, useInstructionLike, InstructionLike, instructionLikeToInstruction, txt, TextLike, itm, npc, lcn, useMultiText, bss, v, AbilityUsage } from "./types";
+import { Instruction, stringToText, useInstructionLike, InstructionLike, instructionLikeToInstruction, txt, TextLike, itm, npc, lcn, useMultiText, bss, v, AbilityUsage, TextBlock } from "./types";
 
 export const unindent = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, unindentStep: true})));
 export const indent = useMultiText(useInstructionLike((i: Instruction): Instruction=>({...i, indentIcon: true})));
@@ -15,6 +15,10 @@ export const detail = (i: InstructionLike, detail:TextLike): Instruction=>{
 
 export const image = (image:string): Instruction=>{
 	return {...instructionLikeToInstruction(), image};
+};
+
+export const ingredient = (key: string, total: number): TextBlock=>{
+	return txt(v(key), "/", String(total));
 };
 
 export const Section = (title: string):Instruction =>{

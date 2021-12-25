@@ -1,12 +1,10 @@
 import { Warp, step, Korok, ShrineDLC, Chest, split, MakeTOD, detail, ability, Boss, VariableChange, Shrine } from "../create";
-import { npc, cps, fury, itm, txt, gale, v } from "../types";
+import { npc, cps, fury, itm, txt, gale, v, important } from "../types";
 import { wb } from "../windbomb";
 import { MONUMENT } from "../ZoraDomain1/Z1.4Ruta";
 
 export const ZoraDLC = [
-	step(wb(cps)("N>")),
-	Korok("Z04", "Lift Rock", "Peak"),
-	step(wb(cps)("E> Turn")),
+	step(wb(cps)("<E Turn")),
 	Chest("Zora Helm"),
 	step(wb(cps)("E DEFUSE")),
 	Korok("Z05", "Light Chase"),
@@ -41,6 +39,7 @@ export const ZoraDLC = [
 	Korok("Z26", "Lift Rock", "Peak"),
 	step(wb(cps)("E> Turn")),
 	ability(Boss("Luminous Talus", txt(fury(), itm(" Opal"))), {fury: 3}),
+	important("BURN OUT FURY"),
 	step(wb(cps)("<E")),
 	Korok("Z27", "Block Puzzle"),
 	step(wb(cps)("N")),

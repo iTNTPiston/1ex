@@ -41,7 +41,9 @@ export const Plateau = [
 	step(Shrine("Keh Namut")),
 	split("-"),
 
-	"BLSS to ToT",
+	detail(
+		"BLSS to ToT",
+		"OK if you throw the spear away. There is a backup in castle later"),
 	Icon("king", "Plateau"),
 	split("-")
 ];

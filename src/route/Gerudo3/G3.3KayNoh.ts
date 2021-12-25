@@ -15,7 +15,9 @@ export const KayNoh = [
 	step(wb(cps)("S>")),
 	Korok("W10", "Balloon", "Bomb crack"),
 	step(wb(cps)("E")),
-	ability(Boss("Luminous Talus", fury()), {fury: 2}),
+	detail(
+		ability(Boss("Luminous Talus", fury()), {fury: 2}),
+		"Ignore fury warning: It will be back since we do the shrine minigame "),
 	step(wb(cps)("W + S> midair")),
 	Korok("G35", "Race", "SQ DEFUSE"),
 	ability(step(gale(), " + ", "<W midair"), {gale: 1}),

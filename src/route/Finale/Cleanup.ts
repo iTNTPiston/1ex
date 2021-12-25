@@ -1,11 +1,11 @@
-import { Korok, Warp, split, VariableChange, Shop, Section, step, detail, Cook, Discover, Icon } from "../create";
-import { itm, npc, v, important, cps, txt, lnk } from "../types";
+import { Korok, Warp, split, VariableChange, Shop, Section, step, detail, Cook, Discover, Icon, ability } from "../create";
+import { itm, npc, v, important, cps, txt, lnk, gale } from "../types";
 import { wb } from "../windbomb";
 
 export const Cleanup = [
 	Section("PLATEAU 3"),
 	itm("Wild Set"),
-	"WB up",
+	ability(gale(),{gale: 1}),
 	Korok("K09", "Lift Rock", "Behind statue"),
 	Warp("Da Hesho", "99.67%"),
 	split("-"),
@@ -15,7 +15,9 @@ export const Cleanup = [
 		Korok("A48", "Flower Chase"),
 		txt("Zora Set: ", v("heartyBass"), "/15 Hearty Bass. ", v("tail"), "/45 Tail. Wild Set: ", v("beetle"), "/15 beetle. ", v("honey"), "/16 Honey. Other: ", v("silentPrincess"), "/19 Silent Princess")),
 	npc("Fairy Fountain"),
-	"Upgrade Cloths",
+	detail(
+		"Upgrade Cloths",
+		"After upgrading one round you will be able to go right one page and go down and select that one"),
 	step(wb(cps)("N. Turn")),
 	npc("Kilton (11 Sell 1)"),
 	Shop("Monster Extract + Gear", "Need 707"),

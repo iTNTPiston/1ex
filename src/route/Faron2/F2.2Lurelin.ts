@@ -18,7 +18,7 @@ export const Lurelin = [
 	npc("Kass"),
 	MakeTOD("9pm", "Make Night if need"),
 	ShrineBlessing("Qukah Nata"),
-	split("{7 | ", v("srn"), " SRN | ", v("krk"), " KRK }"),
+	split("-"),
 
 	step(wb(cps)("E")),
 	Korok("F30", "Match Tree", "Closest"),

@@ -7,7 +7,7 @@ import { DarkBeast } from "./X1DarkBeast";
 import { SaasKosah } from "./X2SaasKosah";
 import { CastleSecondHalf, ZaltaWa } from "./X3ZaltaWa";
 import { SheemDagoze } from "./X4SheemDagoze";
-import { ShaeLoya } from "./X5ShaeLoya";
+import { MijahRokee } from "./X5MijahRokee";
 
 export const Castle = [
 	Section("CASTLE"),
@@ -18,5 +18,5 @@ export const Castle = [
 	image(CastleImage2),
 	...ZaltaWa,
 	...SheemDagoze,
-	...ShaeLoya
+	...MijahRokee
 ];

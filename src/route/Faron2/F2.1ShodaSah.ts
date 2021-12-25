@@ -58,11 +58,9 @@ export const ShodaSah = [
 	Korok("F15", "Light Chase"),
 	ability(step(gale(), " + ", cps("E>")), {gale: 1}),
 	Boss("Red Hinox", "5 BA (rain OK)"),
-	important("EQUIP STEALTH"),
 	step(wb(cps)("S> midair")),
 	Korok("F25", "Offer Durian"),
 	step("SQ HIGH to tower DEFUSE"),
-	important("EQUIP STEALTH"),
 	Tower("Faron Tower", "84.10%"),
 	split("-"),
     

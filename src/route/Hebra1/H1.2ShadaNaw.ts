@@ -4,8 +4,9 @@ import { wb } from "../windbomb";
 
 export const ShadaNaw = [
 	important("EQUIP SNOW + ATK 2"),
-	step("Glide up and south"),
-	wb(cps)("N>"),
+	step("Glide up"),
+	Korok("T02", "Confetti", "Top of house"),
+	ability(step(gale(), " + ", cps("E")), {gale: 1}),
 	ability(Boss("Frost Talus", txt(fury(), itm(" Opal"))), {fury: 3}),
 	ability(step(gale(), " + ", cps("N")), {gale: 1}),
 	Korok("H54", "Lift Rock"),

@@ -1,5 +1,5 @@
 import { ability, Boss, ChestSpecial, Discover, Korok, Memory, Shrine, ShrineSword, split, step } from "../create";
-import { cps, fury, txt } from "../types";
+import { cps, fury, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const MonyaToma = [
@@ -67,6 +67,6 @@ export const MonyaToma = [
 	Korok("K24", "Light Chase"),
 	step(wb(cps)("<W")),
 	Shrine("Monya Toma"),
-	split("-"),
+	split("{6 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
 
 ];

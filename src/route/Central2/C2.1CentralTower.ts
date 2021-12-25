@@ -78,7 +78,7 @@ export const CentralTower = [
 	Discover("Ancient Tree Stump"),
 	Korok("C47", "Lily Pads", "Drown"),
 	step(wb(cps)("<E Turn")),
-	Tower("Central Tower", "76.93%"),
+	Tower("Central Tower", "76.85%"),
 	split("-"),
 
 ];

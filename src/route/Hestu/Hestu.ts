@@ -1,5 +1,6 @@
-import { Chest, detail, Discover, Equipment, IconGeneric, image, Korok, Section, Shop, split, step, VariableChange, Warp } from "../create";
+import { Chest, detail, Discover, IconGeneric, image, Korok, Section, Shop, split, step, VariableChange, Warp } from "../create";
 import { cps, important, itm, npc, rne, txt, v } from "../types";
+import { wb } from "../windbomb";
 
 import HestuImage from "./Hestu.png";
 
@@ -13,14 +14,9 @@ export const Hestu = [
 	Shop("Shops", "Arrows + Carrots"),
 	txt("Run, talk to ", npc("Impa")),
 
-	step(important("EQUIP PHANTOM 3")),
-	txt(cps("E>"), " no turn"),
-	Korok("D08", "Lift Rock", "Ledge"),
-	Korok("D06", "Shoot Emblem"),
-	step(cps("SE")," to camp"),
-	important("EQUIP PHANTOM 3"),
+	step(wb(cps)("S> + SE to camp")),
 	detail(
-		"SLAM with Royal Claymore",
+		"SLAM with RGC kill camp",
 		"Game should force a load before the slam, so no need to wait for them to load in."),
 	Chest("Maracas"),
 	step("Glide to tree"),
@@ -41,7 +37,7 @@ export const Hestu = [
 	txt(rne("mag"), " chest out"),
 	detail(
 		"Open chest",
-		"Should have exactly 8 weapons if you follow this route: RGC, RC, Hammer, Torch, Hammer, Hammer, Axe, Sword"),
+		"Inventory: RGC, Lynel, Hammer, Torch, Axe, Knight"),
 	txt("Talk to ", npc("Guy")),
 	Discover("Wetland Stable"),
 	IconGeneric("hestu", "Hestu 2", 0, -19, "3 Bows, 2 Weapons"),
@@ -52,7 +48,6 @@ export const Hestu = [
 		txt("Honey ", v("honey"), "/16")),
 	Korok("Z37", "Lift Rock", "middle of thorns"),
 	step(cps("<E")," Turn"),
-	Equipment("Wooden Bow"),
 	Korok("Z38", "Well"),
 	step(cps("SE")),
 	Discover("Goponga Village Ruins"),

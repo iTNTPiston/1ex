@@ -167,7 +167,8 @@ tr:nth-child(even) {background-color: #eeeeee}
 }
 
 .color-gale {
-    color: #00ee00;
+    color: #000;
+    background-color: #00ee00;
 }
 
 .color-fury {

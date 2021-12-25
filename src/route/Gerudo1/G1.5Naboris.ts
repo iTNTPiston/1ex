@@ -1,4 +1,4 @@
-import { step, Warp, split, Shrine, Icon, indent, detail, Snap, ability } from "../create";
+import { step, Warp, split, Icon, indent, detail, Snap, ability } from "../create";
 import { emy, gale, important, lcn, npc, rne, txt } from "../types";
 
 export const Naboris = [
@@ -6,8 +6,6 @@ export const Naboris = [
 	Warp("Daqo Chisay"),
 	split("-"),
 	important("EQUIP GERUDO"),
-	step(Shrine("Daqo Chisay")),
-	split("-"),
 	step("WB to ", npc("Riju")),
 	Icon("naboris-memory", "Urbosa Memory"),
 	split("-"),

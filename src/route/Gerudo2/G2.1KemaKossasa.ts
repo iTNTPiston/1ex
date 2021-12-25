@@ -17,7 +17,7 @@ export const KemaKossasa = [
 	"Throw orb in hole",
 	"SQ to shrine DEFUSE",
 	Discover("Kihiro Moh Shrine"),
-	ability(step(gale(), "+",wb(cps)("W midairs")), {gale: 1}),
+	step(wb(cps)("<E + W + W midairs")),
 	important("EQUIP SNOW BOOTS"),
 	Korok("G16", "Light Chase", "FAR"),
 	step(wb(cps)("W Turn")),

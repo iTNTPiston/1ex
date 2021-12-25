@@ -1,13 +1,15 @@
-import { ability, Cook, Discover, Icon, Korok, Shrine, split, step, Warp } from "../create";
+import { ability, Cook, detail, Discover, Icon, Korok, MakeTOD, Shrine, split, step, Warp } from "../create";
 import { cps, fury, gale, important, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const TarryTownWedding = [
 	important("EQUIP FLAME 2"),
-	ability(Icon("rudania-plus", "Fireblight 2", fury()), {fury: 3}),
+	detail(
+		ability(Icon("rudania-plus", "Fireblight 2", fury()), {fury: 3}),
+		"If fury is not back just don't use it"),
 	split("-"),
     
-	step("Ring Race"),
+	ability(step("Ring Race ", gale()), {gale: 1}),
 	Discover("Sharo Lun Shrine"),
 	"SQ down",
 	Discover("Shadow Hamlet Ruins"),
@@ -29,11 +31,12 @@ export const TarryTownWedding = [
 	Korok("A30", "Light Chase"),
 	step(wb(cps)("<E Turn")),
 	Korok("A31", "Lift Rock Blocked", "Under leaves"),
-	step(wb(cps)("W Turn")),
+	step(wb(cps)("E Turn")),
 	Korok("A32", "Match Tree", "Closest tree"),
 	step(wb(cps)("<<S Turn")),
 	npc("Hudson Once"),
 	Cook("Speed"),
+	MakeTOD("9pm", "Make Night", "If need for stalnox"),
 	Warp("Shada Naw", txt("Check ", v("krk"), " Koroks")),
 	split("-"),
     

@@ -4,8 +4,7 @@ import { wb } from "../windbomb";
 
 export const Satori = [
 	Section("SATORI"),
-
-	step(Korok("R60", "Lift Rock Blocked", "Under leaves")),
+	
 	step(wb(cps)("N")),
 	Korok("R52", "Lift Rock (Tree)"),
 	ChestSpecial("Ancient Bridle"),

@@ -19,7 +19,10 @@ export const Kakariko2 = [
 	Korok("D15", "Tree Stump", "Edge of forest"),
 	step(wb(cps)("S>")),
 	Korok("D24", "Boulder Golf", "Surf down after bomb"),
-	ability(Boss("Stone Talus", fury()), {fury: 3}),
+	detail(
+		ability(Boss("Stone Talus", fury()), {fury: 3}),
+		"Fury should be back because of eventide"),
+	important("BURN OUT FURY"),
 	step(wb(cps)("<N Turn")),
 	Korok("D13", "Lift Rock (Tree)", "3rd big tree N of open rock"),
 	step(wb(cps)("NE")),
@@ -92,6 +95,8 @@ export const Kakariko2 = [
 	step(wb(cps)("E>")),
 	Korok("D12", "Block Puzzle"),
 	step(wb(cps)("<N")),
+	Korok("D08", "Lift Rock", "On ledge"),
+	Korok("D06", "Shoot Emblem"),
 	VariableChange({beetle: 1}),
 	detail(
 		itm("Beetle"),

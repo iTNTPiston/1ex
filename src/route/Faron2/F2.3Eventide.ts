@@ -49,7 +49,7 @@ export const Eventide = [
 	important("READ STONE"),
 	important("CHECK 13 BEETLES"),
 	ShrineBlessing("Tawa Jinn"),
-	split("-"),
+	split("{7 | ", v("srn"), " SRN | ", v("krk"), " KRK }"),
 	important("READ STONE"),
 	step(wb(cps)("E> Turn")),
 	Korok("F22", "Flower Chase", "Round trip"),
@@ -106,7 +106,7 @@ export const Eventide = [
 	indent("Bow"),
 	detail(
 		ability(Boss("Blue Hinox", fury()), {fury: 3}),
-		"Fury with tree branch and take his weapon"),
+		"Fury with tree branch and take his weapon. Do it in the all shrines order so fury has more time to recharge"),
 	ShrineBlessing("Korgu Chideh"),
 	split("-"),
 

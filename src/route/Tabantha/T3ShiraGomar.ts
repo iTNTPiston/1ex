@@ -3,7 +3,9 @@ import { cps, npc, txt, gale, fury, itm, v } from "../types";
 import { wb } from "../windbomb";
 
 export const ShiraGomar = [
-	step(wb(cps)("<S Turn")),
+	step(wb(cps)("N Low")),
+	"Activate Monument",
+	step(wb(cps)("<S TS")),
 	VariableChange({silentPrincess: 2}),
 	detail(
 		itm("2 Silent Princess"),

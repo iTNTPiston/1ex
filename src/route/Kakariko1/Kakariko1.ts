@@ -1,5 +1,5 @@
-import { Chest, detail, image, indent, MakeTOD, Section, Shop, Shrine, ShrineSword, split, step, VariableChange } from "../create";
-import { cps, itm, lcn, npc, sm, txt, v } from "../types";
+import { Chest, detail, image, indent, ingredient, MakeTOD, Section, Shop, Shrine, ShrineSword, split, step, VariableChange } from "../create";
+import { cps, itm, lcn, npc, sm} from "../types";
 import { wb } from "../windbomb";
 import Kakariko1Image from "./Kakariko1.png";
 
@@ -19,28 +19,25 @@ export const Kakariko1 = [
 		"Bombs do quarter heart dmg with 2 pieces of phantom armor"),
 	split("-"),
 
-	step(cps("S"),"+",cps("E>>>"),"+",cps("S")," midair to shrine"),
-	ShrineSword("Ta'loh Naeg"),
-	split("-"),
+	step(cps("S"),"+",cps("E>>>"),"+",cps("S")," midair to Impa"),
 
-	"Talk to Impa",
+	npc("Talk to Impa"),
 	step(MakeTOD("5am", "Make Morning", "for beetle")),
-	detail(
-		Shop("Material Shop","All Carrots"),
-		"Get a boko gut if you missed moblin gut in castle"),
 	VariableChange({beetle: 1}),
 	detail(
 		itm("Beetle"),
-		txt("Beetle ", v("beetle"), "/15")),
-	Shop("Arrow Shop","All Arrows"),
-	indent(sm("Talk twice for ",npc("quest"), " (211)")),
-	step("2 Hearts"),
-
-	step(wb(cps)("N + N to hill")),
-	VariableChange({silentPrincess: 2}),
+		ingredient("beetle", 15)),
+	
 	detail(
-		itm("2 Silent Princesses"),
-		txt(v("silentPrincess"), "/19")),
-	itm("Grab >2 night shades"),
-	txt("BLSS to ", lcn("Hateno")),
+		Shop("Arrow Shop","All Arrows"),
+		"Be careful don't go too close to her or she will be scared and you can't buy arrows"),
+	indent(sm("Talk twice for ",npc("quest"), " (211)")),
+	detail(
+		Shop("Material Shop","All Carrots"),
+		"Get a boko gut if you don't have lynel gut or a spare core for potion. DO NOT GO CLOSE TO OLD LADY with phantom armor or she will be scared and you won't be able to buy"),
+
+	step(wb(cps)("N")),
+	ShrineSword("Ta'loh Naeg"),
+	split("-"),
+
 ];

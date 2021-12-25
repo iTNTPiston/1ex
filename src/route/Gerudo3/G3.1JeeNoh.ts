@@ -1,5 +1,5 @@
 import { step, Korok, ability, Boss, Shrine, split } from "../create";
-import { cps, fury, v } from "../types";
+import { cps, fury} from "../types";
 import { wb } from "../windbomb";
 
 export const JeeNoh = [
@@ -25,5 +25,5 @@ export const JeeNoh = [
 	Korok("W26", "Block Puzzle"),
 	"Surf to shrine below",
 	Shrine("Jee Noh"),
-	split("{4 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
+	split("-"),
 ];

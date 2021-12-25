@@ -2,6 +2,11 @@ import { Korok } from "./create";
 import { addKorok, getMissingKoroks, hasKorok, KorokData, newData } from "./korok";
 import { instructionLikeToInstruction, InstructionData, InstructionLike, txt, lcn, npc, stringToText, Instruction, TextBlock, Text } from "./types";
 
+//Estimate 5 steps for gale to recharge
+const GALE_RECHARGE = 5;
+//Estimate 10 steps for fury to recharge
+const FURY_RECHARGE = 10;
+
 export class InstructionEngine{
 	private MEMORY_ROMAN = ["","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV"];
 	private lineNumber = 1;
@@ -14,6 +19,8 @@ export class InstructionEngine{
 	private gale = 0;
 	private fury = 0;
 	private step = "1";
+	private galeRechargeSteps = 0;
+	private furyRechargeSteps = 0;
 	private noDetailYet = true;
 	private noImageYet = true;
 	private variables:{[key: string]:number} = {};
@@ -32,6 +39,8 @@ export class InstructionEngine{
 		this.hinoxCount = 0;
 		this.gale = 0;
 		this.fury = 0;
+		this.galeRechargeSteps = 0;
+		this.furyRechargeSteps = 0;
 		this.step = "1";
 		this.noDetailYet = true;
 		this.noImageYet = true;
@@ -107,9 +116,17 @@ export class InstructionEngine{
 		let galeText = "?";
 		if(data.ability){
 			if(this.gale === 0){
+				if(data.ability.gale && this.galeRechargeSteps<GALE_RECHARGE){
+					error = "Gale might not be recharged";
+				}
+				this.galeRechargeSteps = 0;
 				this.gale = 3;
 			}
 			if(this.fury === 0){
+				if(data.ability.fury && this.furyRechargeSteps<FURY_RECHARGE){
+					error = "Fury might not be recharged";
+				}
+				this.furyRechargeSteps = 0;
 				this.fury = 3;
 			}
 			if(data.ability.fury){
@@ -118,6 +135,9 @@ export class InstructionEngine{
 				}else{
 					furyText = this.getAbilityChangeText(this.fury, data.ability.fury);
 					this.fury -= data.ability.fury;
+					if(this.fury === 0){
+						this.furyRechargeSteps = 0;
+					}
 				}
 			}
 			if(data.ability.gale){
@@ -126,6 +146,9 @@ export class InstructionEngine{
 				}else{
 					galeText = this.getAbilityChangeText(this.gale, data.ability.gale);
 					this.gale -= data.ability.gale;
+					if(this.gale === 0){
+						this.galeRechargeSteps = 0;
+					}
 				}
 			}
 		}
@@ -166,6 +189,12 @@ export class InstructionEngine{
 				props.stepNumber = this.step;
 				this.incStep();
 				props.indicatorClass="indicator-color-step";
+				if(this.gale === 0){
+					this.galeRechargeSteps++;
+				}
+				if(this.fury === 0){
+					this.furyRechargeSteps++;
+				}
 			}else if(data.asSplit){
 				this.step = "1";
 				props.indicatorClass="indicator-color-split";

@@ -23,7 +23,7 @@ export const Dinraal = [
 	Snap(emy("Dinraal"), "SNAP Elite"),
 	"Shoot Fang",
 	Snap("Eldin Skeleton", "Quest"),
-	important("CHECK 4H 2S 2C 2F"),
+	important("CHECK 4H 2S 1C 2F"),
 ];
 
 export const GoraeTorr = [

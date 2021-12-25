@@ -1,5 +1,5 @@
 import { ChestSpecial, detail, Korok, Memory, Shrine, ShrineDoubleSword, split, step } from "../create";
-import { txt, lnk, cps, npc, important } from "../types";
+import { txt, lnk, cps, npc } from "../types";
 import { wb } from "../windbomb";
 
 export const TutsuwaNima = [
@@ -30,7 +30,6 @@ export const TutsuwaNima = [
 		step(txt("Talk to "), npc(" Guard")),
 		"Quest Lady is near pot if no rain, or inside if rain."),
 	txt("Talk to ", npc("Quest Lady")),
-	important("EQUIP STEALTH 3"),
 	step(wb(cps)("W>")),
 	Korok("A19", "Flower Count"),
 	step(cps("SW")),
