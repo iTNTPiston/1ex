@@ -1,8 +1,11 @@
-import { ability, Boss, detail, Discover, Korok, Snap, split, step, Tower, VariableChange } from "../create";
+import { ability, Boss, detail, Discover, Korok, Shrine, Snap, split, step, Tower, VariableChange } from "../create";
 import { cps, emy, fury, gale, important, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const CentralTower = [
+	Shrine("Kuu Takkar"),
+	split("-"),
+	
 	VariableChange({tail: 4}),
 	step("WB to Camp"),
 	detail(

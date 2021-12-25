@@ -4,6 +4,7 @@ import { wb } from "../windbomb";
 
 export const KemaKossasa = [
 	ability(step(gale(), " SCW"), {gale: 1}),
+	detail("","if fail scw do shrine now"),
 	VariableChange({tail: 4}),
 	detail(
 		txt("Kill 4 ", emy("Lizalfos")),

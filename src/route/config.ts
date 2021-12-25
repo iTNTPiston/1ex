@@ -68,8 +68,15 @@ export const MainRoute = [
 
 export const Change: ChangeData[] = [
 	{
+		version: "2.0.1",
+		date: "2021-12-25",
+		changes: [
+			"Fix missing Kuh Takkar"
+		]
+	},
+	{
 		version: "2.0.0",
-		date: "2021-12-22",
+		date: "2021-12-24",
 		changes: [
 			"Early game optimizations",
 			"Reroute Korok Forest to do Oaki first",
