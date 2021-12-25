@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/1ex/static/css/main.51e5f8fc.chunk.css",
-    "main.js": "/1ex/static/js/main.61a9afd3.chunk.js",
-    "main.js.map": "/1ex/static/js/main.61a9afd3.chunk.js.map",
+    "main.css": "/1ex/static/css/main.ef42d727.chunk.css",
+    "main.js": "/1ex/static/js/main.da174f96.chunk.js",
+    "main.js.map": "/1ex/static/js/main.da174f96.chunk.js.map",
     "runtime-main.js": "/1ex/static/js/runtime-main.e3c4c961.js",
     "runtime-main.js.map": "/1ex/static/js/runtime-main.e3c4c961.js.map",
     "static/js/2.e78b4a9c.chunk.js": "/1ex/static/js/2.e78b4a9c.chunk.js",
     "static/js/2.e78b4a9c.chunk.js.map": "/1ex/static/js/2.e78b4a9c.chunk.js.map",
     "index.html": "/1ex/index.html",
-    "static/css/main.51e5f8fc.chunk.css.map": "/1ex/static/css/main.51e5f8fc.chunk.css.map",
+    "static/css/main.ef42d727.chunk.css.map": "/1ex/static/css/main.ef42d727.chunk.css.map",
     "static/js/2.e78b4a9c.chunk.js.LICENSE.txt": "/1ex/static/js/2.e78b4a9c.chunk.js.LICENSE.txt",
     "static/media/Akkala1.10ad0dbb.png": "/1ex/static/media/Akkala1.10ad0dbb.png",
     "static/media/Akkala2.4b458451.png": "/1ex/static/media/Akkala2.4b458451.png",
@@ -36,7 +36,7 @@
   "entrypoints": [
     "static/js/runtime-main.e3c4c961.js",
     "static/js/2.e78b4a9c.chunk.js",
-    "static/css/main.51e5f8fc.chunk.css",
-    "static/js/main.61a9afd3.chunk.js"
+    "static/css/main.ef42d727.chunk.css",
+    "static/js/main.da174f96.chunk.js"
   ]
 }
