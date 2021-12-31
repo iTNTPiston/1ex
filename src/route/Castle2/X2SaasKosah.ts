@@ -3,7 +3,7 @@ import { cps, emy, fury, lcn, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const SaasKosah = [
-	step("Drop down"),
+	step(wb(cps)("E>")),
 	Korok("X03", "Lift Rock Blocked", "Under rubble"),
 	"Glide",
 	Chest("Naydra Scale"),

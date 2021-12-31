@@ -1,9 +1,8 @@
-import { indent, Korok, Shrine, split, step, Warp } from "../create";
-import { cps, important, itm, npc, txt } from "../types";
+import { ability, indent, Korok, Shrine, split, step, Warp } from "../create";
+import { cps, gale, important, itm, npc, txt } from "../types";
 
 export const KemaZoos = [
-	step("Talk to ", npc("Boots Guy")),
-	txt("Equip ", itm("Snow Boots")),
+	step(npc("Boots Guy x4")),
 	step("SQ WB to ", npc("Riju")),
 	"Talk",
 	indent("Thunderhelm"),
@@ -13,10 +12,9 @@ export const KemaZoos = [
 	indent(npc("Trash Girl")),
 	step(cps("N."), " Turn to Ice House"),
 	"BLSS ice to end",
-	step(cps(".W"), " Turn + ", cps("W"), " midair"),
-	Korok("W36", "Match Cactus", "Shoot left midair"),
-	important("DEFUSE SQUARE"),
-	step(cps("NW"), " midair"),
+	step(cps(".W"), " Turn"),
+	Korok("W36", "Match Cactus", "Land"),
+	ability(step(gale(), " + ", cps("NW")), {gale: 1}),
 	Korok("W28", "Race", "On some pillars"),
 	step(cps("NW")),
 	Korok("W18", "Confetti", "Top of skeleton (pinwheel)"),

@@ -8,29 +8,36 @@ export const Hateno1 = [
 	Section("HATENO 1"),
 	image(Hateno1Image),
 	step(wb(cps)("N to hill")),
-	VariableChange({silentPrincess: 2}),
+	VariableChange({silentPrincess: 3}),
 	detail(
-		itm("2 Silent Princesses"),
+		itm("3 Silent Princesses"),
 		txt(v("silentPrincess"), "/19")),
 	itm("Grab >2 night shades"),
-	txt("BLSS to ", lcn("Hateno"), " statue"),
+	txt("BLSS to ", lcn("Hateno"), " farmer"),
+	
+
+	detail(
+		step("Talk to ", npc("Farmer")), 
+		"Farmer loads in first so talk to him is faster"),
+	itm("3 frogs"),
+	"Run to statue",
 	"2 Hearts",
 
-	step("Talk to ", npc("Farmer")), 
-	itm("3-4 frogs"),
-
-	step(cps("N>")," WB to tree"),
+	step(wb(cps)("N. to tree")),
 	Korok("N42", "Lift Rock (Tree)", "Next to blue flame"),
 	detail(
 		"Smuggle flame to lab",
-		"Get a second torch in lab for farosh in case the torch despawn when farming. Purah all first options. Talk to her until all upgraded (SNAP first)"),
+		"Throw away tree branch and get torch in lab. Purah all first options. Talk to her until all upgraded (SNAP first)"),
+	Equipment("Torch"),
 	Snap("Purah", "Don't forget this"),
 	Icon("camera-plus", "Camera Upgraded"),
 	split("-"),
 
 	step(cps("<E"), " SQ"),
 	Korok("N48", "Lily Pads", "Drown"),
-	step(cps("<N"), " Turn"),
+	detail(
+		step(cps("<N"), " Turn"),
+		"Heal to 5.5 Hearts here"),
 	Korok("N43", "Lift Rock (Tree)", "middle of lake"),
 	step(cps("S>"), " no turn"),
 	txt("Talk to ",npc(" Quest lady")),
@@ -73,12 +80,15 @@ export const Hateno1 = [
 		important("CHECK 25 HEARTS"),
 		"Need 25 + 3 containers = 28 hearts"),
 
-	step(cps(".S")," to ", npc("Bolson")),
+	step(cps("<S")," to ", npc("Bolson")),
 	"Buy House",
 	txt("Talk to ",npc("Hudson")),
+	Icon("tarry-town-initial", "Tarry Town H"),
+	split("-"),
+
 	"Upgrade House",
 	step("Run to flower"),
-	Korok("N59", "Flower Chase", "Hill behind house"),
+	Korok("N59", "Flower Chase", "6 before going right"),
 	detail(
 		important("RELOAD AUTOSAVE"),
 		"To cancel apparatus glitch"),
@@ -88,7 +98,7 @@ export const Hateno1 = [
 	detail(
 		Korok("N50", "Match Tree", "Get Wood"),
 		"You want to get wood for every tree you cut. When you have Lynel Sword you want to use that first to save durability on RGC"),
-	Korok("N49", "Acorn", "In tree. Shoot from far"),
+	Korok("N49", "Acorn", "In tree. Shoot from N50"),
 	step(cps("N"), " + ", cps("N"), " midair to tower"),
 	Tower("Hateno Tower"),
 	split("-"),

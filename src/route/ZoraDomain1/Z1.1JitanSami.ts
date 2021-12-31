@@ -2,7 +2,7 @@ import { Boss, detail, Korok, ShrineBlessing, Snap, split, step } from "../creat
 import { cps, emy, important, txt } from "../types";
 
 export const JitanSami = [
-	important("EQUIP PHANTOM 2"),
+	important("EQUIP PHANTOM 2 + SNOW"),
 	step(cps("<E"), " Turn to flower"),
 	Korok("N44", "Flower Chase"),
 	step(cps("<N"), " midairs to Naydra"),
@@ -31,7 +31,7 @@ export const JitanSami = [
 	"Shoot Eye",
 	detail(
 		"Scale Dupe",
-		"Align scale with the back 2 pillars. Stasis, 1 slam attack. Stand at bottom of stairs and time A press."),
+		"Align, backflip + backflip swing, mag drop, backflip, stasis, slam, forward jump 3 times, spam A"),
 	ShrineBlessing("Jitan Sa'mi"),
 	split("-"),
 ];

@@ -3,23 +3,23 @@ import { cps, gale, important, itm, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 const SeedsForBows = 12 + 17 + 25;
-const SeedsForWeapon = 3 + 5 + 8 + 12;
-const SeedsForShield = 1 + 2 + 3;
+const SeedsForWeapon = 3 + 5 + 8 + 12 + 17;
+const SeedsForShield = 1 + 2 + 3 + 4;
 const SeedsTotal = SeedsForBows + SeedsForWeapon + SeedsForShield;
 
 export const KuhnSidajj = [
-	step(cps("SW")),
+	step(cps("<<W Turn")),
 	Korok("E35", "Rock Circle"),
 	step(wb(cps)("W> TS")),
 	Korok("K32", "Acorn", "In tree"),
 	ability(step(gale()," + ", cps("N>")), {gale: 1}),
 	Korok("K31", "Lift Rock", "Top of scaffolding"),
-	ability(step(gale()," + midairs"), {gale: 1}),
+	ability(step(gale()," + ", wb(cps)("W")), {gale: 1}),
 	Tower("Woodland Tower"),
 	split("-"),
 
 	detail(step(wb(cps)("<<N Turn")),
-		"If you are too slow, can make night here for BM. You don't want BM to happen during oaki"),
+		"If you are too slow, can make night here for BM. You don't want BM to happen during oaki. If you do make night you want to do the other 2 shrines first to skip BM and then do oaki"),
 	ChestSpecial("Korok Mask"),
 	step(wb(cps)("W> surf to forest")),
 	Discover("Korok Forest"),
@@ -47,7 +47,7 @@ export const KuhnSidajj = [
 		"Get all bows, then get weapons until you don't have enough seed, then get shields"),
 	"Activate Keo Ruug",
 	Equipment("Korok Leaf"),
-	Equipment("Master Sword"),
+	Equipment("Master Sword", "Check 13 Hearts"),
 	VariableChange({rushroom: 4}),
 	detail(
 		Shop("4 Rushrooms. All Arrows"),

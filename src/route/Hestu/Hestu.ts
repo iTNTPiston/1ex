@@ -1,4 +1,4 @@
-import { Chest, detail, Discover, IconGeneric, image, Korok, Section, Shop, split, step, VariableChange, Warp } from "../create";
+import { Chest, detail, Discover, Equipment, IconGeneric, image, Korok, Section, Shop, split, step, VariableChange, Warp } from "../create";
 import { cps, important, itm, npc, rne, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -7,10 +7,11 @@ import HestuImage from "./Hestu.png";
 export const Hestu = [
 	Section("HESTU"),
 	image(HestuImage),
-	"",
+	Warp("Kakariko"),
+	split("-"),
 	detail(
 		step(txt("Talk to ",npc("Pumpkin Man"))),
-		"Should be in farm before 5pm. Little hut 5pm-8pm. Running around after 8pm"),
+		"Should be in farm before 5pm. Little hut 5pm-8pm. Running around after 8pm. Shield surf down from shrine"),
 	Shop("Shops", "Arrows + Carrots"),
 	txt("Run, talk to ", npc("Impa")),
 
@@ -33,11 +34,13 @@ export const Hestu = [
 	Warp("Kaya Wan", txt("Check ", v("krk"), " Koroks")),
 	split("-"),
 
-	step("Surf down bomb fish"),
+	detail(
+		step("Surf down shock fish"),
+		"If you didn't have shock arrow from the lynel you can bomb the fish"),
 	txt(rne("mag"), " chest out"),
 	detail(
 		"Open chest",
-		"Inventory: RGC, Lynel, Hammer, Torch, Axe, Knight"),
+		"Inventory: Traveller, RGC, Lynel, Hammer, Torch, Axe, Knight"),
 	txt("Talk to ", npc("Guy")),
 	Discover("Wetland Stable"),
 	IconGeneric("hestu", "Hestu 2", 0, -19, "3 Bows, 2 Weapons"),
@@ -48,16 +51,16 @@ export const Hestu = [
 		txt("Honey ", v("honey"), "/16")),
 	Korok("Z37", "Lift Rock", "middle of thorns"),
 	step(cps("<E")," Turn"),
+	Equipment("Wooden Bow"),
 	Korok("Z38", "Well"),
 	step(cps("SE")),
 	Discover("Goponga Village Ruins"),
 	step(cps("N")),
 	Korok("Z39", "Light Chase"),
-	"Start getting lotus",
-	Korok("Z40","Acorn", "Hanging from tree"),
 	detail(
-		itm(">30 Lotus"),
-		"RGC cut legs + RC kill guardian if need springs"),
-	Warp("Keh Namut"),
-	split("-"),
+		"Start getting lotus",
+		"Make Noon for Sasa Kai here if past 1PM"),
+	Korok("Z40","Acorn", "Hanging from tree"),
+	itm("30 Lotus"),
+
 ];

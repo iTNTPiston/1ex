@@ -3,8 +3,8 @@ import { cps, gale, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const AkkalaTower = [
-	step(wb(cps)("E + E midair")),
-	Korok("E44", "Lift Rock", "Next to trees"),
+	step(wb(cps)("E + <E midair")),
+	Korok("E44", "Lift Rock", "Left set of trees"),
 	step(cps("N.")),
 	Shrine("Mo'a Keet"),
 	split("-"),
@@ -20,7 +20,7 @@ export const AkkalaTower = [
 	Korok("E37", "Rock Circle"),
 	step(wb(cps)("<<W no turn")),
 	Korok("E36", "Lily Pads", "No Drown"),
-	step(wb(cps)("E slight R turn + NE midair")),
+	step(wb(cps)("E + NE midair")),
 	Discover("Maw of Death Mountain"),
 	wb(cps)("<E midair"),
 	Korok("E38", "Block Puzzle"),
@@ -31,7 +31,7 @@ export const AkkalaTower = [
 	step(cps("N>")),
 	"GG rock next to guardian",
 	Korok("A45", "Rock Circle"),
-	step(wb(cps)("E Turn")),
+	step(wb(cps)("E. Turn Steer E")),
 	Korok("A46", "Lift Rock (Door)"),
 	step(cps("NW")),
 	Korok("A43", "Lift Rock Blocked", "Under Leaves"),

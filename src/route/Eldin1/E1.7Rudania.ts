@@ -4,10 +4,10 @@ import { wb } from "../windbomb";
 
 export const Rudania = [
 	detail(
-		step(wb(cps)("NW to rare ore")),
-		"Smack for amber"),
+		step(wb(cps)("W>> Turn to rare ore")),
+		"Smack for amber. directly to mine if no need amber"),
 	important("EQUIP STEALTH 3"),
-	step(wb(cps)("NW to southern mine")),
+	step(wb(cps)("W>> Turn to southern mine")),
 	detail(
 		txt("Ores for ", itm("Amber")),
 		"Check 6-8 ambers. You can get the rest during yunobo escort"),
@@ -15,9 +15,9 @@ export const Rudania = [
 	detail(
 		txt("Talk to ", npc("Greyson")),
 		"Make night if you need"),
-	ability(step(wb(cps)("<N turn + N>"), " + ", gale()), {gale: 1}),
-	Korok("E15", "Confetti", "Inside agreeGe"),
-	"Drop down",
+	ability(step(gale()," + ",wb(cps)("N + N")), {gale: 1}),
+	// Korok("E15", "Confetti", "Inside agreeGe"),
+	// "Drop down",
 	Shop("Armor Shop", "Pants, Equip"),
 	Shop("General Shop", "1 Goron Spice"),
 	txt("Talk to ", npc("Bludo")),
@@ -25,7 +25,7 @@ export const Rudania = [
 	Shrine("Shae Mo'sah"),
 	split("-"),
 
-	step(wb(cps)("Yunobo Skip")),
+	step("Yunobo Skip"),
 	Chest("10 Ice Arrows"),
 	step(wb(cps)("W> Turn")),
 	Boss("Igneo Talus", txt("Ice + RGC spin get parts")),

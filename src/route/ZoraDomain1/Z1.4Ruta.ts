@@ -12,9 +12,7 @@ export const Ruta = [
 	Korok("Z42", "Balloon", "Shoot from above"),
 	step(wb(cps)("E + E midair")),
 	Korok("Z43", "Block Puzzle"),
-	step(wb(cps)("S> Turn")),
-	Korok("N06", "Confetti", "Top of tall tree"),
-	step(cps("NE")),
+	step(wb(cps)("E.")),
 	Korok("Z44", "Light Chase"),
 	step(wb(cps)("E> Turn")),
 	ability(Boss("Blue Hinox", txt("3 Spin Hits SLAM ", fury())), {fury: 1}),
@@ -25,7 +23,7 @@ export const Ruta = [
 	...MONUMENT,
 	"Run down",
 	Korok("Z33", "Light Chase"),
-	itm("3 Lotus Seeds"),
+	itm("4 Lotus Seeds"),
 	step(cps("<W")),
 	...MONUMENT,
 	step("Cryo block ", cps("N")),
@@ -38,10 +36,12 @@ export const Ruta = [
 	...MONUMENT,
 	step(cps("N"), important(" LOOK UP")),
 	Korok("Z25", "Lift Rock", "On ledge"),
-	step(wb(cps)("N High")),
-	Korok("Z16", "Confetti", "Flower thing above palace"),
+	step(wb(cps)("N Turn LOW")),
+	
 	txt("Talk to ", npc("King")),
-	Shop("All Arrows"),
+	detail(
+		Shop("All Arrows"),
+		"Buy violets if you need extra speed ingredient"),
 	itm("4 Lotus Seeds"),
 	step(Shrine("Ne'ez Yohma")),
 	split("-"),
@@ -63,4 +63,6 @@ export const Ruta = [
 	"NO SNAP",
 	Icon("ruta-done", "Waterblight 1", "7 BA Headshots (8 safe)"),
 	split("-"),
+
+
 ];

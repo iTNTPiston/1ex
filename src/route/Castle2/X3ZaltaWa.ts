@@ -48,11 +48,10 @@ export const CastleSecondHalf = [
 	detail(
 		itm("Silent Princess"),
 		txt(v("silentPrincess"), "/19")),
-	Snap(emy("Guardian Skywatcher"), "SNAP Quest"),
 	Memory("Hyrule Castle"),
 	split("-"),
 
-	step("Run"),
+	step(Snap(emy("Guardian Skywatcher"), "SNAP Quest")),
 	Korok("X09", "Lift Rock"),
 	Discover("Zelda's Room"),
 	step(wb(cps)("E super")),
@@ -72,6 +71,7 @@ export const CastleSecondHalf = [
 	Korok("X21", "Shoot Emblem"),
 	Discover("Observation Room"),
 	Chest("3AA"),
+	itm("Arrows"),
 	Korok("X22", "Balloon", "Aim top wall in background"),
 	txt("Glide ", cps("E")),
 	Korok("X20", "Lift Rock Blocked", "Under rubble"),
@@ -106,7 +106,7 @@ export const ZaltaWa = [
 	step(wb(cps)("<N Turn")),
 	ability(Boss("Black Hinox", txt(fury(), " + 2 GEB")), {fury: 3}),
 	VariableChange({tail: 1}),
-	step(wb(cps)("SW")),
+	step(wb(cps)("<W Turn")),
 	detail(
 		txt("Kill ", emy("Lizalfos")),
 		txt(v("tail"), "/45")),
@@ -115,7 +115,6 @@ export const ZaltaWa = [
 	ChestSpecial("Midna's Helm", "NW of the trees"),
 	step("SQ"),
 	Korok("R49", "Block Puzzle"),
-	MakeTOD("9pm", "Make Night if >5PM", "For BM"),
 	step(wb(cps)("N")),
 	Korok("R48", "Acorn", "In tree"),
 	step(wb(cps)("NE")),
@@ -132,7 +131,7 @@ export const ZaltaWa = [
 	step("SQ DEFUSE"),
 	Korok("R26", "Race", cps("W")),
 	Korok("R27", "Acorn", "Hanging from bridge"),
-	step(cps("W")),
+	step(cps("W High")),
 	Shrine("Zalta Wa", "Skip BM"),
 	split("-"),
 ];

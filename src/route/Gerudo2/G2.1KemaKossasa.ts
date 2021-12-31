@@ -20,20 +20,5 @@ export const KemaKossasa = [
 	Discover("Kihiro Moh Shrine"),
 	step(wb(cps)("<E + W + W midairs")),
 	important("EQUIP SNOW BOOTS"),
-	Korok("G16", "Light Chase", "FAR"),
-	step(wb(cps)("W Turn")),
-	Korok("G20", "Rock Circle"),
-	step(wb(cps)(".N DEFUSE")),
-	Korok("G15", "Lift Rock"),
-	step("Drop, ", wb(cps)("<E Turn midair")),
-	Korok("G11", "Race", wb(cps)("<E")),
-	step(wb(cps)("NW")),
-	VariableChange({tail: 2}),
-	detail(
-		txt("Kill 2 Black ", emy("Lizalfos")),
-		txt("tail: ", v("tail"), "/45")),
-	step(wb(cps)("<N + W midair")),
-	Korok("G07", "Ice Block", "2 Fire Arrows"),
-	ShrineDoubleSword("Kema Kossasa"),
-	split("-"),    
+	
 ];

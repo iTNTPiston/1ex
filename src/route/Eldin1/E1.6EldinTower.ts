@@ -14,7 +14,7 @@ export const EldinTower = [
 	Korok("E32", "Lift Rock Blocked", "Under rubble"),
 	step("SQ SE to race start DEFUSE"),
 	Korok("E33", "Race", wb(cps)("N> Turn")),
-	ability(step(gale(), " + midairs"), {gale: 1}),
+	ability(step(wb(cps)("W + W"), " + ",gale()), {gale: 1}),
 	Tower("Eldin Tower"),
 	split("-"),
 ];

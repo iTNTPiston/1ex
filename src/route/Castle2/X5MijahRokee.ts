@@ -11,10 +11,9 @@ export const MijahRokee = [
 	Korok("R37", "Lift Rock", "Ledge"),
 	step(wb(cps)("W + SW midair")),
 	txt("Talk to ", npc("Kass")),
-	MakeTOD("9pm", "Make Night"),
 	detail(
 		important("UNEQUIP CLOTH"),
-		"No need to reequip until OHO overloaded"),
+		"Make night if you need. No need to reequip until OHO overloaded"),
 	ShrineDoubleSword("Mijah Rokee"),
 	split("-"),
 

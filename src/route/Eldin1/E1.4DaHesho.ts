@@ -9,7 +9,7 @@ export const DaHesho = [
 	Korok("A40", "Lift Rock Blocked", "Under Leaves"),
 	"Drop down",
 	Korok("A39", "Lift Rock (Door)"),
-	step(wb(cps)("<E TS")),
+	step(wb(cps)("<E Turn")),
 	Korok("A37", "Lift Rock", "Top of stone structure"),
 	step("SQ to guardians"),
 	detail(

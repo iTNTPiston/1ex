@@ -9,7 +9,7 @@ import { CastleSecondHalf, ZaltaWa } from "./X3ZaltaWa";
 import { SheemDagoze } from "./X4SheemDagoze";
 import { MijahRokee } from "./X5MijahRokee";
 
-export const Castle = [
+export const Castle2 = [
 	Section("CASTLE"),
 	image(CastleImage1),
 	...DarkBeast,

@@ -6,7 +6,7 @@ export const Plateau = [
 	Section("PLATEAU 1"),
 	image(PlateauImage),
 	"SOR Clip, no TOD",
-	itm("6 Peppers"),
+	itm("Peppers + Shrooms"),
 	detail(
 		Equipment("Potlid + Spear", "Spear for FDC"),
 		"Ideally keep this potlid for Thunderblight, or you can get another one in kakariko if you break this one"),
@@ -26,13 +26,10 @@ export const Plateau = [
 	Tower("Great Plateau Tower"),
 	split("-"),
 
-	step("BLSS to old man's hut"),
-	Korok("P18", "Confetti", "On top of hut"),
-	step(itm("Baked Apple")),
-	Equipment("Torch"),
+	step("BLSS to tree below stasis"),
 	detail(
 		step("WB to stasis"),
-		"No hammer, keep spear for later"),
+		"No hammer"),
 	Shrine("Owa Daim"),
 	split("-"),
 

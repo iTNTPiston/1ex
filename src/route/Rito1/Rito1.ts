@@ -5,24 +5,28 @@ import RitoImage from "./Rito1-2.png";
 export const Rito1 = [
 	Section("RITO 1"),
 	image(RitoImage),
+	Warp("Keh Namut", "aka Cryonis"),
+	split("-"),
 	step("BLSS to Rito"),
-	detail(
-		important("UNEQUIP PHANTOM"),
-		"If you have full phantom/phantom ganon set equipped, you won't be able to buy in shops. This is true for all shops."),
 	step("Talk to ",npc("Chief")," + ",npc("Wife")),
 	Icon("medoh-memory", "Revali Memory"),
 	split("-"),
     
 	detail(
-		Shop("Drop down to shop", "Buy everything"),
-		"Keep 10 Gears, 5 Cores (6 if you missed moblin guts), 15 springs and 4 screws (3 if you have another monster part)"),
-	step(cps("<N"), " TS to ",lcn("Flight Range")),
+		itm("Cold Darner"),
+		"On the way dropping down near the Mozo Shenno quest girl."),
+
+	detail(
+		important("UNEQUIP PHANTOM"),
+		"If you have full phantom/phantom ganon set equipped, you won't be able to buy in shops if you walk too close to the npc. Drop 5 cores (6 if you didn't pick up lynel part) or 8 shafts if you have core or shaft no gear. If you have gear just sell all the gears"),
+	"Drop Items",
+	Shop("Shop", "Buy everything"),
+
+	step(cps(".N"), " TS to ",lcn("Flight Range")),
 	Equipment("Arrows + Swallow Bow"),
 	detail(
 		Cook("Cold + Hearty", "Keep 1 durian"),
-		"3 sunshroom for cold protection, or 2 shroom + 2 peppers"),
-	indent(sm("Also keep 3-4 sunshrooms")),
-	MakeTOD("5am", "Make Morning", "For darners"),
+		"2 shroom + 2 peppers, and you should have 3 left for quest. If you don't have enough peppers, use 4 sunshrooms. Make morning here if it might be too late for darner spawn. You only need one darner (can grab another in rito 2)"),
 	Icon("medoh-enter", "Enter Medoh"),
 	split("-"),
 
@@ -34,12 +38,12 @@ export const Rito1 = [
 	important("EQUIP ATK 3"),
 	emy("Windblight 1"),
 	detail(
-		indent("3 BA each phase"),
-		"Glide toward center before shooting so he doesn't warp in phase 2. If you are too close you can shoot 4 normal arrows."),
-	Icon("medoh-done", "Windblight"),
+		indent("2 BA each phase"),
+		"Use Lynel Bow"),
+	Icon("medoh-done", "Windblight 1"),
 	split("-"),
 	"Drop Traveller Bow",
-	step("Get 2 ",itm("Cold Darners")),
+	itm("Cold Darner"),
 	Equipment("Great Eagle Bow", "Finish quest"),
 	txt("Backup ",itm("darner"), " on bridge"),
 	detail(
@@ -48,20 +52,19 @@ export const Rito1 = [
 	Shrine("Akh Va'quot"),
 	split("-"),
 
-	step(cps("<W")," Turn to ",npc("Voo Lota Girl")),
+	step(cps("W")," Turn to ",npc("Voo Lota Girl")),
 	step(cps("E"), " TS to ",lcn("Rito Stable")),
 	Shop("Beedle","Arrow, Fireflies, 1 Darner"),
 	itm("Ancient Arrow"),
 	itm("10 Berries"),
 	detail(
 		"Farm wood with RC",
-		"If break, use Lynel Sword. No need to pick up axe. Should have: RGC, Torch, Lynel"),
+		"If break, use Lynel Sword. No need to pick up axe. Should have: RGC, Travller, Tree Branch, Lynel"),
 	txt("Get ",itm("Balloon")," from ",emy("Octorok")),
 	txt("Get ",itm("Voltfin")," from ",emy("Octorok")),
 	"Reload and farm wood again",
 	step(cps("<S"), " No Turn"),
 	Korok("T19", "Lily Pads", "No Drown"),
-	step(Warp("Tower")),
-	split("-"),
+
 ];
 

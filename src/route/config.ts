@@ -1,5 +1,5 @@
 import { Akkala } from "./Akkala";
-import { Castle } from "./Castle";
+import { Castle2 } from "./Castle2";
 import { Central1 } from "./Central1";
 import { Central2 } from "./Central2";
 import { Eldin1 } from "./Eldin1";
@@ -24,7 +24,7 @@ import { Plateau } from "./Plateau";
 import { Plateau2 } from "./Plateau2";
 import { Rito1 } from "./Rito1";
 import { Rito2 } from "./Rito2";
-import { RupeePrinting } from "./RupeePrinting";
+import { Castle1 } from "./Castle1";
 import { Satori } from "./Satori";
 import { Tabantha } from "./Tabantha";
 import { ChangeData } from "./types";
@@ -34,7 +34,7 @@ import { ZoraDomain2 } from "./ZoraDomain2";
 //The Main Route Object
 export const MainRoute = [
 	...Plateau,
-	...RupeePrinting,
+	...Castle1,
 	...Rito1,
 	...Kakariko1,
 	...Hateno1,
@@ -44,7 +44,7 @@ export const MainRoute = [
 	...ZoraDomain1,
 	...Eldin1,
 	...KorokForest,
-	...Castle,
+	...Castle2,
 	...Plateau2,
 	...Gerudo2,
 	...Lake,
