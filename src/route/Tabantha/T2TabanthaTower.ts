@@ -22,7 +22,7 @@ export const TabanthaTower = [
 	Korok("T30", "Race", "SQ High"),
 	step(wb(cps)("<N")),
 	"Shoot Eye",
-	"Freeze both in BT",
+	"Freeze Both",
 	Korok("T24", "Lift Rock", "Behind malice"),
 	"BTB to tower",
 	Tower("Tabantha Tower"),

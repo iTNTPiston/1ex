@@ -3,13 +3,11 @@ import { cps, gale, itm, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const RinOyaa = [
-	step(wb(cps)("S")),
-	Korok("H16", "Balloon", "Bomb tree"),
-	step(wb(cps)("W midair")),
-	Korok("H15", "Block Puzzle"),
-	step(wb(cps)("S + .W midair")),
-	Korok("H22", "Boulder Golf", "3 2H STS arrow"),
-	step(wb(cps)("SW Low")),
+	step(wb(cps)("E> Turn")),
+	Korok("H06", "Rock Circle"),
+	step(wb(cps)("SW")),
+	Korok("H14", "Acorn in Log"),
+	step(wb(cps)("S> Turn no delay")),
 	Korok("H37", "Light Chase"),
 	step(wb(cps)("SE")),
 	itm("5 Wood"),
@@ -17,7 +15,7 @@ export const RinOyaa = [
 	Shrine("Rin Oyaa"),
 	split("-"),
 
-	MakeTOD("9pm", "Make Night TWICE", "Dinraal (Claw) and Stalnox"),
+	MakeTOD("9pm", "Make Morning TWICE", "Dinraal (Claw)"),
 	step(wb(cps)("<W Turn")),
 	Korok("H52", "Acorn in Log"),
 	step(wb(cps)("E> Turn")),
@@ -32,7 +30,5 @@ export const RinOyaa = [
 	step(wb(cps)("N> Turn")),
 	Korok("H38", "Lift Rock Blocked", "Under rubble"),
 	step(wb(cps)("E> Turn")),
-	Korok("K10", "Block Puzzle", "Cube behind right group"),
-	Warp("Dagah Keek", txt("Check ", v("krk"), " Koroks")),
-	split("-"),
+	Korok("K10", "Block Puzzle", "Cube behind left group"),
 ];

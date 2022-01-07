@@ -1,8 +1,10 @@
-import { ability, Boss, detail, Discover, Icon, Korok, ShrineSword, Snap, split, step, Tower } from "../create";
+import { ability, Boss, detail, Discover, Icon, Korok, ShrineSword, Snap, split, step, Tower, Warp } from "../create";
 import { cps, emy, fury, important } from "../types";
 import { wb } from "../windbomb";
 
 export const SohKofi = [
+	Warp("Vah Ruta"),
+	split("-"),
 	Snap(emy("Waterblight"), "SNAP Elite"),
 	ability(
 		detail(

@@ -1,8 +1,10 @@
-import { Snap, detail, ability, Icon, split, MakeTOD, step, Korok, Shop, Cook, Shrine } from "../create";
-import { emy, txt, rne, npc, cps } from "../types";
+import { Snap, detail, ability, Icon, split, MakeTOD, step, Korok, Shop, Cook, Shrine, Warp } from "../create";
+import { emy, txt, rne, npc, cps, v } from "../types";
 import { wb } from "../windbomb";
 
 export const VooLota= [
+	Warp("Vah Medoh", txt("Check ", v("krk"), " Koroks")),
+	split("-"),
 	Snap(emy("Windblight"), "SNAP Elite"),
 	detail(
 		ability(
@@ -14,34 +16,29 @@ export const VooLota= [
 	),
 	split("-"),
 
-	MakeTOD("12pm", "Make Noon"),
 	step("Drop down"),
 	Korok("T14", "Balloon"),
 	npc("Little Girl Singing"),
 	"Drop down",
-	npc("Find Kheel Lady"),
-	step("SQ to pillar DEFUSE"),
-	Korok("T15", "Lift Rock"),
-	"Activate Bareeda Naag",
-	step("SQ to pond"),
-	npc("Little Girl Water"),
-	step(wb(cps)("<W to pad")),
-	npc("Flight Pad Lady (BN Quest)"),
-	npc("Apple Woman Twice"),
+	npc("Baked Apple Lady x2"),
 	"Drop down",
 	npc("White Bird Girl"),
 	"Drop down",
 	npc("Little Girl Shop"),
-	Shop("All Arrows"),
 	"Run up 3 houses",
+	MakeTOD("12pm", "Make Noon"),
 	Cook("Wheat Butter Salmon", "Hearty if needed"),
 	npc("Little Girl Cook"),
 	"Drop down",
 	npc("Fyson"),
 	"Run up next house",
 	npc("Flint Man Twice"),
-	"Drop out",
-	step(wb(cps)("<W TS")),
+	step("Drop out + ", wb(cps)("S")),
+	Korok("T15", "Lift Rock"),
+	step(wb(cps)("W")),
+	npc("Find Kheel Lady"),
+	"Activate Bareeda Naag",
+	step(wb(cps)("W Turn")),
 	Korok("T13", "Rock Circle"),
 	detail(
 		Shrine("Voo Lota"),

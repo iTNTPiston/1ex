@@ -11,6 +11,4 @@ export const TarryTown2 = [
 	detail(
 		"Place Travel Medallion",
 		"Place it facing Link to Hudson"),
-	Warp("Shada Naw", txt("Check ", v("krk"), " Koroks")),
-	split("-"),
 ];

@@ -1,9 +1,14 @@
-import { Warp, step, Korok, ShrineDLC, Chest, split, MakeTOD, detail, ability, Boss, VariableChange, Shrine } from "../create";
+import { Warp, step, Korok, ShrineDLC, Chest, split, MakeTOD, detail, ability, Boss, VariableChange, Shrine, Equipment, Cook } from "../create";
 import { npc, cps, fury, itm, txt, gale, v, important } from "../types";
 import { wb } from "../windbomb";
 import { MONUMENT } from "../ZoraDomain1/Z1.4Ruta";
 
 export const ZoraDLC = [
+	Warp("Sato Koda", txt("Check ", v("krk"), " Koroks")),
+	split("-"),
+	detail(
+		step(Equipment("Moblin Club")),
+		"Kill the moblin"),
 	step(wb(cps)("<E Turn")),
 	Chest("Zora Helm"),
 	step(wb(cps)("E DEFUSE")),
@@ -11,20 +16,33 @@ export const ZoraDLC = [
 	step(wb(cps)("<W Turn")),
 	...MONUMENT,
 	step(wb(cps)("E> Turn")),
+	important("EQUIP ZORA ARMOR"),
 	"Start Ring Chase",
+	detail(
+		itm("2 Lotus if need"),
+		"24+ Horns"),
 	...MONUMENT,
+	detail(
+		itm("2 Lotus if need"),
+		"24-25+ Horns"),
 	ShrineDLC("Mah Eliya"),
 	split("-"),
 
-	step(wb(cps)("<W")),
+	step(wb(cps)("<E")),
 	Korok("Z08", "Lift Rock Blocked", "Under rubble"),
-	step(wb(cps)("<E TS")),
+	step(wb(cps)("<W TS")),
 	Korok("Z17", "Confetti", "Top of ZD"),
-	MakeTOD("12pm", "Make 7AM - 8PM"),
 
+	"Drop down",
+	detail(
+		itm("4 Lotus if need"),
+		"25+ Horns"),
+	detail(
+		Cook("Speed Food", "If short on speed"),
+		"Only if needed. Next fast cooking location is Shae Loya (Tabantha Bridge Stable). Next slowish cooking location is Woodland Stable"),
 	detail(
 		npc("Frog Boy Twice"),
-		"<4PM near statue. >4PM near Fronk"),
+		"For ZD2 CHECK 7AM - 8PM. Frog Boy: <4PM near statue. >4PM near Fronk"),
 	npc("Luminous Stone Guy Twice"),
 	"Run up stairs and jump over",
 	npc("Letter Girl"),
@@ -38,7 +56,9 @@ export const ZoraDLC = [
 	step(wb(cps)("S")),
 	Korok("Z26", "Lift Rock", "Peak"),
 	step(wb(cps)("E> Turn")),
-	ability(Boss("Luminous Talus", txt(fury(), itm(" Opal"))), {fury: 3}),
+	detail(
+		ability(Boss("Luminous Talus", txt(fury())), {fury: 3}),
+		"Fury should be back bc of ring chase"),
 	important("BURN OUT FURY"),
 	step(wb(cps)("<E")),
 	Korok("Z27", "Block Puzzle"),
@@ -49,8 +69,8 @@ export const ZoraDLC = [
 	Korok("Z20", "Flower Chase"),
 	step(wb(cps)("<N Turn")),
 	Korok("A55", "Lift Rock Blocked", "Under Boulder"),
-	step(wb(cps)(".N")),
-	Korok("A54", "Balloon"),
+	step(wb(cps)("<N")),
+	Korok("A54", "Balloon", "Pre BT left of tree"),
 	step(wb(cps)("<E Turn")),
 	Korok("A53", "Match Tree", "Middle"),
 	step(wb(cps)("E Turn")),
@@ -70,6 +90,5 @@ export const ZoraDLC = [
 	ShrineDLC("Kee Dafunia"),
 	split("-"),
 
-	Warp("Vah Ruta"),
-	split("-"),
+
 ];

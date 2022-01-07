@@ -3,8 +3,7 @@ import { cps, fury, important, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const ZunaKai = [
-	step(MakeTOD("9pm", "Make Night")),
-	Cook("Speed/Hearty"),
+	step(MakeTOD("9pm", "Make Night", "For Xenoblade")),
 	wb(cps)(".E Turn"),
 	ability(Boss("Black Hinox", txt(fury(), " + 1 GEB shot")), {fury: 3}),
 	detail(
@@ -17,7 +16,7 @@ export const ZunaKai = [
 	step(wb(cps)("NE to camp")),
 	"GG rock",
 	Korok("A02", "Rock Circle"),
-	step(wb(cps)("S Turn to shrine")),
+	step(wb(cps)("S SQ to shrine")),
 	ShrineBlessing("Zuna Kai"),
 	split("{5 | 0", v("srn"), " SRN | ", v("krk"), " KRK}")
 ];

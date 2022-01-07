@@ -5,11 +5,11 @@ import { wb } from "../windbomb";
 export const TuKaloh = [
 	detail(
 		step("Look Sky East"),
-		"Make sure not to reload before getting the chest, or the chest will despawn."),
+		"Make sure not to reload a save before the chest hits, or the chest will despawn."),
 	"Drop down",
 	Snap("Kilton", "SNAP multiple to be safe"),
 	txt("Talk to ", npc("Kilton")),
-	step(cps("SE")),
+	step(cps("S>")),
 	Korok("A05", "Race", "Cardinal High"),
 	step(wb(cps)("S no turn")),
 	Korok("A10", "Lift Rock Blocked", "Under slab 1 STS"),
@@ -27,14 +27,13 @@ export const TuKaloh = [
 	ChestSpecial("Xenoblade Chest"),
 	step(cps("E>>")),
 	Korok("A04", "Flower Count"),
-	detail(
-		step(cps("SE")),
-		"For this korok, push the right boulder forward a bit. Place a pin at the hold to align. Stasis Full and shoot with RGB to align. Shoot at 45 degrees. Windbomb over and if the boulder is rolling down, use stasis reset."),
+	step(cps("SE")),
 	important("SAVE"),
 	Korok("A07", "Boulder Golf"),
 	step(cps("SE")),
 	Korok("A13", "Lift Rock Blocked", "Under Leaves"),
 	step(wb(cps)("E to blue flame")),
+	important("CHECK RAIN"),
 	"Smuggle",
 	wb(cps)("E to race start"),
 	detail(

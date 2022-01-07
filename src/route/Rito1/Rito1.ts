@@ -23,6 +23,7 @@ export const Rito1 = [
 	Shop("Shop", "Buy everything"),
 
 	step(cps(".N"), " TS to ",lcn("Flight Range")),
+	Korok("T02", "Confetti", "Top of house"),
 	Equipment("Arrows + Swallow Bow"),
 	detail(
 		Cook("Cold + Hearty", "Keep 1 durian"),
@@ -44,6 +45,7 @@ export const Rito1 = [
 	split("-"),
 	"Drop Traveller Bow",
 	itm("Cold Darner"),
+	npc("Flight Pad Lady (BN Quest)"),
 	Equipment("Great Eagle Bow", "Finish quest"),
 	txt("Backup ",itm("darner"), " on bridge"),
 	detail(

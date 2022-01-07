@@ -1,5 +1,5 @@
 import { step, detail, Korok, Discover, VariableChange, ability, Boss, MakeTOD, Warp, split, ShrineBlessing, Shrine } from "../create";
-import { cps, npc, itm, txt, v, fury, gale } from "../types";
+import { cps, npc, itm, txt, v, fury, gale, important } from "../types";
 import { wb } from "../windbomb";
 
 export const DunbaTaag = [
@@ -7,21 +7,25 @@ export const DunbaTaag = [
 	detail(
 		npc("Guard TWICE"),
 		"At end of bridge closer to Rito Village"),
-	npc("Spice Guy Twice"),
-	itm("50+ Wood"),
+	important("CHECK 50 WOOD"),
     
-	step(wb(cps)("S super")),
-	Korok("T21", "Lift Rock Blocked", "Under rubble"),
-	step(cps("W")),
+	step(wb(cps)("<S super")),
+	detail(
+		Korok("T21", "Lift Rock Blocked", "Under rubble"),
+		"Stay to the left of the middle of the rubble, otherwise you would open the chest"),
+	step(cps("<W")),
 	Korok("T20", "Block Puzzle"),
-	step(wb(cps)("E Turn")),
+	step(wb(cps)("E")),
 	Korok("T22", "Lift Rock Blocked", "Under rubble"),
-	MakeTOD("5am", "Make Morning Twice", "Dinraal (Claw)"),
+	MakeTOD("5am", "Make Night Twice", "Dinraal (Claw) & Stalnox"),
 	step(wb(cps)("<S Turn + E midair")),
 	Korok("R05", "Acorn", "In tree"),
 	Discover("Foot Race"),
 	step(wb(cps)("N> Turn")),
 	"Shoot Dinraal",
+	detail(
+		"CHECK ALL DINRAAL",
+		"Can get all parts here if you don't want to do the forgotten temple backups"),
 	"Drop down",
 	Korok("R04", "Rock Circle", "In Canyon"),
 	ability(step(gale(), " + ", cps("W")), {gale: 1}),
@@ -37,9 +41,8 @@ export const DunbaTaag = [
 	split("-"),
 
 	npc("Hudson Twice"),
-	MakeTOD("9pm", "Make Night"),
-	step(wb(cps)("NE")),
-	Korok("A34", "Rock Circle"),
+	step(wb(cps)("N. Turn")),
+	Korok("A34", "Rock Circle", "Rock in bush"),
 	step(wb(cps)("SE + SE")),
 	Korok("A44", "Race", "Run"),
 	"Start Flower Chase",
@@ -55,12 +58,12 @@ export const DunbaTaag = [
 	ability(Boss("Stalnox", txt("GEB + ", fury())), {fury: 3}),
 	detail(
 		Warp("Shada Naw", txt("Check ", v("krk")," Koroks")),
-		"Doing 2 koroks here for fury cooldown"),
-	step(wb(cps)("E Turn")),
+		"Doing 2 koroks here for TOD routing for ZD2"),
+	split("-"),
+	step(wb(cps)("<E Turn")),
 	Korok("H21", "Confetti", "Top of tree"),
-	step(wb(cps)("NW")),
+	step(wb(cps)("NW Low")),
 	Korok("H12", "Rock Circle"),
 
-	Warp("Sato Koda", txt("Check ", v("krk"), " Koroks")),
-	split("-"),
+
 ];

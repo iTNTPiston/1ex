@@ -2,7 +2,7 @@ import { step, ability, Boss, Korok, Shrine, split, detail, ShrineBlessing } fro
 import { cps, fury, itm, txt } from "../types";
 import { wb } from "../windbomb";
 
-export const QazaTokki = [
+export const ShaGehma = [
 	step(wb(cps)("S High from pedestal")),
 	ability(Boss("Frost Talus", txt(fury(), itm(" Opal"))), {fury: 3}),
 	step(wb(cps)("S> Turn")),
@@ -22,12 +22,10 @@ export const QazaTokki = [
 	step(wb(cps)("E Turn")),
 	Shrine("Sha Gehma"),
 	split("-"),
-
-	step(wb(cps)("<S Turn")),
-	Korok("H14", "Acorn in Log"),
-	step(wb(cps)("NE")),
-	Korok("H06", "Rock Circle"),
-	step(wb(cps)("E + E midairs")),
-	ShrineBlessing("Qaza Tokki"),
-	split("-"),
+	// Korok("H22", "Boulder Golf", "WB after bomb down"),
+	// step(wb(cps)("N> Turn down")),
+	// Korok("H15", "Block Puzzle"),
+	// step(wb(cps)("<E Turn")),
+	// ShrineBlessing("Qaza Tokki"),
+	// split("-"),
 ];

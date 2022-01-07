@@ -1,4 +1,4 @@
-import { step, Korok, split, ShrineBlessing, ability } from "../create";
+import { step, Korok, split, ShrineBlessing, ability, MakeTOD } from "../create";
 import { cps, gale, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -13,6 +13,7 @@ export const SumaSahma = [
 	Korok("W60", "Ice Block", "3 Fire Arrows"),
 	step(wb(cps)(".N")),
 	txt(npc("Diary"), " (1113)"),
+	MakeTOD("9pm","Make Night", "After shrine appears"),
 	ShrineBlessing("Suma Sahma"),
 	split("-"),
 

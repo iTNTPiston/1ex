@@ -10,13 +10,14 @@ export const FuryPlus = [
 		"Turn before placing square to acommodate wind"),
 	ShrineBlessing("Misae Suma"),
 	split("-"),
-	step(wb(cps)("W DEFUSE")),
+	step(wb(cps)("W> DEFUSE")),
 	Korok("W62", "Rock Circle"),
 	step(wb(cps)(".W Turn")),
 	Korok("W67", "Match Cactus", "Land"),
-	Warp("Vah Naboris", txt("Check ", v("krk"), " Koroks")),
+	detail(
+		Warp("Vah Naboris", txt("Check ", v("krk"), " Koroks")),
+		"Check you already have stasis+ equipped (should have for the korok anyway)"),
 	split("-"),
-	important("EQUIP STASIS+"),
 	Icon("naboris-plus", "Thunderblight 2"),
 	split("-"),
 ];

@@ -12,7 +12,7 @@ export const Dinraal = [
 	"Shoot Horn",
 	detail(
 		MakeTOD("5am", "Morning"),
-		"Make morning right after you pick up the part"),
+		"Make morning right after you the part drops"),
 	Korok("K02", "Block Puzzle"),
 	step(wb(cps)("<E Turn")),
 	Korok("K03", "Rock Circle"),

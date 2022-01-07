@@ -1,29 +1,18 @@
-import { ability, Boss, detail, Korok, Shop, ShrineDLC, Snap, split, step } from "../create";
-import { cps, emy, fury, lnk, npc, txt } from "../types";
+import { ability, Boss, detail, Korok, Shop, ShrineBlessing, ShrineDLC, Snap, split, step } from "../create";
+import { cps, emy, fury, gale, lnk, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const KeiveTala = [
-	step(wb(cps)("N Turn to")," ", npc("Boots Guy")),
-	"Talk 3 times",
-	step(wb(cps)("<W to top")),
-	Korok("W42", "Confetti"),
-	step("Drop down"),
-	txt("Talk to ", npc("Berry Woman"), " twice"),
-	txt("Talk to ", npc("Captain")),
-	txt("Talk to ", npc("Molduga Lady <2PM")),
-	detail(
-		txt("Talk to ", npc("Little Girl")),
-		"6AM - 8PM"),
-	txt("Talk to ", npc("Flint Lady"), " twice"),
-	Shop("All Arrows"),
-	txt("Talk to ", npc("Molduga Lady >2PM")),
-	txt("Talk to ", npc("Riju (B)")),
-	"Run to secret club 3334",
-	step(wb(cps)("E Turn")),
-	Korok("W43", "Flower Chase"),
-	step(wb(cps)("<E Turn")),
-	Korok("W37", "Flower Chase", "On skeleton"),
-	step(wb(cps)("SE")),
+	step(wb(cps)("E> + S")),
+	Korok("W30", "Block Puzzle"),
+	step(wb(cps)("S> Turn")),
+	Korok("W35", "Balloon", "Between arms. Shoot midair"),
+	"Do Puzzle",
+	ShrineBlessing("Korsh O'hu"),
+	split("-"),
+	ability(step(gale(), " + ", cps("S")), {gale: 1}),
+	Korok("W40", "Lift Rock", "Top of statue"),
+	step(wb(cps)("<W Turn")),
 	Korok("W44", "Block Puzzle"),
 	step(wb(cps)("SE")),
 	txt("Kill ", emy("Blue Lizalfos")),

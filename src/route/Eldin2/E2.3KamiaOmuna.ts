@@ -1,5 +1,5 @@
-import { step, Korok, Shrine, split, ability, Boss, Memory, Discover, Snap, ShrineDLC } from "../create";
-import { cps, emy, fury, important } from "../types";
+import { step, Korok, Shrine, split, ability, Boss, Memory, Discover, Snap, ShrineDLC, detail } from "../create";
+import { cps, emy, fury, gale, important } from "../types";
 import { wb } from "../windbomb";
 
 export const KamiaOmuna = [
@@ -10,19 +10,20 @@ export const KamiaOmuna = [
 	"Drop down to cave",
 	Shrine("Kayra Mah"),
 	split("-"),
-	step(wb(cps)("S> Turn")),
+	step(wb(cps)("S. Turn")),
 	Korok("E27", "Lift Rock Blocked", "Under rubble"),
 	step(wb(cps)("<W turn")),
-	ability(Boss("Igneo Talus", fury()), {fury: 3}),
+	detail(
+		ability(Boss("Igneo Talus", fury()), {fury: 3}),
+		"Should be back after Kayra Mah quest"),
 	step(wb(cps)("<N")),
 	Korok("E26", "Boulder Golf", "Bomb down"),
-	step("Run to talus ledge"),
 	step(wb(cps)("<W Turn")),
 	Korok("E31", "Rock Circle", "2 rocks"),
 	Memory("Eldin Canyon"),
 	split("-"),
 	step(wb(cps)("N Turn")),
-	Korok("E24", "Boulder Golf", "Bomb down"),
+	Korok("E24", "Boulder Golf", "WB away after"),
 	step(wb(cps)("N> Turn")),
 	Korok("E25", "Race", "Glide and run"),
 	step(wb(cps)("N")),
@@ -31,8 +32,11 @@ export const KamiaOmuna = [
 	Korok("E18", "Rock Circle", "GG over"),
 	step(cps("N")),
 	Discover("Stolock Bridge"),
+	"Drop in",
+	Korok("E15", "Confetti", "Inside agreeGe"),
+	step("Climb out on arm ", wb(cps)("E")),
 	Korok("E13", "Lift Rock"),
-	step("Run + ", cps("S")),
+	ability(step(gale()), {gale: 1}),
 	Korok("E14", "Race", cps("E")),
 	step(wb(cps)("NE low")),
 	Korok("E10", "Balloon"),
@@ -44,7 +48,7 @@ export const KamiaOmuna = [
 	ability(Boss("Igneo Talus", fury()), {fury: 3}),
 	step(wb(cps)("<E Turn")),
 	Korok("E06", "Lift Rock Blocked", "Under rubble"),
-	step(wb(cps)("W Turn")),
+	step(wb(cps)("W. Turn")),
 	Snap(emy("Igneo Talus Titan"), "SNAP Elite"),
 	Boss("Igneo Talus Titan", important("EQUIP ATK UP")),
 	ShrineDLC("Kamia Omuna"),

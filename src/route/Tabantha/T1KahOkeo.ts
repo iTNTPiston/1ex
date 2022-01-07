@@ -19,7 +19,7 @@ export const KahOkeo = [
 	step(wb(cps)("W>")),
 	Korok("R33", "Rock Circle"),
 	step(wb(cps)("SW")),
-	Korok("R32", "Balloon"),
+	Korok("R32", "Balloon", "Pre BT 3"),
 	step(wb(cps)("N>")),
 	Shrine("Kah Okeo"),
 	split("-"),

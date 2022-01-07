@@ -65,7 +65,7 @@ export const PlateauDLC = [
 	Snap(emy("Silver Lizalfos"), "SNAP Elite"),
 	VariableChange({tail: 3, honey: 2}),
 	detail(
-		"RGC spin him",
+		"freeze stunlock him. Try to set TOD here to trigger BM to farm another round of tail",
 		txt("Tail: ", v("tail"), "/45. Honey: ", v("honey"), "/16")),
 	itm("2 Honey"),
 	ShrineDLC("Rohta Chigah"),

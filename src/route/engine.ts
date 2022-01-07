@@ -3,9 +3,9 @@ import { addKorok, getMissingKoroks, hasKorok, KorokData, newData } from "./koro
 import { instructionLikeToInstruction, InstructionData, InstructionLike, txt, lcn, npc, stringToText, Instruction, TextBlock, Text } from "./types";
 
 //Estimate 5 steps for gale to recharge
-const GALE_RECHARGE = 5;
+const GALE_RECHARGE = 7;
 //Estimate 10 steps for fury to recharge
-const FURY_RECHARGE = 10;
+const FURY_RECHARGE = 13;
 
 export class InstructionEngine{
 	private MEMORY_ROMAN = ["","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII","XIII","XIV","XV"];

@@ -1,10 +1,11 @@
-import { detail, Discover, Korok, MakeTOD, ShrineDLC, split, step } from "../create";
-import { cps, emy, important, txt } from "../types";
+import { detail, Discover, Korok, MakeTOD, ShrineDLC, split, step, Warp } from "../create";
+import { cps, emy, important, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const SatoKoda = [
+	Warp("Dagah Keek", txt("Check ", v("krk"), " Koroks")),
+	split("-"),
 	step("Shield Surf SCW"),
-	MakeTOD("5am", "Make Morning if night", "Trigger Cutscene"),
 	ShrineDLC("Sato Koda"),
 	split("-"),
 	step(wb(cps)("N>")),

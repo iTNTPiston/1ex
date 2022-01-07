@@ -1,5 +1,5 @@
 import { ability, Boss, detail, Korok, Shrine, split, step } from "../create";
-import { txt, npc, cps, itm, fury } from "../types";
+import { txt, npc, cps, itm, fury, important } from "../types";
 import { wb } from "../windbomb";
 
 export const QuaRaym = [
@@ -15,6 +15,8 @@ export const QuaRaym = [
 	ability(Boss("Rare Igneo Talus", fury()), {fury: 3}),
 	"Farm luminous while dying",
 	itm("opal/flint"),
+	important("CHECK 10/11 FLINT"),
+	important("CHECK 10 LUMINOUS"),
 	step(wb(cps)("<S Turn")),
 	detail(
 		Korok("E28", "Balloon", "Aim Above"),

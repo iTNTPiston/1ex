@@ -47,17 +47,25 @@ export const MainRoute = [
 	...Castle2,
 	...Plateau2,
 	...Gerudo2,
-	...Lake,
-	...Gerudo3,
 	...Satori,
 	...Tabantha,
 	...Hebra1,
 	...Eldin2,
 	...Akkala,
-	...Hebra2,
 	...Rito2,
 	...ZoraDomain2,
 	...Central1,
+	...Lake,
+	
+	...Gerudo3,
+
+
+	
+	
+	...Hebra2,
+	
+	
+	
 	...Hebra3,
 	...Central2,
 	...Faron2,

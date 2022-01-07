@@ -1,5 +1,5 @@
 import { step, Korok, Discover, Shrine, Boss, split, Memory, ability, ChestSpecial, MakeTOD, detail } from "../create";
-import { cps, fury, txt } from "../types";
+import { cps, fury, important, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const MirroShaz = [
@@ -10,34 +10,36 @@ export const MirroShaz = [
 	detail(
 		Boss("Red Hinox", txt("4 Hits SLAM")),
 		"Don't SLAM if you have fury up"),
-	step(wb(cps)("W> TS")),
+	step(wb(cps)("W>> Turn")),
 	Discover("Moor Garrison Ruins"),
 	step(wb(cps)("N")),
 	Shrine("Sheh Rata"),
 	split("-"),
 
-	step(MakeTOD("12pm", "Make Noon", "For balloon quest & stalnox")),
-	step(wb(cps)("<S Turn")),
+	
+	step(wb(cps)("S> Turn")),
 	Korok("Z30", "Rock Circle"),
 	step(wb(cps)(".W")),
 	Korok("Z29", "Rock Circle"),
-	step(wb(cps)("<W Turn")),
+	step(wb(cps)(".W Turn")),
 	Korok("C46", "Lift Rock", "Under bridge"),
-	step(wb(cps)("S> + W")),
+	step(wb(cps)("<<W Cryo")),
 	Korok("C51", "Boulder Circle"),
 	step(wb(cps)(".S Turn")),
 	Memory("Hyrule Field"),
 	split("-"),
     
+	step(MakeTOD("12pm", "Make Noon", "For balloon quest & stalnox")),
 	step(wb(cps)("W + <W")),
 	Korok("C56", "Offer Apple"),
 	step(wb(cps)("N>")),
 	ability(Boss("Blue Hinox", fury()), {fury: 3}),
-	step(wb(cps)("W Turn")),
+	step(wb(cps)("W. Turn")),
 	Korok("C50", "Flower Count", "Chaos Ranch"),
 	step(wb(cps)("W> Turn")),
-	ChestSpecial("Tingle Shirt", "Under decayed guardian"),
-	step(wb(cps)("N>")),
+	important("UNEQUIP AA"),
+	ChestSpecial("Tingle Tights", "Under decayed guardian"),
+	step(wb(cps)("NE SQ")),
 	Korok("C44", "Lift Rock"),
 	step(wb(cps)("E Turn")),
 	Korok("C45", "Lift Rock", "On hill"),
@@ -45,12 +47,12 @@ export const MirroShaz = [
 	Korok("C34", "Match Tree", "Left tree"),
 	step(wb(cps)("N")),
 	Boss("Blue Hinox", txt("6 Hits SLAM")),
-	step(wb(cps)("E + SE")),
+	step(wb(cps)("E + E>")),
 	Korok("Z21", "Rock Circle", "Near water"),
 	step(wb(cps)("N")),
 	Korok("Z11", "Balloon", "In tree"),
 	step(wb(cps)("N> Turn")),
-	Korok("C13", "Basketball", "On bridge. Cryo"),
+	Korok("C13", "Basketball", "On bridge. Cryo No GG"),
 	step(wb(cps)("<E Turn")),
 	Korok("K35", "Block Puzzle"),
 	step(wb(cps)("S>")),
