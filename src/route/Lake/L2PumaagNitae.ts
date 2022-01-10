@@ -1,11 +1,13 @@
-import { ChestSpecial, Korok, ShrineSword, split, step, VariableChange } from "../create";
+import { ChestSpecial, detail, ingredient, Korok, ShrineSword, split, step, VariableChange } from "../create";
 import { cps, emy, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const PumaagNitae = [
 	step("Drop down ", cps("SW")),
 	VariableChange({tail: 1}),
-	txt("Sneakstrike ", emy("Silver Lizalfos")),
+	detail(
+		txt("Sneakstrike ", emy("Silver Lizalfos")),
+		ingredient("tail", 45)),
 	step(cps("SW")),
 	Korok("L48", "Lift Rock"),
 	"Cryo block down",
@@ -17,7 +19,7 @@ export const PumaagNitae = [
 	Korok("L50", "Block Puzzle"),
 	step(cps("SE")),
 	Korok("L59", "Lily Pads", "No Drown"),
-	step(wb(cps)("S")),
+	step(wb(cps)(".S")),
 	Korok("L60", "Lift Rock Blocked", "Under rubble"),
 	step(wb(cps)("<E Turn")),
 	Korok("L52", "Lift Rock", "On pillar"),

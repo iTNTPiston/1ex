@@ -28,6 +28,7 @@ export const VooLota= [
 	"Run up 3 houses",
 	MakeTOD("12pm", "Make Noon"),
 	Cook("Wheat Butter Salmon", "Hearty if needed"),
+	Cook("Fruit Cake", "2 Fruit Wheat Sugar"),
 	npc("Little Girl Cook"),
 	"Drop down",
 	npc("Fyson"),

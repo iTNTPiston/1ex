@@ -1,16 +1,20 @@
-import { step, Korok, Shrine, detail, split, Discover } from "../create";
-import { cps, npc } from "../types";
+import { step, Korok, Shrine, detail, split, Discover, ability } from "../create";
+import { cps, gale, npc } from "../types";
 import { wb } from "../windbomb";
 
 export const BoshKala = [
-	step("SQ to rock north"),
-	Korok("C48", "Lift Rock"),
-	step(wb(cps)("SE + E> midair")),
-	Korok("C54", "Confetti", "Top of flagpole"),
+	step(wb(cps)("<<W Turn")),
+	Korok("C72", "Acorn Flying", "BT"),
+	step(wb(cps)("<<W Turn")),
+	Korok("C61", "Rock Circle"),
+	ability(step(gale(), " + ", wb(cps)("N Turn")), {gale: 1}),
+	Korok("C53", "Offer Apple"),
+	step(wb(cps)("E DT")),
 	Discover("Hyrule Garrison Ruins"),
+	Korok("C54", "Confetti", "Top of flagpole"),
 	step(wb(cps)("NE")),
 	Korok("C49", "Acorn", "Hanging from wagon (tree)"),
-	step(wb(cps)("SE")),
+	step(wb(cps)("E>> Turn")),
 	Korok("C55", "Light Chase", "Forest left of guardian"),
 	step(wb(cps)("S")),
 	Korok("C64", "Light Chase"),
@@ -20,7 +24,7 @@ export const BoshKala = [
 	Korok("C71", "Lift Rock (Tree)"),
 	step(wb(cps)("NE")),
 	Korok("C65", "Acorn", "In tree"),
-	step("SQ to shrine"),
+	step(wb(cps)("SE")),
 	Shrine("Wahgo Katta", "Keep RGC equipped"),
 	split("-"),
 
@@ -29,7 +33,7 @@ export const BoshKala = [
 		npc("Royal Guard Girl Twice"),
 		"5AM - 10PM"),
 	npc("Fruit Cake Guy Twice"),
-	step(wb(cps)("S")),
+	step(wb(cps)("S DEFUSE")),
 	Korok("C77", "Balloon"),
 	step("SQ to bridge"),
 	Korok("D14", "Acorn", "Hanging from bridge"),

@@ -3,7 +3,7 @@ import { cps, txt, fury, npc, itm, v, important, gale } from "../types";
 import { wb } from "../windbomb";
 
 export const Hateno2 = [
-	step(wb(cps)("S + SE super")),
+	step(wb(cps)("S. + SE super")),
 	Korok("N28", "Offer Apple"),
 	Shrine("Kam Urog"),
 	split("-"),
@@ -36,7 +36,7 @@ export const Hateno2 = [
 	step("SQ to horse"),
 	"Ride near stable",
 	detail(
-		Shop("Beedle", "Frogs/Crickets if need"),
+		Shop("Beedle", "Crickets if need"),
 		"DO NOT GIVE HIM BEETLE"),
 	npc("Horse Catching Guy Twice (B)"),
 	npc("Two Guys Inside Twice"),

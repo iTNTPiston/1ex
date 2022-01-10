@@ -21,9 +21,6 @@ export const MijahRokee = [
 	split("-"),
 	step(wb(cps)("N> to Tarry Town")),
 	"Give 20 Wood",
-	wb(cps)("E"),
-	Korok("A38", "Flower Chase", "On bridge"),
-
 	Warp("SOR", txt("Check ", v("krk"), " Koroks")),
 	split("-"),
 

@@ -1,5 +1,5 @@
-import { step, Korok, VariableChange, detail, ability, Boss, MakeTOD, split, Warp, Shrine, Discover } from "../create";
-import { cps, txt, itm, v, fury, npc } from "../types";
+import { step, Korok, VariableChange, detail, ability, Boss, MakeTOD, split, Warp, Shrine, Discover, Cook } from "../create";
+import { cps, txt, itm, v, fury, npc, gale } from "../types";
 import { wb } from "../windbomb";
 
 export const ShaeLoya = [
@@ -21,7 +21,9 @@ export const ShaeLoya = [
 	step(wb(cps)("W Turn")),
 	Korok("R21", "Light Chase"),
 	step(wb(cps)("W")),
-	Shrine("Shae Loya"),
+	detail(
+		Shrine("Shae Loya"),
+		"If it's almost midnight you can talk to the guy first"),
 	split("-"),
 
 	detail(
@@ -30,21 +32,18 @@ export const ShaeLoya = [
 	detail(
 		npc("Fairy Fountain Guy Twice"),
 		"5AM - 10PM outside, otherwise inside"),
+	Cook("Speed"),
 	MakeTOD("5am", "Make Morning Twice", "If need part"),
 	"Run to bridge",
-	Korok("T34", "Race", wb(cps)("W Turn")),
+	Korok("T34", "Race", wb(cps)("W")),
 	step(wb(cps)("S> Turn")),
 	Korok("R28", "Lift Rock Blocked", "Under slab"),
-	step(cps("NE")),
+	ability(step(gale(), " + ", cps("N>")), {gale: 1}),
 	Korok("R20", "Block Puzzle"),
-	step(cps("E")),
+	step(cps("S")),
 	Korok("R29", "Lift Rock", "In between rocks"),
-	step("SQ out + ", cps("N")),
+	step(wb(cps)("NE + N")),
 	Discover("Tanagar Canyon Course"),
 	wb(cps)("N midair"),
 	Korok("R12", "Confetti", "Top of flagpole"),
-	
-	Warp("Vah Rudania"),
-	split("-"),
-
 ];

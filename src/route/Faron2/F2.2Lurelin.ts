@@ -1,5 +1,5 @@
-import { ability, Boss, Chest, detail, Korok, MakeTOD, Shrine, ShrineBlessing, Snap, split, step, Warp } from "../create";
-import { cps, fury, gale, itm, npc, txt, v } from "../types";
+import { ability, Boss, Chest, detail, Korok, MakeTOD, Shrine, ShrineBlessing, Snap, split, step, VariableChange, Warp } from "../create";
+import { cps, fury, gale, important, itm, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const Lurelin = [
@@ -20,16 +20,12 @@ export const Lurelin = [
 	ShrineBlessing("Qukah Nata"),
 	split("-"),
 
-	step(wb(cps)("E")),
-	Korok("F30", "Match Tree", "Closest"),
-	step(wb(cps)("SW")),
-	ability(Boss("Stalnox", txt("GEB + ", fury())), {fury: 3}),
-	ability(step(gale(), " + ", wb(cps)("E midairs")), {gale: 1}),
+	step(wb(cps)("E> TS")),
 	npc("Love Quest Guy Twice"),
 	npc("Love Quest Lady Twice"),
 	step(wb(cps)("S")),
 	Korok("F47", "Lift Rock", "Peak"),
-	step(wb(cps)("<S Turn")),
+	step(wb(cps)("S> Turn")),
 	Korok("F57", "Rock Circle", "Heart"),
 	step(wb(cps)("E> Turn")),
 	"Land on pillar",
@@ -59,6 +55,7 @@ export const Lurelin = [
 	itm("Blueshell Snail"),
 	"SQ to leftmost house",
 	npc("Talk to Mom Twice"),
+	MakeTOD("9pm", "Make Night", "For beetle & 2 stalnox"),
 	detail(
 		npc("Talk to Dad"),
 		"In house if rain"),
@@ -66,14 +63,34 @@ export const Lurelin = [
 	detail(
 		npc("Old man (2) Talk again"),
 		"In house if rain"),
-	step(wb(cps)("NE")),
+	detail(
+		step(wb(cps)("N>")),
+		txt("NE if rain")),
 	Korok("F36", "Rock Circle", "STS tree"),
 	step(wb(cps)("W>")),
+	important("EQUIP ATK UP"),
 	Shrine("Yah Rin"),
 	split("-"),
 
 	step(wb(cps)("W>")),
 	Korok("F31", "Lift Rock Blocked", "Under leaves"),
-	step(Warp("Hateno Tower", txt("Check ", v("krk"), " Koroks"))),
-	split("-"),
+	step(wb(cps)("W super")),
+	Korok("F30", "Match Tree", "West tree"),
+	step(wb(cps)("SW")),
+	ability(Boss("Stalnox", txt("GEBx6 + ", fury())), {fury: 1}),
+	step(wb(cps)("<W super")),
+	Korok("F46", "Block Puzzle"),
+	step(wb(cps)("<N")),
+	Korok("F42", "Balloon", "Middle of bridge"),
+	important("EQUIP STEALTH"),
+	step(wb(cps)("W> to beetle")),
+	VariableChange({beetle: 5}),
+	detail(
+		itm("5 beetles"),
+		txt(v("beetle"), "/15")),
+	"Run + Climb to pinwheel",
+	detail(
+		Korok("F34", "Balloon", "3"),
+		"Behind leaf in front; Far in the back behind; Below to the north"),
+
 ];

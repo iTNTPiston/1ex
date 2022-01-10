@@ -1,0 +1,68 @@
+import { ability, Boss, detail, Korok, ShrineDoubleSword, split, step, VariableChange } from "../create";
+import { cps, fury, itm, txt, v } from "../types";
+import { wb } from "../windbomb";
+
+export const ShoqaTatone = [
+	step(wb(cps)(".S to peak DEFUSE")),
+	Korok("L65", "Race", "Ordinal"),
+	step(wb(cps)("S Turn + S")),
+	Korok("L73", "Balloon", "On peak"),
+	step(wb(cps)("E Turn")),
+	Korok("L74", "Boulder Golf", "Drop down STS"),
+	step(wb(cps)("<N Turn")),
+	Korok("L71", "Rock Circle"),
+	step(wb(cps)("W")),
+	Korok("L70", "Acorn Flying", "Bomb Arrow if can"),
+	step(wb(cps)("NW")),
+	ability(Boss("Stalnox", txt("GEB + ", fury())), {fury: 3}),
+	step(wb(cps)("<W to archery")),
+	"Summon horse",
+	detail(
+		"Buy all arrows (111)",
+		"Use normal arrows on all balloons except for last 5. For the 2 closer you can shoot one to hit both with GEB"),
+	"Score 23 and 20",
+	step(wb(cps)("SW + SW")),
+	Korok("L80", "Race", "cardinal"),
+	step(wb(cps)("E. Turn")),
+	Korok("L81", "Lift Rock"),
+	VariableChange({rushroom: 2}),
+	detail(
+		itm("2 Rushrooms"),
+		txt("Rushroom ", v("rushroom"), "/55")),
+	"Drop down",
+	Korok("L82", "Confetti", "Top of palm tree"),
+	Korok("L84", "Light Chase"),
+	step(wb(cps)("N SQ")),
+	Korok("L83", "Lift Rock Blocked", "Under Rubble"),
+	step(wb(cps)("E SQ")),
+	Korok("L85", "Rock Circle"),
+	step(wb(cps)("E SQ")),
+	Korok("L86", "Lift Rock Blocked", "Under Boulder"),
+	step(cps("E>")),
+	Korok("L87", "Lift Rock", "Top of rock"),
+	"Run down, do quest",
+	ShrineDoubleSword("Shoqa Tatone"),
+	split("-"),
+
+	step(wb(cps)("E SQ")),
+	Korok("L88", "Light Chase"),
+	step("SQ to pond"),
+	Korok("L89", "Lily Pads", "SEAWEED"),
+	step(wb(cps)(".E SQ")),
+	Korok("L90", "Block Puzzle"),
+	step(wb(cps)("E + E> Turn")),
+	Korok("L92", "Block Puzzle"),
+	step(wb(cps)("N> Turn")),
+	Korok("L79", "Rock Circle"),
+	step(wb(cps)("<E Turn")),
+	Korok("F38", "Lift Rock"),
+	step(wb(cps)("W")),
+	Boss("Blue Hinox", "8 Hits NO SLAM"),
+	step(wb(cps)("N> super")),
+	Korok("L58", "Light Chase"),
+	step(wb(cps)("N")),
+	Korok("L46", "Lift Rock", "Top of small waterfall"),
+	
+	
+	
+];

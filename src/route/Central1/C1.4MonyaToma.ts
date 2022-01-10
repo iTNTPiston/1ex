@@ -1,4 +1,4 @@
-import { ability, Boss, ChestSpecial, Discover, Korok, Memory, Shrine, ShrineSword, split, step } from "../create";
+import { ability, Boss, ChestSpecial, detail, Discover, Korok, Memory, Shrine, ShrineSword, split, step } from "../create";
 import { cps, fury, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -13,7 +13,7 @@ export const MonyaToma = [
 	Korok("C21", "Rock Circle"),
 	"Run N",
 	Korok("C20", "Lift Rock Blocked", "Under rubble"),
-	step(wb(cps)("N Turn")),
+	step(wb(cps)("N Turn left")),
 	ability(Boss("Rare Talus", fury()), {fury: 3}),
 	step(wb(cps)("SE")),
 	Korok("C15", "Lily Pads","Cryo block"),
@@ -22,9 +22,9 @@ export const MonyaToma = [
 	Korok("C08", "Offer Shield", "Leave shield"),
 	"Run",
 	Korok("C03", "Block Puzzle"),
-	step(wb(cps)("<<N")),
+	step(wb(cps)("NW")),
 	Korok("C01", "Lift Rock"),
-	step(wb(cps)("W Turn")),
+	step(wb(cps)("W Turn left")),
 	Korok("R11", "Basketball"),
 	step(wb(cps)("<S Turn")),
 	Korok("C07", "Acorn Flying"),
@@ -35,10 +35,10 @@ export const MonyaToma = [
 	split("-"),
 
 	step(wb(cps)("W")),
-	Korok("R19", "Boulder Golf"),
+	Korok("R19", "Boulder Golf", "WB away after"),
 	step(wb(cps)("N>")),
 	Korok("R16", "Block Puzzle"),
-	step(wb(cps)("N super")),
+	step(wb(cps)("N + <N Turn")),
 	Korok("R10", "Flower Chase"),
 	step(wb(cps)("N> Turn")),
 	Memory("Irch Plain"),
@@ -46,7 +46,9 @@ export const MonyaToma = [
     
 	step(Korok("R07", "Lift Rock (Tree)")),
 	step(wb(cps)("E Turn")),
-	ability(Boss("Blue Hinox", fury()), {fury: 3}),
+	detail(
+		ability(Boss("Blue Hinox", fury()), {fury: 3}),
+		"If fury not back, do 6 hits SLAM for this one, use FURY 1 for the next one, and use FURY 2-3 on the next talus"),
 	step(wb(cps)("N")),
 	Korok("K29", "Acorn in Log"),
 	step(wb(cps)("NE")),
@@ -63,10 +65,14 @@ export const MonyaToma = [
 	Korok("K18", "Confetti", "Top of broken hut"),
 	step(wb(cps)("<S Turn")),
 	Korok("K26", "Balloon", "Pinwheel"),
-	step(wb(cps)(".W")),
+	step(wb(cps)("W> Turn")),
+	Korok("K25", "Rock Circle"),
+	step(wb(cps)("SW")),
 	Korok("K24", "Light Chase"),
-	step(wb(cps)("<W")),
+	step(wb(cps)("W> Turn")),
+	Korok("K23", "Acorn in Log", "Shoot midair"),
+	step(wb(cps)("S> Turn midair")),
 	Shrine("Monya Toma"),
-	split("{6 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
+	split("-"),
 
 ];

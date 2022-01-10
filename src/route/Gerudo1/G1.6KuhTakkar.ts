@@ -11,20 +11,11 @@ export const KuhTakkar = [
 	detail(
 		Boss("Rare Talus", "6 BA Lynel Bow "),
 		"Get amber/flint if you need"),
-	step(wb(cps)("N + N midair")),
-	important("EQUIP ATK 3"),
-	Korok("G26", "Snowball Golf", "Carry halfway"),
-	step("SQ to talus"),
-	important("EQUIP ATK 3"),
-	detail(
-		Boss("Frost Talus", txt("Lynel Bow w/ BA ", itm("Parts"))),
-		"Smash the ores as he is getting up. You want to pick up all forst talus parts for Opals. Get to 6-8 ambers here"),
-	itm("Rare ore for amber"),
-	step(wb(cps)("<E to camp")),
+	step(wb(cps)("E> Turn to camp")),
 	VariableChange({tail: 4}),
 	detail(
 		txt("Kill 5 ",emy("Lizalfos")),
-		txt("Shoot with lynel bow. Tail: ",v("tail"),"/45")),
+		txt("Shoot with GEB. Tail: ",v("tail"),"/45")),
 	detail(
 		Equipment("2 Steel Lizal Bows"),
 		"Bow Inventory: RGB, Lynel, Swallow, Falcon, GEB, Lizal, Duplex (later)"),
@@ -38,5 +29,7 @@ export const KuhTakkar = [
 		"Get as you melt the ice"),
 	Shrine("Kuh Takkar"),
 	split("-"),
+
+	
 	
 ];

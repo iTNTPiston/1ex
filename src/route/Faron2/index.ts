@@ -7,5 +7,4 @@ export const Faron2 = [
 	Section("FARON 2"),
 	...ShodaSah,
 	...Lurelin,
-	...Eventide,
 ];

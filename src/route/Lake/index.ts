@@ -1,17 +1,17 @@
 import { Section } from "../create";
-import { ShoqaTatone } from "./L5ShoqaTatone";
-import { IshtoSoh } from "./L6IshtoSoh";
-import { YaNaga } from "./L1YaNaga";
-import { LakeTower } from "./L2LakeTower";
-import { PumaagNitae } from "./L3PumaagNitae";
-import { KaoMakagh } from "./L4KaoMakagh";
+import { ShoqaTatone } from "./L6ShoqaTatone";
+import { LakeTower } from "./L1LakeTower";
+import { PumaagNitae } from "./L2PumaagNitae";
+import { KaoMakagh } from "./L5KaoMakagh";
+import { ReeDahee } from "./L3ReeDahee";
+import { ShaeKatha } from "./L4ShaeKatha";
 
 export const Lake = [
 	Section("LAKE"),
-	...YaNaga,
 	...LakeTower,
 	...PumaagNitae,
+	...ReeDahee,
+	...ShaeKatha,
 	...KaoMakagh,
 	...ShoqaTatone,
-	...IshtoSoh,
 ];

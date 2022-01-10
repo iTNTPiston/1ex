@@ -3,13 +3,7 @@ import { cps, fury, important, v } from "../types";
 import { wb } from "../windbomb";
 
 export const JolooNah = [
-	step(wb(cps)("N> Turn")),
-	Discover("Gerudo Canyon Pass"),
-	step(wb(cps)("S")),
-	Korok("G36", "Well"),
-	step(cps("SE")),
-	Korok("W20", "Confetti", "In tree"),
-	Korok("W21", "Block Puzzle"),
+
 	step(wb(cps)("W> Turn")),
 	Korok("W14", "Lift Rock", "End of bridge"),
 	step("SQ to talus"),

@@ -1,9 +1,21 @@
-import { step, Warp, split, Icon, indent, detail, Snap, ability, Korok, Shrine } from "../create";
+import { step, Warp, split, Icon, indent, detail, Snap, ability, Korok, Shrine, Boss } from "../create";
 import { cps, emy, gale, important, lcn, npc, rne, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const Naboris = [
-	step(wb(cps)("E + W + <W")),
+	step(wb(cps)("E + W + S")),
+	Boss("Frost Talus", "Bomb with GEB, parts"),
+	detail(
+		important("CHECK AMBERS"),
+		"Need 10 at Goron City"),
+	step(wb(cps)("E")),
+	Korok("G26", "Snowball Golf", "Carry halfway"),
+	step(wb(cps)("W>> Turn")),
+	Korok("W01", "Lift Rock"),
+	step(wb(cps)("S> Turn")),
+	Shrine("Sho Dantu"),
+	split("-"),
+	step(wb(cps)("NW")),
 	detail(
 		Korok("W02", "Offer Banana", "Pick up 4"),
 		"Pick up banana so your inventory is on banana"),

@@ -25,5 +25,5 @@ export const Hideout = [
 	Chest("Banana if needed", "5 for Korok"),
 	Snap(emy("Kohga"), "SNAP Elite"),
 	Chest("Thunderhelm"),
-	split("{1 | 0", v("srn"), " SRN | 0", v("krk"), " KRK}"),
+	split("-"),
 ];

@@ -1,5 +1,5 @@
 import { step, ShrineBlessing, split, Korok, ability, Boss, Tower, Shrine } from "../create";
-import { cps, gale, fury} from "../types";
+import { cps, gale, fury, important} from "../types";
 import { wb } from "../windbomb";
 
 export const TohYahsa = [
@@ -8,34 +8,35 @@ export const TohYahsa = [
 	ShrineBlessing("Maag No'rah"),
 	split("-"),
 
-	step(wb(cps)("<N")),
-	Korok("R03", "Lift Rock Blocked", "Under rubble cliffside"),
-	ability(step(gale()), {gale: 1}),
+	step(wb(cps)("<N + W")),
 	ability(Boss("Luminous Talus", fury()), {fury: 3}),
 	Korok("R02", "Lift Rock"),
-	step(wb(cps)("SE + SE")),
+	step(wb(cps)("<S Turn + <S")),
 	Korok("R06", "Confetti", "Top of bare tree"),
 	step(wb(cps)("E>")),
 	Korok("R09", "Race", "Run"),
-	step(wb(cps)("S> DT")),
+	step(wb(cps)("<S DT")),
 	Tower("Ridgeland Tower"),
 	split("-"),
 
-	step(wb(cps)("<W Turn")),
+	step(wb(cps)("W Turn")),
+	Korok("R15", "Rock Circle", "3 on mushroom tree"),
+	important("EQUIP ANCIENT AXE"),
+	step(wb(cps)("<S Turn")),
 	ability(Korok("R18", "Race", gale()),{gale: 1}),
-	step(wb(cps)("W")),
+	step(wb(cps)("<W Turn")),
 	"Start Flower Chase",
 	Korok("R24", "Lily Pads", "No Drown"),
 	Korok("R23", "Flower Chase"),
-	step(wb(cps)("N")),
-	Korok("R15", "Rock Circle", "On mushroom tree"),
-	"SQ to red",
+	step(wb(cps)("NW")),
+	Korok("R14", "Light Chase"),
+	step(wb(cps)("<<E Turn")),
+	"Red Orb",
 	"ordinal to orange",
-	cps("NW"),
+	cps("W>> Turn"),
 	Korok("R08", "Lift Rock Blocked", "Under rubble"),
 	cps("<S Turn"),
-	Korok("R14", "Light Chase"),
-	cps("N to green orb"),
+	"Green Orb",
 	Shrine("Toh Yahsa"),
 	split("-"),
 

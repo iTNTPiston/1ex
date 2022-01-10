@@ -3,7 +3,7 @@ import { gale, cps, fury } from "../types";
 import { wb } from "../windbomb";
 
 export const ShaeKatha = [
-	step("Shield Surf SCW Vaneth"),
+	ability(step(gale(), " SCW Vaneth"), {gale: 1}),
 	Shrine("Shee Vaneth"),
 	split("-"),
 
@@ -27,7 +27,7 @@ export const ShaeKatha = [
 	step(wb(cps)("S> Turn")),
 	ability(Boss("Stone Talus", fury()), {fury: 1}),
 	step("SQ to tower"),
-	Tower("Dueling Peaks Tower", "81.49%"),
+	Tower("Dueling Peaks Tower"),
 	split("-"),
 
 	step(wb(cps)("<S Turn")),

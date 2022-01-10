@@ -55,22 +55,14 @@ export const MainRoute = [
 	...Rito2,
 	...ZoraDomain2,
 	...Central1,
-	...Lake,
-	
-	...Gerudo3,
-
-
-	
-	
-	...Hebra2,
-	
-	
-	
-	...Hebra3,
 	...Central2,
+	...Lake,
 	...Faron2,
 	...Kakariko2,
 	...Hateno2,
+	//eventide,
+	...Hebra2,
+	...Hebra3,
 	...Finale
 ];
 

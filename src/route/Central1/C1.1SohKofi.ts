@@ -21,9 +21,7 @@ export const SohKofi = [
 	Tower("Lanayru Tower"),
 	split("-"),
 
-	step(wb(cps)("E> Turn")),
-	Korok("Z31", "Basketball"),
-	step(wb(cps)("<N")),
+	step(wb(cps)("<E Turn")),
 	Korok("Z22", "Lift Rock", "On hill"),
 	"Glide down",
 	Boss("Black Hinox", "8 Hits SLAM"),
