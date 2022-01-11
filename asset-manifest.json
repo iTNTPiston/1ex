@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/1ex/static/css/main.ef42d727.chunk.css",
-    "main.js": "/1ex/static/js/main.459d30b0.chunk.js",
-    "main.js.map": "/1ex/static/js/main.459d30b0.chunk.js.map",
+    "main.js": "/1ex/static/js/main.207f13d4.chunk.js",
+    "main.js.map": "/1ex/static/js/main.207f13d4.chunk.js.map",
     "runtime-main.js": "/1ex/static/js/runtime-main.e3c4c961.js",
     "runtime-main.js.map": "/1ex/static/js/runtime-main.e3c4c961.js.map",
-    "static/js/2.e78b4a9c.chunk.js": "/1ex/static/js/2.e78b4a9c.chunk.js",
-    "static/js/2.e78b4a9c.chunk.js.map": "/1ex/static/js/2.e78b4a9c.chunk.js.map",
+    "static/js/2.4af6deb3.chunk.js": "/1ex/static/js/2.4af6deb3.chunk.js",
+    "static/js/2.4af6deb3.chunk.js.map": "/1ex/static/js/2.4af6deb3.chunk.js.map",
     "index.html": "/1ex/index.html",
     "static/css/main.ef42d727.chunk.css.map": "/1ex/static/css/main.ef42d727.chunk.css.map",
-    "static/js/2.e78b4a9c.chunk.js.LICENSE.txt": "/1ex/static/js/2.e78b4a9c.chunk.js.LICENSE.txt",
+    "static/js/2.4af6deb3.chunk.js.LICENSE.txt": "/1ex/static/js/2.4af6deb3.chunk.js.LICENSE.txt",
     "static/media/Akkala1.10ad0dbb.png": "/1ex/static/media/Akkala1.10ad0dbb.png",
     "static/media/Akkala2.4b458451.png": "/1ex/static/media/Akkala2.4b458451.png",
     "static/media/Castle1.5105640f.png": "/1ex/static/media/Castle1.5105640f.png",
@@ -17,11 +17,6 @@
     "static/media/Eldin1-1.0ab39fd4.png": "/1ex/static/media/Eldin1-1.0ab39fd4.png",
     "static/media/Eldin1-2.92e6afd3.png": "/1ex/static/media/Eldin1-2.92e6afd3.png",
     "static/media/Faron1.a2abc671.png": "/1ex/static/media/Faron1.a2abc671.png",
-    "static/media/Gerudo1-1.868e297e.png": "/1ex/static/media/Gerudo1-1.868e297e.png",
-    "static/media/Gerudo1-2.3921698e.png": "/1ex/static/media/Gerudo1-2.3921698e.png",
-    "static/media/Gerudo2-1.41d765ab.png": "/1ex/static/media/Gerudo2-1.41d765ab.png",
-    "static/media/Gerudo2-2.d030adb4.png": "/1ex/static/media/Gerudo2-2.d030adb4.png",
-    "static/media/Gerudo2-3.3314c4ff.png": "/1ex/static/media/Gerudo2-3.3314c4ff.png",
     "static/media/Hateno1.4740a711.png": "/1ex/static/media/Hateno1.4740a711.png",
     "static/media/Hestu.14b89784.png": "/1ex/static/media/Hestu.14b89784.png",
     "static/media/Kakariko1.b0496183.png": "/1ex/static/media/Kakariko1.b0496183.png",
@@ -29,14 +24,13 @@
     "static/media/Plateau.6bb6c619.png": "/1ex/static/media/Plateau.6bb6c619.png",
     "static/media/Plateau2.6fc8f91e.png": "/1ex/static/media/Plateau2.6fc8f91e.png",
     "static/media/Rito1-2.c5d71cb9.png": "/1ex/static/media/Rito1-2.c5d71cb9.png",
-    "static/media/RupeePrinting.6405a6bf.png": "/1ex/static/media/RupeePrinting.6405a6bf.png",
     "static/media/ZoraDomain1-1.ab5eff4e.png": "/1ex/static/media/ZoraDomain1-1.ab5eff4e.png",
     "static/media/ZoraDomain1-2.f8b53cc6.png": "/1ex/static/media/ZoraDomain1-2.f8b53cc6.png"
   },
   "entrypoints": [
     "static/js/runtime-main.e3c4c961.js",
-    "static/js/2.e78b4a9c.chunk.js",
+    "static/js/2.4af6deb3.chunk.js",
     "static/css/main.ef42d727.chunk.css",
-    "static/js/main.459d30b0.chunk.js"
+    "static/js/main.207f13d4.chunk.js"
   ]
 }
