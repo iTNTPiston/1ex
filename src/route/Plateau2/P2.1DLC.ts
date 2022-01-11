@@ -1,4 +1,4 @@
-import { step, Korok, detail, indent, split, Warp, ShrineDLC, Snap, VariableChange, Chest, Equipment } from "../create";
+import { step, Korok, detail, split, Warp, ShrineDLC, Snap, VariableChange, Chest, Equipment } from "../create";
 import { important, txt, lnk, itm, v, cps, emy } from "../types";
 import { wb } from "../windbomb";
 

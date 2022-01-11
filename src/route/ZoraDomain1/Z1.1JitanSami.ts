@@ -1,7 +1,9 @@
-import { Boss, detail, Korok, ShrineBlessing, Snap, split, step } from "../create";
+import { Boss, detail, Korok, ShrineBlessing, Snap, split, step, Warp } from "../create";
 import { cps, emy, important, txt } from "../types";
 
 export const JitanSami = [
+	Warp("Hateno Tech Lab"),
+	split("{Gerudo Naboris}"),
 	important("EQUIP PHANTOM 2 + SNOW"),
 	step(cps("<E"), " Turn to flower"),
 	Korok("N44", "Flower Chase"),

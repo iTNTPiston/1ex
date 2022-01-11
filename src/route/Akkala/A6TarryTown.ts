@@ -1,5 +1,5 @@
-import { step, Korok, detail, Warp, split, } from "../create";
-import { cps,npc, txt, v } from "../types";
+import { step, Korok, detail } from "../create";
+import { cps,npc, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const TarryTown2 = [

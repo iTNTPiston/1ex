@@ -1,4 +1,4 @@
-import { detail, Discover, Korok, MakeTOD, ShrineDLC, split, step, Warp } from "../create";
+import { detail, Discover, Korok, ShrineDLC, split, step, Warp } from "../create";
 import { cps, emy, important, txt, v } from "../types";
 import { wb } from "../windbomb";
 

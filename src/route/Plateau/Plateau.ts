@@ -1,4 +1,4 @@
-import { Section, Equipment, step, Shrine, split, detail,  Tower, Korok, Icon, image } from "../create";
+import { Section, Equipment, step, Shrine, split, detail,  Tower, Icon, image } from "../create";
 import {  itm } from "../types";
 import PlateauImage from "./Plateau.png";
 

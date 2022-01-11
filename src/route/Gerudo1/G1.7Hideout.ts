@@ -1,5 +1,5 @@
 import { Chest, detail, Snap, split, step } from "../create";
-import { cps, emy,  itm, v,   } from "../types";
+import { cps, emy, itm, } from "../types";
 import { wb } from "../windbomb";
 
 export const Hideout = [

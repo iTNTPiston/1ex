@@ -14,7 +14,6 @@ export const Hateno1 = [
 		txt(v("silentPrincess"), "/19")),
 	itm("Grab >2 night shades"),
 	txt("BLSS to ", lcn("Hateno"), " farmer"),
-	
 
 	detail(
 		step("Talk to ", npc("Farmer")), 
@@ -94,7 +93,12 @@ export const Hateno1 = [
 		"To cancel apparatus glitch"),
 	step(cps("W"), " Turn"),
 	Korok("N58", "Block Puzzle"),
-	step(cps("W"), " Turn"),
+	step(wb(cps)("SW")),
+	VariableChange({heartyBass: 5}),
+	detail(
+		itm("5 Hearty Bass"),
+		"Shock arrow and put cryo"),
+	step(wb(cps)("W> Turn")),
 	detail(
 		Korok("N50", "Match Tree", "Get Wood"),
 		"You want to get wood for every tree you cut. When you have Lynel Sword you want to use that first to save durability on RGC"),

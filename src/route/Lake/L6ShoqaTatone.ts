@@ -1,4 +1,4 @@
-import { ability, Boss, detail, Korok, ShrineDoubleSword, split, step, VariableChange } from "../create";
+import { ability, Boss, detail, ingredient, Korok, ShrineDoubleSword, split, step, VariableChange } from "../create";
 import { cps, fury, itm, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -15,6 +15,12 @@ export const ShoqaTatone = [
 	Korok("L70", "Acorn Flying", "Bomb Arrow if can"),
 	step(wb(cps)("NW")),
 	ability(Boss("Stalnox", txt("GEB + ", fury())), {fury: 3}),
+	step(wb(cps)("W to bridge")),
+	"Put cryo block",
+	VariableChange({rushroom: 10}),
+	detail(
+		itm("10 Rushrooms"),
+		ingredient("rushroom", 55)),
 	step(wb(cps)("<W to archery")),
 	"Summon horse",
 	detail(
@@ -62,7 +68,5 @@ export const ShoqaTatone = [
 	Korok("L58", "Light Chase"),
 	step(wb(cps)("N")),
 	Korok("L46", "Lift Rock", "Top of small waterfall"),
-	
-	
 	
 ];

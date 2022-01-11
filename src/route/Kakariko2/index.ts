@@ -1,11 +1,11 @@
-import { step, Korok, ability, Boss, VariableChange, detail, Discover, Shrine, split, Snap, MakeTOD, Shop, ShrineBlessing, Section, Warp } from "../create";
+import { step, Korok, ability, Boss, VariableChange, detail, Discover, Shrine, split, Snap, MakeTOD, ShrineBlessing, Section, Warp } from "../create";
 import { cps, fury, gale, important, itm, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const Kakariko2 = [
 	Section("KAKARIKO 2"),
 	Warp("Dueling Peaks Tower", txt("Check ", v("krk"), " Koroks")),
-	split("-"),
+	split("{Cenladup Faroluheve}"),
 
 	step(wb(cps)("NW")),
 	Korok("D25", "Jump Fence", "Summon Horse"),

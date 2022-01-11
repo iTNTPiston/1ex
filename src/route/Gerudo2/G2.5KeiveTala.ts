@@ -1,5 +1,5 @@
-import { ability, Boss, detail, Korok, Shop, ShrineBlessing, ShrineDLC, Snap, split, step } from "../create";
-import { cps, emy, fury, gale, lnk, npc, txt } from "../types";
+import { ability, Boss, detail, Korok, ShrineBlessing, ShrineDLC, Snap, split, step } from "../create";
+import { cps, emy, fury, gale, lnk, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const KeiveTala = [

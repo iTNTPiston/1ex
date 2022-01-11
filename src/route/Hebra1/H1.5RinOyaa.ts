@@ -1,5 +1,5 @@
-import { step, Korok, Shrine, split, MakeTOD, ability, Warp } from "../create";
-import { cps, gale, itm, npc, txt, v } from "../types";
+import { step, Korok, Shrine, split, MakeTOD, ability, } from "../create";
+import { cps, gale, itm, npc, txt} from "../types";
 import { wb } from "../windbomb";
 
 export const RinOyaa = [

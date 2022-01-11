@@ -1,15 +1,15 @@
 import { detail, ability, Icon, split, step, Discover, Korok, Shrine, Warp } from "../create";
-import { important, fury, gale, cps, npc, txt, v } from "../types";
+import { important, fury, cps, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const Rudania2 = [
-    Warp("Vah Rudania", txt("Check ", v("krk"), " Koroks")),
-    split("-"),
+	Warp("Vah Rudania", txt("Check ", v("krk"), " Koroks")),
+	split("-"),
     
-    important("EQUIP FLAME 2"),
+	important("EQUIP FLAME 2"),
 	detail(
-        ability(Icon("rudania-plus", "Fireblight 2", fury()), {fury: 3}),
-        "If you become too fast for fury to come back for waterblight 2, don't use fury for fireblight"),
+		ability(Icon("rudania-plus", "Fireblight 2", fury()), {fury: 3}),
+		"If you become too fast for fury to come back for waterblight 2, don't use fury for fireblight"),
 	split("-"),
     
 	step("Ring Race"),
@@ -27,8 +27,8 @@ export const Rudania2 = [
 	step(wb(cps)("E")),
 	npc("Big Sister (112)"),
 	detail(
-        npc("Little Sister"),
-        "8 AM - 8 PM"),
+		npc("Little Sister"),
+		"8 AM - 8 PM"),
 	npc("Big Sister"),
 	npc("Little Sister"),
 	npc("Big Sister"),
@@ -40,6 +40,6 @@ export const Rudania2 = [
 	Korok("A32", "Match Tree", "Closest tree"),
 	step(wb(cps)("<<S Turn")),
 	npc("Hudson Once"),
-    wb(cps)("E"),
+	wb(cps)("E"),
 	Korok("A38", "Flower Chase", "On bridge"),
 ];

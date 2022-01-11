@@ -1,5 +1,5 @@
-import { ability, Boss, detail, Korok, MakeTOD, Memory, Shrine, Snap, split, step, VariableSet } from "../create";
-import { cps, emy, fury, important, sm, txt} from "../types";
+import { detail, Korok, MakeTOD, Memory, Shrine, Snap, split, step } from "../create";
+import { cps, emy, important, txt} from "../types";
 import { wb } from "../windbomb";
 
 export const DowNaeh = [

@@ -1,4 +1,4 @@
-import { Chest, detail, image, indent, ingredient, MakeTOD, Section, Shop, Shrine, ShrineSword, split, step, VariableChange, Warp } from "../create";
+import { Chest, detail, image, indent, ingredient, Section, Shop, Shrine, ShrineSword, split, VariableChange, Warp } from "../create";
 import { cps, itm, lcn, npc, sm, txt} from "../types";
 import { wb } from "../windbomb";
 import Kakariko1Image from "./Kakariko1.png";

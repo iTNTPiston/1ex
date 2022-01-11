@@ -1,4 +1,4 @@
-import { step, Warp, split, Icon, indent, detail, Snap, ability, Korok, Shrine, Boss } from "../create";
+import { step, split, Icon, indent, detail, Snap, ability, Korok, Shrine, Boss } from "../create";
 import { cps, emy, gale, important, lcn, npc, rne, txt } from "../types";
 import { wb } from "../windbomb";
 

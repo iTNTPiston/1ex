@@ -1,4 +1,4 @@
-import { ability, Boss, Chest, ChestSpecial, detail, Discover, Equipment, Korok, MakeTOD, Memory, Shrine, Snap, split, step, VariableChange } from "../create";
+import { ability, Boss, Chest, ChestSpecial, detail, Discover, Equipment, Korok, Memory, Shrine, Snap, split, step, VariableChange } from "../create";
 import { txt, emy, important, rne, v, lcn, gale, itm, cps, fury } from "../types";
 import { wb } from "../windbomb";
 

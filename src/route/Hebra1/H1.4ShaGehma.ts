@@ -1,4 +1,4 @@
-import { step, ability, Boss, Korok, Shrine, split, detail, ShrineBlessing } from "../create";
+import { step, ability, Boss, Korok, Shrine, split, detail } from "../create";
 import { cps, fury, itm, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -22,10 +22,4 @@ export const ShaGehma = [
 	step(wb(cps)("E Turn")),
 	Shrine("Sha Gehma"),
 	split("-"),
-	// Korok("H22", "Boulder Golf", "WB after bomb down"),
-	// step(wb(cps)("N> Turn down")),
-	// Korok("H15", "Block Puzzle"),
-	// step(wb(cps)("<E Turn")),
-	// ShrineBlessing("Qaza Tokki"),
-	// split("-"),
 ];

@@ -1,5 +1,5 @@
-import { ability, Boss, Chest,  detail, Equipment, Korok, MakeTOD, Shrine, Snap, split, step, VariableChange } from "../create";
-import {  txt,  cps, emy, important, itm, v, fury } from "../types";
+import { Boss, Chest,  detail, Equipment, Korok, MakeTOD, Shrine, Snap, split, step, VariableChange } from "../create";
+import { txt,  cps, emy, itm, v } from "../types";
 import { wb } from "../windbomb";
 
 export const KuhTakkar = [
@@ -23,13 +23,11 @@ export const KuhTakkar = [
 	Chest("5 Fire Arrows"),
 	detail(
 		MakeTOD("5am", "Make Morning", "for quests"),
-		"For trash girl and ice house. If the blue lizalfos noticed you, kill him."),
+		"For trash girl and ice house."),
 	detail(
 		itm("Luminous Ore"),
 		"Get as you melt the ice"),
 	Shrine("Kuh Takkar"),
 	split("-"),
-
-	
 	
 ];

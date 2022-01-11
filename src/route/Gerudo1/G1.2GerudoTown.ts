@@ -1,5 +1,5 @@
-import { Cook, detail, Korok, MakeTOD, Shop, Shrine, ShrineDoubleSword, split, step,  Warp } from "../create";
-import { cps, lcn, npc, txt } from "../types";
+import { Cook, Korok, MakeTOD, Shop, Shrine, split, step, Warp } from "../create";
+import { cps, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const GerudoTown = [

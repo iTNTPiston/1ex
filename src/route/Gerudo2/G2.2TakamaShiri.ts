@@ -1,5 +1,5 @@
-import { ability, Boss, detail, Korok, ShrineDLC, Snap, split, step, VariableChange } from "../create";
-import { cps, emy, fury, important, npc, txt, v } from "../types";
+import { detail, Korok, ShrineDLC, split, step, VariableChange } from "../create";
+import { cps, emy, important, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const TakamaShiri = [

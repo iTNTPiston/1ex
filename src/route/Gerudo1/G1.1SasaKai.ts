@@ -1,13 +1,10 @@
-import { ability, detail, ShrineDoubleSword, split, step, Tower, Warp } from "../create";
-import { gale, npc, txt } from "../types";
+import { ShrineDoubleSword, split, step, Warp } from "../create";
 
 export const SasaKai = [
 	Warp("Keh Namut"),
-	split("-"),
+	split("{Placarime Kahfaroh}"),
 	step("BLSS + climb to Sasa Kai"),
 	ShrineDoubleSword("Sasa Kai"),
 	split("-"),
-
-
 
 ];

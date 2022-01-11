@@ -1,5 +1,5 @@
-import { step, Korok, Boss, ChestSpecial, Discover, Shrine, split, ability, detail, MakeTOD } from "../create";
-import { cps, fury, gale, important, itm, npc, rne, txt } from "../types";
+import { step, Korok, ChestSpecial, Discover, Shrine, split, ability, detail, MakeTOD } from "../create";
+import { cps, fury, gale, itm, npc, rne, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const KaoMakagh = [

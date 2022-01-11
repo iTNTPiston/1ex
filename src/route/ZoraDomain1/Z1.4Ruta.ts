@@ -64,5 +64,4 @@ export const Ruta = [
 	Icon("ruta-done", "Waterblight 1", "7 BA Headshots (8 safe)"),
 	split("-"),
 
-
 ];

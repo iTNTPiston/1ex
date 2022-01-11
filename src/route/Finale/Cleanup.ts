@@ -1,12 +1,11 @@
-import { Korok, Warp, split, VariableChange, Shop, Section, step, detail, Cook, Discover, Icon, ability } from "../create";
-import { itm, npc, v, important, cps, txt, lnk, gale } from "../types";
+import { Korok, Warp, split, Shop, Section, step, detail, Cook, Icon } from "../create";
+import { itm, npc, v, important, cps, txt, lnk, emy } from "../types";
 import { wb } from "../windbomb";
 
 export const Cleanup = [
 	Section("PLATEAU 3"),
 	itm("Wild Set"),
-	ability(gale(),{gale: 1}),
-	Korok("K09", "Lift Rock", "Behind statue"),
+	
 	Warp("Da Hesho", "99.67%"),
 	split("-"),
 
@@ -30,27 +29,34 @@ export const Cleanup = [
 	npc("Hudson"),
 	npc("Hudson after wedding"),
 
+	Warp("Joloo Nah"),
+	split("-"),
+
+	step(wb(cps)("S")),
+	"Summon Horse and sell",
+	step(wb(cps)(".N")),
+	emy("2 Bokos"),
+	npc("Last Friend"),
+	step(wb(cps)("<E + <E")),
+	"Start race",
+	Korok("W08", "Confetti", "In crack"),
+	Korok("G32", "Race", "Run"),
+	step(wb(cps)("S>")),
+	Korok("W10", "Balloon", "Bomb crack"),
+	step(wb(cps)("<E Turn")),
+	itm("Rushroom if needed"),
+	npc("Sesami"),
+	npc("Rushroom Guy Twice"),
+
 	Warp("Keo Ruug"),
 	split("-"),
 
 	npc("Blupee Guy"),
 	npc("Blizzard Rod Guy"),
-	VariableChange({rushroom: 4}),
-	Shop("4 Rushrooms", v("rushroom")),
 	npc("Trial Guy"),
-    
 	npc("Hestu"),
 	important("GET GOLD POOP"),
-	Warp("Kay Noh", "99.83%"),
-	split("-"),
-
-	itm("Rushroom if needed"),
-	npc("Sesami"),
-    
-	npc("Rushroom Guy Twice"),
-	important("EQUIP ATK 3"),
-	wb(cps)("W"),
-	Discover("Gerudo Desert Gateway"),
+	
 	detail(
 		"Cleanup",
 		txt("Shrine Quests: ", lnk("https://www.ign.com/wikis/the-legend-of-zelda-breath-of-the-wild/Shrine_Quests#Great_Hyrule_Forest_Shrines"))),
@@ -61,7 +67,7 @@ export const Cleanup = [
 	detail(
 		Warp("SOR", "99.91%"),
 		"Last 9 percent is completed when you beat Final Dungeon"),
-	split("{8 | ", v("srn"), " SRN | ", v("krk"), " KRK }"),
+	split("{Kahat Hekatat Korsor}"),
 
 	important("EQUIP ATK 3"),
 	"Final Trial Skip",

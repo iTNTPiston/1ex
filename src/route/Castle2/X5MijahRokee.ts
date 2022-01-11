@@ -1,4 +1,4 @@
-import { detail, Korok, MakeTOD, ShrineDoubleSword, split, step, Warp } from "../create";
+import { detail, Korok, ShrineDoubleSword, split, step, Warp } from "../create";
 import { cps, important, npc, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -15,7 +15,7 @@ export const MijahRokee = [
 		important("UNEQUIP CLOTH"),
 		"Make night if you need. No need to reequip until OHO overloaded"),
 	ShrineDoubleSword("Mijah Rokee"),
-	split("-"),
+	split("{Narueruko Casblood}"),
 
 	Warp("Da Hesho", txt("Check ", v("krk"), " Koroks")),
 	split("-"),

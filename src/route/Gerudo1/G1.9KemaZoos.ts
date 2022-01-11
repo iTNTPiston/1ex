@@ -1,5 +1,5 @@
-import { ability, indent, Korok, Shrine, split, step, Warp } from "../create";
-import { cps, gale, important, itm, npc, txt } from "../types";
+import { ability, indent, Korok, Shrine, split, step } from "../create";
+import { cps, gale, npc } from "../types";
 
 export const KemaZoos = [
 	step(npc("Boots Guy x4")),
@@ -25,6 +25,5 @@ export const KemaZoos = [
 	step("Drop down"),
 	Shrine("Kema Zoos"),
 	split("-"),
-	Warp("Hateno Tech Lab"),
-	split("-"),
+
 ];

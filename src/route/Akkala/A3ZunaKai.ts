@@ -1,5 +1,5 @@
-import { ability, Boss, Cook, detail, Korok, MakeTOD, ShrineBlessing, split, step } from "../create";
-import { cps, fury, important, txt, v } from "../types";
+import { ability, Boss, detail, Korok, MakeTOD, ShrineBlessing, split, step } from "../create";
+import { cps, fury, important, txt} from "../types";
 import { wb } from "../windbomb";
 
 export const ZunaKai = [
@@ -18,5 +18,5 @@ export const ZunaKai = [
 	Korok("A02", "Rock Circle"),
 	step(wb(cps)("S SQ to shrine")),
 	ShrineBlessing("Zuna Kai"),
-	split("{5 | 0", v("srn"), " SRN | ", v("krk"), " KRK}")
+	split("-")
 ];

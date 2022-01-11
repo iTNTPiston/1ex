@@ -117,7 +117,7 @@ export const InstructionTable: React.FunctionComponent<InstructionTableData> = (
 				{instructions.map((data, i)=>
 					<Instruction key={`line${i}`} {...data} directionMode={directionMode} setFrozenImage={setFrozenImage} />
 				)}
-				{Array.from({length:10},()=><tr key={fillerKey++}><td colSpan={2}>&nbsp;</td><td className="main-text" colSpan={3}>&nbsp;</td><td colSpan={3}>&nbsp;</td></tr>)}
+				{Array.from({length:20},()=><tr key={fillerKey++}><td colSpan={2}>&nbsp;</td><td className="main-text" colSpan={3}>&nbsp;</td><td colSpan={3}>&nbsp;</td></tr>)}
 			</tbody>
 		</table>
 	);

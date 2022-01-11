@@ -1,5 +1,5 @@
 import { ability, Boss, ChestSpecial, detail, Discover, Korok, Memory, Shrine, ShrineSword, split, step } from "../create";
-import { cps, fury, txt, v } from "../types";
+import { cps, fury, txt} from "../types";
 import { wb } from "../windbomb";
 
 export const MonyaToma = [

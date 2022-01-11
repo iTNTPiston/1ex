@@ -1,5 +1,5 @@
 
-import { ChestSpecial, detail, Discover, Equipment, image, indent, Korok, MakeTOD, Section, Shrine, Snap, split, step, VariableChange, Warp } from "../create";
+import { ChestSpecial, detail, Discover, Equipment, image, indent, Korok, MakeTOD, Section, Shrine, Snap, split, step, VariableChange } from "../create";
 import { cps, emy, important, itm, lnk, npc, sm, txt } from "../types";
 import { wb } from "../windbomb";
 import Faron1Image from "./Faron1.png";
@@ -46,7 +46,6 @@ export const Faron1  = [
 	itm("3 Bananas"),
 	Shrine("Shai Utoh"),
 	split("-"),
-
 
 	txt(cps("N"), " to beetle forest"),
 	important("EAT STEALTH"),

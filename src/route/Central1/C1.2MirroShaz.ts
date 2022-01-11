@@ -1,5 +1,5 @@
-import { step, Korok, Discover, Shrine, Boss, split, Memory, ability, ChestSpecial, MakeTOD, detail } from "../create";
-import { cps, fury, important, txt } from "../types";
+import { step, Korok, Discover, Shrine, Boss, split, Memory, ability, ChestSpecial, MakeTOD, detail, VariableChange, ingredient } from "../create";
+import { cps, fury, important, itm, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const MirroShaz = [
@@ -15,7 +15,6 @@ export const MirroShaz = [
 	step(wb(cps)("N")),
 	Shrine("Sheh Rata"),
 	split("-"),
-
 	
 	step(wb(cps)("S> Turn")),
 	Korok("Z30", "Rock Circle"),
@@ -36,6 +35,10 @@ export const MirroShaz = [
 	ability(Boss("Blue Hinox", fury()), {fury: 3}),
 	step(wb(cps)("W. Turn")),
 	Korok("C50", "Flower Count", "Chaos Ranch"),
+	VariableChange({honey: 1}),
+	detail(
+		itm("Honey"),
+		ingredient("honey", 16)),
 	step(wb(cps)("W> Turn")),
 	important("UNEQUIP AA"),
 	ChestSpecial("Tingle Tights", "Under decayed guardian"),

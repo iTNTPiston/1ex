@@ -1,5 +1,5 @@
 import { ability, Boss, ChestSpecial, detail, Discover, Korok, MakeTOD, split, step, Tower, VariableChange } from "../create";
-import { cps, txt, npc, gale, important, emy, itm, v, fury } from "../types";
+import { cps, txt, gale, important, emy, itm, v, fury } from "../types";
 import { wb } from "../windbomb";
 
 export const LakeTower = [
@@ -43,7 +43,7 @@ export const LakeTower = [
 	Korok("L15", "Balloon", "In pillar"),
 	Korok("L14", "Lift Rock Blocked", "Under slab (STS a lot)"),
 	step(wb(cps)("S")),
-    Korok("L26", "Tree Branch"),
+	Korok("L26", "Tree Branch"),
 	"Climb up",
 	important("LOOK SKY SOUTH"),
 	Korok("L27", "Confetti", "Top of fountain"),
@@ -54,9 +54,7 @@ export const LakeTower = [
 	Korok("L31", "Lift Rock"),
 	step(cps("E")),
 	Korok("L32", "Metal Box Circle"),
-	step(wb(cps)("<E Turn")),
-	Korok("L33", "Balloon"),
-	step(wb(cps)("<W Turn")),
+	step(wb(cps)("SW")),
 	ChestSpecial("Xenoblade Chest"),
 	step("SQ ", cps("<S")),
 	Korok("L39", "Lift Rock"),

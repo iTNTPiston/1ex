@@ -1,5 +1,5 @@
-import { Chest, Cook, detail, Equipment, Icon, image, indent, Korok, MakeTOD, Section, Shop, Shrine, split, step, Warp } from "../create";
-import { cps, emy, important, itm, lcn, npc, sm, txt } from "../types";
+import { Chest, Cook, detail, Equipment, Icon, image, indent, Korok, Section, Shop, Shrine, split, step, Warp } from "../create";
+import { cps, emy, important, itm, lcn, npc, txt } from "../types";
 import RitoImage from "./Rito1-2.png";
 
 export const Rito1 = [

@@ -1,7 +1,6 @@
-import { Chest, ChestSpecial, detail, Discover, Equipment, image, indent, Korok, MakeTOD, Section, split, step, Tower, VariableChange, Warp } from "../create";
-import { txt, cps, lcn, emy, itm, important, lnk, v } from "../types";
+import { ChestSpecial, detail, Equipment, Korok, split, step, Tower } from "../create";
+import { cps } from "../types";
 import { wb } from "../windbomb";
-import RouteImage from "./RupeePrinting.png";
 
 export const CentralTower = [
 	step(wb(cps)("NW Activate TOD")),

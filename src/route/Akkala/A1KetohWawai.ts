@@ -1,5 +1,5 @@
-import { ability, Boss, Chest, Equipment, Korok, MakeTOD, ShrineBlessing, split, step } from "../create";
-import { cps, fury, gale, important} from "../types";
+import { ability, Boss, Chest, Korok, MakeTOD, ShrineBlessing, split, step } from "../create";
+import { cps, fury, gale } from "../types";
 import { wb } from "../windbomb";
 
 export const KetohWawai = [

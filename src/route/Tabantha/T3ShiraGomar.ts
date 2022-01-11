@@ -1,5 +1,5 @@
-import { step, ability, ShrineDoubleSword, Korok, split, Memory, Boss, MakeTOD, ShrineDLC, detail, VariableChange } from "../create";
-import { cps, npc, txt, gale, fury, itm, v } from "../types";
+import { step, ability, ShrineDoubleSword, Korok, split, Memory, Boss, MakeTOD, ShrineDLC} from "../create";
+import { cps, npc, txt, gale, fury } from "../types";
 import { wb } from "../windbomb";
 
 export const ShiraGomar = [

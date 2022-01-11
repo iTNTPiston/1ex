@@ -1,5 +1,5 @@
-import { step, Korok, detail, ability, Discover, Boss, ChestSpecial, split, Tower, MakeTOD, VariableChange, Shrine } from "../create";
-import { cps, fury, gale, important, itm, npc, rne, txt, v } from "../types";
+import { step, Korok, detail, ability, Boss, ChestSpecial, split, Tower, VariableChange, Shrine } from "../create";
+import { cps, fury, gale, itm, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const ShodaSah = [

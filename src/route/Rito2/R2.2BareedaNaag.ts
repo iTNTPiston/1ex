@@ -1,14 +1,10 @@
-import { ability, Boss, detail, Korok, Shrine, split, step, VariableChange } from "../create";
-import { cps, fury, gale, itm, txt, v } from "../types";
+import { ability, Boss, detail, Korok, Shrine, split, step} from "../create";
+import { cps, fury, gale, itm, txt} from "../types";
 import { wb } from "../windbomb";
 
 export const BareedaNaag = [
-	VariableChange({rushroom: 1}),
 	detail(
-		step(itm("Rushroom")),
-		txt(v("rushroom"),"/55")),
-	detail(
-		itm("Pepper"),
+		step(itm("Pepper")),
 		"Pause Unpause for menuing"),
 	Korok("T16", "Flower Chase"),
 	step(wb(cps)("W> Turn")),

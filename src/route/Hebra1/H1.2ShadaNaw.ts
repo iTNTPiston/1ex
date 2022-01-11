@@ -1,5 +1,5 @@
 import { step, ability, Boss, Korok, Shrine, split } from "../create";
-import { important, cps, fury, gale, txt, itm } from "../types";
+import { cps, fury, gale, txt, itm } from "../types";
 import { wb } from "../windbomb";
 
 export const ShadaNaw = [

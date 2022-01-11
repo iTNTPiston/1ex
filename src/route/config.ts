@@ -9,12 +9,10 @@ import { Faron2 } from "./Faron2";
 import { Finale } from "./Finale";
 import { Gerudo1 } from "./Gerudo1";
 import { Gerudo2 } from "./Gerudo2";
-import { Gerudo3 } from "./Gerudo3";
 import { Hateno1 } from "./Hateno1";
 import { Hateno2 } from "./Hateno2";
 import { Hebra1 } from "./Hebra1";
 import { Hebra2 } from "./Hebra2";
-import { Hebra3 } from "./Hebra3";
 import { Hestu } from "./Hestu";
 import { Kakariko1 } from "./Kakariko1";
 import { Kakariko2 } from "./Kakariko2";
@@ -30,6 +28,7 @@ import { Tabantha } from "./Tabantha";
 import { ChangeData } from "./types";
 import { ZoraDomain1 } from "./ZoraDomain1";
 import { ZoraDomain2 } from "./ZoraDomain2";
+import { Eventide } from "./Eventide";
 
 //The Main Route Object
 export const MainRoute = [
@@ -58,15 +57,29 @@ export const MainRoute = [
 	...Central2,
 	...Lake,
 	...Faron2,
+	...Hebra2,
+	...Eventide,
 	...Kakariko2,
 	...Hateno2,
-	//eventide,
-	...Hebra2,
-	...Hebra3,
 	...Finale
 ];
 
 export const Change: ChangeData[] = [
+	{
+		version: "3.0.0",
+		date: "2022-01-11",
+		changes: [
+			"Major changes to the route:",
+			[
+				"Gerudo Highland is now done before fighting Kohga. This eliminates warp and helps with Amber routing",
+				"Lake region is broken up into 2 parts. The early part is done after plateau 2 and goes until wife. The later part is merged with Faron branch",
+				"Wasteland Tower branch is now connected to Satori",
+				"Minor change to Hebra to fight the quest Frost Talus early.",
+				"Minor change moving Qaza Tokki to Akkala branch",
+				"Other small reordering"
+			]
+		]
+	},
 	{
 		version: "2.0.1",
 		date: "2021-12-25",

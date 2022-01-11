@@ -1,10 +1,10 @@
-import { Snap, detail, ability, Icon, split, MakeTOD, step, Korok, Shop, Cook, Shrine, Warp } from "../create";
+import { Snap, detail, ability, Icon, split, MakeTOD, step, Korok, Cook, Shrine, Warp } from "../create";
 import { emy, txt, rne, npc, cps, v } from "../types";
 import { wb } from "../windbomb";
 
 export const VooLota= [
 	Warp("Vah Medoh", txt("Check ", v("krk"), " Koroks")),
-	split("-"),
+	split("{Wassatah Eldikkala}"),
 	Snap(emy("Windblight"), "SNAP Elite"),
 	detail(
 		ability(

@@ -65,5 +65,4 @@ export const DunbaTaag = [
 	step(wb(cps)("NW Low")),
 	Korok("H12", "Rock Circle"),
 
-
 ];

@@ -1,4 +1,4 @@
-import { ability, Boss, Discover, Korok, Shrine, split, step, Warp } from "../create";
+import { ability, Boss, Discover, Korok, Shrine, split, step } from "../create";
 import { gale, cps, fury, txt, important } from "../types";
 import { wb } from "../windbomb";
 
@@ -21,7 +21,7 @@ export const MakaRah = [
 	Korok("H40", "Lift Rock", "Top of hill"),
 	step(wb(cps)("W> Turn")),
 	ability(Boss("Black Hinox", txt("GEB + ", fury())), {fury: 3}),
-	step(wb(cps)("<S to race start")),
+	step(wb(cps)("S to race start")),
 	wb(cps)("SE"),
 	Korok("H53", "Lift Rock", "Sharp hill"),
 	wb(cps)("SW"),
@@ -44,8 +44,5 @@ export const MakaRah = [
 	Korok("H42", "Lift Rock Blocked", "Drop down 2 levels"),
 	step(wb(cps)("E to cave")),
 	Shrine("Maka Rah"),
-	split("-"),
-
-	Warp("Vah Medoh"),
 	split("-"),
 ];

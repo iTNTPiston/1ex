@@ -1,4 +1,4 @@
-import { detail, indent, step, Korok, ChestSpecial, Warp, split } from "../create";
+import { detail, indent, step, Korok, ChestSpecial} from "../create";
 import { important, txt, lnk } from "../types";
 
 export const RupeePrinting = [

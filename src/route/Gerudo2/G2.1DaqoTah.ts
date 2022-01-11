@@ -1,4 +1,4 @@
-import { ability, Boss, detail, Discover, Korok, Shrine, ShrineDLC, ShrineDoubleSword, split, step, VariableChange } from "../create";
+import { ability, Boss, detail, Discover, Korok, Shrine, ShrineDLC, split, step, VariableChange } from "../create";
 import { cps, emy, fury, gale, important, itm, txt, v } from "../types";
 import { wb } from "../windbomb";
 

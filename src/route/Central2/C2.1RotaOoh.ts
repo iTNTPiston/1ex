@@ -1,5 +1,5 @@
-import { ability, Boss, detail, Discover, indent, Korok, Memory, Shop, Shrine, ShrineSword, Snap, split, step, Tower, VariableChange } from "../create";
-import { cps, emy, fury, gale, important, npc, sm, txt, v } from "../types";
+import { ability, Boss, detail, Discover, indent, Korok, Memory, Shop, Shrine, ShrineSword, Snap, split, step } from "../create";
+import { cps, emy, fury, gale, important, npc, sm, txt} from "../types";
 import { wb } from "../windbomb";
 
 export const RotaOoh = [

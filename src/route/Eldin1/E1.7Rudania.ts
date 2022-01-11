@@ -1,5 +1,5 @@
 import { ability, Boss, Chest, detail, Equipment, Icon, Korok, Shop, Shrine, Snap, split, step } from "../create";
-import { cps, emy, gale, important, itm, npc, txt, v } from "../types";
+import { cps, emy, gale, important, itm, npc, txt} from "../types";
 import { wb } from "../windbomb";
 
 export const Rudania = [
@@ -16,8 +16,6 @@ export const Rudania = [
 		txt("Talk to ", npc("Greyson")),
 		"Make night if you need"),
 	ability(step(gale()," + ",wb(cps)("N + N")), {gale: 1}),
-	// Korok("E15", "Confetti", "Inside agreeGe"),
-	// "Drop down",
 	Shop("Armor Shop", "Pants, Equip"),
 	Shop("General Shop", "1 Goron Spice"),
 	txt("Talk to ", npc("Bludo")),
@@ -61,5 +59,5 @@ export const Rudania = [
 		Snap(emy("Fireblight"), "SNAP Elite"),
 		"SNAP first, then stasis, then equip attack up"),
 	Icon("rudania-done", "Fireblight 1", "8 Headshots"),
-	split("{2 | 0", v("srn"), " SRN | ", v("krk"), " KRK}"),
+	split("-"),
 ];

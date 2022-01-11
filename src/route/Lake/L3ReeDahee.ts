@@ -1,5 +1,5 @@
-import { ability, Boss, detail, Discover, Korok, Memory, Shrine, split, step, VariableChange } from "../create";
-import { cps, fury, important, itm, txt, v } from "../types";
+import { ability, Boss, detail, Korok, Memory, Shrine, split, step, VariableChange } from "../create";
+import { cps, fury, itm, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const ReeDahee = [

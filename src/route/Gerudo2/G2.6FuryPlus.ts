@@ -1,5 +1,5 @@
 import { step, Korok, detail, split, Warp, Icon, ShrineBlessing } from "../create";
-import { cps, important, txt, v } from "../types";
+import { cps, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const FuryPlus = [
@@ -17,7 +17,7 @@ export const FuryPlus = [
 	detail(
 		Warp("Vah Naboris", txt("Check ", v("krk"), " Koroks")),
 		"Check you already have stasis+ equipped (should have for the korok anyway)"),
-	split("-"),
+	split("{Plateau Geruwas}"),
 	Icon("naboris-plus", "Thunderblight 2"),
 	split("-"),
 ];
