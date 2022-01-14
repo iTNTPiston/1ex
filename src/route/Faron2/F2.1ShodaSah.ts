@@ -3,7 +3,7 @@ import { cps, fury, gale, itm, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const ShodaSah = [
-	ability(step(gale(), " + ", cps("N midairs")), {gale: 1}),
+	ability(step(gale(), " + ", wb(cps)("N midairs")), {gale: 1}),
 	Korok("F02", "Race", "<S Turn"),
 	step(wb(cps)("N.")),
 	ability(Boss("Stone Talus", fury()), {fury: 1}),

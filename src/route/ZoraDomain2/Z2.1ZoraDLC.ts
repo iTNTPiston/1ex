@@ -32,6 +32,8 @@ export const ZoraDLC = [
 	Korok("Z08", "Lift Rock Blocked", "Under rubble"),
 	step(wb(cps)("<W TS")),
 	Korok("Z17", "Confetti", "Top of ZD"),
+	"Drop down",
+	Korok("Z16", "Confetti"),
 
 	"Drop down",
 	detail(

@@ -1,13 +1,9 @@
-import { ChestSpecial, detail, Equipment, Korok, split, step, Tower } from "../create";
+import { ChestSpecial, detail, Korok, split, step, Tower } from "../create";
 import { cps } from "../types";
 import { wb } from "../windbomb";
 
 export const CentralTower = [
-	step(wb(cps)("NW Activate TOD")),
-	Equipment("Tree Branch", "For blue flame"),
-	step(wb(cps)("W> Turn")),
-	Korok("P03", "Block Puzzle"),
-	step(wb(cps)("N. super")),
+	step(wb(cps)("<N TS")),
 	ChestSpecial("Phantom Helm"),
 	step("BLSS"),
 	ChestSpecial("Phantom Pants", "Pretty far from road"),

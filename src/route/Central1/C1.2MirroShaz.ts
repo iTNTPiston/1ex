@@ -1,4 +1,4 @@
-import { step, Korok, Discover, Shrine, Boss, split, Memory, ability, ChestSpecial, MakeTOD, detail, VariableChange, ingredient } from "../create";
+import { step, Korok, Discover, Shrine, Boss, split, Memory, ability, ChestSpecial, detail, VariableChange, ingredient } from "../create";
 import { cps, fury, important, itm, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -28,7 +28,6 @@ export const MirroShaz = [
 	Memory("Hyrule Field"),
 	split("-"),
     
-	step(MakeTOD("12pm", "Make Noon", "For balloon quest & stalnox")),
 	step(wb(cps)("W + <W")),
 	Korok("C56", "Offer Apple"),
 	step(wb(cps)("N>")),

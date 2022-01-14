@@ -22,7 +22,7 @@ export const Faron1  = [
 	detail(
 		"FAROSH FARMING",
 		"If a chuchu attacks your campfire, make sure to pick up the torch first or it will clip through the ground"),
-	"Need 1F 2C 3S, 25 Horns",
+	"Need 1F 2C 3S, 24 Horns",
 	Snap(emy("Farosh"), "SNAP Elite"),
 	detail(
 		important("SAVE afterwards"),

@@ -24,7 +24,7 @@ export const EarlyCastle = [
 	detail(
 		step("Sneakstrike ",emy("Lizalfos")),
 		txt("Tail ",v("tail"),"/45. Blow up the bomb before he dies as you lit the cooking pot so that his equipments get blown away.")),
-	MakeTOD("5am", "Make Night"),
+	MakeTOD("9pm", "Make Night"),
 
 	VariableChange({tail: 1}),
 	detail(
@@ -33,7 +33,7 @@ export const EarlyCastle = [
 	txt("Kill ",emy("Lizalfos")," with RC"),
 	detail(
 		txt("Throw ",itm("Spear"), " and sneakstrike"),
-		"Can get the lizal spear if you don't have boko spear"),
+		"Get the lizal spear to throw at him"),
 	Equipment("Claymore, RG Bow"),
 	"Break crates for rng arrows",
 

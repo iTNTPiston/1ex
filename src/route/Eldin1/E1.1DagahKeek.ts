@@ -1,11 +1,9 @@
-import { Chest, detail, Korok, ShrineBlessing, split, step } from "../create";
+import { Chest, detail, ShrineBlessing, split, step } from "../create";
 import { cps, itm, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const DagahKeek = [
-	step(wb(cps)("N")),
-	Korok("Z16", "Confetti", "Flower thing above palace"),
-	step("Drop down to ", npc("King")),
+	step(wb(cps)("N. to king")),
 	detail(
 		Chest("Lightscale Trident", "Keep for duping"),
 		"Lynel, Hammer, RGC, Knight, Trident"),

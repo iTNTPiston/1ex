@@ -1,8 +1,9 @@
-import { step, Korok, Discover, ability, Boss, Shrine, split, ChestSpecial, detail, VariableChange } from "../create";
+import { step, Korok, Discover, ability, Boss, Shrine, split, ChestSpecial, detail, VariableChange, MakeTOD } from "../create";
 import { cps, fury, gale, itm, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const MoggLatan = [
+	step(MakeTOD("9pm", "Make Night")),
 	step(wb(cps)("S>> Turn")),
 	Korok("C60", "Block Puzzle"),
 	step(wb(cps)("<<N Turn")),
@@ -81,9 +82,9 @@ export const MoggLatan = [
 	Korok("R63", "Lift Rock Blocked", "Under leaves"),
 	step(wb(cps)("S>")),
 	Korok("R72", "Lift Rock Blocked", "Under leaves"),
-	step(cps("W Turn")),
+	step(wb(cps)("W Turn")),
 	Korok("R71", "Lift Rock"),
-	step(cps("N Turn right")),
+	step(wb(cps)("N Turn right")),
 	Korok("R59", "Lift Rock", "Small island"),
 	step(cps("<N")),
 	Korok("R50", "Balloon", "In tree")

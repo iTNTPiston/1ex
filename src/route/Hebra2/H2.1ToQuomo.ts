@@ -26,7 +26,7 @@ export const ToQuomo = [
 	Discover("Sherfin Hot Spring"),
 	step(wb(cps)("N + E")),
 	Korok("H07", "Race", "Surf down FAST"),
-	ability(step(gale(), " + ", cps("E + E")), {gale: 1}),
+	ability(step(gale(), " + ", wb(cps)("E + E")), {gale: 1}),
 	Korok("H08", "Balloon", "Pre BT"),
 	step(wb(cps)("<N down")),
 	Korok("H02", "Ice Block", "Left one"),

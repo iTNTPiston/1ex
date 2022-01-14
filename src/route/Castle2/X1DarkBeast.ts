@@ -3,11 +3,11 @@ import { cps, emy, important } from "../types";
 import { wb } from "../windbomb";
 
 export const DarkBeast = [
+	step(MakeTOD("9pm", "Make Night", "Only if <9PM")),
 	step(wb(cps)("S> Turn Escape")),
 	wb(cps)("S midairs to top of castle"),
 	Korok("X05", "Confetti", "Top of Castle"),
 	step("Drop down to tower"),
-	MakeTOD("9pm", "Make Night", "Only if <9PM"),
 
 	Korok("X06", "Balloon"),
 	Chest("5AA"),

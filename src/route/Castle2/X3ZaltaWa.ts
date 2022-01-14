@@ -131,7 +131,7 @@ export const ZaltaWa = [
 	step("SQ DEFUSE"),
 	Korok("R26", "Race", cps("W")),
 	Korok("R27", "Acorn", "Hanging from bridge"),
-	step(cps("W High")),
+	step(wb(cps)("W High")),
 	Shrine("Zalta Wa", "Skip BM"),
 	split("-"),
 ];

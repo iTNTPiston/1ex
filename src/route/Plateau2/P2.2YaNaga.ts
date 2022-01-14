@@ -39,7 +39,7 @@ export const YaNaga = [
 	Korok("L24", "Lift Rock", "3rd hole"),
 	step(cps("N")),
 	Korok("L08", "Race", "SQ DEFUSE"),
-	step(cps("SE Delay")),
+	step(wb(cps)("SE Delay")),
 	Korok("L25", "Confetti", "Top of tree"),
 	step(cps("SE")),
 	Shrine("Ya Naga"),

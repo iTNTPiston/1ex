@@ -43,9 +43,6 @@ export const Hateno1 = [
 	step(cps("<W")," Turn"),
 	txt("Talk to ",npc("Bolson"), " (112)"),
 	detail(
-		Equipment("Hammer"),
-		"RGC, Torch, Lynel, Torch, Hammer"),
-	detail(
 		Cook("Speed + Cold + Stealth", "Moblin gut for speed"),
 		"Darner + screw/other parts for cold. 1-2 night shades for stealth. Only need Lv1 stealth"),
 	step("SQ WB to shrine"),

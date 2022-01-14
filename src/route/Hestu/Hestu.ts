@@ -1,4 +1,4 @@
-import { Chest, detail, Discover, Equipment, IconGeneric, image, Korok, Section, Shop, split, step, VariableChange, Warp } from "../create";
+import { Chest, detail, Discover, IconGeneric, image, Korok, Section, Shop, split, step, VariableChange, Warp } from "../create";
 import { cps, important, itm, npc, rne, txt, v } from "../types";
 import { wb } from "../windbomb";
 
@@ -51,7 +51,6 @@ export const Hestu = [
 		txt("Honey ", v("honey"), "/16")),
 	Korok("Z37", "Lift Rock", "middle of thorns"),
 	step(cps("<E")," Turn"),
-	Equipment("Wooden Bow"),
 	Korok("Z38", "Well"),
 	step(cps("SE")),
 	Discover("Goponga Village Ruins"),

@@ -41,7 +41,7 @@ export const DilaMaag = [
 	MakeTOD("12pm", important("Make Noon")),
 	ability(Boss("Luminous Talus", fury()), {fury: 3}),
 	important("BURN OUT FURY"),
-	step(cps("S> Turn")),
+	step(wb(cps)("S> Turn")),
 	Korok("W48", "Block Puzzle"),
 	step(wb(cps)("E + E midair")),
 	Korok("W49", "Block Puzzle"),

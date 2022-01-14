@@ -1,4 +1,4 @@
-import { ability, Boss, Chest, detail, Discover, Equipment, Korok, ShrineDoubleSword, ShrineSword, split, step } from "../create";
+import { ability, Boss, Chest, detail, Discover, Equipment, Korok, MakeTOD, ShrineDoubleSword, ShrineSword, split, step } from "../create";
 import { cps, fury, gale, npc, txt } from "../types";
 import { wb } from "../windbomb";
 
@@ -6,7 +6,8 @@ export const KatahChuki = [
 	step(wb(cps)("<W Turn")),
 	detail(
 		npc("Balloon Quest"), 
-		"If pass 8PM, make noon, then make night after quest."),
+		"Make noon if needed"),
+	MakeTOD("9pm", "Make Night"),
 	step(wb(cps)("W. Turn")),
 	Discover("Rauru Settlement Ruins"),
 	step(wb(cps)("S> Turn")),

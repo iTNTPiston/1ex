@@ -8,7 +8,7 @@ const SeedsForShield = 1 + 2 + 3 + 4;
 const SeedsTotal = SeedsForBows + SeedsForWeapon + SeedsForShield;
 
 export const KuhnSidajj = [
-	step(cps("<<W Turn")),
+	step(wb(cps)("<<W Turn")),
 	Korok("E35", "Rock Circle"),
 	step(wb(cps)("W> TS")),
 	Korok("K32", "Acorn", "In tree"),

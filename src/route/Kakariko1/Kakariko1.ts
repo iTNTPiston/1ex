@@ -6,7 +6,7 @@ import Kakariko1Image from "./Kakariko1.png";
 export const Kakariko1 = [
 	Section("KAKARIKO 1"),
 	image(Kakariko1Image),
-	Warp("Tower"),
+	Warp("Central Tower"),
 	split("-"),
 	txt("BLSS to ", lcn("Kaya Wan")),
 	detail(

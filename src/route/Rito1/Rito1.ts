@@ -56,8 +56,9 @@ export const Rito1 = [
 
 	step(cps("W")," Turn to ",npc("Voo Lota Girl")),
 	step(cps("E"), " TS to ",lcn("Rito Stable")),
-	Shop("Beedle","Arrow, Fireflies, 1 Darner"),
-	itm("Ancient Arrow"),
+	detail(
+		Shop("Beedle","Arrow, Fireflies, 1 Darner"),
+		"Can get ancient arrow if you only have 2"),
 	itm("10 Berries"),
 	detail(
 		"Farm wood with RC",

@@ -21,9 +21,9 @@ export const PlateauDLC = [
 	"Transfer Trident>RGC>Rod",
 	"Transfer Shield",
 	detail(
-		"Dupe 5 RGCs",
+		"Dupe 4 RGCs",
 		"Use Knight, Trident, Drillshaft, FDC. Torch, RGC, Korok Leaf, Master Sword, Blizzard, Thunderblade, RGC x 4. "),
-	"Dupe GEBs KEEP RGB",
+	"Dupe GEBs KEEP Lizal",
 	"Drop useless weapons",
 	Warp("Keh Namut", txt("Check ", v("krk"), " Koroks")),
 	split("-"),

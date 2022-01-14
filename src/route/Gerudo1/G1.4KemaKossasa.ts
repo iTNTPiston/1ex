@@ -1,14 +1,8 @@
-import { Korok, step, VariableChange, detail, ShrineDoubleSword, split, ability, ingredient, Boss, Tower } from "../create";
-import { cps, txt, emy, v, gale, itm, important, npc } from "../types";
+import { Korok, step, VariableChange, detail, ShrineDoubleSword, split, ability, ingredient, Boss } from "../create";
+import { cps, txt, emy, v, gale, itm, important } from "../types";
 import { wb } from "../windbomb";
 
 export const KemaKossasa = [
-	step(wb(cps)(".W + <N midair")),
-	ability(txt(gale(), " + 2 WB up tower"), {gale: 1}),
-	step("Talk to ", npc("Kass"), " (21)"),
-	Tower("Gerudo Tower"),
-	split("-"),
-
 	important("EQUIP ATK 3"),
 	step("SQ to balloon"),
 	Korok("G31", "Balloon", "Wait in BT"),

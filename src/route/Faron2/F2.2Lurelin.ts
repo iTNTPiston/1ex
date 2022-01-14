@@ -16,7 +16,6 @@ export const Lurelin = [
 	Korok("F29", "Block Puzzle", "Piece in lake, cryo"),
 	"Equip metal",
 	npc("Kass"),
-	MakeTOD("9pm", "Make Night if need"),
 	ShrineBlessing("Qukah Nata"),
 	split("-"),
 

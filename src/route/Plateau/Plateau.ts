@@ -5,10 +5,11 @@ import PlateauImage from "./Plateau.png";
 export const Plateau = [
 	Section("PLATEAU 1"),
 	image(PlateauImage),
-	"SOR Clip, no TOD",
+	"SOR Clip, get TOD",
+	Equipment("Tree Branch", "Keep for blue flame"),
 	itm("Peppers + Shrooms"),
 	detail(
-		Equipment("Potlid + Spear", "Spear for FDC"),
+		Equipment("Potlid"),
 		"Ideally keep this potlid for Thunderblight, or you can get another one in kakariko if you break this one"),
 
 	"TOT Clip",
@@ -27,9 +28,8 @@ export const Plateau = [
 	split("-"),
 
 	step("BLSS to tree below stasis"),
-	detail(
-		step("WB to stasis"),
-		"No hammer"),
+	step("WB to stasis"),
+	Equipment("Hammer", "Inside stasis"),
 	Shrine("Owa Daim"),
 	split("-"),
 

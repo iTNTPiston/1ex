@@ -11,7 +11,7 @@ export const BareedaNaag = [
 	Korok("T12", "Lift Rock Blocked", "Under leaves"),
 	ability(step(gale(), " + ", cps("N>")), {gale: 1}),
 	Korok("T09", "Offer Pepper"),
-	ability(step(gale(), " + ", cps("E midairs")), {gale: 1}),
+	ability(step(gale(), " + ", wb(cps)("E midairs")), {gale: 1}),
 	Korok("T10", "Offer Apple"),
 	step(wb(cps)("S")),
 	Korok("T17", "Race", "Ordinal Low"),

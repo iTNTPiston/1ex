@@ -1,8 +1,11 @@
-import { ability, Boss, detail, Discover, Korok, Shrine, ShrineDLC, split, step, VariableChange } from "../create";
+import { ability, Boss, detail, Discover, Korok, Shrine, ShrineDLC, split, step, VariableChange, Warp } from "../create";
 import { cps, emy, fury, gale, important, itm, txt, v } from "../types";
 import { wb } from "../windbomb";
 
 export const DaqoTah = [
+	Warp("Kuh Takkar"),
+	split("-"),
+	
 	ability(step(gale(), " SCW"), {gale: 1}),
 	VariableChange({tail: 4}),
 	detail(
@@ -35,7 +38,7 @@ export const DaqoTah = [
 	Korok("G35", "Race", "SQ DEFUSE"),
 	ability(step(gale(), " + ", wb(cps)("<W midair")), {gale: 1}),
 	Boss("Luminous Talus", "Bomb Arrow"),
-	step(wb(cps)("SQ")),
+	step("SQ"),
 	Korok("W19", "Lift Rock"),
 	step(wb(cps)("W> + NW")),
 	Korok("G34", "Block Puzzle", "Bottom right"),

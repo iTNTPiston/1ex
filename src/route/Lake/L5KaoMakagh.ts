@@ -49,7 +49,7 @@ export const KaoMakagh = [
 	Korok("L76", "Boulder Golf", "Stasis 2 + BTMA"),
 	"Run",
 	Discover("Horse God Bridge"),
-	step(wb(cps)("N> Turn. Land+cryo block")),
+	step(wb(cps)("N> Turn")),
 	Korok("L75", "Lily Pads", "No Drown"),
 	step(wb(cps)(".N Turn")),
 	ability(txt(fury(), " Kill Bokos"), {fury: 3}),
