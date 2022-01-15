@@ -39,9 +39,7 @@ export const Ruta = [
 	step(wb(cps)("N Turn LOW")),
 	
 	txt("Talk to ", npc("King")),
-	detail(
-		Shop("All Arrows"),
-		"Buy violets if you need extra speed ingredient"),
+	Shop("Arrows + Violets"),
 	itm("4 Lotus Seeds"),
 	step(Shrine("Ne'ez Yohma")),
 	split("-"),

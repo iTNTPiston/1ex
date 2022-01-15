@@ -18,13 +18,9 @@ export const ZoraDLC = [
 	step(wb(cps)("E> Turn")),
 	important("EQUIP ZORA ARMOR"),
 	"Start Ring Chase",
-	detail(
-		itm("2 Lotus if need"),
-		"24+ Horns"),
+	itm("2 Lotus"),
 	...MONUMENT,
-	detail(
-		itm("2 Lotus if need"),
-		"24-25+ Horns"),
+	itm("2 Lotus"),
 	ShrineDLC("Mah Eliya"),
 	split("-"),
 

@@ -8,10 +8,6 @@ export const EarlyCastle = [
 		"Go for unloaded gate. BLSS to the right of the pillar"),
     
 	Equipment("Royal Claymore + RGC", txt("Sneakstrike ", emy("Moblin"))),
-	VariableChange({tail: 2}),
-	detail(
-		txt("Kill 2 ", emy("Lizalfos")), 
-		txt("Need to spin attack as soon as possible. They can one shot you with weapon. 4 hits each with RGC. (Tail ",v("tail"),"/45)")),
 	ChestSpecial("Royal Guard Boots"),
 	Chest("Naydra Fang"),
 
@@ -43,10 +39,6 @@ export const EarlyCastle = [
 	Korok("X15", "Acorn", "Inside Room"),
 	"Turn left bomb both wall",
 	ChestSpecial("Royal Guard Uniform"),
-	VariableChange({tail: 1}),
-	detail(
-		txt("Kill ", emy("Lizalfos")), 
-		txt("Target him as he jumps and side hop to flurry rush with RGC. Tail ",v("tail"),"/45")),
 
 	step("Enter dining hall"),
 	"Sneak right and throw bomb",

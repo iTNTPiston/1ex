@@ -1,13 +1,11 @@
 import { step, Korok, detail, Cook, Shrine, split, VariableChange, ingredient } from "../create";
-import { itm, cps, emy, npc, txt, } from "../types";
+import { cps, emy, npc, txt, } from "../types";
 import { wb } from "../windbomb";
 
 export const YaNaga = [
-	step("SQ to old man hut"),
-	itm("Baked Apple"),
-	Korok("P18", "Confetti", "Top of hut"),
+
 	detail(
-		step(wb(cps)("<<W + SW")),
+		step(wb(cps)("S> Turn + <W Turn")),
 		"STRONG WIND AREA be careful of bomb placement for the midair"),
 	Korok("L21", "Block Puzzle"),
 	step(wb(cps)("<E Turn")),

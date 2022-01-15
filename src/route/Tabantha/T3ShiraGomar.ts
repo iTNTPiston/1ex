@@ -1,5 +1,5 @@
-import { step, ability, ShrineDoubleSword, Korok, split, Memory, Boss, MakeTOD, ShrineDLC} from "../create";
-import { cps, npc, txt, gale, fury } from "../types";
+import { step, ability, ShrineDoubleSword, Korok, split, Memory, Boss, MakeTOD, ShrineDLC, VariableChange, ingredient, detail} from "../create";
+import { cps, npc, txt, gale, fury, emy } from "../types";
 import { wb } from "../windbomb";
 
 export const ShiraGomar = [
@@ -26,6 +26,11 @@ export const ShiraGomar = [
 	ability(Boss("Rare Talus", fury()), {fury: 3}),
 	step(wb(cps)("<E")),
 	Korok("T25", "Lift Rock", "On ledge"),
+	step(wb(cps)("N")),
+	VariableChange({tail: 4}),
+	detail(
+		emy("Kill Lizalfos"),
+		ingredient("tail", 45)),
 	step(wb(cps)("N + N + NE")),
 	Korok("H72", "Confetti", "Top of windmill"),
 	step(wb(cps)("W>")),

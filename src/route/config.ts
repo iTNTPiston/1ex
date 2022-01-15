@@ -66,20 +66,19 @@ export const MainRoute = [
 
 export const Change: ChangeData[] = [
 	{
+		version: "3.0.2",
+		date: "2022-01-14",
+		changes: [
+			"Early game optimizations",
+			"Counted lotus seeds for 24 horns",
+		]
+	},
+	{
 		version: "3.0.1",
 		date: "2022-01-13",
 		changes: [
 			"Fix small TOD issues",
 			"Fix some WB directions",
-			"Major changes to the route:",
-			[
-				"Gerudo Highland is now done before fighting Kohga. This eliminates warp and helps with Amber routing",
-				"Lake region is broken up into 2 parts. The early part is done after plateau 2 and goes until wife. The later part is merged with Faron branch",
-				"Wasteland Tower branch is now connected to Satori",
-				"Minor change to Hebra to fight the quest Frost Talus early.",
-				"Minor change moving Qaza Tokki to Akkala branch",
-				"Other small reordering"
-			]
 		]
 	},
 	{

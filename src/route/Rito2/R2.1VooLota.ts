@@ -20,8 +20,6 @@ export const VooLota= [
 	Korok("T14", "Balloon"),
 	npc("Little Girl Singing"),
 	"Drop down",
-	npc("Baked Apple Lady x2"),
-	"Drop down",
 	npc("White Bird Girl"),
 	"Drop down",
 	npc("Little Girl Shop"),

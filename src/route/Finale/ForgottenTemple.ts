@@ -1,5 +1,5 @@
-import { ability, Boss, detail, Discover, Korok, MakeTOD, Section, Shrine, ShrineBlessing, ShrineDoubleSword, split, step, Tower, VariableChange, Warp } from "../create";
-import { gale, cps, txt, fury, emy, important, v, npc } from "../types";
+import { ability, Boss, detail, Discover, ingredient, Korok, MakeTOD, Section, Shrine, ShrineBlessing, ShrineDoubleSword, split, step, Tower, VariableChange, Warp } from "../create";
+import { gale, cps, txt, fury, emy, important, npc } from "../types";
 import { wb } from "../windbomb";
 
 export const ForgottenTemple = [
@@ -31,7 +31,7 @@ export const ForgottenTemple = [
 	VariableChange({tail: 3}),
 	detail(
 		emy("3 Lizalfos"),
-		txt(v("tail"),"/45. Can kill silver lizalfos if need.")),
+		ingredient("tail", 45)),
 	important("CHECK 45 TAILS"),
 	important("CHECK 45 OPALS"),
 	"Drop down",

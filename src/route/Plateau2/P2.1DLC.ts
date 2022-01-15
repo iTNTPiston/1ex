@@ -1,4 +1,4 @@
-import { step, Korok, detail, split, Warp, ShrineDLC, Snap, VariableChange, Chest, Equipment } from "../create";
+import { step, Korok, detail, split, Warp, ShrineDLC, Snap, VariableChange, Chest, Equipment, MakeTOD } from "../create";
 import { important, txt, lnk, itm, v, cps, emy } from "../types";
 import { wb } from "../windbomb";
 
@@ -65,7 +65,7 @@ export const PlateauDLC = [
 	Snap(emy("Silver Lizalfos"), "SNAP Elite"),
 	VariableChange({tail: 3, honey: 2}),
 	detail(
-		"freeze stunlock him. Try to set TOD here to trigger BM to farm another round of tail",
+		"3 Lizalfos",
 		txt("Tail: ", v("tail"), "/45. Honey: ", v("honey"), "/16")),
 	itm("2 Honey"),
 	ShrineDLC("Rohta Chigah"),
@@ -75,6 +75,7 @@ export const PlateauDLC = [
 	detail(
 		Snap(emy("Stalhorse"), "SNAP Quest"),
 		"Make sure to get the horse not the bokoblin. Blue bokoblin is 2 words while stalhorse is one. Stalhorse ends with b in Russian."),
+	MakeTOD("5am", "Trigger Bloodmoon"),
 	ShrineDLC("Ruvo Korbah"),
 	split("-"),
 ];

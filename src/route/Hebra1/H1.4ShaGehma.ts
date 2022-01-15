@@ -3,7 +3,9 @@ import { cps, fury, itm, txt } from "../types";
 import { wb } from "../windbomb";
 
 export const ShaGehma = [
-	step(wb(cps)("S High from pedestal")),
+	step("SQ forward"),
+	Korok("H30", "Acorn Flying"),
+	step(wb(cps)("E High")),
 	ability(Boss("Frost Talus", txt(fury(), itm(" Opal"))), {fury: 3}),
 	step(wb(cps)("S> Turn")),
 	detail(

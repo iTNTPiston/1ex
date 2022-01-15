@@ -1,4 +1,4 @@
-import { Section, Equipment, step, Shrine, split, detail,  Tower, Icon, image } from "../create";
+import { Section, Equipment, step, Shrine, split, detail,  Tower, Icon, image, Korok } from "../create";
 import {  itm } from "../types";
 import PlateauImage from "./Plateau.png";
 
@@ -6,7 +6,7 @@ export const Plateau = [
 	Section("PLATEAU 1"),
 	image(PlateauImage),
 	"SOR Clip, get TOD",
-	Equipment("Tree Branch", "Keep for blue flame"),
+	Equipment("Tree Branch"),
 	itm("Peppers + Shrooms"),
 	detail(
 		Equipment("Potlid"),
@@ -27,7 +27,10 @@ export const Plateau = [
 	Tower("Great Plateau Tower"),
 	split("-"),
 
-	step("BLSS to tree below stasis"),
+	step("BLSS to old man hut"),
+	itm("Baked Apple"),
+	Korok("P18", "Confetti", "Top of hut"),
+	Equipment("Torch"),
 	step("WB to stasis"),
 	Equipment("Hammer", "Inside stasis"),
 	Shrine("Owa Daim"),

@@ -1,4 +1,4 @@
-import { ability, Boss, Chest, detail, Discover, Korok, MakeTOD, Memory, Shop, Shrine, Snap, split, step, VariableChange } from "../create";
+import { ability, Boss, Chest, detail, Discover, ingredient, Korok, MakeTOD, Memory, Shop, Shrine, Snap, split, step, VariableChange } from "../create";
 import { cps, txt, fury, npc, itm, v, important, gale } from "../types";
 import { wb } from "../windbomb";
 
@@ -55,6 +55,10 @@ export const Hateno2 = [
 		txt(v("rushroom"), "/55")),
 	important("CHECK 55 RUSHROOMS"),
 	Korok("N33", "Lift Rock (Door)"),
+	VariableChange({honey: 3}),
+	detail(
+		itm("3 Honey if need"),
+		ingredient("honey", 16)),
 	important("CHECK 15 Honey"),
 	npc("Doctor (B)"),
 	ability(step(gale(), " up fort"), {gale: 1}),

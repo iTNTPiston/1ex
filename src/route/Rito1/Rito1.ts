@@ -46,6 +46,7 @@ export const Rito1 = [
 	"Drop Traveller Bow",
 	itm("Cold Darner"),
 	npc("Flight Pad Lady (BN Quest)"),
+	npc("Bake Apple Lady Twice"),
 	Equipment("Great Eagle Bow", "Finish quest"),
 	txt("Backup ",itm("darner"), " on bridge"),
 	detail(
