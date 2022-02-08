@@ -1,4 +1,4 @@
-import { ChangeData } from "../route/types";
+import { ChangeData } from "../engine/types";
 
 type Props = {
     log: ChangeData[],

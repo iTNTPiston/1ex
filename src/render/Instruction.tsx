@@ -1,28 +1,58 @@
 import { Section, Icon, TextRender } from "./components";
-import { flattenText, InstructionData } from "../route/types";
+import { InstructionData } from "../engine/types";
 import React from "react";
 import clsx from "clsx";
 
 type InstructionProps = InstructionData & {
     directionMode: string,
+	isImportantMode: boolean,
 	setFrozenImage: (image:string)=>void,
 }
 
 export const Instruction: React.FunctionComponent<InstructionProps> = ({
-	error,icon, text, comment,indicatorClass,isSectionTitle,lineNumber,unindentStep,stepNumber,counterClassName,counterNumber,detail,detailRowSpan,indentIcon,image,imageRowSpan,directionMode,variables,detailClass,setFrozenImage,displayEmptyDetailSecondRow,displayEmptyImageSecondRow
+	isImportantMode,
+	isSectionTitle,
+	lineNumber,
+	lineNumberClassName,
+	counterNumber,
+	counterClassName,
+	stepNumber,
+	icon, text, comment,
+	stepperClassName,
+	hasNotes,
+	notes,
+	notesClass,
+	notesRowSpan,
+	notesEmptySecondRow,
+	image,
+	imageRowSpan,
+	imageEmptySecondRow,
+	variables,
+	errors,
+	warnings,
+	directionMode,
+	setFrozenImage,
 })=>{
 	if(isSectionTitle){
 		return <Section title={text}/>;
 	}
-	const hasDetail = detail && flattenText(detail);
-	const lineNumberCell = <td className={clsx("line-number font-number", error && "indicator-color-error")} >
-		<span title={error}>{lineNumber}</span>
+	const errorTooltip = errors || warnings || "";
+
+	const lineNumberCell = <td className={clsx("line-number font-number", lineNumberClassName)} >
+		<span title={errorTooltip}>{lineNumber}</span>
 	</td>;
-	const counterCell = <td className={clsx("counter font-number", counterClassName)}>{counterNumber || "."}</td>;
+	const counterCell = <td className={clsx("counter font-number", counterClassName)}>
+		{counterNumber || "."}
+	</td>;
 	const stepNumberCell = <td className="step-number font-number">{stepNumber}</td>;
-	const indicatorCell = <td className={clsx("indicator",indicatorClass)}></td>;
-	const detailCell = detailRowSpan && <td className={clsx("detail",hasDetail&&detailClass)} rowSpan={detailRowSpan}>
-		{detail && <TextRender textBlock={detail} variables={variables} directionMode={directionMode}/>}
+
+	const indicatorCell = <td className={clsx("indicator", stepperClassName)} />;
+	if (isImportantMode){
+		notesEmptySecondRow = false;
+		notesRowSpan = icon?2:1;
+	}
+	const detailCell = notesRowSpan && <td className={clsx("detail",hasNotes && notesClass)} rowSpan={notesRowSpan}>
+		{notes && <TextRender textBlock={notes} variables={variables} directionMode={directionMode}/>}
 	</td>;
 	const imageCell = imageRowSpan && <td className={clsx("image-column",image&&"image-box") }
 		style={{
@@ -56,66 +86,42 @@ export const Instruction: React.FunctionComponent<InstructionProps> = ({
 				<td className="counter font-number">.</td>
 				<td className="step-number font-number"></td>
 				<td className="main-text comment-text">{comment && <TextRender textBlock={comment} directionMode={directionMode} variables={variables}/>}</td>
-				<td className={clsx("indicator")}></td>
-				{displayEmptyDetailSecondRow && <td className="detail" ></td>}
-				{displayEmptyImageSecondRow && <td className="image-column"></td>}
+				{indicatorCell}
+				{notesEmptySecondRow && <td className="detail" ></td>}
+				{imageEmptySecondRow && <td className="image-column"></td>}
 			</tr>
 		</>;
 
 	}else{
-		if(unindentStep){
-			return                 <tr>
-				{lineNumberCell}
-				{counterCell}
-				<td className="main-text" colSpan={3}>
-					<TextRender textBlock={text} directionMode={directionMode} variables={variables}/>
-				</td>
-				{indicatorCell}
-				{detailCell}
-				{imageCell}
-			</tr>;
-		}else if(indentIcon){
-			return                 <tr>
-				{lineNumberCell}
-				{counterCell}
-				{stepNumberCell}
-				<td className="icon" ></td>
-				<td className="main-text" >
-					<TextRender textBlock={text} directionMode={directionMode} variables={variables}/>
-				</td>
-				{indicatorCell}
-				{detailCell}
-				{imageCell}
-			</tr>;
-		}else{
-			return                 <tr>
-				{lineNumberCell}
-				{counterCell}
-				{stepNumberCell}
-				<td className="main-text" colSpan={2}>
-					<TextRender textBlock={text} directionMode={directionMode} variables={variables}/>
-				</td>
-				{indicatorCell}
-				{detailCell}
-				{imageCell}
-			</tr>;
-		}
+		return <tr>
+			{lineNumberCell}
+			{counterCell}
+			{stepNumberCell}
+			<td className="main-text" colSpan={2}>
+				<TextRender textBlock={text} directionMode={directionMode} variables={variables}/>
+			</td>
+			{indicatorCell}
+			{detailCell}
+			{imageCell}
+		</tr>;
+		
 	}
 };
 
 type InstructionTableData = {
     instructions: InstructionData[],
+	isImportantMode: boolean,
 	directionMode: string,
 	setFrozenImage: (image:string)=>void,
 }
 
-export const InstructionTable: React.FunctionComponent<InstructionTableData> = ({instructions, directionMode, setFrozenImage})=>{ 
+export const InstructionTable: React.FunctionComponent<InstructionTableData> = ({instructions, isImportantMode, directionMode, setFrozenImage})=>{ 
 	let fillerKey = 0;
 	return (
 		<table>
 			<tbody>
 				{instructions.map((data, i)=>
-					<Instruction key={`line${i}`} {...data} directionMode={directionMode} setFrozenImage={setFrozenImage} />
+					<Instruction key={`line${i}`} {...data} directionMode={directionMode} setFrozenImage={setFrozenImage} isImportantMode={isImportantMode}/>
 				)}
 				{Array.from({length:20},()=><tr key={fillerKey++}><td colSpan={2}>&nbsp;</td><td className="main-text" colSpan={3}>&nbsp;</td><td colSpan={3}>&nbsp;</td></tr>)}
 			</tbody>

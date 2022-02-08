@@ -1,49 +1,56 @@
-import { Section, Equipment, step, Shrine, split, detail,  Tower, Icon, image, Korok } from "../create";
-import {  itm } from "../types";
-import PlateauImage from "./Plateau.png";
+import { Chest, Cook, Equipment, Item, itm, Koroks, lnk, MakeNight, Section, Shrines, SPLIT, Towers, txt } from "../../engine";
 
 export const Plateau = [
 	Section("PLATEAU 1"),
-	image(PlateauImage),
+
 	"SOR Clip, get TOD",
-	Equipment("Tree Branch"),
-	itm("Peppers + Shrooms"),
-	detail(
-		Equipment("Potlid"),
-		"Ideally keep this potlid for Thunderblight, or you can get another one in kakariko if you break this one"),
+	Equipment("Tree Branch").extend({
+		notes: "For FDC at bombs and tower"
+	}),
+	itm("Foods"),
+	Equipment("Potlid").extend({
+		notes: "Ideally keep this potlid for Thunderblight, or you can get another one in kakariko if you break this one"
+	}),
 
 	"TOT Clip",
-	detail(Equipment("Bow + Arrow"), "Similar to granatus, you don't want to break any bows optimally. However it matters less since we have early RGC"),
+	Equipment("Bow + Arrow").extend({
+		notes: "Don't break any bows"
+	}),
 	"BLSS to bombs",
-	detail(Shrine("Ja Baij"),"Either aim more right for safe WB or do gamer"),
-	split("-"),
+	Shrines.JaBaij,
 
-	"BLSS to mag",
-	Shrine("Oman Au"),
-	split("-"),
+	"BLSS to tower",
+	Towers.Plateau(),
+	{
+		text: "FDC Down",
+		notes: "Throw away Tree Branch"
+	},
+	"BLSS to Mud arrows",
+	Chest("Elemental Arrows"),
+	"SQ WB to Mag",
+	Shrines.OmanAu,
 
-	"WB to tower",
-	Equipment("Traveller's Sword"),
-	Tower("Great Plateau Tower"),
-	split("-"),
-
-	step("BLSS to old man hut"),
-	itm("Baked Apple"),
-	Korok("P18", "Confetti", "Top of hut"),
+	"BLSS to old man hut",
+	Koroks.P18,
+	Item("Baked Apple"),
+	Equipment("Axe", "Inside hut"),
+	
 	Equipment("Torch"),
-	step("WB to stasis"),
-	Equipment("Hammer", "Inside stasis"),
-	Shrine("Owa Daim"),
-	split("-"),
+	MakeNight("For Rupee Printing"),
+	Cook("2 Peppers + 3 Peppers", "For Early Hebra / Medoh"),
 
-	step("Ride boulder up"),
-	step("BLSS to cryo"),
-	step(Shrine("Keh Namut")),
-	split("-"),
+	"WB to stasis",
+	Shrines.OwaDaim.extend({
+		notes: "Can go for WB no need to eat"
+	}),
 
-	detail(
-		"BLSS to ToT",
-		"OK if you throw the spear away. There is a backup in castle later"),
-	Icon("king", "Plateau"),
-	split("-")
+	"Go to cryo",
+	Shrines.KehNamut,
+
+	"BLSS to TOT",
+	{
+		text: "Plateau",
+		icon: "king",
+		type: SPLIT
+	}
 ];

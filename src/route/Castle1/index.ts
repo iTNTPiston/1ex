@@ -1,11 +1,7 @@
-import { Section } from "../create";
-import { CentralTower } from "./X1.1CentralTower";
-import { EarlyCastle } from "./X1.2Castle";
-import { RupeePrinting } from "./X1.3RupeePrinting";
+import { Section } from "../../engine";
+import { KatahChuki } from "./KatahChuki";
 
 export const Castle1 = [
-	Section("CASTLE 1"),
-	...CentralTower,
-	...EarlyCastle,
-	...RupeePrinting
+	Section("CASTLE 1 (RP)"),
+	...KatahChuki,
 ];

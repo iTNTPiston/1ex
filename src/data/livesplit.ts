@@ -1,4 +1,5 @@
-import { InstructionData, renderTextBlock } from "../route/types";
+import { renderTextBlock } from "../engine/strings";
+import { InstructionData } from "../engine/types";
 import { getImage } from "./image";
 
 export const toLiveSplitEncodedImage = (webpackImageData: string):string => {
@@ -45,9 +46,9 @@ const createSegmentTags = (instructions: InstructionData[]): string => {
 		if(i>=instructions.length - 1){
 			return;
 		}
-		if(instructions[i+1].isSplit){
+		if(data.isSplit){
 			const name = renderTextBlock(data.text, data.variables);
-			const prefix = renderTextBlock(instructions[i+1].text, instructions[i+1].variables);
+			const prefix = data.splitPrefix ? renderTextBlock(data.splitPrefix, data.variables) : "";
 			splitNames.push(`${prefix}${name}`);
 			splitIcons.push(getImage(data.icon || ""));
 		}

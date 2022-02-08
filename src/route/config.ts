@@ -1,34 +1,35 @@
-import { Akkala } from "./Akkala";
-import { Castle2 } from "./Castle2";
-import { Central1 } from "./Central1";
-import { Central2 } from "./Central2";
-import { Eldin1 } from "./Eldin1";
-import { Eldin2 } from "./Eldin2";
+// import { Akkala } from "./Akkala";
+// import { Castle2 } from "./Castle2";
+// import { Central1 } from "./Central1";
+// import { Central2 } from "./Central2";
+// import { Eldin1 } from "./Eldin1";
+// import { Eldin2 } from "./Eldin2";
 import { Faron1 } from "./Faron1";
-import { Faron2 } from "./Faron2";
-import { Finale } from "./Finale";
-import { Gerudo1 } from "./Gerudo1";
-import { Gerudo2 } from "./Gerudo2";
+// import { Faron2 } from "./Faron2";
+// import { Finale } from "./Finale";
+// import { Gerudo1 } from "./Gerudo1";
+// import { Gerudo2 } from "./Gerudo2";
 import { Hateno1 } from "./Hateno1";
-import { Hateno2 } from "./Hateno2";
-import { Hebra1 } from "./Hebra1";
-import { Hebra2 } from "./Hebra2";
-import { Hestu } from "./Hestu";
+// import { Hateno2 } from "./Hateno2";
+// import { Hebra1 } from "./Hebra1";
+// import { Hebra2 } from "./Hebra2";
+// import { Hestu } from "./Hestu";
 import { Kakariko1 } from "./Kakariko1";
 import { Kakariko2 } from "./Kakariko2";
-import { KorokForest } from "./KorokForest";
-import { Lake } from "./Lake";
+// import { KorokForest } from "./KorokForest";
+// import { Lake } from "./Lake";
+import { ChangeData } from "../engine";
 import { Plateau } from "./Plateau";
-import { Plateau2 } from "./Plateau2";
+// import { Plateau2 } from "./Plateau2";
 import { Rito1 } from "./Rito1";
-import { Rito2 } from "./Rito2";
+// import { Rito2 } from "./Rito2";
 import { Castle1 } from "./Castle1";
-import { Satori } from "./Satori";
-import { Tabantha } from "./Tabantha";
-import { ChangeData } from "./types";
-import { ZoraDomain1 } from "./ZoraDomain1";
-import { ZoraDomain2 } from "./ZoraDomain2";
-import { Eventide } from "./Eventide";
+// import { Satori } from "./Satori";
+// import { Tabantha } from "./Tabantha";
+// import { ChangeData } from "../engine/types";
+// import { ZoraDomain1 } from "./ZoraDomain1";
+// import { ZoraDomain2 } from "./ZoraDomain2";
+// import { Eventide } from "./Eventide";
 
 //The Main Route Object
 export const MainRoute = [
@@ -38,30 +39,30 @@ export const MainRoute = [
 	...Kakariko1,
 	...Hateno1,
 	...Faron1,
-	...Hestu,
-	...Gerudo1,
-	...ZoraDomain1,
-	...Eldin1,
-	...KorokForest,
-	...Castle2,
-	...Plateau2,
-	...Gerudo2,
-	...Satori,
-	...Tabantha,
-	...Hebra1,
-	...Eldin2,
-	...Akkala,
-	...Rito2,
-	...ZoraDomain2,
-	...Central1,
-	...Central2,
-	...Lake,
-	...Faron2,
-	...Hebra2,
-	...Eventide,
 	...Kakariko2,
-	...Hateno2,
-	...Finale
+	// ...Gerudo1,
+	// ...ZoraDomain1,
+	// ...Eldin1,
+	// ...KorokForest,
+	// ...Castle2,
+	// ...Plateau2,
+	// ...Gerudo2,
+	// ...Satori,
+	// ...Tabantha,
+	// ...Hebra1,
+	// ...Eldin2,
+	// ...Akkala,
+	// ...Rito2,
+	// ...ZoraDomain2,
+	// ...Central1,
+	// ...Central2,
+	// ...Lake,
+	// ...Faron2,
+	// ...Hebra2,
+	// ...Eventide,
+	// ...Kakariko3,
+	// ...Hateno2,
+	// ...Finale
 ];
 
 export const Change: ChangeData[] = [

@@ -5,8 +5,9 @@ import ImageDirectionClock from "./img/direction-clock.png";
 import ImageDirectionCompass from "./img/direction-compass.png";
 import ImageMasterCycle from "./img/master-cycle.png";
 import ImageTower from "./img/tower.png";
-import { InstructionEngine } from "./route/engine";
-import { ChangeData, InstructionLike } from "./route/types";
+import ImageKorokMinus from "./img/korok-minus.png";
+import { InstructionEngine } from "./engine/engine";
+import { ChangeData, InstructionLike } from "./engine/types";
 import { ChangeLog } from "./render/ChangLog";
 import queryString from "query-string";
 import { createLiveSplitFile } from "./data/livesplit";
@@ -23,6 +24,7 @@ type State ={
 	showMenu: boolean,
 	directionMode: string,
 	showSplitOnly: boolean,
+	showNonKorokIconOnly: boolean,
 	showChangeLog: boolean,
 }
 
@@ -35,6 +37,7 @@ class App extends React.Component<Props, State> {
 			showMenu: false,
 			directionMode: "clock",
 			showSplitOnly: false,
+			showNonKorokIconOnly: false,
 			showChangeLog: false,
 		};
 	}
@@ -71,11 +74,12 @@ class App extends React.Component<Props, State> {
 		const instructions = engine.compute(this.props.config);
 		let filteredInstructions;
 		if(this.state.showSplitOnly){
-			filteredInstructions = instructions.filter((_, i)=>{
-				if(i >= instructions.length - 1){
-					return false;
-				}
-				return instructions[i+1].isSplit;
+			filteredInstructions = instructions.filter((inst)=>{
+				return inst.isSectionTitle || inst.isSplit;
+			});
+		}else if(this.state.showNonKorokIconOnly){
+			filteredInstructions = instructions.filter((inst)=>{
+				return inst.isSectionTitle || inst.isSplit || inst.isImportant || inst.icon && !inst.isKorok;
 			});
 		}else{
 			filteredInstructions = instructions;
@@ -83,6 +87,7 @@ class App extends React.Component<Props, State> {
 
 		return <InstructionTable 
 			instructions={filteredInstructions} 
+			isImportantMode={this.state.showNonKorokIconOnly}
 			directionMode ={this.state.directionMode}
 			setFrozenImage={(img)=>this.setState({frozenImage: img})}/>;
 	}
@@ -113,9 +118,14 @@ class App extends React.Component<Props, State> {
 							<img src={ImageMasterCycle} height="48" width="auto" alt="Split Only" title="Toggle Show Split Only"/>
 						</button>
 						<br></br>
+						<button onClick={()=>this.setState({showNonKorokIconOnly: !this.state.showNonKorokIconOnly})}>
+							<img src={ImageKorokMinus} height="48" width="auto" alt="Important Only" title="Toggle Important Only"/>
+						</button>
+						<br></br>
 						<button onClick={()=>this.downloadSplits()}>
 							<img src={ImageTower} height="48" width="auto" alt="Download Splits" title="Download Splits"/>
 						</button>
+
 					</>
 				}
 			</div>

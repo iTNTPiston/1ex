@@ -1,4 +1,4 @@
-import { TextBlock, Text } from "../../route/types";
+import { TextBlock, Text } from "../../engine/types";
 
 type Props = {
     textBlock: TextBlock,
