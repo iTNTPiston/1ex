@@ -1,9 +1,12 @@
-import { Korok } from "./creator";
+
 import { addKorok, getMissingKoroks, hasKorok, KorokData, newData } from "./korok";
 import { instructionLikeToInstructionPacket, stringToText, textLikeToTextBlock } from "./convert";
 import { EngineError, EngineErrorStrings } from "./error";
 import { txt, lcn, npc} from "./strings";
 import { InstructionData, InstructionLike,TextBlock, Text, InstructionPacket, AbilityUsage, TextLike } from "./types";
+import { Koroks } from "./library";
+import { EngineCommand, EngineCommands } from "./command";
+import { InstructionPacketWithExtend } from "./creator";
 
 //Recharge time in seconds
 const GALE_RECHARGE = 360;
@@ -44,8 +47,8 @@ export class InstructionEngine{
 		this.memoryCount = 0;
 		this.talusCount = 0;
 		this.hinoxCount = 0;
-		this.gale = 0;
-		this.fury = 0;
+		this.gale = 3;
+		this.fury = 3;
 		this.galeRechargeTime = 0;
 		this.furyRechargeTime = 0;
 		this.enableGalePlus = false;
@@ -58,6 +61,14 @@ export class InstructionEngine{
 		this.dupeKorok = [];
 	}
 
+	private reportDebugInfo(location: string): void {
+		console.error({
+			line: this.lineNumber,
+			location,
+			snapshot: {...this}
+		});
+	}
+
 	compute(config: InstructionLike[]): InstructionData[] {
 		this.initialize();
 		const input = config.map(instructionLikeToInstructionPacket);
@@ -65,8 +76,16 @@ export class InstructionEngine{
 	}
 
 	private computeInstructions(input: InstructionPacket[]):InstructionData[] {
+		//Fill empty line after each split
+		const filledInput:InstructionPacket[] = [];
+		input.forEach((line, i)=>{
+			filledInput.push(line);
+			if(line.type==="split" && i < input.length - 1 && input[i+1].type !== "split"){
+				filledInput.push({text:""});
+			}
+		});
 		const output: InstructionData[] = [];
-		input.forEach((_, i)=>this.processInstruction(input, i, output));
+		filledInput.forEach((_, i)=>this.processInstruction(filledInput, i, output));
 		const missingKoroks = getMissingKoroks(this.korokData);
 
 		if(this.dupeKorok.length !== 0){
@@ -74,7 +93,8 @@ export class InstructionEngine{
 				"Duplicate Koroks"
 			];
 			this.dupeKorok.forEach(id=>{
-				dupeKorokInstructions.push(Korok(id, "Duplicate"));
+				const korok = Koroks[id as keyof typeof Koroks] as InstructionPacketWithExtend; 
+				dupeKorokInstructions.push(korok.extend({comment: "Duplicated"}));
 			});
 
 			const mappedInstructions = dupeKorokInstructions.map(instructionLikeToInstructionPacket);
@@ -86,7 +106,8 @@ export class InstructionEngine{
 				"Missing Koroks"
 			];
 			missingKoroks.forEach(id=>{
-				missingKorokInstructions.push(Korok(id, "Missing"));
+				const korok = Koroks[id as keyof typeof Koroks] as InstructionPacketWithExtend; 
+				missingKorokInstructions.push(korok.extend({comment: "Missing"}));
 			});
 
 			const mappedInstructions = missingKorokInstructions.map(instructionLikeToInstructionPacket);
@@ -116,18 +137,34 @@ export class InstructionEngine{
 	}
 	private processNoneSectionTitle(input: InstructionPacket[], i:number, output: InstructionData[]): void {
 		const data = input[i];
-	
+		const debugEnable = this.hasCommand(EngineCommands.Debug, data.command);
+		if(this.hasCommand(EngineCommands.EnableFuryPlus, data.command)){
+			this.enableFuryPlus = true;
+		}
+		if(this.hasCommand(EngineCommands.EnableGalePlus, data.command)){
+			this.enableGalePlus = true;
+		}
 		// Process variable change before text
 		if(data.variableChange){
 			this.processVariableChange(data.variableChange);
 		}
-
+		if(debugEnable){
+			this.reportDebugInfo("Initial");
+		}
 		const error = new Set<EngineError>();
 		let furyText = "?";
 		let galeText = "?";
 		if(data.ability){
 			[galeText, furyText] = this.processAbilityUsage(data.ability, error);
 		}
+		if(debugEnable){
+			this.reportDebugInfo("After Ability Usage");
+		}
+
+		const dataCommentRaw = data.comment && data.icon ? textLikeToTextBlock(data.comment) : undefined;
+		const dataTextRaw = textLikeToTextBlock(data.text);
+		const dataComment = this.applyAbilityTextBlock(dataCommentRaw, furyText, galeText, error);
+		const dataText = this.applyAbilityTextBlock(dataTextRaw, furyText, galeText, error);
 
 		// Process error suppression
 		const warnings: EngineError[] = [];
@@ -139,11 +176,6 @@ export class InstructionEngine{
 				}
 			});
 		}
-
-		const dataCommentRaw = data.comment && data.icon ? textLikeToTextBlock(data.comment) : undefined;
-		const dataTextRaw = textLikeToTextBlock(data.text);
-		const dataComment = this.applyAbilityTextBlock(dataCommentRaw, furyText, galeText);
-		const dataText = this.applyAbilityTextBlock(dataTextRaw, furyText, galeText);
 
 		let lineNumberClassName = "";
 		let errorText = undefined;
@@ -180,7 +212,11 @@ export class InstructionEngine{
 		};
 
 		this.processStepOrSplit(data.type, props);
+		
 		this.processAbilityRecharge(data.type === "step", data.timeOverride);
+		if(debugEnable){
+			this.reportDebugInfo("After Ability Recharge");
+		}
 
 		if(data.shrineChange){
 			this.processShrineChange(data.shrineChange, dataText, props);
@@ -294,22 +330,14 @@ export class InstructionEngine{
 		let galeText = "?";
 		let furyText = "?";
 		
-		if(this.gale === 0){
-			if(ability.gale && this.galeRechargeTime < galeRecharge){
-				error.add("GaleRecharge");
-			}
-			this.galeRechargeTime = 0;
-			this.gale = 3;
-		}
-		if(this.fury === 0){
-			if(ability.fury && this.furyRechargeTime < furyRecharge){
-				error.add("FuryRecharge");
-			}
-			this.furyRechargeTime = 0;
-			this.fury = 3;
-		}
-
 		if(ability.gale){
+			if(this.gale === 0){
+				if(ability.gale && this.galeRechargeTime < galeRecharge){
+					error.add("GaleRecharge");
+				}
+				this.galeRechargeTime = 0;
+				this.gale = 3;
+			}
 			if(ability.gale > this.gale){
 				error.add("GaleCount");
 			}else{
@@ -321,6 +349,13 @@ export class InstructionEngine{
 			}
 		}
 		if(ability.fury){
+			if(this.fury === 0){
+				if(ability.fury && this.furyRechargeTime < furyRecharge){
+					error.add("FuryRecharge");
+				}
+				this.furyRechargeTime = 0;
+				this.fury = 3;
+			}
 			if(ability.fury > this.fury){
 				error.add("FuryCount");
 			}else{
@@ -407,6 +442,13 @@ export class InstructionEngine{
 		}
 	}
 
+	private hasCommand(find: EngineCommand, commands?: EngineCommand[]): boolean {
+		if(!commands){
+			return false;
+		}
+		return commands.filter(e=>e===find).length>0;
+	}
+
 	private getKorokCountLastTwoDigits(): string {
 		return this.getLastTwoDigits(this.korokCount);
 	}
@@ -442,23 +484,29 @@ export class InstructionEngine{
 		return "3";
 	}
 
-	private applyAbilityTextBlock(textBlock: TextBlock | undefined, furyText: string, galeText: string): TextBlock {
+	private applyAbilityTextBlock(textBlock: TextBlock | undefined, furyText: string, galeText: string, errorOut: Set<EngineError>): TextBlock {
 		if(!textBlock){
 			return [];
 		}
 		if(Array.isArray(textBlock)){
-			return textBlock.map(t=>this.applyAbilityText(t, furyText, galeText));
+			return textBlock.map(t=>this.applyAbilityText(t, furyText, galeText, errorOut));
 		}
-		return this.applyAbilityText(textBlock, furyText, galeText);
+		return this.applyAbilityText(textBlock, furyText, galeText, errorOut);
 	}
 
-	private applyAbilityText(text: Text, furyText: string, galeText: string): Text {
+	private applyAbilityText(text: Text, furyText: string, galeText: string, errorOut: Set<EngineError>): Text {
 		if(text.colorClass === "color-fury"){
+			if(furyText==="?"){
+				errorOut.add("FuryText");
+			}
 			return {
 				...text,
 				content: "FURY "+furyText
 			};
 		}else if(text.colorClass === "color-gale"){
+			if(galeText==="?"){
+				errorOut.add("GaleText");
+			}
 			return {
 				...text,
 				content: "GALE "+galeText

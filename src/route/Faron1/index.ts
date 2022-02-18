@@ -1,4 +1,4 @@
-import { cps, important, Ingredient, itm, Koroks, lnk, Materials, Section, SnapElite, STEP, txt, Warp, wb } from "../../engine";
+import { cps,important, Koroks, lnk, Materials, Section, SnapElite, STEP, txt, wb, WindbombStepCps } from "../../engine";
 
 export const Faron1 = [
 	Section("FARON 1"),
@@ -6,7 +6,7 @@ export const Faron1 = [
 	Koroks.F06,
 	{ type: STEP, text: wb(cps)("SW SQ") },
 	Koroks.F09,
-	{ type: STEP, text: wb(cps)("W") },
+	WindbombStepCps("W SQ"),
 	Koroks.F08,
 	{ type: STEP, text: wb(cps)("E") },
 	Koroks.F12,
@@ -25,8 +25,5 @@ export const Faron1 = [
 		notes: txt("Example beetle section by BingsF: ",lnk("https://discordapp.com/channels/269611402854006785/298175033224724500/911119688963072001"))
 	},
 	important("EAT STEALTH"),
-	Ingredient("Beetles", Materials.Beetle).extend({
-		variableChange: { Beetle: 5 }
-	})
-    
+	Materials.Beetle(5),
 ];

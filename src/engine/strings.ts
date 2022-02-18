@@ -1,5 +1,5 @@
 import { stringToText } from "./convert";
-import { Text, TextLike, TextBlock, InstructionLike } from "./types";
+import { Text, TextLike, TextBlock } from "./types";
 
 const textHelper = (t: TextLike[], color?: string): TextBlock => {
 	if(t.length === 0){

@@ -1,5 +1,6 @@
+import { wbex } from "./windbomb";
 import { stringToText, instructionLikeToInstructionPacket } from "./convert";
-import { lcn, npc, txt, v, itm, emy, ingredient } from "./strings";
+import { cps, lcn, npc, txt, v, itm, emy, bss } from "./strings";
 import { InstructionLike, InstructionPacket, TextLike } from "./types";
 
 export const SPLIT = "split" as const;
@@ -9,7 +10,7 @@ export type InstructionPacketWithExtend = InstructionPacket &{
     extend: (extra: Partial<InstructionPacket>)=>InstructionPacket
 }
 
-const addExtend = (instruction: InstructionPacket): InstructionPacketWithExtend => {
+export const addExtend = (instruction: InstructionPacket): InstructionPacketWithExtend => {
 	const instructionWithExtend = instruction as InstructionPacketWithExtend;
 	instructionWithExtend.extend = (extra)=>({...instruction, ...extra});
 	return instructionWithExtend;
@@ -27,7 +28,7 @@ export const Tower = (text: TextLike, comment?: TextLike): InstructionPacketWith
 		icon: "tower",
 		text: lcn(text),
 		comment,
-		type: "split",
+		type: SPLIT,
 		splitPrefix: "-",
 	});
 };
@@ -37,18 +38,20 @@ export const Shrine = (text: TextLike): InstructionPacketWithExtend => {
 		icon: "shrine",
 		text: lcn(text),
 		shrineChange: 1,
-		type: "split",
+		type: SPLIT,
 		splitPrefix: "-",
+		timeOverride: 10,
 	});
 };
 
 export const ShrineBlessing = (text: TextLike): InstructionPacketWithExtend => {
 	return addExtend({
-		icon: "shrine",
+		icon: "chest",
 		text: lcn(text),
 		shrineChange: 1,
-		type: "split",
+		type: SPLIT,
 		splitPrefix: "-",
+		timeOverride: 4
 	});
 };
 
@@ -57,8 +60,9 @@ export const ShrineSword = (text: TextLike): InstructionPacketWithExtend => {
 		icon: "shrine-sword",
 		text: lcn(text),
 		shrineChange: 1,
-		type: "split",
+		type: SPLIT,
 		splitPrefix: "-",
+		timeOverride: 20
 	});
 };
 
@@ -67,8 +71,9 @@ export const ShrineDoubleSword = (text: TextLike): InstructionPacketWithExtend =
 		icon: "shrine-double-sword",
 		text: lcn(text),
 		shrineChange: 1,
-		type: "split",
+		type: SPLIT,
 		splitPrefix: "-",
+		timeOverride: 20
 	});
 };
 
@@ -77,8 +82,9 @@ export const ShrineDLC = (text: TextLike): InstructionPacketWithExtend => {
 		icon: "shrine-dlc",
 		text: lcn("EX ", text),
 		comment: txt("Check ", v("krk"), " Koroks"),
-		type: "split",
+		type: SPLIT,
 		splitPrefix: "-",
+		timeOverride: 10,
 	});
 };
 
@@ -87,7 +93,7 @@ export const Warp = (text: TextLike): InstructionPacketWithExtend => {
 		icon: "warp",
 		text: lcn(text),
 		comment: txt("Check ", v("krk"), " Koroks"),
-		type: "split",
+		type: SPLIT,
 		splitPrefix: "-",
 	});
 };
@@ -98,7 +104,8 @@ export const Korok = (id: string, type: string, comment?: TextLike): Instruction
 		text: npc(id+" ", type),
 		comment,
 		korokChange: 1,
-		korokCode: id
+		korokCode: id,
+		timeOverride: mapKorokToEstimate(type)
 	});
 };
 
@@ -137,6 +144,44 @@ const mapKorokToImage = (korok: string):string =>{
 		case "Tree Stump": return "korok-magnesis";
 		case "Well": return "korok-magnesis";
 		default: return "korok";
+	}
+};
+
+const mapKorokToEstimate = (korok: string):number =>{
+	switch(korok){
+		case "Acorn": return 5;
+		case "Acorn Flying": return 5;
+		case "Acorn in Log": return 5;
+		case "Balloon": return 10;
+		case "Basketball": return 5;
+		case "Block Puzzle": return 10;
+		case "Boulder Golf": return 5;
+		case "Confetti": return 5;
+		case "Flower Chase": return 10;
+		case "Flower Count": return 8;
+		case "Ice Block": return 8;
+		case "Lift Rock": return 2;
+		case "Lift Rock (Door)": return 3;
+		case "Lift Rock (Tree)": return 5;
+		case "Lift Rock Blocked": return 3;
+		case "Lift Rock Blkd": return 3;
+		case "Light Chase": return 5;
+		case "Lily Pads": return 5;
+		case "Match Tree": return 5;
+		case "Match Cactus": return 5;
+		case "Metal Box Circle": return 5;
+		case "Offer Apple": return 5;
+		case "Offer Banana": return 5;
+		case "Offer Durian": return 5;
+		case "Offer Egg": return 5;
+		case "Offer Pepper": return 5;
+		case "Race": return 15;
+		case "Rock Circle": return 10;
+		case "Shoot Emblem": return 5;
+		case "Snowball Golf": return 5;
+		case "Tree Stump": return 5;
+		case "Well": return 5;
+		default: return 5;
 	}
 };
 
@@ -223,7 +268,7 @@ export const SnapQuest = (text: TextLike): InstructionPacketWithExtend => {
 export const Discover = (location: TextLike): InstructionPacketWithExtend => {
 	return addExtend({
 		icon: "location",
-		text: npc(location),
+		text: lcn(location),
 		comment: "DISCOVER"
 	});
 };
@@ -257,4 +302,91 @@ export const setImportant = (... inst: InstructionLike[]): InstructionLike[] => 
 		...instructionLikeToInstructionPacket(i),
 		important: true
 	}));
+};
+
+const WB_STEP_ESTIMATE = 15;
+
+export const WindbombStepCps = (movement: string): InstructionPacketWithExtend => {
+	const [wbCount, textBlock] = wbex(cps)(movement);
+	return addExtend({
+		type: STEP,
+		text: textBlock,
+		timeOverride: WB_STEP_ESTIMATE * wbCount
+	}); 
+};
+
+export const Boss = (type:string, comment?: TextLike):InstructionPacketWithExtend => {
+	return  addExtend({
+		icon: bossTypeToIcon(type),
+		text: bss(type),
+		comment,
+		bossType: bossTypeToCounter(type)
+	});
+};
+
+const bossTypeToIcon = (type:string):string => {
+	switch(type){
+		case "Red Hinox": return "hinox-red";
+		case "Blue Hinox": return "hinox-blue";
+		case "Black Hinox": return "hinox-black";
+		case "Stalnox": return "hinox-stal";
+		case "Molduga": return "molduga";
+		case "Stone Talus": return "talus";
+		case "Rare Talus": return "talus-rare";
+		case "Luminous Talus": return "talus-luminous";
+		case "Igneo Talus": return "talus-igneo";
+		case "Frost Talus": return "talus-frost";
+		case "Molduking":
+		case "Igneo Talus Titan":
+			return "bossdlc";
+		default: return "";
+	}
+};
+
+const bossTypeToCounter = (type:string):string => {
+	switch(type){
+		case "Red Hinox": 
+		case "Blue Hinox": 
+		case "Black Hinox": 
+		case "Stalnox": 
+			return "Hinox";
+		case "Stone Talus": 
+		case "Rare Talus": 
+		case "Luminous Talus": 
+		case "Igneo Talus": 
+		case "Frost Talus": 
+			return "Talus";
+		default: return "";
+	}
+};
+
+export const Memory = (location: string):InstructionPacketWithExtend => {
+	const name = memoryLocationToName(location);
+	const icon = location === "Ash Swamp" ? "memory-final" : "memory";
+	return addExtend({
+		icon,
+		text: lcn(location),
+		comment: name,
+		memoryChange: 1,
+		type: SPLIT
+	});
+};
+
+export const memoryLocationToName = (location: string): string => {
+	switch(location) {
+		case "Lanayru Road": return "Return of Calamity Ganon";
+		case "Sacred Grounds": return "Subdued Ceremony";
+		case "Lake Kolomo": return "Resolve and Grief";
+		case "Ancient Columns": return "Zelda's Resentment";
+		case "Kara Kara Bazaar": return "Blades of the Yiga";
+		case "Eldin Canyon": return "A Premonition";
+		case "Irch Plain": return "Silent Princess";
+		case "West Necluda": return "Shelter from the Storm";
+		case "Hyrule Castle": return "Father and Daughter";
+		case "Spring of Power": return "Slumbering Power";
+		case "Sanidin Park": return "To Mount Lanayru";
+		case "Hyrule Field": return "Despair";
+		case "Ash Swamp": return "Zelda's Awakening";
+		default: return "Unknown Memory";
+	}
 };

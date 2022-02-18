@@ -1,9 +1,12 @@
-import { Chest, cps, Equipment, Item, itm, Koroks, Shrines, STEP, Warp, wb } from "../../engine";
+import { Chest, cps, Equipment, Item, Koroks, Shrines, STEP, Warp, wb } from "../../engine";
 
 export const MoggLatan = [
 	Warp("Kaam Ya'tak"),
-	Chest("Ancient Core", "Skip if 1 core"),
+	Chest("Ancient Core", "Skip if 1 core").extend({
+		notes: "5 Cores: This, Medoh, Akq, Ruta, Dah Kaso"
+	}),
 	Shrines.KaamYatak,
+	
 	{ type: STEP, text: wb(cps)("<N") },
 	Equipment("Great Flameblade").extend({
 		notes: "Blue moblin can only do quarter heart dmg"

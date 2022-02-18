@@ -1,13 +1,15 @@
-import { Chest, cps, Equipment, important, Item, itm, Koroks, Npc, npc, setImportant, Shop, Shrines, STEP, wb } from "../../engine";
+import { Chest, cps, Equipment, important, Item, Koroks, Npc, Shop, Shrines, STEP, wb } from "../../engine";
 
 export const AfterMedoh = [
 	Item("Cold Darner", "On deck"),
 	Npc("BN Shrine Lady"),
-	Npc("Apple Lady"),
+	Npc("Apple Lady", "Twice"),
 	Npc("Chief"),
 	Chest("Great Eagle Bow", "Don't use until duped"),
+	Chest("Ancient Core", "Skip if 4 cores"),
 	Shrines.AkhVaquot.extend({
-		notes: "Back up darner on bridge"
+		notes: "Back up darner on bridge",
+		splitPrefix: "{Rito 1}"
 	}),
 	{ type: STEP, text: wb(cps)("W Turn") },
 	Npc("Voo Lota Girl"),
@@ -16,7 +18,7 @@ export const AfterMedoh = [
 	Shop("Beedle Twice", "Arrows + Darner"),
 	important("ANCIENT ARROW"),
 	"Farm Wood",
-	Equipment("2 Axe"),//torch, flameblade, 3 axe (1 breaks)
+	Equipment("2 Axes"),
 	important("SAVE"),
 	Item("Balloon + Voltfin", "From RNG Octoroks"),
 	"RELOAD Farm Wood",

@@ -1,4 +1,4 @@
-import { cps, Discover, important, Item, itm, Koroks, Npc, npc, Shop, Shrines, SnapQuest, STEP, Warp, wb } from "../../engine";
+import { cps, Discover, important, Item, itm, Koroks, Materials, Npc, Shop, Shrines, SnapQuest, STEP, Warp, wb } from "../../engine";
 
 export const Lotus = [
 	Warp("Taloh Naeg"),
@@ -9,6 +9,8 @@ export const Lotus = [
 	Shop("Carrots"),
 	Npc("Impa"),
 	{ type: STEP, text: wb(cps)("<<E") },
+	Materials.SilentPrincess(3),
+	Item("Backup Endura Carrots"),
 	itm("4 Fairies"),
 	Npc("Fairy Fountain"),
 	SnapQuest("Fairy Fountain"),
@@ -20,7 +22,9 @@ export const Lotus = [
 	{ type: STEP, text: wb(cps)("N>>") },
 	Koroks.Z50,
 	{ type: STEP, text: wb(cps)("<N Turn") },
-	Shrines.DakaTuss,
+	Shrines.DakaTuss.extend({
+		notes: "2 Hearts dmg with 2 pieces of phantom armor. Use a fairy if need. (Eating takes too long)"
+	}),
 	{ type: STEP, text: wb(cps)("<W Turn") },
 	Koroks.Z49,
 	{ type: STEP, text: wb(cps)("W> SQ") },
@@ -32,8 +36,9 @@ export const Lotus = [
 	{ type: STEP, text: wb(cps)("SE") },
 	Discover("Goponga Village Ruins"),
 	{ type: STEP, text: wb(cps)("N Midair") },
+	Koroks.Z39,
 	"Start farming Lotus",
 	Koroks.Z40,
-	Item("30+ Lotus"),
+	Item("27 Lotus"),
     
 ];

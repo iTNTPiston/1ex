@@ -1,7 +1,7 @@
 import { Section } from "../../engine";
-import { KatahChuki } from "./KatahChuki";
+import { RupeePrinting } from "./RupeePrinting";
 
 export const Castle1 = [
 	Section("CASTLE 1 (RP)"),
-	...KatahChuki,
+	...RupeePrinting,
 ];

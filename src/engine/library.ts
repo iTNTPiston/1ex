@@ -1,9 +1,9 @@
 import { cps, gale, rne, txt, ingredient} from "./strings";
 import { wb } from "./windbomb";
-import { Tower, Shrine, Korok, ShrineBlessing, ShrineDLC, ShrineDoubleSword, ShrineSword } from "./creator";
-import { InstructionPacket, TextLike } from "./types";
+import { addExtend, Ingredient, InstructionPacketWithExtend, Tower, Shrine, Korok, ShrineBlessing, ShrineDLC, ShrineDoubleSword, ShrineSword, Memory } from "./creator";
+import {  TextLike } from "./types";
 
-const towerHelper = (name: string): (comment?: TextLike)=>InstructionPacket => {
+const towerHelper = (name: string): (comment?: TextLike)=>InstructionPacketWithExtend => {
 	return (comment)=>Tower(name, comment);
 };
 
@@ -19,16 +19,44 @@ export const Towers = {
 	Woodland: towerHelper("Woodland Tower"),
 	Akkala: towerHelper("Akkala Tower"),
 	Tabantha: towerHelper("Tabantha Tower"),
-	Gerodo: towerHelper("Gerudo Tower"),
+	Gerudo: towerHelper("Gerudo Tower"),
 	Wasteland: towerHelper("Wasteland Tower"),
 	Hebra: towerHelper("Hebra Tower"),
 	Ridgeland: towerHelper("Ridgeland Tower"),
 };
 
+export const Memories = {
+	"LanayruRoad": Memory("Lanayru Road"),
+	"SacredGrounds": Memory("Sacred Grounds"),
+	"LakeKolomo": Memory("Lake Kolomo"),
+	"AncientColumns": Memory("Ancient Columns"),
+	"KaraKaraBazaar": Memory("Kara Kara Bazaar"),
+	"EldinCanyon": Memory("Eldin Canyon"),
+	"IrchPlain": Memory("Irch Plain"),
+	"WestNecluda": Memory("West Necluda"),
+	"HyruleCastle": Memory("Hyrule Castle"),
+	"SpringOfPower": Memory("Spring of Power"),
+	"SanidinPark": Memory("Sanidin Park"),
+	"HyruleField": Memory("Hyrule Field"),
+	"AshSwamp": Memory("Ash Swamp"),
+};
+
+const ingredientHelper = (name: string, total: number): (count: number, comment?: TextLike) => InstructionPacketWithExtend=>{
+	const variableName = name.replaceAll(" ", "");
+	return (count, comment)=>addExtend({
+		variableChange: { [variableName]: count },
+		...Ingredient(txt(String(count), " ", name), ingredient(variableName, total), comment)
+	});
+};
+
 export const Materials = {
-	SilentPrincess: ingredient("SilentPrincess", 19),
-	HeartyBass: ingredient("HeartyBass", 15),
-	Beetle: ingredient("Beetle", 15),
+	SilentPrincess: ingredientHelper("Silent Princess", 19),
+	HeartyBass: ingredientHelper("Hearty Bass", 15),
+	Beetle: ingredientHelper("Beetle", 15),
+	Tail: ingredientHelper("Tail", 45),
+	Honey: ingredientHelper("Honey", 16),
+	Rushroom: ingredientHelper("Rushroom", 55),
+	Dinraal: ingredientHelper("Dinraal", 8),
 };
 
 export const Shrines = {
@@ -217,7 +245,7 @@ export const Koroks = {
 	A41: Korok("A41", "Lift Rock Blocked", "Under Leaves"),
 	A42: Korok("A42", "Lift Rock", "Next to cannons"),
 	A43: Korok("A43", "Lift Rock Blocked", "Under Leaves"),
-	A44: Korok("A44", "Race", "Run"),
+	A44: Korok("A44", "Race", gale()).extend({ability:{gale:1}}),
 	A45: Korok("A45", "Rock Circle"),
 	A46: Korok("A46", "Lift Rock (Door)"),
 	A47: Korok("A47", "Offer Apple"),
@@ -240,10 +268,10 @@ export const Koroks = {
 	C07: Korok("C07", "Acorn Flying"),
 	C08: Korok("C08", "Offer Shield", "Leave shield"),
 	C09: Korok("C09", "Confetti", "Top of tree"),
-	C10: Korok("C10", "Basketball", "Cryo"),
+	C10: Korok("C10", "Basketball", "2 Cryo blocks"),
 	C11: Korok("C11", "Lift Rock", "Inside hollow tree"),
 	C12: Korok("C12", "Lift Rock", "In tree stump on peak"),
-	C13: Korok("C13", "Basketball", "On bridge. Cryo No GG"),
+	C13: Korok("C13", "Basketball", "Cryo block near rocks"),
 	C14: Korok("C14", "Lift Rock"),
 	C15: Korok("C15", "Lily Pads","Cryo block"),
 	C16: Korok("C16", "Acorn"),
@@ -392,7 +420,7 @@ export const Koroks = {
 	E11: Korok("E11", "Rock Circle"),
 	E12: Korok("E12", "Block Puzzle"),
 	E13: Korok("E13", "Lift Rock"),
-	E14: Korok("E14", "Race", cps("E")),
+	E14: Korok("E14", "Race", "SQ"),
 	E15: Korok("E15", "Confetti", "Inside agreeGe"),
 	E16: Korok("E16", "Confetti", "Top of skeleton"),
 	E17: Korok("E17", "Race", "Glide over"),
@@ -489,7 +517,7 @@ export const Koroks = {
 	G05: Korok("G05", "Race", cps("S>")),
 	G06: Korok("G06", "Lift Rock", "On wood platform"),
 	G07: Korok("G07", "Ice Block", "2 Fire Arrows"),
-	G08: Korok("G08", "Flower Chase", "2 Stam Food"),
+	G08: Korok("G08", "Flower Chase", gale()).extend({ability:{gale:1}}),
 	G09: Korok("G09", "Rock Circle"),
 	G10: Korok("G10", "Rock Circle"),
 	G11: Korok("G11", "Race", wb(cps)("<E")),
@@ -525,7 +553,7 @@ export const Koroks = {
 	H05: Korok("H05", "Balloon", "Bomb Arrow (Turn around)"),
 	H06: Korok("H06", "Rock Circle"),
 	H07: Korok("H07", "Race", "Surf down FAST"),
-	H08: Korok("H08", "Balloon", "Pre BT"),
+	H08: Korok("H08", "Balloon", "SBR"),
 	H09: Korok("H09", "Lift Rock Blocked", "Under leaves"),
 	H10: Korok("H10", "Acorn in Log", "Farthest set of trees"),
 	H11: Korok("H11", "Confetti", "Top of bare tree"),
@@ -564,7 +592,7 @@ export const Koroks = {
 	H44: Korok("H44", "Balloon", "In cave"),
 	H45: Korok("H45", "Ice Block"),
 	H46: Korok("H46", "Ice Block"),
-	H47: Korok("H47", "Balloon", "End of river"),
+	H47: Korok("H47", "Balloon", "End of river BA"),
 	H48: Korok("H48", "Lift Rock", "On ledge"),
 	H49: Korok("H49", "Race", "Run finish race"),
 	H50: Korok("H50", "Balloon", "Middle of river"),
@@ -632,7 +660,7 @@ export const Koroks = {
 	L04: Korok("L04", "Tree Stump"),
 	L05: Korok("L05", "Flower Chase"),
 	L06: Korok("L06", "Light Chase"),
-	L07: Korok("L07", "Boulder Golf", "5 STS hits"),
+	L07: Korok("L07", "Boulder Golf", "5 STS hits aim straight"),
 	L08: Korok("L08", "Race", "SQ DEFUSE"),
 	L09: Korok("L09", "Basketball"),
 	L10: Korok("L10", "Lily Pads", "No Drown"),
@@ -692,7 +720,7 @@ export const Koroks = {
 	L64: Korok("L64", "Flower Chase"),
 	L65: Korok("L65", "Race", "Ordinal"),
 	L66: Korok("L66", "Basketball", "Cryo block"),
-	L67: Korok("L67", "Balloon", "Prefire"),
+	L67: Korok("L67", "Balloon", "SBR"),
 	L68: Korok("L68", "Light Chase"),
 	L69: Korok("L69", "Block Puzzle"),
 	L70: Korok("L70", "Acorn Flying", "Bomb Arrow if can"),
@@ -819,7 +847,7 @@ export const Koroks = {
 	R15: Korok("R15", "Rock Circle", "3 on mushroom tree"),
 	R16: Korok("R16", "Block Puzzle"),
 	R17: Korok("R17", "Lift Rock", "Top of mountain"),
-	R18: Korok("R18", "Race", gale()).extend({ability:{gale: 1}}),
+	R18: Korok("R18", "Race", "Run"),
 	R19: Korok("R19", "Boulder Golf", "WB away after"),
 	R20: Korok("R20", "Block Puzzle"),
 	R21: Korok("R21", "Light Chase"),
@@ -833,7 +861,7 @@ export const Koroks = {
 	R29: Korok("R29", "Lift Rock", "In between rocks"),
 	R30: Korok("R30", "Race", "SQ"),
 	R31: Korok("R31", "Balloon", "Aim direct"),
-	R32: Korok("R32", "Balloon", "Pre BT 3"),
+	R32: Korok("R32", "Balloon", "SBR"),
 	R33: Korok("R33", "Rock Circle"),
 	R34: Korok("R34", "Acorn", "Shoot from race"),
 	R35: Korok("R35", "Race", "SQ DEFUSE"),
@@ -869,7 +897,7 @@ export const Koroks = {
 	R65: Korok("R65", "Flower Count"),
 	R66: Korok("R66", "Tree Stump", "Magnesis 2"),
 	R67: Korok("R67", "Basketball"),
-	R68: Korok("R68", "Balloon", "Pre Bullet Time 5"),
+	R68: Korok("R68", "Balloon", "Backflip"),
 	R69: Korok("R69", "Acorn in Log", "Shoot from far"),
 	R70: Korok("R70", "Lift Rock Blocked", "Under Boulder"),
 	R71: Korok("R71", "Lift Rock"),
@@ -954,7 +982,7 @@ export const Koroks = {
 	W33: Korok("W33", "Balloon", "Under bridge"),
 	W34: Korok("W34", "Rock Circle"),
 	W35: Korok("W35", "Balloon", "Between arms. Shoot midair"),
-	W36: Korok("W36", "Match Cactus", "Land"),
+	W36: Korok("W36", "Match Cactus", "Shoot midair"),
 	W37: Korok("W37", "Flower Chase", "On skeleton"),
 	W38: Korok("W38", "Lift Rock", "On pillar"),
 	W39: Korok("W39", "Block Puzzle"),
@@ -985,7 +1013,7 @@ export const Koroks = {
 	W64: Korok("W64", "Rock Circle"),
 	W65: Korok("W65", "Confetti", "Top of skeleton"),
 	W66: Korok("W66", "Lift Rock"),
-	W67: Korok("W67", "Match Cactus", "Land"),
+	W67: Korok("W67", "Match Cactus", "Shoot midair"),
 	W68: Korok("W68", "Lift Rock", "On pillar"),
 	X01: Korok("X01", "Lift Rock", "On ledge"),
 	X02: Korok("X02", "Lily Pads", "No Drown"),

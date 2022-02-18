@@ -5,6 +5,8 @@ export const Hestu = [
 	{ type: STEP, text: wb(cps)("<<S Super") },
 	"2 BA Bullet time kill camp",
 	ChestSpecial("Maracas"),
+	"Glide down",
+	Koroks.D21,
 	{ type: STEP, text: wb(cps)(".W") },
 	{
 		text: "Hestu",

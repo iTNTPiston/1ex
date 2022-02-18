@@ -1,6 +1,6 @@
-import { STEP, wb, cps, ChestSpecial, Chest, Equipment, Koroks, important, txt, lnk, sm, Shrines, setImportant } from "../../engine";
+import { STEP, wb, cps, ChestSpecial, Chest, Equipment, Koroks, important, txt, lnk, sm, setImportant } from "../../engine";
 
-export const KatahChuki = [
+export const RupeePrinting = [
 	{ type: STEP, text: wb(cps)("<N TS") },
 	ChestSpecial("EX Phantom Helm"),
 	{ type: STEP, text: wb(cps)("N> Turn") },
@@ -10,10 +10,7 @@ export const KatahChuki = [
 	ChestSpecial("EX Phantom Pants"),
 	{ type: STEP, text: "BLSS to sacred grounds"},
 	ChestSpecial("EX Phantom Armor"),
-	{ type: STEP, text: wb(cps)("W>> Super") },
-	Shrines.KatahChuki,
-
-	{ type: STEP, text: wb(cps)("<<E Super + N> midair") },
+	{ type: STEP, text: wb(cps)("N Super + N") },
 	Chest("3 AA", "Balcony"),
 	Equipment("Royal Bow", "Also get 10 arrows"),
 	{ type: STEP, text: wb(cps)("SE") },

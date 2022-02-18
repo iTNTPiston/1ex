@@ -1,4 +1,4 @@
-import { Chest, Cook, Equipment, Item, itm, Koroks, lnk, MakeNight, Section, Shrines, SPLIT, Towers, txt } from "../../engine";
+import { Chest, Cook, Equipment, Item, itm, Koroks, MakeMorning, Section, Shrines, SPLIT, Towers } from "../../engine";
 
 export const Plateau = [
 	Section("PLATEAU 1"),
@@ -36,21 +36,18 @@ export const Plateau = [
 	Equipment("Axe", "Inside hut"),
 	
 	Equipment("Torch"),
-	MakeNight("For Rupee Printing"),
+	MakeMorning("For Rupee Printing"),
 	Cook("2 Peppers + 3 Peppers", "For Early Hebra / Medoh"),
 
 	"WB to stasis",
 	Shrines.OwaDaim.extend({
 		notes: "Can go for WB no need to eat"
 	}),
-
-	"Go to cryo",
 	Shrines.KehNamut,
-
-	"BLSS to TOT",
 	{
 		text: "Plateau",
 		icon: "king",
-		type: SPLIT
+		type: SPLIT,
+		splitPrefix: "{Plateau}"
 	}
 ];

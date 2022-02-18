@@ -1,4 +1,4 @@
-import { Chest, cps, important, Item, itm, Koroks, Shrines, STEP, txt, wb } from "../../engine";
+import { Chest, cps, important, Item, Koroks, Shrines, STEP, txt, wb } from "../../engine";
 
 export const KuhTakkar = [
 	{ type: STEP, text: txt("BLSS + ", cps("S")) },
@@ -12,8 +12,10 @@ export const KuhTakkar = [
 	Koroks.G12,
 	{ type: STEP, text: wb(cps)("<S Turn") },
 	Item("2 Truffles"),
-	"Start melting ice",
+	{
+		text: "Start melting ice",
+		notes: "Farm luminous stones while melting ice, but don't need to break all the ores. There are plenty of luminous stones later."
+	},
 	Chest("5 Fire Arrows"),
-	Item("Luminous Stones", "While melting ice"),
 	Shrines.KuhTakkar,
 ];
