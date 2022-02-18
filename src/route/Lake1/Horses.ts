@@ -115,7 +115,7 @@ export const Horses = [
 	"SQ to shrine",
 	MakeNight("For Stalnox"),
 	Shrines.YaNaga.extend({
-		splitPrefix: "{Plateau 2}"
+		splitPrefix: "{Lake 1}"
 	}),
     
 	WindbombStepCps("E"),

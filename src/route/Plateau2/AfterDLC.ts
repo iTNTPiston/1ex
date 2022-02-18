@@ -96,6 +96,8 @@ export const AfterDLC = [
 	Koroks.C89,
 	WindbombStepCps("NW"),
 	Chest("Ancient Core", "Skip if 2 cores"),
-	Shrines.DahKaso
+	Shrines.DahKaso.extend({
+		splitPrefix: "{Plateau 2}",
+	})
     
 ];

@@ -46,9 +46,7 @@ export const HyruleRidge = [
 	WindbombStepCps("W Turn"),
 	Koroks.R21,
 	WindbombStepCps("W"),
-	Shrines.ShaeLoya.extend({
-		splitPrefix: "{Hebra 1}"
-	}),
+	Shrines.ShaeLoya,
 
 	Npc("Keeha Yoog Man", "8AM to midnight"),
 	MakeMorning("For Dinraal (Claw)"),

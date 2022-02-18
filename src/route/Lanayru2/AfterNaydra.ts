@@ -27,7 +27,9 @@ export const AfterNaydra = [
 	Koroks.Z56,
 	WindbombStepCps("SQ to kass"),
 	Npc("Kass"),
-	Shrines.ShaiYota,
+	Shrines.ShaiYota.extend({
+		splitPrefix: "{Lanayru 2}"
+	}),
 
 	WindbombStepCps("<S + S"),
 	Materials.Tail(3),

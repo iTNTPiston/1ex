@@ -33,7 +33,9 @@ export const Akkala2 = [
 	WindbombStepCps("SW SQ"),
 	Koroks.A22,
 	WindbombStepCps(".E Turn"),
-	Shrines.KatosaAug,
+	Shrines.KatosaAug.extend({
+		splitPrefix: "{Akkala 2}"
+	}),
 
 	Npc("Guard", "Twice"),
 	MakeNoon(),

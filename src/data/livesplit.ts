@@ -49,7 +49,7 @@ const createSegmentTags = (instructions: InstructionData[]): string => {
 		}
 		if(data.isSplit){
 			const name = renderTextBlock(data.text, data.variables);
-			const prefix = data.splitPrefix ? renderTextBlock(textLikeToTextBlock(data.splitPrefix), data.variables) : "-";
+			const prefix = data.splitPrefix !== undefined ? renderTextBlock(textLikeToTextBlock(data.splitPrefix), data.variables) : "-";
 			splitNames.push(`${prefix}${name}`);
 			splitIcons.push(getImage(data.icon || ""));
 		}

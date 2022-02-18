@@ -67,5 +67,7 @@ export const Kakariko3 = [
 	WindbombStepCps("SE"),
 	"Kill Blade Master",
 	Equipment("Windcleaver", "If need"),
-	Shrines.LaknaRokee,
+	Shrines.LaknaRokee.extend({
+		splitPrefix: "{Kakariko 3}"
+	}),
 ];

@@ -34,6 +34,8 @@ export const BoshKala = [
 	WindbombStepCps("S"),
 	Koroks.D26,
 	WindbombStepCps("SQ to shrine"),
-	Shrines.BoshKala
+	Shrines.BoshKala.extend({
+		splitPrefix: "{Central 2}"
+	})
     
 ];

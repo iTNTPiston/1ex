@@ -49,5 +49,7 @@ export const MakaRah = [
 	"Surf down",
 	Koroks.H42,
 	WindbombStepCps("E"),
-	Shrines.MakaRah
+	Shrines.MakaRah.extend({
+		splitPrefix: "{Hebra}"
+	})
 ];

@@ -1,7 +1,9 @@
 import { ChestSpecial, cps, Koroks, STEP, Warp, wb } from "../../engine";
 
 export const Hestu = [
-	Warp("Taloh Naeg"),
+	Warp("Taloh Naeg").extend({
+		splitPrefix: "{Kakariko 2}"
+	}),
 	{ type: STEP, text: wb(cps)("<<S Super") },
 	"2 BA Bullet time kill camp",
 	ChestSpecial("Maracas"),

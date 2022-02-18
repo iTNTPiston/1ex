@@ -1,4 +1,4 @@
-import { Boss, fury, gale, Koroks, Npc, setImportant, Shop, sm, STEP, WindbombStepCps } from "../../engine";
+import { Boss, fury, gale, Koroks, Npc, setImportant, Shop, sm, SPLIT, STEP, WindbombStepCps } from "../../engine";
 
 export const AllPictures = [
 	WindbombStepCps("< Turn"),
@@ -76,5 +76,10 @@ export const AllPictures = [
 	Npc("Sheep Lady"),
 	WindbombStepCps("E"),
 	Npc("Picture Guy"),
-	"Buy all pictures"
+	{
+		type: SPLIT,
+		text: "All Pictures",
+		icon: "camera-plus",
+		splitPrefix: "{Hateno 2}"
+	}
 ];

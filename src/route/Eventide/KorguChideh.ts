@@ -50,5 +50,7 @@ export const KorguChideh = [
 	"Orb 2 (BLSS)",
 	WindbombStepCps("S + <S"),
 	"Orb 3",
-	Shrines.KorguChideh
+	Shrines.KorguChideh.extend({
+		splitPrefix: "{Eventide}"
+	})
 ];

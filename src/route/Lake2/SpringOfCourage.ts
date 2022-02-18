@@ -94,6 +94,8 @@ export const SpringOfCourage = [
 	Koroks.L20,
 	ChestSpecial("Ravio's Hood"),
 	Discover("Spring of Courage"),
-	Shrines.ShaeKatha
+	Shrines.ShaeKatha.extend({
+		splitPrefix: "{Lake 2}"
+	})
     
 ];

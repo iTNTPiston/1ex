@@ -59,13 +59,15 @@ export const Cleanup = [
 	Item("GET GOLD POOP"),
 
 	Warp("Shrine of Resurrection").extend({
-		notes: "Check: All Quests, 4 Key Items on second page. 99.91% map"
+		notes: "Check: All Quests, 4 Key Items on second page. 99.91% map",
+		splitPrefix: "{Clean up}"
 	}),
 	{
 		text: emy("Maz Koshia"),
 		icon: "maz",
 		comment: "Skip his trial and kill him",
-		type: SPLIT
+		type: SPLIT,
+		splitPrefix: ""
 	},
 	Section("GG")
 ];

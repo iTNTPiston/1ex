@@ -86,6 +86,8 @@ export const ShaiUtoh = [
 	Equipment("Axe", "For Quest"),
 	Koroks.F41,
 	Npc("Quest Lady", "Twice"),
-	Shrines.ShaiUtoh
+	Shrines.ShaiUtoh.extend({
+		splitPrefix: "{Faron 2}"
+	})
 
 ];

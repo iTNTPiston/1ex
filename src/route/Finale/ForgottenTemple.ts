@@ -46,7 +46,9 @@ export const ForgottenTemple = [
 	},
 	Koroks.K09,
 	"SQ to shrine",
-	Shrines.RonaKachta,
+	Shrines.RonaKachta.extend({
+		splitPrefix: "{Forgotten Temple}"
+	}),
 
 	Chest("Wild Set"),
 ];

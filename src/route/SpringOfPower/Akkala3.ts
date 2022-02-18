@@ -38,5 +38,7 @@ export const Akkala3=[
 	Memories.SpringOfPower,
 
 	"Dupe scale",
-	Shrines.TutsuwaNima
+	Shrines.TutsuwaNima.extend({
+		splitPrefix: "{Akkala 3}"
+	})
 ];

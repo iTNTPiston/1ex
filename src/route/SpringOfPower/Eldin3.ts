@@ -47,7 +47,9 @@ export const Eldin3 = [
 	WindbombStepCps("S Turn"),
 	Koroks.E44,
 	WindbombStepCps("E. Turn"),
-	Shrines.TahMuhl,
+	Shrines.TahMuhl.extend({
+		splitPrefix: "{Eldin 3}"
+	}),
 	WindbombStepCps("SE"),
 	Koroks.E45
 ];

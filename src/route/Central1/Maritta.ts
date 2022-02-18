@@ -51,5 +51,7 @@ export const Maritta = [
 	WindbombStepCps("<W Turn"),
 	Discover("Maritta Exchange Ruins"),
 	WindbombStepCps("SW midair"),
-	Shrines.MaagNorah
+	Shrines.MaagNorah.extend({
+		splitPrefix: "{Central 1}"
+	})
 ];

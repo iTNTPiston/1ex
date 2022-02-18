@@ -27,5 +27,7 @@ export const Promenade = [
 	WindbombStepCps("SQ to middle"),
 	Koroks.N16,
 	WindbombStepCps("E super + E"),
-	Memories.LanayruRoad
+	Memories.LanayruRoad.extend({
+		splitPrefix: "{Lanayru 1}"
+	})
 ];
